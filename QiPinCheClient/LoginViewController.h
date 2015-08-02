@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ScreenSwitch.h"
 #import "MKNetworkKit.h"
+#import "HttpEngine.h"
 
 @interface LoginViewController : UIViewController<UITextFieldDelegate>
 

@@ -14,9 +14,12 @@
 
 @implementation AppDelegate
 
+@synthesize httpEngine = _httpEngine;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.httpEngine = [[HttpEngine alloc]initWithDefaultSettings];
+    [self.httpEngine useCache];
     return YES;
 }
 

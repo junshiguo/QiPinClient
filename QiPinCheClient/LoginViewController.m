@@ -7,11 +7,12 @@
 //
 
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 
 @implementation LoginViewController
 
 - (IBAction)loginOnClick:(id)sender {
-    NSString *path = @"10.171.5.228";
+    /*NSString *path = @"10.171.5.228";
     MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:path customHeaderFields:nil];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setValue:@"18817361981" forKey:@"phoneNumber"];
@@ -22,7 +23,16 @@
     
     } errorHandler:^(MKNetworkOperation *errorOp, NSError* err) {
         NSLog(@"MKNetwork请求错误 : %@", [err localizedDescription]); }];
-    [engine enqueueOperation:op];
+    [engine enqueueOperation:op];*/
+   // MKNetworkOperation *op = [ApplicationDelegate]
+    MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/" params:nil httpMethod:@"POST"];
+    [op addCompletionHandler:^(MKNetworkOperation *operation) {
+        NSLog(@"responseData : %@", [operation responseString]);
+    } errorHandler:^(MKNetworkOperation *errorOp, NSError *err) {
+        NSLog(@"MKNetwork请求错误:%@", [err localizedDescription]);
+    }];
+    [ApplicationDelegate.httpEngine enqueueOperation:op];
+    
 }
 
 

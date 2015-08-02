@@ -34,6 +34,7 @@
 		D658D1261B6CCD670097FC0D /* MKNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D1181B6CCD670097FC0D /* MKNetworkEngine.m */; };
 		D658D1271B6CCD670097FC0D /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D11B1B6CCD670097FC0D /* MKNetworkOperation.m */; };
 		D658D1281B6CCD670097FC0D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D11E1B6CCD670097FC0D /* Reachability.m */; };
+		D68EC1D61B6DB60000ACE019 /* HttpEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1D51B6DB60000ACE019 /* HttpEngine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		D658D11B1B6CCD670097FC0D /* MKNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkOperation.m; sourceTree = "<group>"; };
 		D658D11D1B6CCD670097FC0D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		D658D11E1B6CCD670097FC0D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		D68EC1D41B6DB60000ACE019 /* HttpEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpEngine.h; sourceTree = "<group>"; };
+		D68EC1D51B6DB60000ACE019 /* HttpEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpEngine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +218,8 @@
 			children = (
 				D658D0F71B6C99E90097FC0D /* ScreenSwitch.h */,
 				D658D0F81B6C99E90097FC0D /* ScreenSwitch.m */,
+				D68EC1D41B6DB60000ACE019 /* HttpEngine.h */,
+				D68EC1D51B6DB60000ACE019 /* HttpEngine.m */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				D658D1231B6CCD670097FC0D /* NSString+MKNetworkKitAdditions.m in Sources */,
 				D658D0C21B6C75580097FC0D /* main.m in Sources */,
 				D658D1241B6CCD670097FC0D /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
+				D68EC1D61B6DB60000ACE019 /* HttpEngine.m in Sources */,
 				D658D0F91B6C99E90097FC0D /* ScreenSwitch.m in Sources */,
 				D658D1251B6CCD670097FC0D /* UIImageView+MKNetworkKitAdditions.m in Sources */,
 				D658D0F01B6C878D0097FC0D /* LoginViewController.m in Sources */,
