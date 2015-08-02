@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FirstViewController.h
 //  QiPinCheClient
 //
 //  Created by Shijia on 15/8/1.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface HomeViewController : UIViewController
 
 
 @end

@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  SecondViewController.h
 //  QiPinCheClient
 //
 //  Created by Shijia on 15/8/1.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScreenSwitch.h"
 
-@interface FirstViewController : UIViewController
+@interface MeViewController : UIViewController
 
 
 @end

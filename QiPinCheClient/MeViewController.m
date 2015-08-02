@@ -6,17 +6,21 @@
 //  Copyright (c) 2015年 QiPinChe. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "MeViewController.h"
 
-@interface SecondViewController ()
+@interface MeViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation MeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    if (true) {
+        [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
+        
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
