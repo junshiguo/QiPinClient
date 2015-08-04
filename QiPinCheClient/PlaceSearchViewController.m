@@ -32,8 +32,8 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    self.placeTable.delegate = self;
+    self.placeTable.dataSource = self;
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -120,18 +120,12 @@
     
     
 }
-- (void) reloadTable {
-    dispatch_async(dispatch_get_main_queue(), ^(void) {
-        [self.tableView reloadData];
-    });
-    
-}
 
 - (void)updateWithResults:(NSMutableArray*)theResults
 {
     self.resultArray = theResults;
     NSLog(@"%li", [self.resultArray count]);
-    [self.tableView reloadData];
+    [self.placeTable reloadData];
 };
 
 
@@ -166,6 +160,14 @@
 }
 
 
+- (IBAction)backClick:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+        [self.view endEditing:YES];
+}
 
 
 @end
