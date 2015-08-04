@@ -19,4 +19,14 @@
     [view presentViewController:controller animated:YES completion:^{}];
 }
 
++ (void) switchToScreenIn:(NSString *)storyboardName withStoryboardIdentifier:(NSString *)storyboardIdentifier inView:(UIViewController *)view withNotificationName:(NSString*)notificationName andObject:(NSObject*)object {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    UIViewController *controller = [storyboard instantiateViewControllerWithIdentifier:storyboardIdentifier];
+    //controller.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [view presentViewController:controller animated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:object];
+    }];
+    
+}
+
 @end

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ScreenSwitch.h"
+#import "UserInfo.h"
 
 @interface MeViewController : UIViewController
 
+- (IBAction)logOff:(id)sender;
 
 @end
 

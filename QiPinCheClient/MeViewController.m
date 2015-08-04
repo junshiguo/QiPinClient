@@ -17,10 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (true) {
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    
+    if (![UserInfo hasUserInfo]) {
         [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
-        
     }
+
     
 }
 
@@ -29,4 +34,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+// 注销登录
+- (IBAction)logOff:(id)sender {
+    [UserInfo clearUserInfo];
+    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
+}
 @end

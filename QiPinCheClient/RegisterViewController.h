@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface RegisterViewController : UIViewController<UITextFieldDelegate>
+#import "Commbox.h"
+#import "HttpEngine.h"
+#import "AppDelegate.h"
+#import "UserInfo.h"
+#import "ScreenSwitch.h"
+
+@interface RegisterViewController : UIViewController<UITextFieldDelegate> {
+    NSString* receivedVerifiedCode;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UITextField *verifyCode;
@@ -16,11 +24,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *username;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gender;
-@property (weak, nonatomic) IBOutlet UITextField *age;
 @property (weak, nonatomic) IBOutlet UITextField *job;
+
+@property (strong, nonatomic) Commbox* ageSelector;
 
 
 - (IBAction)backOnClick:(id)sender;
 - (IBAction)registerOnClick:(id)sender;
+- (IBAction)getVerifyCode:(id)sender;
+
 
 @end

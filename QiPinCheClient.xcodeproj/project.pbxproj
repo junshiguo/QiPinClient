@@ -15,7 +15,6 @@
 		D658D0D01B6C75580097FC0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D658D0CF1B6C75580097FC0D /* Images.xcassets */; };
 		D658D0D31B6C75580097FC0D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D658D0D11B6C75580097FC0D /* LaunchScreen.xib */; };
 		D658D0DF1B6C75580097FC0D /* QiPinCheClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D0DE1B6C75580097FC0D /* QiPinCheClientTests.m */; };
-		D658D0EB1B6C80C70097FC0D /* 返回.png in Resources */ = {isa = PBXBuildFile; fileRef = D658D0EA1B6C80C70097FC0D /* 返回.png */; };
 		D658D0F01B6C878D0097FC0D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D0EF1B6C878D0097FC0D /* LoginViewController.m */; };
 		D658D0F31B6C87A20097FC0D /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D0F21B6C87A20097FC0D /* RegisterViewController.m */; };
 		D658D0F51B6C89810097FC0D /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D658D0F41B6C89810097FC0D /* User.storyboard */; };
@@ -34,7 +33,19 @@
 		D658D1261B6CCD670097FC0D /* MKNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D1181B6CCD670097FC0D /* MKNetworkEngine.m */; };
 		D658D1271B6CCD670097FC0D /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D11B1B6CCD670097FC0D /* MKNetworkOperation.m */; };
 		D658D1281B6CCD670097FC0D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D11E1B6CCD670097FC0D /* Reachability.m */; };
+		D684F8C11B6F19E00039FC45 /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684F8C01B6F19E00039FC45 /* BaiduMapAPI.framework */; };
+		D684F8C31B6F19F20039FC45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684F8C21B6F19F20039FC45 /* CoreLocation.framework */; };
+		D684F8C51B6F1A030039FC45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684F8C41B6F1A030039FC45 /* QuartzCore.framework */; };
+		D684F8C71B6F1A0F0039FC45 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684F8C61B6F1A0F0039FC45 /* OpenGLES.framework */; };
+		D684F8C91B6F1A270039FC45 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684F8C81B6F1A270039FC45 /* CoreGraphics.framework */; };
+		D684F8CD1B6F1B990039FC45 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D684F8CC1B6F1B990039FC45 /* mapapi.bundle */; };
+		D684F8D31B6F1D800039FC45 /* PinCheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684F8D21B6F1D800039FC45 /* PinCheViewController.m */; };
+		D684F8D61B6F56E20039FC45 /* BaiduAPIEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D684F8D51B6F56E20039FC45 /* BaiduAPIEngine.m */; };
+		D684F8D91B6F58F40039FC45 /* BaiduAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D684F8D81B6F58F40039FC45 /* BaiduAPI.m */; };
+		D684F8DC1B6F87040039FC45 /* PlaceSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684F8DB1B6F87040039FC45 /* PlaceSearchViewController.m */; };
 		D68EC1D61B6DB60000ACE019 /* HttpEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1D51B6DB60000ACE019 /* HttpEngine.m */; };
+		D68EC1D91B6DBDA600ACE019 /* Commbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1D81B6DBDA600ACE019 /* Commbox.mm */; };
+		D68EC1E41B6E231300ACE019 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1E31B6E231300ACE019 /* UserInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +74,6 @@
 		D658D0D81B6C75580097FC0D /* QiPinCheClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QiPinCheClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D658D0DD1B6C75580097FC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D658D0DE1B6C75580097FC0D /* QiPinCheClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiPinCheClientTests.m; sourceTree = "<group>"; };
-		D658D0EA1B6C80C70097FC0D /* 返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回.png"; sourceTree = "<group>"; };
 		D658D0EE1B6C878D0097FC0D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D658D0EF1B6C878D0097FC0D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D658D0F11B6C87A20097FC0D /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -97,8 +107,26 @@
 		D658D11B1B6CCD670097FC0D /* MKNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkOperation.m; sourceTree = "<group>"; };
 		D658D11D1B6CCD670097FC0D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		D658D11E1B6CCD670097FC0D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		D684F8C01B6F19E00039FC45 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI.framework; sourceTree = "<group>"; };
+		D684F8C21B6F19F20039FC45 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D684F8C41B6F1A030039FC45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D684F8C61B6F1A0F0039FC45 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		D684F8C81B6F1A270039FC45 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D684F8CC1B6F1B990039FC45 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMapAPI.framework/Resources/mapapi.bundle; sourceTree = "<group>"; };
+		D684F8D11B6F1D800039FC45 /* PinCheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinCheViewController.h; sourceTree = "<group>"; };
+		D684F8D21B6F1D800039FC45 /* PinCheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinCheViewController.m; sourceTree = "<group>"; };
+		D684F8D41B6F56E20039FC45 /* BaiduAPIEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduAPIEngine.h; sourceTree = "<group>"; };
+		D684F8D51B6F56E20039FC45 /* BaiduAPIEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiduAPIEngine.m; sourceTree = "<group>"; };
+		D684F8D71B6F58F40039FC45 /* BaiduAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduAPI.h; sourceTree = "<group>"; };
+		D684F8D81B6F58F40039FC45 /* BaiduAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiduAPI.m; sourceTree = "<group>"; };
+		D684F8DA1B6F87040039FC45 /* PlaceSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceSearchViewController.h; sourceTree = "<group>"; };
+		D684F8DB1B6F87040039FC45 /* PlaceSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceSearchViewController.m; sourceTree = "<group>"; };
 		D68EC1D41B6DB60000ACE019 /* HttpEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpEngine.h; sourceTree = "<group>"; };
 		D68EC1D51B6DB60000ACE019 /* HttpEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpEngine.m; sourceTree = "<group>"; };
+		D68EC1D71B6DBDA600ACE019 /* Commbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commbox.h; sourceTree = "<group>"; };
+		D68EC1D81B6DBDA600ACE019 /* Commbox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Commbox.mm; sourceTree = "<group>"; };
+		D68EC1E21B6E231300ACE019 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		D68EC1E31B6E231300ACE019 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,9 +134,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D684F8C91B6F1A270039FC45 /* CoreGraphics.framework in Frameworks */,
+				D658D1011B6CC2420097FC0D /* SystemConfiguration.framework in Frameworks */,
+				D684F8C71B6F1A0F0039FC45 /* OpenGLES.framework in Frameworks */,
+				D684F8C51B6F1A030039FC45 /* QuartzCore.framework in Frameworks */,
+				D684F8C31B6F19F20039FC45 /* CoreLocation.framework in Frameworks */,
+				D684F8C11B6F19E00039FC45 /* BaiduMapAPI.framework in Frameworks */,
 				D658D1051B6CC63A0097FC0D /* ImageIO.framework in Frameworks */,
 				D658D1031B6CC24A0097FC0D /* Security.framework in Frameworks */,
-				D658D1011B6CC2420097FC0D /* SystemConfiguration.framework in Frameworks */,
 				D658D0FF1B6CC2330097FC0D /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,12 +159,15 @@
 		D658D0B31B6C75580097FC0D = {
 			isa = PBXGroup;
 			children = (
+				D684F8CC1B6F1B990039FC45 /* mapapi.bundle */,
+				D684F8C81B6F1A270039FC45 /* CoreGraphics.framework */,
+				D684F8C61B6F1A0F0039FC45 /* OpenGLES.framework */,
+				D684F8C41B6F1A030039FC45 /* QuartzCore.framework */,
+				D684F8C21B6F19F20039FC45 /* CoreLocation.framework */,
+				D684F8C01B6F19E00039FC45 /* BaiduMapAPI.framework */,
+				D68EC1DB1B6DCF8300ACE019 /* frameworks */,
 				D658D1071B6CCD660097FC0D /* MKNetworkKit */,
 				D658D1061B6CC7FA0097FC0D /* PrefixHeader.pch */,
-				D658D1041B6CC63A0097FC0D /* ImageIO.framework */,
-				D658D1021B6CC24A0097FC0D /* Security.framework */,
-				D658D1001B6CC2420097FC0D /* SystemConfiguration.framework */,
-				D658D0FE1B6CC2330097FC0D /* CFNetwork.framework */,
 				D658D0BE1B6C75580097FC0D /* QiPinCheClient */,
 				D658D0DB1B6C75580097FC0D /* QiPinCheClientTests */,
 				D658D0BD1B6C75580097FC0D /* Products */,
@@ -150,6 +186,7 @@
 		D658D0BE1B6C75580097FC0D /* QiPinCheClient */ = {
 			isa = PBXGroup;
 			children = (
+				D68EC1DA1B6DC6A000ACE019 /* UserDefinedView */,
 				D658D0F61B6C99B30097FC0D /* Lib */,
 				D658D0ED1B6C852A0097FC0D /* ViewController */,
 				D658D0EC1B6C80DC0097FC0D /* image */,
@@ -193,7 +230,6 @@
 		D658D0EC1B6C80DC0097FC0D /* image */ = {
 			isa = PBXGroup;
 			children = (
-				D658D0EA1B6C80C70097FC0D /* 返回.png */,
 			);
 			name = image;
 			sourceTree = "<group>";
@@ -209,6 +245,10 @@
 				D658D0EF1B6C878D0097FC0D /* LoginViewController.m */,
 				D658D0F11B6C87A20097FC0D /* RegisterViewController.h */,
 				D658D0F21B6C87A20097FC0D /* RegisterViewController.m */,
+				D684F8D11B6F1D800039FC45 /* PinCheViewController.h */,
+				D684F8D21B6F1D800039FC45 /* PinCheViewController.m */,
+				D684F8DA1B6F87040039FC45 /* PlaceSearchViewController.h */,
+				D684F8DB1B6F87040039FC45 /* PlaceSearchViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -220,6 +260,12 @@
 				D658D0F81B6C99E90097FC0D /* ScreenSwitch.m */,
 				D68EC1D41B6DB60000ACE019 /* HttpEngine.h */,
 				D68EC1D51B6DB60000ACE019 /* HttpEngine.m */,
+				D68EC1E21B6E231300ACE019 /* UserInfo.h */,
+				D68EC1E31B6E231300ACE019 /* UserInfo.m */,
+				D684F8D41B6F56E20039FC45 /* BaiduAPIEngine.h */,
+				D684F8D51B6F56E20039FC45 /* BaiduAPIEngine.m */,
+				D684F8D71B6F58F40039FC45 /* BaiduAPI.h */,
+				D684F8D81B6F58F40039FC45 /* BaiduAPI.m */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -266,6 +312,26 @@
 				D658D11E1B6CCD670097FC0D /* Reachability.m */,
 			);
 			path = Reachability;
+			sourceTree = "<group>";
+		};
+		D68EC1DA1B6DC6A000ACE019 /* UserDefinedView */ = {
+			isa = PBXGroup;
+			children = (
+				D68EC1D71B6DBDA600ACE019 /* Commbox.h */,
+				D68EC1D81B6DBDA600ACE019 /* Commbox.mm */,
+			);
+			name = UserDefinedView;
+			sourceTree = "<group>";
+		};
+		D68EC1DB1B6DCF8300ACE019 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D658D1041B6CC63A0097FC0D /* ImageIO.framework */,
+				D658D1021B6CC24A0097FC0D /* Security.framework */,
+				D658D1001B6CC2420097FC0D /* SystemConfiguration.framework */,
+				D658D0FE1B6CC2330097FC0D /* CFNetwork.framework */,
+			);
+			name = frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,10 +415,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D658D0CE1B6C75580097FC0D /* Main.storyboard in Resources */,
+				D684F8CD1B6F1B990039FC45 /* mapapi.bundle in Resources */,
 				D658D0F51B6C89810097FC0D /* User.storyboard in Resources */,
 				D658D0D31B6C75580097FC0D /* LaunchScreen.xib in Resources */,
 				D658D0D01B6C75580097FC0D /* Images.xcassets in Resources */,
-				D658D0EB1B6C80C70097FC0D /* 返回.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,10 +440,13 @@
 				D658D1261B6CCD670097FC0D /* MKNetworkEngine.m in Sources */,
 				D658D1271B6CCD670097FC0D /* MKNetworkOperation.m in Sources */,
 				D658D0F31B6C87A20097FC0D /* RegisterViewController.m in Sources */,
+				D684F8D91B6F58F40039FC45 /* BaiduAPI.m in Sources */,
 				D658D1201B6CCD670097FC0D /* NSData+MKBase64.m in Sources */,
 				D658D1211B6CCD670097FC0D /* NSDate+RFC1123.m in Sources */,
 				D658D0C51B6C75580097FC0D /* AppDelegate.m in Sources */,
 				D658D0C81B6C75580097FC0D /* HomeViewController.m in Sources */,
+				D68EC1E41B6E231300ACE019 /* UserInfo.m in Sources */,
+				D684F8DC1B6F87040039FC45 /* PlaceSearchViewController.m in Sources */,
 				D658D1231B6CCD670097FC0D /* NSString+MKNetworkKitAdditions.m in Sources */,
 				D658D0C21B6C75580097FC0D /* main.m in Sources */,
 				D658D1241B6CCD670097FC0D /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
@@ -388,6 +457,9 @@
 				D658D1221B6CCD670097FC0D /* NSDictionary+RequestEncoding.m in Sources */,
 				D658D11F1B6CCD670097FC0D /* NSAlert+MKNetworkKitAdditions.m in Sources */,
 				D658D1281B6CCD670097FC0D /* Reachability.m in Sources */,
+				D68EC1D91B6DBDA600ACE019 /* Commbox.mm in Sources */,
+				D684F8D61B6F56E20039FC45 /* BaiduAPIEngine.m in Sources */,
+				D684F8D31B6F1D800039FC45 /* PinCheViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,9 +587,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = QiPinCheClient/PrefixHeader.pch;
 				INFOPLIST_FILE = QiPinCheClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -526,9 +603,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREFIX_HEADER = QiPinCheClient/PrefixHeader.pch;
 				INFOPLIST_FILE = QiPinCheClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

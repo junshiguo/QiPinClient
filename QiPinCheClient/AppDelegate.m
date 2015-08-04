@@ -15,11 +15,43 @@
 @implementation AppDelegate
 
 @synthesize httpEngine = _httpEngine;
+@synthesize baiduHttpEngine = _baiduHttpEngine;
+@synthesize uid = _uid;
+@synthesize password = _password;
+@synthesize baiduAK = _baiduAK;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.httpEngine = [[HttpEngine alloc]initWithDefaultSettings];
+    self.baiduAK = @"Uxn99a5gZWXDQ33gRx9STwmz";
+    
+    //HttpEngine
+    self.httpEngine = [[HttpEngine alloc] initWithDefaultSettings];
     [self.httpEngine useCache];
+    
+    self.baiduHttpEngine = [[BaiduAPIEngine alloc] initWithDefaultSettings];
+    [self.baiduHttpEngine useCache];
+    
+    //UserAccount
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [paths objectAtIndex:0];
+    NSString *filename=[path stringByAppendingPathComponent:@"account.plist"];
+    NSArray *array = [NSArray arrayWithContentsOfFile:filename];
+    if (array == nil || [array count] == 0) {
+        self.uid = nil;
+        self.password = nil;
+    } else {
+        NSDictionary *dic = [array objectAtIndex:0];
+        self.uid = [[dic allKeys] objectAtIndex:0];
+        self.password = [dic objectForKey:self.uid];
+        NSLog(@"%@,%@", self.uid, self.password);
+    }
+    //BMKMap
+    _mapManager = [[BMKMapManager alloc] init];
+    BOOL ret = [_mapManager start:@"Uxn99a5gZWXDQ33gRx9STwmz" generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed");
+    }
+    
     return YES;
 }
 

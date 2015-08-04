@@ -8,13 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "HttpEngine.h"
+#import "UserInfo.h"
+#import <BaiduMapAPI/BMapKit.h>
+#import "BaiduAPIEngine.h"
 
 #define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    BMKMapManager *_mapManager;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) HttpEngine *httpEngine;
+@property (strong, nonatomic) BaiduAPIEngine *baiduHttpEngine;
+@property (strong, nonatomic) NSString *uid;
+@property (strong, nonatomic) NSString *password;
+@property (strong, nonatomic) NSString *baiduAK;
+
 
 @end
 

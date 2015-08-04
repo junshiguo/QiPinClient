@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Commbox.h"
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : UIViewController 
 
+- (IBAction)beginPinChe:(id)sender;
 
 @end
 

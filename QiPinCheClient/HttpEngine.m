@@ -11,8 +11,9 @@
 @implementation HttpEngine
 
 -(id) initWithDefaultSettings {
+    //10.171.5.228:8080
     
-    if(self = [super initWithHostName:@"www.baidu.com" customHeaderFields:@{@"x-client-identifier" : @"iOS"}]) {
+    if(self = [super initWithHostName:@"10.171.5.228:8080" customHeaderFields:@{@"x-client-identifier" : @"iOS"}]) {
         
     }
     

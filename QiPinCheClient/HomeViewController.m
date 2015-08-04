@@ -7,6 +7,9 @@
 //
 
 #import "HomeViewController.h"
+#import "Commbox.h"
+#import "UserInfo.h"
+#import "ScreenSwitch.h"
 
 @interface HomeViewController ()
 
@@ -15,8 +18,14 @@
 @implementation HomeViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+   /* KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc]initWithIdentifier:@"Account" accessGroup:nil];
+    NSLog(@"username=%@", [wrapper objectForKey:@"phoneNumber"]);*/
+
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,4 +33,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)beginPinChe:(id)sender {
+    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
+    /*if (![UserInfo hasUserInfo]) {
+        [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
+    } else {
+        [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
+        NSLog(@"11111");
+    }*/
+}
 @end

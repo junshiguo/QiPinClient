@@ -8,26 +8,41 @@
 
 #import "LoginViewController.h"
 #import "AppDelegate.h"
+#import "UserInfo.h"
 
 @implementation LoginViewController
 
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    
+    self.phoneNumber.keyboardType = UIKeyboardTypeNumberPad;
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 - (IBAction)loginOnClick:(id)sender {
-    /*NSString *path = @"10.171.5.228";
-    MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:path customHeaderFields:nil];
+    NSString *phoneNumber = self.phoneNumber.text;
+    NSString *password = self.password.text;
+    
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    [params setValue:@"18817361981" forKey:@"phoneNumber"];
-    
-    MKNetworkOperation *op = [engine operationWithURLString:@"http://10.171.5.228:8080/register/" params:params httpMethod:@"POST"];
+    [params setObject:phoneNumber forKey:@"phoneNumber"];
+    [params setObject:password forKey:@"password"];
+    MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/logIn" params:params httpMethod:@"POST"];
     [op addCompletionHandler:^(MKNetworkOperation *operation) {
-        NSLog(@"responseData : %@", [operation responseString]);
-    
-    } errorHandler:^(MKNetworkOperation *errorOp, NSError* err) {
-        NSLog(@"MKNetwork请求错误 : %@", [err localizedDescription]); }];
-    [engine enqueueOperation:op];*/
-   // MKNetworkOperation *op = [ApplicationDelegate]
-    MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/" params:nil httpMethod:@"POST"];
-    [op addCompletionHandler:^(MKNetworkOperation *operation) {
-        NSLog(@"responseData : %@", [operation responseString]);
+        NSDictionary *responseData = [operation responseJSON];
+        NSInteger status = [[responseData objectForKey:@"status"] integerValue];
+        if (status == 1) {
+            [UserInfo setUserInfoWithUid:phoneNumber password:password];
+            [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
+        } else {
+            NSString *msg = [responseData objectForKey:@"result"];
+            UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alter show];
+        }
     } errorHandler:^(MKNetworkOperation *errorOp, NSError *err) {
         NSLog(@"MKNetwork请求错误:%@", [err localizedDescription]);
     }];
@@ -37,12 +52,11 @@
 
 
 - (IBAction)registerOnClick:(id)sender {
-   // UIStoryboard* userStoryboard = [UI]
-    [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"RegisterViewController" inView:self];
+   [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"RegisterViewController" inView:self];
 }
 
 - (IBAction)backOnClick:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
 }
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {

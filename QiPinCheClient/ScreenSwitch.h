@@ -12,5 +12,6 @@
 
 + (void) switchToScreenIn:(NSString*)storyboardName withStoryboardIdentifier: (NSString*)storyboardIdentifier inView:(UIViewController*) view;
 
++ (void) switchToScreenIn:(NSString *)storyboardName withStoryboardIdentifier:(NSString *)storyboardIdentifier inView:(UIViewController *)view withNotificationName:(NSString*)notificationName andObject:(NSObject*)object;
 
 @end
