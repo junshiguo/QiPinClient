@@ -23,7 +23,7 @@
     }
     tabheight = frameHeight-30;
     
-    frame.size.height = 30.0f;
+    //frame.size.height = 30.0f;
     
     self=[super initWithFrame:frame];
     
@@ -38,8 +38,9 @@
         tv.hidden = YES;
         [self addSubview:tv];
         
-        textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 30)];
-        textField.borderStyle=UITextBorderStyleRoundedRect;//设置文本框的边框风格
+        textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        //textField.borderStyle=UITextBorderStyleRoundedRect;//设置文本框的边框风格
+        textField.borderStyle = UITextBorderStyleRoundedRect;
         textField.delegate = self;
         [textField addTarget:self action:@selector(dropdown) forControlEvents:UIControlEventAllTouchEvents];
         [self addSubview:textField];

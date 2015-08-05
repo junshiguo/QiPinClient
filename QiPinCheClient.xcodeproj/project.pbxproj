@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D616E5641B723322007ECADB /* FinishedOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D616E5631B723322007ECADB /* FinishedOrderViewController.m */; };
+		D616E5671B723345007ECADB /* CancelledOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D616E5661B723345007ECADB /* CancelledOrderViewController.m */; };
 		D658D0C21B6C75580097FC0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D0C11B6C75580097FC0D /* main.m */; };
 		D658D0C51B6C75580097FC0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D0C41B6C75580097FC0D /* AppDelegate.m */; };
 		D658D0C81B6C75580097FC0D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D0C71B6C75580097FC0D /* HomeViewController.m */; };
@@ -46,6 +48,9 @@
 		D68EC1D91B6DBDA600ACE019 /* Commbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1D81B6DBDA600ACE019 /* Commbox.mm */; };
 		D68EC1E41B6E231300ACE019 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1E31B6E231300ACE019 /* UserInfo.m */; };
 		D6E47D4B1B71B6D7009DCE22 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E47D4A1B71B6D7009DCE22 /* MBProgressHUD.m */; };
+		D6E47D4D1B7203FA009DCE22 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6E47D4C1B7203FA009DCE22 /* Order.storyboard */; };
+		D6E47D501B721240009DCE22 /* NewOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E47D4F1B721240009DCE22 /* NewOrderCell.m */; };
+		D6E47D531B722F1E009DCE22 /* NewOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E47D521B722F1E009DCE22 /* NewOrderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D616E5621B723322007ECADB /* FinishedOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishedOrderViewController.h; sourceTree = "<group>"; };
+		D616E5631B723322007ECADB /* FinishedOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishedOrderViewController.m; sourceTree = "<group>"; };
+		D616E5651B723345007ECADB /* CancelledOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CancelledOrderViewController.h; sourceTree = "<group>"; };
+		D616E5661B723345007ECADB /* CancelledOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancelledOrderViewController.m; sourceTree = "<group>"; };
 		D658D0BC1B6C75580097FC0D /* QiPinCheClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiPinCheClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D658D0C01B6C75580097FC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D658D0C11B6C75580097FC0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -128,6 +137,11 @@
 		D6E47D481B71ADD8009DCE22 /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
 		D6E47D491B71B6D7009DCE22 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D6E47D4A1B71B6D7009DCE22 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		D6E47D4C1B7203FA009DCE22 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Order.storyboard; path = ../Order.storyboard; sourceTree = "<group>"; };
+		D6E47D4E1B721240009DCE22 /* NewOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewOrderCell.h; sourceTree = "<group>"; };
+		D6E47D4F1B721240009DCE22 /* NewOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewOrderCell.m; sourceTree = "<group>"; };
+		D6E47D511B722F1E009DCE22 /* NewOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewOrderViewController.h; sourceTree = "<group>"; };
+		D6E47D521B722F1E009DCE22 /* NewOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewOrderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +209,7 @@
 				D658D0C41B6C75580097FC0D /* AppDelegate.m */,
 				D658D0CC1B6C75580097FC0D /* Main.storyboard */,
 				D658D0F41B6C89810097FC0D /* User.storyboard */,
+				D6E47D4C1B7203FA009DCE22 /* Order.storyboard */,
 				D658D0CF1B6C75580097FC0D /* Images.xcassets */,
 				D658D0D11B6C75580097FC0D /* LaunchScreen.xib */,
 				D658D0BF1B6C75580097FC0D /* Supporting Files */,
@@ -250,6 +265,12 @@
 				D684F8D21B6F1D800039FC45 /* PinCheViewController.m */,
 				D684F8DA1B6F87040039FC45 /* PlaceSearchViewController.h */,
 				D684F8DB1B6F87040039FC45 /* PlaceSearchViewController.m */,
+				D6E47D511B722F1E009DCE22 /* NewOrderViewController.h */,
+				D6E47D521B722F1E009DCE22 /* NewOrderViewController.m */,
+				D616E5621B723322007ECADB /* FinishedOrderViewController.h */,
+				D616E5631B723322007ECADB /* FinishedOrderViewController.m */,
+				D616E5651B723345007ECADB /* CancelledOrderViewController.h */,
+				D616E5661B723345007ECADB /* CancelledOrderViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -321,6 +342,8 @@
 				D68EC1D81B6DBDA600ACE019 /* Commbox.mm */,
 				D6E47D491B71B6D7009DCE22 /* MBProgressHUD.h */,
 				D6E47D4A1B71B6D7009DCE22 /* MBProgressHUD.m */,
+				D6E47D4E1B721240009DCE22 /* NewOrderCell.h */,
+				D6E47D4F1B721240009DCE22 /* NewOrderCell.m */,
 			);
 			name = UserDefinedView;
 			sourceTree = "<group>";
@@ -421,6 +444,7 @@
 				D658D0F51B6C89810097FC0D /* User.storyboard in Resources */,
 				D658D0D31B6C75580097FC0D /* LaunchScreen.xib in Resources */,
 				D658D0D01B6C75580097FC0D /* Images.xcassets in Resources */,
+				D6E47D4D1B7203FA009DCE22 /* Order.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +473,7 @@
 				D658D0C81B6C75580097FC0D /* HomeViewController.m in Sources */,
 				D68EC1E41B6E231300ACE019 /* UserInfo.m in Sources */,
 				D684F8DC1B6F87040039FC45 /* PlaceSearchViewController.m in Sources */,
+				D616E5641B723322007ECADB /* FinishedOrderViewController.m in Sources */,
 				D658D1231B6CCD670097FC0D /* NSString+MKNetworkKitAdditions.m in Sources */,
 				D658D0C21B6C75580097FC0D /* main.m in Sources */,
 				D658D1241B6CCD670097FC0D /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
@@ -456,12 +481,15 @@
 				D658D0F91B6C99E90097FC0D /* ScreenSwitch.m in Sources */,
 				D658D1251B6CCD670097FC0D /* UIImageView+MKNetworkKitAdditions.m in Sources */,
 				D658D0F01B6C878D0097FC0D /* LoginViewController.m in Sources */,
+				D616E5671B723345007ECADB /* CancelledOrderViewController.m in Sources */,
 				D658D1221B6CCD670097FC0D /* NSDictionary+RequestEncoding.m in Sources */,
 				D658D11F1B6CCD670097FC0D /* NSAlert+MKNetworkKitAdditions.m in Sources */,
 				D658D1281B6CCD670097FC0D /* Reachability.m in Sources */,
 				D68EC1D91B6DBDA600ACE019 /* Commbox.mm in Sources */,
 				D684F8D61B6F56E20039FC45 /* BaiduAPIEngine.m in Sources */,
 				D684F8D31B6F1D800039FC45 /* PinCheViewController.m in Sources */,
+				D6E47D531B722F1E009DCE22 /* NewOrderViewController.m in Sources */,
+				D6E47D501B721240009DCE22 /* NewOrderCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

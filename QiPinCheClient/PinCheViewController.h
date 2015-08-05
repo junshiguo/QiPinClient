@@ -17,13 +17,15 @@
     BMKPointAnnotation *_annotation;
     NSDictionary *srcLocationDic, *desLocationDic;
 }
-
+@property (weak, nonatomic) IBOutlet UITextField *ageText1;
+@property (weak, nonatomic) IBOutlet UITextField *ageText2;
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 @property (weak, nonatomic) IBOutlet UITextField *srcLocation;
 @property (weak, nonatomic) IBOutlet UITextField *desLocation;
 @property (weak, nonatomic) IBOutlet UITextField *startTime;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *expAge;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *expGender;
 @property (weak, nonatomic) IBOutlet UIButton *pinCheButton;
 @property (strong, nonatomic) IBOutlet Commbox *ageLower, *ageHigher;
@@ -35,6 +37,7 @@
 - (IBAction)srcLocOnClick:(id)sender;
 - (IBAction)desLocOnClick:(id)sender;
 - (IBAction)backOnClick:(id)sender;
+
 
 
 @end

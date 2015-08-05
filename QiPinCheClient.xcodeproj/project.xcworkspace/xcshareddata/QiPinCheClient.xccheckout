@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>53FBF0DD-04A6-4017-9FAC-38DE90885C9B</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>QiPinCheClient</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C45BB500435A21E0BCF0C8853FD1E77936FDF85A</key>
 		<string>github.com:junshiguo/QiPinClient.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>QiPinCheClient.xcodeproj/project.xcworkspace</string>
+	<string>QiPinCheClient.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C45BB500435A21E0BCF0C8853FD1E77936FDF85A</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>C45BB500435A21E0BCF0C8853FD1E77936FDF85A</string>
 			<key>IDESourceControlWCCName</key>
-			<string>QiPinCheClient%202</string>
+			<string>QiPinCheClient</string>
 		</dict>
 	</array>
 </dict>

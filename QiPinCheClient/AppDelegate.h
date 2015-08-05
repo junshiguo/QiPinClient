@@ -16,6 +16,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     BMKMapManager *_mapManager;
+    NSArray *orderObjs;
 }
 
 @property (strong, nonatomic) UIWindow *window;

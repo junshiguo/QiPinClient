@@ -20,3 +20,4 @@
 #import "Commbox.h"
 #import <BaiduMapAPI/BMapKit.h>
 #import "MBProgressHUD.h"
+#import "NewOrderCell.h"

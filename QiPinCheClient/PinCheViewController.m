@@ -53,24 +53,31 @@
 }
 
 - (void) initAgeSelector {
-    float x1 = self.startTime.frame.origin.x;
+    /*float x1 = self.startTime.frame.origin.x;
     float y = self.startTime.frame.origin.y + self.desLocation.frame.origin.y - self.srcLocation.frame.origin.y;
-    float width = (self.startTime.frame.size.width - 17)/ 2;
+    float width = (self.startTime.frame.size.width / 2);
     float height = self.startTime.frame.size.height;
-    float x2 = x1 + width + 17;
-
-    self.ageLower = [[Commbox alloc] initWithFrame:CGRectMake(x1, y, width, height)];
-    self.ageHigher = [[Commbox alloc] initWithFrame:CGRectMake(x2, y, width, height)];
-
+    float x2 = x1 + width + 17;*/
+    
+    /*CGRect r1 = self.ageText1.frame;
+    CGRect r2 = self.ageText2.frame;
+    
+    NSLog(@"%f", self.startTime.frame.size.width);
+    NSLog(@"%f", r2.origin.x);
+    self.ageLower = [[Commbox alloc] initWithFrame:r1];
+    self.ageHigher = [[Commbox alloc] initWithFrame:r2];
+    NSLog(@"%f", self.ageHigher.frame.origin.x);
     NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:100];
     for (int i = 0; i < 100; i++) {
         arr[i] = [NSString stringWithFormat:@"%i", i];
     }
     
     self.ageLower.tableArray = arr;
-    self.ageHigher.tableArray = arr;
-    [self.view addSubview:self.ageLower];
-    [self.view addSubview:self.ageHigher];
+    self.ageHigher.tableArray = arr;*/
+    //[self.view addSubview:self.ageLower];
+    //[self.view addSubview:self.ageHigher];
+    self.ageText1.keyboardType = self.ageText2.keyboardType = UIKeyboardTypeNumberPad;
+    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -121,17 +128,18 @@
 }
 
 - (IBAction)startPinChe:(id)sender {
-    /*MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     
-    HUD.labelText = @"操作成功";
+    HUD.labelText = @"发布成功，您可以在未完成订单中查看";
     HUD.mode = MBProgressHUDModeText;
     
     [HUD showAnimated:YES whileExecutingBlock:^{
         sleep(2);
     } completionBlock:^{
         [HUD removeFromSuperview];
-    }];*/
+        [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"TabBarController" inView:self];
+    }];
     
 }
 
@@ -154,6 +162,7 @@
 - (IBAction)backOnClick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
+
 
 // 时间选择器toolbar
 - (IBAction)toolBarBackClick:(id)sender {
@@ -200,7 +209,9 @@
             NSDictionary *result = [jsonData objectForKey:@"result"];
             title = [result objectForKey:@"sematic_description"];
             NSRange range = [title rangeOfString:@","];
-            title = [title substringToIndex:range.location - 1];
+            if (range.length != 0) {
+                title = [title substringToIndex:range.location - 1];
+            }
             self.srcLocation.text = title;
         } else {
             title = @"定位失败！";
