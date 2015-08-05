@@ -28,17 +28,43 @@
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(lastScreen:) name:@"SelectLocationNotification" object:nil];
     self.searchBar.delegate = self;
+    keyboardVisible = false;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     self.placeTable.delegate = self;
     self.placeTable.dataSource = self;
+    
+    [self registerForKeyboardNotification];
 }
 
-- (void) viewWillDisappear:(BOOL)animated {
-    /*self.tableView.delegate = nil;
-    self.tableView.dataSource = nil;*/
+- (void) registerForKeyboardNotification {
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+     
+                                             selector:@selector(keyboardWasShown:)
+     
+                                                 name:UIKeyboardDidShowNotification object:nil];
+
+
+    
+}
+
+
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    if (!keyboardVisible) {
+        NSDictionary* info = [aNotification userInfo];
+        CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;//得到鍵盤的高度
+        NSLog(@"hight_hitht:%f",kbSize.height);
+        keyboardHeight = kbSize.height;
+        CGRect r = self.placeTable.frame;
+        r.size.height -= (keyboardHeight + 30);
+        NSLog(@"%f", r.size.height);
+        self.placeTable.frame = r;
+        keyboardVisible = YES;
+    }
 }
 
 - (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar {
@@ -46,19 +72,16 @@
 }
 
 - (void)lastScreen:(NSNotification*)notification {
-
     NSDictionary *dic = [notification object];
-        NSLog(@"%@", dic);
+    
     lastScreen = [dic objectForKey:@"lastScreen"];
     initialPlace = [dic objectForKey:@"initialPlace"];
     
     if (![[dic objectForKey:@"initialPlace"] isEqualToString:@""]) {
         self.searchBar.text = initialPlace;
     }
-    NSLog(@"k111");
     
     [self filterContentForSearchText:initialPlace];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,7 +89,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view data sources
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -76,72 +99,13 @@
     return [self.resultArray count];
 }
 
-- (void) filterContentForSearchText:(NSString *)searchText {
-    
-    NSString *placeName = searchText;
-    placeName = [placeName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *region = @"全国";
-    region = [region stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    
-    NSString *urlPath = [NSString stringWithFormat:@"/place/v2/suggestion?query=%@&region=%@&ak=%@&mcode=ios.QiPinCheClient&output=json", placeName, region, ApplicationDelegate.baiduAK];
-    NSLog(@"%@", urlPath);
-    MKNetworkOperation *op = [ApplicationDelegate.baiduHttpEngine operationWithPath:urlPath];
-    [op addCompletionHandler:^(MKNetworkOperation *operation) {
-
-        
-        NSDictionary *data = [operation responseJSON];
-        
-        NSArray *results = [data objectForKey:@"result"];
-        NSMutableArray *_array = [[NSMutableArray alloc] initWithCapacity:[results count]];
-        for (int i = 0; i < [results count]; i++) {
-            NSMutableDictionary *dic = results[i];
-            NSMutableDictionary *ans = [[NSMutableDictionary alloc] init];
-            [ans setObject:[dic objectForKey:@"name"] forKey:@"name"];
-            NSString *detail = [[NSString alloc] initWithFormat:@"%@ %@", [dic objectForKey:@"city"], [dic objectForKey:@"district"]];
-            [ans setObject:detail forKey:@"detail"];
-            NSDictionary *location = [dic objectForKey:@"location"];
-            if (location != nil) {
-                [ans setObject:[location objectForKey:@"lat"] forKey:@"lat"];
-                [ans setObject:[location objectForKey:@"lng"] forKey:@"lng"];
-                [_array addObject:ans];
-            }
-        }
-        self.resultArray = _array;
-        
-        [self performSelectorOnMainThread:@selector(updateWithResults:) withObject:_array waitUntilDone:NO];
-          //  [self reloadTable];
-        
-        
-    } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
-        NSLog(@"%@", [err localizedDescription]);
-    }];
-    [ApplicationDelegate.baiduHttpEngine enqueueOperation:op];
-    
-    
-}
-
-- (void)updateWithResults:(NSMutableArray*)theResults
-{
-    self.resultArray = theResults;
-    NSLog(@"%li", [self.resultArray count]);
-    [self.placeTable reloadData];
-};
-
-
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self filterContentForSearchText:searchText];
-}
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchPlaceCell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SearchPlaceCell"];
         
     }
-
+    
     NSDictionary *dic = [self.resultArray objectAtIndex:[indexPath row]];
     cell.textLabel.text = [dic objectForKey:@"name"];
     cell.detailTextLabel.text = [dic objectForKey:@"detail"];
@@ -160,14 +124,77 @@
 }
 
 
+// 根据输入的地点返回推荐地点
+- (void) filterContentForSearchText:(NSString *)searchText {
+    
+    NSString *placeName = searchText;
+    placeName = [placeName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *region = @"全国";
+    region = [region stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSString *urlPath = [NSString stringWithFormat:@"/place/v2/suggestion?query=%@&region=%@&ak=%@&mcode=ios.QiPinCheClient&output=json", placeName, region, ApplicationDelegate.baiduAK];
+    NSLog(@"%@", urlPath);
+    MKNetworkOperation *op = [ApplicationDelegate.baiduHttpEngine operationWithPath:urlPath];
+    [op addCompletionHandler:^(MKNetworkOperation *operation) {
+
+        
+        NSDictionary *data = [operation responseJSON];
+        NSLog(@"%@", data);
+        NSInteger status = [[data objectForKey:@"status"] integerValue];
+        if (status == 0) {
+            NSArray *results = [data objectForKey:@"result"];
+            NSMutableArray *_array = [[NSMutableArray alloc] initWithCapacity:[results count]];
+            for (int i = 0; i < [results count]; i++) {
+                NSMutableDictionary *dic = results[i];
+                NSMutableDictionary *ans = [[NSMutableDictionary alloc] init];
+                [ans setObject:[dic objectForKey:@"name"] forKey:@"name"];
+                NSString *detail = [[NSString alloc] initWithFormat:@"%@ %@", [dic objectForKey:@"city"], [dic objectForKey:@"district"]];
+                [ans setObject:detail forKey:@"detail"];
+                NSDictionary *location = [dic objectForKey:@"location"];
+                if (location != nil) {
+                    [ans setObject:[location objectForKey:@"lat"] forKey:@"lat"];
+                    [ans setObject:[location objectForKey:@"lng"] forKey:@"lng"];
+                    [_array addObject:ans];
+                }
+            }
+            self.resultArray = _array;
+            [self performSelectorOnMainThread:@selector(updateWithResults:) withObject:_array waitUntilDone:NO];
+        }
+        
+    } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
+        NSLog(@"%@", [err localizedDescription]);
+    }];
+    [ApplicationDelegate.baiduHttpEngine enqueueOperation:op];
+    
+}
+
+- (void)updateWithResults:(NSMutableArray*)theResults {
+    self.resultArray = theResults;
+    [self.placeTable reloadData];
+    
+};
+
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (!keyboardVisible) {
+        keyboardVisible = true;
+    }
+    [self filterContentForSearchText:searchText];
+}
+
+
+
 - (IBAction)backClick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-        [self.view endEditing:YES];
+    [self.view endEditing:YES];
 }
+
 
 
 @end

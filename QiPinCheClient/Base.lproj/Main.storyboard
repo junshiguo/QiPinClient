@@ -328,36 +328,35 @@
                                     <outlet property="delegate" destination="zGM-5R-UxH" id="esK-4l-esm"/>
                                 </connections>
                             </searchBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qqC-bm-80K">
-                                <rect key="frame" x="-20" y="88" width="415" height="599"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="u39-Jt-ghH">
-                                        <rect key="frame" x="20" y="20" width="375" height="559"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchPlaceCell" rowHeight="44" id="Rhm-Ej-wly">
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rhm-Ej-wly" id="RWo-ew-zJE">
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
-                                        <connections>
-                                            <outlet property="dataSource" destination="zGM-5R-UxH" id="H4d-iv-3tz"/>
-                                            <outlet property="delegate" destination="zGM-5R-UxH" id="Qxj-6H-Yha"/>
-                                        </connections>
-                                    </tableView>
-                                </subviews>
-                            </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="u39-Jt-ghH">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchPlaceCell" rowHeight="44" id="Rhm-Ej-wly">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rhm-Ej-wly" id="RWo-ew-zJE">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zGM-5R-UxH" id="H4d-iv-3tz"/>
+                                    <outlet property="delegate" destination="zGM-5R-UxH" id="Qxj-6H-Yha"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="u39-Jt-ghH" firstAttribute="top" secondItem="OPl-1d-adI" secondAttribute="bottom" id="8vt-Nf-GUq"/>
                             <constraint firstItem="yW1-Q1-QfP" firstAttribute="leading" secondItem="7Ey-H7-U1w" secondAttribute="leading" id="Bxg-3z-qeR"/>
+                            <constraint firstAttribute="centerX" secondItem="u39-Jt-ghH" secondAttribute="centerX" id="COa-MI-kRz"/>
                             <constraint firstItem="yW1-Q1-QfP" firstAttribute="top" secondItem="7Ey-H7-U1w" secondAttribute="top" constant="20" id="IkI-g1-buK"/>
+                            <constraint firstAttribute="bottom" secondItem="u39-Jt-ghH" secondAttribute="bottom" id="NQn-ui-JTP"/>
                             <constraint firstItem="OPl-1d-adI" firstAttribute="leading" secondItem="7Ey-H7-U1w" secondAttribute="leading" id="NTA-YE-EUd"/>
                             <constraint firstItem="OPl-1d-adI" firstAttribute="top" secondItem="yW1-Q1-QfP" secondAttribute="bottom" id="dgg-4N-eI5"/>
                             <constraint firstAttribute="centerX" secondItem="OPl-1d-adI" secondAttribute="centerX" id="hcI-wb-mvR"/>
                             <constraint firstAttribute="centerX" secondItem="yW1-Q1-QfP" secondAttribute="centerX" id="lxk-jy-DzF"/>
+                            <constraint firstItem="u39-Jt-ghH" firstAttribute="leading" secondItem="7Ey-H7-U1w" secondAttribute="leading" id="nRN-Oj-Fmv"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -365,7 +364,6 @@
                     <connections>
                         <outlet property="placeTable" destination="u39-Jt-ghH" id="QMo-te-OCB"/>
                         <outlet property="searchBar" destination="OPl-1d-adI" id="e8d-GG-fgT"/>
-                        <outlet property="srollView" destination="qqC-bm-80K" id="YPh-Xc-q99"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TG3-Dz-LLA" userLabel="First Responder" sceneMemberID="firstResponder"/>

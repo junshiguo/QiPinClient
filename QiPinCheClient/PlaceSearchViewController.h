@@ -11,9 +11,11 @@
 #import "AppDelegate.h"
 #import "ScreenSwitch.h"
 
-@interface PlaceSearchViewController : UIViewController<UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface PlaceSearchViewController : UIViewController<UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     NSString *lastScreen;
     NSString *initialPlace;
+    BOOL keyboardVisible;
+    float keyboardHeight;
 }
 
 
@@ -21,10 +23,11 @@
 
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-- (void) filterContentForSearchText:(NSString *)searchText;
+
 @property (weak, nonatomic) IBOutlet UITableView *placeTable;
 @property (weak, nonatomic) IBOutlet UIScrollView *srollView;
 
 - (IBAction)backClick:(id)sender;
+- (void) filterContentForSearchText:(NSString *)searchText;
 
 @end
