@@ -7,9 +7,6 @@
 //
 
 #import "HomeViewController.h"
-#import "Commbox.h"
-#import "UserInfo.h"
-#import "ScreenSwitch.h"
 
 @interface HomeViewController ()
 

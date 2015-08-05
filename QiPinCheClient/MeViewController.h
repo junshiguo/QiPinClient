@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ScreenSwitch.h"
-#import "UserInfo.h"
+#import "CommonHeader.h"
 
 @interface MeViewController : UIViewController
 

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <BaiduMapAPI/BMapKit.h>
+
 #import "Commbox.h"
+#import "CommonHeader.h"
 
 @interface PinCheViewController : UIViewController<BMKMapViewDelegate, BMKLocationServiceDelegate, UITextFieldDelegate, BMKPoiSearchDelegate> {
     IBOutlet BMKMapView* _mapView;

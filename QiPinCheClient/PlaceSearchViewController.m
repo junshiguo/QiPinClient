@@ -134,13 +134,11 @@
     
     
     NSString *urlPath = [NSString stringWithFormat:@"/place/v2/suggestion?query=%@&region=%@&ak=%@&mcode=ios.QiPinCheClient&output=json", placeName, region, ApplicationDelegate.baiduAK];
-    NSLog(@"%@", urlPath);
     MKNetworkOperation *op = [ApplicationDelegate.baiduHttpEngine operationWithPath:urlPath];
     [op addCompletionHandler:^(MKNetworkOperation *operation) {
 
         
         NSDictionary *data = [operation responseJSON];
-        NSLog(@"%@", data);
         NSInteger status = [[data objectForKey:@"status"] integerValue];
         if (status == 0) {
             NSArray *results = [data objectForKey:@"result"];

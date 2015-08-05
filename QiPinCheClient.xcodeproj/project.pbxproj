@@ -41,11 +41,11 @@
 		D684F8CD1B6F1B990039FC45 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D684F8CC1B6F1B990039FC45 /* mapapi.bundle */; };
 		D684F8D31B6F1D800039FC45 /* PinCheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684F8D21B6F1D800039FC45 /* PinCheViewController.m */; };
 		D684F8D61B6F56E20039FC45 /* BaiduAPIEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D684F8D51B6F56E20039FC45 /* BaiduAPIEngine.m */; };
-		D684F8D91B6F58F40039FC45 /* BaiduAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D684F8D81B6F58F40039FC45 /* BaiduAPI.m */; };
 		D684F8DC1B6F87040039FC45 /* PlaceSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D684F8DB1B6F87040039FC45 /* PlaceSearchViewController.m */; };
 		D68EC1D61B6DB60000ACE019 /* HttpEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1D51B6DB60000ACE019 /* HttpEngine.m */; };
 		D68EC1D91B6DBDA600ACE019 /* Commbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1D81B6DBDA600ACE019 /* Commbox.mm */; };
 		D68EC1E41B6E231300ACE019 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1E31B6E231300ACE019 /* UserInfo.m */; };
+		D6E47D4B1B71B6D7009DCE22 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E47D4A1B71B6D7009DCE22 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,8 +117,6 @@
 		D684F8D21B6F1D800039FC45 /* PinCheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinCheViewController.m; sourceTree = "<group>"; };
 		D684F8D41B6F56E20039FC45 /* BaiduAPIEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduAPIEngine.h; sourceTree = "<group>"; };
 		D684F8D51B6F56E20039FC45 /* BaiduAPIEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiduAPIEngine.m; sourceTree = "<group>"; };
-		D684F8D71B6F58F40039FC45 /* BaiduAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduAPI.h; sourceTree = "<group>"; };
-		D684F8D81B6F58F40039FC45 /* BaiduAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiduAPI.m; sourceTree = "<group>"; };
 		D684F8DA1B6F87040039FC45 /* PlaceSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceSearchViewController.h; sourceTree = "<group>"; };
 		D684F8DB1B6F87040039FC45 /* PlaceSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceSearchViewController.m; sourceTree = "<group>"; };
 		D68EC1D41B6DB60000ACE019 /* HttpEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpEngine.h; sourceTree = "<group>"; };
@@ -127,6 +125,9 @@
 		D68EC1D81B6DBDA600ACE019 /* Commbox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Commbox.mm; sourceTree = "<group>"; };
 		D68EC1E21B6E231300ACE019 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		D68EC1E31B6E231300ACE019 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		D6E47D481B71ADD8009DCE22 /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
+		D6E47D491B71B6D7009DCE22 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		D6E47D4A1B71B6D7009DCE22 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,8 +265,7 @@
 				D68EC1E31B6E231300ACE019 /* UserInfo.m */,
 				D684F8D41B6F56E20039FC45 /* BaiduAPIEngine.h */,
 				D684F8D51B6F56E20039FC45 /* BaiduAPIEngine.m */,
-				D684F8D71B6F58F40039FC45 /* BaiduAPI.h */,
-				D684F8D81B6F58F40039FC45 /* BaiduAPI.m */,
+				D6E47D481B71ADD8009DCE22 /* CommonHeader.h */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -319,6 +319,8 @@
 			children = (
 				D68EC1D71B6DBDA600ACE019 /* Commbox.h */,
 				D68EC1D81B6DBDA600ACE019 /* Commbox.mm */,
+				D6E47D491B71B6D7009DCE22 /* MBProgressHUD.h */,
+				D6E47D4A1B71B6D7009DCE22 /* MBProgressHUD.m */,
 			);
 			name = UserDefinedView;
 			sourceTree = "<group>";
@@ -440,10 +442,10 @@
 				D658D1261B6CCD670097FC0D /* MKNetworkEngine.m in Sources */,
 				D658D1271B6CCD670097FC0D /* MKNetworkOperation.m in Sources */,
 				D658D0F31B6C87A20097FC0D /* RegisterViewController.m in Sources */,
-				D684F8D91B6F58F40039FC45 /* BaiduAPI.m in Sources */,
 				D658D1201B6CCD670097FC0D /* NSData+MKBase64.m in Sources */,
 				D658D1211B6CCD670097FC0D /* NSDate+RFC1123.m in Sources */,
 				D658D0C51B6C75580097FC0D /* AppDelegate.m in Sources */,
+				D6E47D4B1B71B6D7009DCE22 /* MBProgressHUD.m in Sources */,
 				D658D0C81B6C75580097FC0D /* HomeViewController.m in Sources */,
 				D68EC1E41B6E231300ACE019 /* UserInfo.m in Sources */,
 				D684F8DC1B6F87040039FC45 /* PlaceSearchViewController.m in Sources */,

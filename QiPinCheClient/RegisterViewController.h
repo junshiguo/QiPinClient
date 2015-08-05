@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Commbox.h"
-#import "HttpEngine.h"
-#import "AppDelegate.h"
-#import "UserInfo.h"
-#import "ScreenSwitch.h"
+#import "CommonHeader.h"
 
 @interface RegisterViewController : UIViewController<UITextFieldDelegate> {
     NSString* receivedVerifiedCode;

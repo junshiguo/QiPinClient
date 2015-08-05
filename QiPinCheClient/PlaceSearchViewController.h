@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaiduAPIEngine.h"
-#import "AppDelegate.h"
-#import "ScreenSwitch.h"
+#import "CommonHeader.h"
 
 @interface PlaceSearchViewController : UIViewController<UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     NSString *lastScreen;

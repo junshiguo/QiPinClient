@@ -121,6 +121,18 @@
 }
 
 - (IBAction)startPinChe:(id)sender {
+    /*MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    
+    HUD.labelText = @"操作成功";
+    HUD.mode = MBProgressHUDModeText;
+    
+    [HUD showAnimated:YES whileExecutingBlock:^{
+        sleep(2);
+    } completionBlock:^{
+        [HUD removeFromSuperview];
+    }];*/
+    
 }
 
 - (IBAction)srcLocOnClick:(id)sender {
@@ -182,7 +194,6 @@
         NSError *err;
         NSData *data = [[operation responseString] dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&err];
-        //NSLog(@"%@", [jsonData objectForKey:@"sematic_description"]);
         NSInteger status = [[jsonData objectForKey:@"status"] integerValue];
         NSString *title;
         if (status == 0) {
