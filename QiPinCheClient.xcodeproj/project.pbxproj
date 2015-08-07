@@ -47,10 +47,18 @@
 		D68EC1D61B6DB60000ACE019 /* HttpEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1D51B6DB60000ACE019 /* HttpEngine.m */; };
 		D68EC1D91B6DBDA600ACE019 /* Commbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1D81B6DBDA600ACE019 /* Commbox.mm */; };
 		D68EC1E41B6E231300ACE019 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1E31B6E231300ACE019 /* UserInfo.m */; };
+		D69C9AAD1B73170300B7F8FD /* WaitingForMatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = D69C9AAC1B73170300B7F8FD /* WaitingForMatchView.m */; };
+		D69C9AAF1B73173F00B7F8FD /* WaitingForMatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D69C9AAE1B73173F00B7F8FD /* WaitingForMatchView.xib */; };
+		D69C9AB21B731A4300B7F8FD /* OrderDetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D69C9AB11B731A4300B7F8FD /* OrderDetailViewController.mm */; };
+		D69C9AC11B7346BD00B7F8FD /* CustomOverlay.mm in Sources */ = {isa = PBXBuildFile; fileRef = D69C9ABA1B7346BD00B7F8FD /* CustomOverlay.mm */; };
+		D69C9AC21B7346BD00B7F8FD /* CustomOverlayView.mm in Sources */ = {isa = PBXBuildFile; fileRef = D69C9ABC1B7346BD00B7F8FD /* CustomOverlayView.mm */; };
+		D69C9AC31B7346BD00B7F8FD /* MyAnimatedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D69C9ABE1B7346BD00B7F8FD /* MyAnimatedAnnotationView.m */; };
+		D69C9AC41B7346BD00B7F8FD /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = D69C9AC01B7346BD00B7F8FD /* UIImage+Rotate.m */; };
 		D6E47D4B1B71B6D7009DCE22 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E47D4A1B71B6D7009DCE22 /* MBProgressHUD.m */; };
 		D6E47D4D1B7203FA009DCE22 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6E47D4C1B7203FA009DCE22 /* Order.storyboard */; };
 		D6E47D501B721240009DCE22 /* NewOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E47D4F1B721240009DCE22 /* NewOrderCell.m */; };
 		D6E47D531B722F1E009DCE22 /* NewOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E47D521B722F1E009DCE22 /* NewOrderViewController.m */; };
+		D6ECEF491B735B6D008610BA /* RouteSearchDemoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D6ECEF481B735B6D008610BA /* RouteSearchDemoViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +142,19 @@
 		D68EC1D81B6DBDA600ACE019 /* Commbox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Commbox.mm; sourceTree = "<group>"; };
 		D68EC1E21B6E231300ACE019 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		D68EC1E31B6E231300ACE019 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		D69C9AAB1B73170300B7F8FD /* WaitingForMatchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaitingForMatchView.h; path = ../WaitingForMatchView.h; sourceTree = "<group>"; };
+		D69C9AAC1B73170300B7F8FD /* WaitingForMatchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaitingForMatchView.m; path = ../WaitingForMatchView.m; sourceTree = "<group>"; };
+		D69C9AAE1B73173F00B7F8FD /* WaitingForMatchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingForMatchView.xib; sourceTree = "<group>"; };
+		D69C9AB01B731A4300B7F8FD /* OrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailViewController.h; sourceTree = "<group>"; };
+		D69C9AB11B731A4300B7F8FD /* OrderDetailViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OrderDetailViewController.mm; sourceTree = "<group>"; };
+		D69C9AB91B7346BD00B7F8FD /* CustomOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOverlay.h; sourceTree = "<group>"; };
+		D69C9ABA1B7346BD00B7F8FD /* CustomOverlay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomOverlay.mm; sourceTree = "<group>"; };
+		D69C9ABB1B7346BD00B7F8FD /* CustomOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOverlayView.h; sourceTree = "<group>"; };
+		D69C9ABC1B7346BD00B7F8FD /* CustomOverlayView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomOverlayView.mm; sourceTree = "<group>"; };
+		D69C9ABD1B7346BD00B7F8FD /* MyAnimatedAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnimatedAnnotationView.h; sourceTree = "<group>"; };
+		D69C9ABE1B7346BD00B7F8FD /* MyAnimatedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnimatedAnnotationView.m; sourceTree = "<group>"; };
+		D69C9ABF1B7346BD00B7F8FD /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		D69C9AC01B7346BD00B7F8FD /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
 		D6E47D481B71ADD8009DCE22 /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
 		D6E47D491B71B6D7009DCE22 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		D6E47D4A1B71B6D7009DCE22 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -142,6 +163,8 @@
 		D6E47D4F1B721240009DCE22 /* NewOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewOrderCell.m; sourceTree = "<group>"; };
 		D6E47D511B722F1E009DCE22 /* NewOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewOrderViewController.h; sourceTree = "<group>"; };
 		D6E47D521B722F1E009DCE22 /* NewOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewOrderViewController.m; sourceTree = "<group>"; };
+		D6ECEF471B735B6D008610BA /* RouteSearchDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteSearchDemoViewController.h; sourceTree = "<group>"; };
+		D6ECEF481B735B6D008610BA /* RouteSearchDemoViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RouteSearchDemoViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +197,8 @@
 		D658D0B31B6C75580097FC0D = {
 			isa = PBXGroup;
 			children = (
+				D69C9AB81B7346BD00B7F8FD /* BaiduAPICustom */,
+				D69C9AAE1B73173F00B7F8FD /* WaitingForMatchView.xib */,
 				D684F8CC1B6F1B990039FC45 /* mapapi.bundle */,
 				D684F8C81B6F1A270039FC45 /* CoreGraphics.framework */,
 				D684F8C61B6F1A0F0039FC45 /* OpenGLES.framework */,
@@ -253,6 +278,8 @@
 		D658D0ED1B6C852A0097FC0D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D6ECEF471B735B6D008610BA /* RouteSearchDemoViewController.h */,
+				D6ECEF481B735B6D008610BA /* RouteSearchDemoViewController.mm */,
 				D658D0C61B6C75580097FC0D /* HomeViewController.h */,
 				D658D0C71B6C75580097FC0D /* HomeViewController.m */,
 				D658D0C91B6C75580097FC0D /* MeViewController.h */,
@@ -271,6 +298,8 @@
 				D616E5631B723322007ECADB /* FinishedOrderViewController.m */,
 				D616E5651B723345007ECADB /* CancelledOrderViewController.h */,
 				D616E5661B723345007ECADB /* CancelledOrderViewController.m */,
+				D69C9AB01B731A4300B7F8FD /* OrderDetailViewController.h */,
+				D69C9AB11B731A4300B7F8FD /* OrderDetailViewController.mm */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -338,6 +367,8 @@
 		D68EC1DA1B6DC6A000ACE019 /* UserDefinedView */ = {
 			isa = PBXGroup;
 			children = (
+				D69C9AAB1B73170300B7F8FD /* WaitingForMatchView.h */,
+				D69C9AAC1B73170300B7F8FD /* WaitingForMatchView.m */,
 				D68EC1D71B6DBDA600ACE019 /* Commbox.h */,
 				D68EC1D81B6DBDA600ACE019 /* Commbox.mm */,
 				D6E47D491B71B6D7009DCE22 /* MBProgressHUD.h */,
@@ -357,6 +388,21 @@
 				D658D0FE1B6CC2330097FC0D /* CFNetwork.framework */,
 			);
 			name = frameworks;
+			sourceTree = "<group>";
+		};
+		D69C9AB81B7346BD00B7F8FD /* BaiduAPICustom */ = {
+			isa = PBXGroup;
+			children = (
+				D69C9AB91B7346BD00B7F8FD /* CustomOverlay.h */,
+				D69C9ABA1B7346BD00B7F8FD /* CustomOverlay.mm */,
+				D69C9ABB1B7346BD00B7F8FD /* CustomOverlayView.h */,
+				D69C9ABC1B7346BD00B7F8FD /* CustomOverlayView.mm */,
+				D69C9ABD1B7346BD00B7F8FD /* MyAnimatedAnnotationView.h */,
+				D69C9ABE1B7346BD00B7F8FD /* MyAnimatedAnnotationView.m */,
+				D69C9ABF1B7346BD00B7F8FD /* UIImage+Rotate.h */,
+				D69C9AC01B7346BD00B7F8FD /* UIImage+Rotate.m */,
+			);
+			path = BaiduAPICustom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D658D0CE1B6C75580097FC0D /* Main.storyboard in Resources */,
+				D69C9AAF1B73173F00B7F8FD /* WaitingForMatchView.xib in Resources */,
 				D684F8CD1B6F1B990039FC45 /* mapapi.bundle in Resources */,
 				D658D0F51B6C89810097FC0D /* User.storyboard in Resources */,
 				D658D0D31B6C75580097FC0D /* LaunchScreen.xib in Resources */,
@@ -463,11 +510,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D658D0CB1B6C75580097FC0D /* MeViewController.m in Sources */,
+				D69C9AC21B7346BD00B7F8FD /* CustomOverlayView.mm in Sources */,
 				D658D1261B6CCD670097FC0D /* MKNetworkEngine.m in Sources */,
 				D658D1271B6CCD670097FC0D /* MKNetworkOperation.m in Sources */,
 				D658D0F31B6C87A20097FC0D /* RegisterViewController.m in Sources */,
 				D658D1201B6CCD670097FC0D /* NSData+MKBase64.m in Sources */,
 				D658D1211B6CCD670097FC0D /* NSDate+RFC1123.m in Sources */,
+				D69C9AB21B731A4300B7F8FD /* OrderDetailViewController.mm in Sources */,
 				D658D0C51B6C75580097FC0D /* AppDelegate.m in Sources */,
 				D6E47D4B1B71B6D7009DCE22 /* MBProgressHUD.m in Sources */,
 				D658D0C81B6C75580097FC0D /* HomeViewController.m in Sources */,
@@ -479,8 +528,12 @@
 				D658D1241B6CCD670097FC0D /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
 				D68EC1D61B6DB60000ACE019 /* HttpEngine.m in Sources */,
 				D658D0F91B6C99E90097FC0D /* ScreenSwitch.m in Sources */,
+				D69C9AAD1B73170300B7F8FD /* WaitingForMatchView.m in Sources */,
+				D69C9AC31B7346BD00B7F8FD /* MyAnimatedAnnotationView.m in Sources */,
 				D658D1251B6CCD670097FC0D /* UIImageView+MKNetworkKitAdditions.m in Sources */,
 				D658D0F01B6C878D0097FC0D /* LoginViewController.m in Sources */,
+				D69C9AC11B7346BD00B7F8FD /* CustomOverlay.mm in Sources */,
+				D6ECEF491B735B6D008610BA /* RouteSearchDemoViewController.mm in Sources */,
 				D616E5671B723345007ECADB /* CancelledOrderViewController.m in Sources */,
 				D658D1221B6CCD670097FC0D /* NSDictionary+RequestEncoding.m in Sources */,
 				D658D11F1B6CCD670097FC0D /* NSAlert+MKNetworkKitAdditions.m in Sources */,
@@ -489,6 +542,7 @@
 				D684F8D61B6F56E20039FC45 /* BaiduAPIEngine.m in Sources */,
 				D684F8D31B6F1D800039FC45 /* PinCheViewController.m in Sources */,
 				D6E47D531B722F1E009DCE22 /* NewOrderViewController.m in Sources */,
+				D69C9AC41B7346BD00B7F8FD /* UIImage+Rotate.m in Sources */,
 				D6E47D501B721240009DCE22 /* NewOrderCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

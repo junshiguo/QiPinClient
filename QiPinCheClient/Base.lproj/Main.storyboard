@@ -291,6 +291,7 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="ageText1" destination="F6j-jw-fIQ" id="ngG-C0-nmO"/>
+                        <outlet property="ageText2" destination="AVc-CS-vD6" id="9z2-VW-9Bw"/>
                         <outlet property="desLocation" destination="uKa-Xr-ytr" id="3tt-N7-cyq"/>
                         <outlet property="expAge" destination="7Ex-av-fka" id="6gi-9q-0MZ"/>
                         <outlet property="expGender" destination="7Ex-av-fka" id="5fg-u9-2mf"/>

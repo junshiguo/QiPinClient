@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface NewOrderCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *timeText;
 @property (weak, nonatomic) IBOutlet UILabel *srcLocation;
 @property (weak, nonatomic) IBOutlet UILabel *desLocation;
 @property (weak, nonatomic) IBOutlet UILabel *statusText;
-
+@property (weak, nonatomic) NSString *orderId;
 @end

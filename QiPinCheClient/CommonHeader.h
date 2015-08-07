@@ -12,6 +12,8 @@
 
 #endif
 
+#define ORDER_TYPE_UN_MATCH 0
+
 #import "ScreenSwitch.h"
 #import "HttpEngine.h"
 #import "UserInfo.h"

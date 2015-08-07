@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WaitingForMatchView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统火力全开正在为您寻找合适的拼车对象，" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeg-Bn-cBm">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请您耐心等待~~~" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peR-Uz-EF7">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUf-Ni-ivh">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.94661458330000003" green="0.024669968069999999" blue="0.15351113559999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="不想等了，我要取消订单">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="cancelTheOrder:" destination="iN0-l3-epB" eventType="touchUpInside" id="Gbb-3s-daJ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="aeg-Bn-cBm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="68" id="7ES-fc-li2"/>
+                <constraint firstItem="aeg-Bn-cBm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="7kV-uQ-Od6"/>
+                <constraint firstItem="peR-Uz-EF7" firstAttribute="centerX" secondItem="aeg-Bn-cBm" secondAttribute="centerX" id="B2q-aD-Weo"/>
+                <constraint firstItem="RUf-Ni-ivh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="176" id="Pn0-KF-dOh"/>
+                <constraint firstAttribute="centerX" secondItem="aeg-Bn-cBm" secondAttribute="centerX" id="U0p-8J-2fW"/>
+                <constraint firstAttribute="centerX" secondItem="RUf-Ni-ivh" secondAttribute="centerX" id="Vme-dT-uuq"/>
+                <constraint firstItem="RUf-Ni-ivh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="70" id="a4w-dQ-yyX"/>
+                <constraint firstItem="aeg-Bn-cBm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="ja7-if-RjD"/>
+                <constraint firstItem="peR-Uz-EF7" firstAttribute="top" secondItem="aeg-Bn-cBm" secondAttribute="bottom" constant="22" id="pBp-kQ-aPa"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="aeg-Bn-cBm"/>
+                    <exclude reference="peR-Uz-EF7"/>
+                    <exclude reference="RUf-Ni-ivh"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="7ES-fc-li2"/>
+                    <exclude reference="7kV-uQ-Od6"/>
+                    <exclude reference="U0p-8J-2fW"/>
+                    <exclude reference="ja7-if-RjD"/>
+                    <exclude reference="B2q-aD-Weo"/>
+                    <exclude reference="pBp-kQ-aPa"/>
+                    <exclude reference="Pn0-KF-dOh"/>
+                    <exclude reference="Vme-dT-uuq"/>
+                    <exclude reference="a4w-dQ-yyX"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="aeg-Bn-cBm"/>
+                    <include reference="peR-Uz-EF7"/>
+                    <include reference="RUf-Ni-ivh"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="7ES-fc-li2"/>
+                    <exclude reference="7kV-uQ-Od6"/>
+                    <include reference="U0p-8J-2fW"/>
+                    <include reference="ja7-if-RjD"/>
+                    <include reference="B2q-aD-Weo"/>
+                    <include reference="pBp-kQ-aPa"/>
+                    <include reference="Pn0-KF-dOh"/>
+                    <include reference="Vme-dT-uuq"/>
+                    <include reference="a4w-dQ-yyX"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="cancelBtn" destination="RUf-Ni-ivh" id="08s-dH-IYp"/>
+            </connections>
+        </view>
+    </objects>
+</document>

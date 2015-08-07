@@ -36,7 +36,6 @@
     [self initAgeSelector];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLoc:) name:@"LocNotification" object:nil];
-
 }
 
 - (void)receiveLoc:(NSNotification*)notification {
@@ -90,6 +89,7 @@
     _mapView.showsUserLocation = NO;
     [_mapView viewWillAppear];
     [_locService startUserLocationService];
+    //[self.view addSubview:_mapView];
     _mapView.delegate = self;
     _locService.delegate = self;
 }
@@ -112,6 +112,7 @@
     _annotation.coordinate = coor;
     [self getPlaceTitleByLat:coor.latitude andLon:coor.longitude];
     [self.view addSubview:_mapView];
+    [_locService stopUserLocationService];
 }
 
 
@@ -129,17 +130,35 @@
 
 - (IBAction)startPinChe:(id)sender {
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    if (![self checkPinCheInfo]) return;
     [self.view addSubview:HUD];
     
-    HUD.labelText = @"发布成功，您可以在未完成订单中查看";
+    HUD.labelText = @"发布成功，正在跳转...";
     HUD.mode = MBProgressHUDModeText;
     
     [HUD showAnimated:YES whileExecutingBlock:^{
         sleep(2);
     } completionBlock:^{
         [HUD removeFromSuperview];
-        [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"TabBarController" inView:self];
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setValue:ORDER_TYPE_UN_MATCH forKey:@"orderType"];
+        [dic setObject:@"111" forKey:@"orderId"];
+        [dic setObject:self.srcLocation.text forKey:@"srcLocation"];
+        [dic setObject:self.desLocation.text forKey:@"desLocation"];
+        [dic setObject:self.startTime.text forKey:@"startTime"];
+        /*[ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];*/
+        [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"RouteSearchDemoViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
     }];
+    
+}
+
+- (BOOL) checkPinCheInfo {
+    if ([self.srcLocation.text length] == 0 || [self.desLocation.text length] == 0 || [self.startTime.text length] == 0) {
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"您输入的信息不完整！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alter show];
+        return false;
+    }
+    return true;
     
 }
 
