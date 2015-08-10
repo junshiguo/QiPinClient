@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WaitingForPartnerConfirmView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您已确认和对方拼车，正在等待对方确认" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ1-u9-g7a">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请耐心等待......" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qop-ni-4F7">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAl-fL-Qy6">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.94661458330000003" green="0.024669968069999999" blue="0.15351113559999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="我等不及了，放弃和他拼车">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Qop-ni-4F7" firstAttribute="top" secondItem="wQ1-u9-g7a" secondAttribute="bottom" constant="25.5" id="FsS-KS-ntG"/>
+                <constraint firstItem="YAl-fL-Qy6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="124" id="N4Y-U5-Unk"/>
+                <constraint firstAttribute="centerX" secondItem="wQ1-u9-g7a" secondAttribute="centerX" id="QE3-hu-OfH"/>
+                <constraint firstItem="wQ1-u9-g7a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="TSE-g5-pZO"/>
+                <constraint firstItem="Qop-ni-4F7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="66" id="d6l-1l-wrS"/>
+                <constraint firstAttribute="centerX" secondItem="YAl-fL-Qy6" secondAttribute="centerX" id="evg-Hv-ybo"/>
+                <constraint firstAttribute="centerX" secondItem="Qop-ni-4F7" secondAttribute="centerX" id="tI6-A9-XBF"/>
+                <constraint firstItem="YAl-fL-Qy6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="70" id="vxc-VF-OjR"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="wQ1-u9-g7a"/>
+                    <exclude reference="Qop-ni-4F7"/>
+                    <exclude reference="YAl-fL-Qy6"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="QE3-hu-OfH"/>
+                    <exclude reference="TSE-g5-pZO"/>
+                    <exclude reference="FsS-KS-ntG"/>
+                    <exclude reference="d6l-1l-wrS"/>
+                    <exclude reference="tI6-A9-XBF"/>
+                    <exclude reference="N4Y-U5-Unk"/>
+                    <exclude reference="evg-Hv-ybo"/>
+                    <exclude reference="vxc-VF-OjR"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="wQ1-u9-g7a"/>
+                    <include reference="Qop-ni-4F7"/>
+                    <include reference="YAl-fL-Qy6"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="QE3-hu-OfH"/>
+                    <include reference="TSE-g5-pZO"/>
+                    <include reference="FsS-KS-ntG"/>
+                    <include reference="d6l-1l-wrS"/>
+                    <include reference="tI6-A9-XBF"/>
+                    <include reference="N4Y-U5-Unk"/>
+                    <include reference="evg-Hv-ybo"/>
+                    <include reference="vxc-VF-OjR"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="cancelWaiting" destination="YAl-fL-Qy6" id="o4J-E4-SJ8"/>
+            </connections>
+        </view>
+    </objects>
+</document>

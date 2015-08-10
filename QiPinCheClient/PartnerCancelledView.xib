@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PartnerCancelledView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抱歉，对方取消了订单" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ro5-gA-v77">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否继续等待其他用户与您拼车？" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpM-GH-3mY">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSJ-V2-tqR">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="继续等待">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACf-Lr-Upm">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.94661458330000003" green="0.024669968069999999" blue="0.15351113559999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="不等了">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ACf-Lr-Upm" firstAttribute="top" secondItem="dSJ-V2-tqR" secondAttribute="bottom" constant="20" id="1Q3-Tj-SD3"/>
+                <constraint firstAttribute="centerX" secondItem="TpM-GH-3mY" secondAttribute="centerX" id="1Qy-Qt-TGO"/>
+                <constraint firstItem="ACf-Lr-Upm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="70" id="Bzs-wq-Tlx"/>
+                <constraint firstAttribute="centerX" secondItem="ACf-Lr-Upm" secondAttribute="centerX" id="Imq-es-yKu"/>
+                <constraint firstItem="dSJ-V2-tqR" firstAttribute="top" secondItem="TpM-GH-3mY" secondAttribute="bottom" constant="29" id="NJd-Mc-Wgc"/>
+                <constraint firstItem="TpM-GH-3mY" firstAttribute="top" secondItem="Ro5-gA-v77" secondAttribute="bottom" constant="20" id="aKE-xb-ODE"/>
+                <constraint firstAttribute="centerX" secondItem="dSJ-V2-tqR" secondAttribute="centerX" id="dLb-KI-aRw"/>
+                <constraint firstItem="dSJ-V2-tqR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="70" id="hWz-i6-dnJ"/>
+                <constraint firstAttribute="centerX" secondItem="Ro5-gA-v77" secondAttribute="centerX" id="rnI-6Q-OpI"/>
+                <constraint firstItem="Ro5-gA-v77" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="yPg-8Z-w6d"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="Ro5-gA-v77"/>
+                    <exclude reference="TpM-GH-3mY"/>
+                    <exclude reference="dSJ-V2-tqR"/>
+                    <exclude reference="ACf-Lr-Upm"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="rnI-6Q-OpI"/>
+                    <exclude reference="yPg-8Z-w6d"/>
+                    <exclude reference="1Qy-Qt-TGO"/>
+                    <exclude reference="aKE-xb-ODE"/>
+                    <exclude reference="NJd-Mc-Wgc"/>
+                    <exclude reference="dLb-KI-aRw"/>
+                    <exclude reference="hWz-i6-dnJ"/>
+                    <exclude reference="1Q3-Tj-SD3"/>
+                    <exclude reference="Bzs-wq-Tlx"/>
+                    <exclude reference="Imq-es-yKu"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="Ro5-gA-v77"/>
+                    <include reference="TpM-GH-3mY"/>
+                    <include reference="dSJ-V2-tqR"/>
+                    <include reference="ACf-Lr-Upm"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="rnI-6Q-OpI"/>
+                    <include reference="yPg-8Z-w6d"/>
+                    <include reference="1Qy-Qt-TGO"/>
+                    <include reference="aKE-xb-ODE"/>
+                    <include reference="NJd-Mc-Wgc"/>
+                    <include reference="dLb-KI-aRw"/>
+                    <include reference="hWz-i6-dnJ"/>
+                    <include reference="1Q3-Tj-SD3"/>
+                    <include reference="Bzs-wq-Tlx"/>
+                    <include reference="Imq-es-yKu"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="cancelWaitingForMatch" destination="ACf-Lr-Upm" id="71f-T5-DlS"/>
+                <outlet property="rewaitingForMatch" destination="dSJ-V2-tqR" id="1vO-4b-aU6"/>
+            </connections>
+        </view>
+    </objects>
+</document>
