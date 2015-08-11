@@ -17,13 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Ae-HC-J1P">
                                 <rect key="frame" x="16" y="70" width="343" height="30"/>
-=======
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Ae-HC-J1P">
-                                <rect key="frame" x="16" y="114" width="343" height="30"/>
->>>>>>> 4c5bbd91bf29adb64c63b2f74469593340c6d3c4
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="Jqi-D8-CBZ"/>
                                     <constraint firstAttribute="height" constant="30" id="Wol-9t-637"/>
@@ -110,13 +105,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zgW-qC-FYN">
                                 <rect key="frame" x="16" y="70" width="343" height="30"/>
-=======
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zgW-qC-FYN">
-                                <rect key="frame" x="16" y="114" width="343" height="30"/>
->>>>>>> 4c5bbd91bf29adb64c63b2f74469593340c6d3c4
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="Ret-RV-joi"/>
                                     <constraint firstAttribute="height" constant="30" id="b54-2X-sMa"/>

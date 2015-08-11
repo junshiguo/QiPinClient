@@ -84,22 +84,14 @@
 
 - (void) setWaitingForMatchView {
     WaitingForMatchView *statusView = [WaitingForMatchView instanceView];
-<<<<<<< HEAD
     statusView.frame = CGRectMake(0, 300, UISCREEN_WIDTH, 400);
-=======
-    statusView.frame = CGRectMake(0, 250, UISCREEN_WIDTH, 400);
->>>>>>> 4c5bbd91bf29adb64c63b2f74469593340c6d3c4
     [self.view addSubview:statusView];
     [statusView.cancelBtn addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) setWaitingForConfirmView {
     WaitingForConfirmView *statusView = [WaitingForConfirmView instanceView];
-<<<<<<< HEAD
     statusView.frame = CGRectMake(0, 300, UISCREEN_WIDTH, 400);
-=======
-    statusView.frame = CGRectMake(0, 250, UISCREEN_WIDTH, 400);
->>>>>>> 4c5bbd91bf29adb64c63b2f74469593340c6d3c4
     [self.view addSubview:statusView];
     
     [statusView.confirmToMatch addTarget:self action:@selector(confirmToMatch) forControlEvents:UIControlEventTouchUpInside];
@@ -109,11 +101,7 @@
 
 - (void) setWaitingPartnerConfirmView {
     WaitingForPartnerConfirmView *statusView = [WaitingForPartnerConfirmView instanceView];
-<<<<<<< HEAD
     statusView.frame = CGRectMake(0, 300, UISCREEN_WIDTH, 400);
-=======
-    statusView.frame = CGRectMake(0, 250, UISCREEN_WIDTH, 400);
->>>>>>> 4c5bbd91bf29adb64c63b2f74469593340c6d3c4
     
     [self.view addSubview:statusView];
     [statusView.cancelWaiting addTarget:self action:@selector(cancelWaitingPartner) forControlEvents:UIControlEventTouchUpInside];
@@ -121,11 +109,7 @@
 
 - (void) setPartnerCancelledView {
     PartnerCancelledView *statusView = [PartnerCancelledView instanceView];
-<<<<<<< HEAD
     statusView.frame = CGRectMake(0, 300, UISCREEN_WIDTH, 400);
-=======
-    statusView.frame = CGRectMake(0, 250, UISCREEN_WIDTH, 400);
->>>>>>> 4c5bbd91bf29adb64c63b2f74469593340c6d3c4
     
     [self.view addSubview:statusView];
     [statusView.cancelWaitingForMatch addTarget:self action:@selector(cancelWaitingForMatch) forControlEvents:UIControlEventTouchUpInside];
@@ -135,11 +119,7 @@
 
 - (void) setMatchSuccessView {
     MatchSuccessView *statusView = [MatchSuccessView instanceView];
-<<<<<<< HEAD
     statusView.frame = CGRectMake(0, 300, UISCREEN_WIDTH, 400);
-=======
-    statusView.frame = CGRectMake(0, 250, UISCREEN_WIDTH, 400);
->>>>>>> 4c5bbd91bf29adb64c63b2f74469593340c6d3c4
     
     [self.view addSubview:statusView];
     [statusView.finishOrder addTarget:self action:@selector(finishOrder) forControlEvents:UIControlEventTouchUpInside];
