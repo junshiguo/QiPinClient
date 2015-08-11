@@ -550,8 +550,6 @@
 			isa = PBXGroup;
 			children = (
 				D605303C1B78CCA800F4CF08 /* WaitingForMatchView.xib */,
-				D646FCF41B7876DC009BFC90 /* TQStarRatingView.h */,
-				D646FCF51B7876DC009BFC90 /* TQStarRatingView.m */,
 				D685B5E81B75DABD0086209C /* WaitingForConfirmView.xib */,
 				D696FDDD1B7845820033C54D /* WaitingForPartnerConfirmView.xib */,
 				D696FDDF1B784FB90033C54D /* PartnerCancelledView.xib */,
@@ -572,6 +570,8 @@
 				D6E47D4A1B71B6D7009DCE22 /* MBProgressHUD.m */,
 				D6E47D4E1B721240009DCE22 /* NewOrderCell.h */,
 				D6E47D4F1B721240009DCE22 /* NewOrderCell.m */,
+				D646FCF41B7876DC009BFC90 /* TQStarRatingView.h */,
+				D646FCF51B7876DC009BFC90 /* TQStarRatingView.m */,
 			);
 			name = UserDefinedView;
 			sourceTree = "<group>";

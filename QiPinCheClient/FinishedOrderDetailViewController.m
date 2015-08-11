@@ -21,11 +21,10 @@
     float y = 320;
     
     
-    TQStarRatingView *starRatingView = [[TQStarRatingView alloc] initWithFrame:CGRectMake(x, y, 200, 50) numberOfStar:5];
+    TQStarRatingView *starRatingView = [[TQStarRatingView alloc] initWithFrame:CGRectMake(x, y, 200, 40) numberOfStar:5];
 
     starRatingView.delegate = self;
     [self.view addSubview:starRatingView];
-    NSLog(@"111");
     
 }
 

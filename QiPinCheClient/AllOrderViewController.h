@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "CommonHeader.h"
 
-@interface AllOrderViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface AllOrderViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
+    NSInteger btnIndex;
+}
+@property (weak, nonatomic) IBOutlet UIButton *doingBtn;
+@property (weak, nonatomic) IBOutlet UIButton *finishBtn;
 @property (weak, nonatomic) IBOutlet UITableView *orderTable;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navTitle;
+
+- (IBAction)queryDoing:(id)sender;
+- (IBAction)queryFinish:(id)sender;
 
 @end
