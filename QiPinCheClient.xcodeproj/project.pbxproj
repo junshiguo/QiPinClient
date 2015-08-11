@@ -12,6 +12,7 @@
 		D60530411B78CCC100F4CF08 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D605303F1B78CCC100F4CF08 /* Order.storyboard */; };
 		D616E5671B723345007ECADB /* CancelledOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D616E5661B723345007ECADB /* CancelledOrderViewController.m */; };
 		D617B8381B799C2E00560AA8 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D617B8371B799C2E00560AA8 /* arrow.png */; };
+		D617B83B1B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D617B83A1B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.m */; };
 		D646FCF61B7876DC009BFC90 /* TQStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D646FCF51B7876DC009BFC90 /* TQStarRatingView.m */; };
 		D646FCFB1B7876F1009BFC90 /* backgroundStar.png in Resources */ = {isa = PBXBuildFile; fileRef = D646FCF71B7876F1009BFC90 /* backgroundStar.png */; };
 		D646FCFC1B7876F1009BFC90 /* backgroundStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D646FCF81B7876F1009BFC90 /* backgroundStar@2x.png */; };
@@ -110,6 +111,8 @@
 		D616E5651B723345007ECADB /* CancelledOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CancelledOrderViewController.h; sourceTree = "<group>"; };
 		D616E5661B723345007ECADB /* CancelledOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancelledOrderViewController.m; sourceTree = "<group>"; };
 		D617B8371B799C2E00560AA8 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		D617B8391B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AfterRatingOrderDetailViewController.h; sourceTree = "<group>"; };
+		D617B83A1B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AfterRatingOrderDetailViewController.m; sourceTree = "<group>"; };
 		D646FCF41B7876DC009BFC90 /* TQStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQStarRatingView.h; sourceTree = "<group>"; };
 		D646FCF51B7876DC009BFC90 /* TQStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQStarRatingView.m; sourceTree = "<group>"; };
 		D646FCF71B7876F1009BFC90 /* backgroundStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundStar.png; sourceTree = "<group>"; };
@@ -477,6 +480,8 @@
 				D646FD001B78774F009BFC90 /* FinishedOrderDetailViewController.m */,
 				D646FD021B789255009BFC90 /* PersonalInfoViewController.h */,
 				D646FD031B789255009BFC90 /* PersonalInfoViewController.m */,
+				D617B8391B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.h */,
+				D617B83A1B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -545,8 +550,6 @@
 			isa = PBXGroup;
 			children = (
 				D605303C1B78CCA800F4CF08 /* WaitingForMatchView.xib */,
-				D646FCF41B7876DC009BFC90 /* TQStarRatingView.h */,
-				D646FCF51B7876DC009BFC90 /* TQStarRatingView.m */,
 				D685B5E81B75DABD0086209C /* WaitingForConfirmView.xib */,
 				D696FDDD1B7845820033C54D /* WaitingForPartnerConfirmView.xib */,
 				D696FDDF1B784FB90033C54D /* PartnerCancelledView.xib */,
@@ -567,6 +570,8 @@
 				D6E47D4A1B71B6D7009DCE22 /* MBProgressHUD.m */,
 				D6E47D4E1B721240009DCE22 /* NewOrderCell.h */,
 				D6E47D4F1B721240009DCE22 /* NewOrderCell.m */,
+				D646FCF41B7876DC009BFC90 /* TQStarRatingView.h */,
+				D646FCF51B7876DC009BFC90 /* TQStarRatingView.m */,
 			);
 			name = UserDefinedView;
 			sourceTree = "<group>";
@@ -1041,6 +1046,7 @@
 				D66A8AC41B771CD300FEADE8 /* ModifyJobViewController.m in Sources */,
 				D69C9AC41B7346BD00B7F8FD /* UIImage+Rotate.m in Sources */,
 				D646FD011B78774F009BFC90 /* FinishedOrderDetailViewController.m in Sources */,
+				D617B83B1B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.m in Sources */,
 				D6E47D501B721240009DCE22 /* NewOrderCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

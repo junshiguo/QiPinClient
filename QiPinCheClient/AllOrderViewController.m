@@ -20,6 +20,7 @@
     // Do any additional setup after loading the view.
     self.orderTable.dataSource = self;
     self.orderTable.delegate = self;
+    btnIndex = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,4 +67,17 @@
 }
 */
 
+- (IBAction)queryDoing:(id)sender {
+    self.doingBtn.enabled = NO;
+    self.finishBtn.enabled = YES;
+    self.navTitle.title = @"进行中订单";
+    btnIndex = 0;
+}
+
+- (IBAction)queryFinish:(id)sender {
+    self.doingBtn.enabled = YES;
+    self.finishBtn.enabled = NO;
+    self.navTitle.title = @"已完成订单";
+    btnIndex = 1;
+}
 @end
