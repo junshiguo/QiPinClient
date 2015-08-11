@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MatchSuccessView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜！双方已确认拼单！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srv-rf-HSL">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkC-4D-oVL">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <state key="normal" title="哼不和你玩">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="对方联系方式已发至您的手机。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxc-aA-QoN">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JId-ii-WqN">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="我已下车，拼单完成">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrW-ZO-MPG">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="DOX-vt-ruq"/>
+                        <constraint firstAttribute="width" constant="20" id="ls3-Ay-hOs"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="phone-icon-clip-art_t.jpg">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="DOX-vt-ruq"/>
+                            <exclude reference="ls3-Ay-hOs"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="DOX-vt-ruq"/>
+                            <include reference="ls3-Ay-hOs"/>
+                        </mask>
+                    </variation>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qrW-ZO-MPG" secondAttribute="trailing" constant="84" id="1Nr-ZG-dNd">
+                    <variation key="widthClass=compact" constant="120"/>
+                </constraint>
+                <constraint firstItem="gkC-4D-oVL" firstAttribute="top" secondItem="uxc-aA-QoN" secondAttribute="bottom" constant="25" id="B6g-w1-v4o"/>
+                <constraint firstAttribute="centerX" secondItem="Srv-rf-HSL" secondAttribute="centerX" id="Hbn-Tq-I59"/>
+                <constraint firstAttribute="centerX" secondItem="uxc-aA-QoN" secondAttribute="centerX" id="HtA-3r-iow"/>
+                <constraint firstAttribute="trailing" secondItem="JId-ii-WqN" secondAttribute="trailing" constant="70" id="Kry-1Q-ZHO"/>
+                <constraint firstItem="JId-ii-WqN" firstAttribute="top" secondItem="gkC-4D-oVL" secondAttribute="bottom" constant="35" id="PrA-rK-TXS"/>
+                <constraint firstAttribute="centerX" secondItem="gkC-4D-oVL" secondAttribute="centerX" id="Rq3-KO-55e"/>
+                <constraint firstItem="qrW-ZO-MPG" firstAttribute="centerY" secondItem="gkC-4D-oVL" secondAttribute="centerY" id="Zwj-ZC-cXc"/>
+                <constraint firstItem="uxc-aA-QoN" firstAttribute="top" secondItem="Srv-rf-HSL" secondAttribute="bottom" constant="17" id="chv-R1-QWE"/>
+                <constraint firstItem="Srv-rf-HSL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="khI-GV-46Z"/>
+                <constraint firstAttribute="centerX" secondItem="JId-ii-WqN" secondAttribute="centerX" id="nfe-aK-wK1"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="Srv-rf-HSL"/>
+                    <exclude reference="gkC-4D-oVL"/>
+                    <exclude reference="uxc-aA-QoN"/>
+                    <exclude reference="JId-ii-WqN"/>
+                    <exclude reference="qrW-ZO-MPG"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="HtA-3r-iow"/>
+                    <exclude reference="chv-R1-QWE"/>
+                    <exclude reference="Hbn-Tq-I59"/>
+                    <exclude reference="khI-GV-46Z"/>
+                    <exclude reference="Kry-1Q-ZHO"/>
+                    <exclude reference="PrA-rK-TXS"/>
+                    <exclude reference="nfe-aK-wK1"/>
+                    <exclude reference="B6g-w1-v4o"/>
+                    <exclude reference="Rq3-KO-55e"/>
+                    <exclude reference="1Nr-ZG-dNd"/>
+                    <exclude reference="Zwj-ZC-cXc"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="Srv-rf-HSL"/>
+                    <include reference="gkC-4D-oVL"/>
+                    <include reference="uxc-aA-QoN"/>
+                    <include reference="JId-ii-WqN"/>
+                    <include reference="qrW-ZO-MPG"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="HtA-3r-iow"/>
+                    <include reference="chv-R1-QWE"/>
+                    <include reference="Hbn-Tq-I59"/>
+                    <include reference="khI-GV-46Z"/>
+                    <include reference="Kry-1Q-ZHO"/>
+                    <include reference="PrA-rK-TXS"/>
+                    <include reference="nfe-aK-wK1"/>
+                    <include reference="B6g-w1-v4o"/>
+                    <include reference="Rq3-KO-55e"/>
+                    <include reference="1Nr-ZG-dNd"/>
+                    <include reference="Zwj-ZC-cXc"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="finishOrder" destination="JId-ii-WqN" id="gm3-Fy-iBL"/>
+                <outlet property="makecallBtn" destination="qrW-ZO-MPG" id="sRd-aU-vGl"/>
+                <outlet property="nickName" destination="gkC-4D-oVL" id="BOL-Q9-Bax"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="phone-icon-clip-art_t.jpg" width="190" height="190"/>
+    </resources>
+</document>

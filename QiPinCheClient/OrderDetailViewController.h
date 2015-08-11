@@ -10,20 +10,15 @@
 #import "CommonHeader.h"
 
 
-@interface OrderDetailViewController : UIViewController<BMKRouteSearchDelegate, BMKMapViewDelegate> {
+@interface OrderDetailViewController : UIViewController<EMChatManagerDelegate> {
     NSString *orderId, *srcLocationName, *desLocationName, *orderTime, *startTime, *matchUid, *matchNickName;
     NSInteger orderType;
-    IBOutlet BMKMapView* _mapView;
-    IBOutlet UITextField* _startCityText;
-    IBOutlet UITextField* _startAddrText;
-    IBOutlet UITextField* _endCityText;
-    IBOutlet UITextField* _endAddrText;
-    BMKRouteSearch* _routesearch;
 }
 - (IBAction)backToHome:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *srcLocationName;
 @property (weak, nonatomic) IBOutlet UILabel *desLocationName;
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
+@property (weak, nonatomic) IBOutlet UILabel *orderTime;
 
 
 @end

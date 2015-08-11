@@ -92,19 +92,17 @@
         MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/register" params:params httpMethod:@"POST"];
         [op addCompletionHandler:^(MKNetworkOperation *operation) {
             NSDictionary *responseData = [operation responseJSON];
+            NSLog(@"%@", responseData);
             NSInteger statusCode = [[responseData objectForKey:@"status"] integerValue];
             if (statusCode == 1) {
-                [UserInfo setUserInfoWithUid:phoneNumber password:password];
+                NSLog(@"gender=%@", gender);
+                [UserInfo setUserInfoWithUid:phoneNumber password:password age:age gender:gender];
                 [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
-            } else if (statusCode == -1) {
-                NSString *msg = [responseData objectForKey:@"result"];
+            } else {
+                NSString *msg = [responseData objectForKey:@"message"];
                 UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alter show];
-            } else if (statusCode == -2) {
-                NSString *msg = [responseData objectForKey:@"result"];
-                UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alter show];
-            }
+            } 
             
         } errorHandler:^(MKNetworkOperation *errorOp, NSError *err) {
             UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"网络好像有问题哦，稍后再试" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -126,19 +124,13 @@
         NSDictionary *responseData = [operation responseJSON];
         NSInteger statusCode = [[responseData objectForKey:@"status"] integerValue];
         if (statusCode == 1) {
-            receivedVerifiedCode = [responseData objectForKey:@"result"];
+            receivedVerifiedCode = [responseData objectForKey:@"detail"];
             UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"短信验证码已发至您的手机！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alter show];
 
-        } else if (statusCode == -1){
-            NSString *msg = [responseData objectForKey:@"result"];
+        } else {
+            NSString *msg = [responseData objectForKey:@"message"];
             UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alter show];
-        } else if (statusCode == -2) {
-            UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"短信功能暂时无法使用！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alter show];
-        } else if (statusCode == -3) {
-            UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"手机号非法！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alter show];
         }
         receivedVerifiedCode = [operation responseString];

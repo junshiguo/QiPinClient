@@ -26,6 +26,8 @@
         [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
     }
 
+    self.phoneNumber.text = [UserInfo getUid];
+    
     
 }
 
@@ -38,5 +40,20 @@
 - (IBAction)logOff:(id)sender {
     [UserInfo clearUserInfo];
     [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
+    
+    // 环信退出登陆地接口
+    [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
+        if (!error) {
+            NSLog(@"退出成功");
+        }
+    } onQueue:nil];
+    
+}
+- (IBAction)modifyNickname:(id)sender {
+    [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"ModifyNicknameViewController" inView:self];
+}
+
+- (IBAction)modifyJob:(id)sender {
+    [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"ModifyJobViewController" inView:self];
 }
 @end

@@ -23,3 +23,4 @@
 #import <BaiduMapAPI/BMapKit.h>
 #import "MBProgressHUD.h"
 #import "NewOrderCell.h"
+#import "EaseMob.h"

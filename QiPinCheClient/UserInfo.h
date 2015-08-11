@@ -11,9 +11,11 @@
 
 @interface UserInfo : NSObject
 
-+ (void)setUserInfoWithUid:(NSString*)uid password:(NSString*)password;
++ (void)setUserInfoWithUid:(NSString*)uid password:(NSString*)password age:(NSNumber*)age gender:(NSNumber*)gender;
 + (NSString *)getUid;
 + (NSString *)getPassword;
++ (NSNumber *)getAge;
++ (NSNumber *)getGender;
 + (void)clearUserInfo;
 + (BOOL)hasUserInfo;
 

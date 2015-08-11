@@ -36,10 +36,26 @@
         NSDictionary *responseData = [operation responseJSON];
         NSInteger status = [[responseData objectForKey:@"status"] integerValue];
         if (status == 1) {
-            [UserInfo setUserInfoWithUid:phoneNumber password:password];
+            NSDictionary *detail = [responseData objectForKey:@"detail"];
+            NSNumber *age = [detail objectForKey:@"age"];
+            NSNumber *gender = [detail objectForKey:@"gender"];
+            
+            [UserInfo setUserInfoWithUid:phoneNumber password:password age:age gender:gender];
             [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
+            
+            //环信的登陆接口
+            BOOL isAutoLogin = [[EaseMob sharedInstance].chatManager isAutoLoginEnabled];
+            if (!isAutoLogin) {
+                [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:phoneNumber password:@"7474741" completion:^(NSDictionary *loginInfo, EMError *error) {
+                    if (!error) {
+                    // 设置自动登录
+                        [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+                        NSLog(@"登陆成功，设置自动登录");
+                    }
+                } onQueue:nil];
+            }
         } else {
-            NSString *msg = [responseData objectForKey:@"result"];
+            NSString *msg = [responseData objectForKey:@"message"];
             UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alter show];
         }

@@ -22,7 +22,7 @@
     float x, y, width, height;;
     x = 0;
     y = self.expGender.frame.origin.y + self.expGender.frame.size.height + 20;
-    width = [UIScreen mainScreen].applicationFrame.size.width;
+    width = UISCREEN_WIDTH;
     height = self.pinCheButton.frame.origin.y - y -5;
     _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(x, y, width, height)];
     [_mapView setShowsUserLocation:NO];
@@ -36,6 +36,13 @@
     [self initAgeSelector];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLoc:) name:@"LocNotification" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+}
+
+// 当Home键退出后重新打开该页面需要重新加载视图信息
+- (void) applicationDidBecomeActive:(NSNotification *)notification {
+    [self refreshView];
 }
 
 - (void)receiveLoc:(NSNotification*)notification {
@@ -52,31 +59,9 @@
 }
 
 - (void) initAgeSelector {
-    /*float x1 = self.startTime.frame.origin.x;
-    float y = self.startTime.frame.origin.y + self.desLocation.frame.origin.y - self.srcLocation.frame.origin.y;
-    float width = (self.startTime.frame.size.width / 2);
-    float height = self.startTime.frame.size.height;
-    float x2 = x1 + width + 17;*/
-    
-    /*CGRect r1 = self.ageText1.frame;
-    CGRect r2 = self.ageText2.frame;
-    
-    NSLog(@"%f", self.startTime.frame.size.width);
-    NSLog(@"%f", r2.origin.x);
-    self.ageLower = [[Commbox alloc] initWithFrame:r1];
-    self.ageHigher = [[Commbox alloc] initWithFrame:r2];
-    NSLog(@"%f", self.ageHigher.frame.origin.x);
-    NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:100];
-    for (int i = 0; i < 100; i++) {
-        arr[i] = [NSString stringWithFormat:@"%i", i];
-    }
-    
-    self.ageLower.tableArray = arr;
-    self.ageHigher.tableArray = arr;*/
-    //[self.view addSubview:self.ageLower];
-    //[self.view addSubview:self.ageHigher];
     self.ageText1.keyboardType = self.ageText2.keyboardType = UIKeyboardTypeNumberPad;
-    
+    self.ageText1.text = @"0";
+    self.ageText2.text = @"100";
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -89,7 +74,6 @@
     _mapView.showsUserLocation = NO;
     [_mapView viewWillAppear];
     [_locService startUserLocationService];
-    //[self.view addSubview:_mapView];
     _mapView.delegate = self;
     _locService.delegate = self;
 }
@@ -103,6 +87,11 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void) refreshView {
+    _mapView.showsUserLocation = NO;
+    [_locService startUserLocationService];
+}
+
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation {
     [_mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
     [_mapView setZoomLevel:15];
@@ -111,6 +100,15 @@
     coor.longitude = userLocation.location.coordinate.longitude;
     _annotation.coordinate = coor;
     [self getPlaceTitleByLat:coor.latitude andLon:coor.longitude];
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    NSNumber *lat = [NSNumber numberWithDouble:coor.latitude];
+    NSNumber *lon = [NSNumber numberWithDouble:coor.longitude];
+    [dic setValue:lat forKey:@"lat"];
+    [dic setValue:lon forKey:@"lng"];
+    
+    srcLocationDic = dic;
+    
     [self.view addSubview:_mapView];
     [_locService stopUserLocationService];
 }
@@ -129,26 +127,88 @@
 }
 
 - (IBAction)startPinChe:(id)sender {
-    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    if (![self checkPinCheInfo]) return;
-    [self.view addSubview:HUD];
+    /*if (![self checkPinCheInfo]) return;
     
-    HUD.labelText = @"发布成功，正在跳转...";
-    HUD.mode = MBProgressHUDModeText;
-    
-    [HUD showAnimated:YES whileExecutingBlock:^{
-        sleep(2);
-    } completionBlock:^{
-        [HUD removeFromSuperview];
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        [dic setValue:ORDER_TYPE_UN_MATCH forKey:@"orderType"];
-        [dic setObject:@"111" forKey:@"orderId"];
-        [dic setObject:self.srcLocation.text forKey:@"srcLocation"];
-        [dic setObject:self.desLocation.text forKey:@"desLocation"];
-        [dic setObject:self.startTime.text forKey:@"startTime"];
-        /*[ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];*/
-        [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"RouteSearchDemoViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
+    NSDictionary *dic = [self setPinCheParam];
+    MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/addRequest" params:dic httpMethod:@"POST"];
+    [op addCompletionHandler:^(MKNetworkOperation *operation) {
+        NSLog(@"%@", [operation responseJSON]);
+        [self jumpToOrderDetail:operation];
+        
+    } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
+        
     }];
+    [ApplicationDelegate.httpEngine enqueueOperation:op];*/
+    
+    [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self];
+    
+}
+
+- (void) jumpToOrderDetail:(MKNetworkOperation*) operation {
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeText;
+    NSDictionary *data = [operation responseJSON];
+    NSInteger status = [[data objectForKey:@"status"] integerValue];
+    if (status == 1) {
+        NSDictionary *result = [data objectForKey:@"detail"];
+        HUD.labelText = @"发布成功，正在跳转...";
+        [HUD showAnimated:YES whileExecutingBlock:^{
+            sleep(2);
+        } completionBlock:^{
+            [HUD removeFromSuperview];
+            NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+            [dic setValue:ORDER_TYPE_UN_MATCH forKey:@"orderType"];
+            [dic setValue:[result objectForKey:@"time"] forKey:@"orderTime"];
+            [dic setObject:[result objectForKey:@"id"] forKey:@"orderId"];
+            [dic setObject:self.srcLocation.text forKey:@"srcLocation"];
+            [dic setObject:self.desLocation.text forKey:@"desLocation"];
+            [dic setObject:self.startTime.text forKey:@"startTime"];
+            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
+            
+        }];
+        
+    } else {
+        HUD.labelText = [data objectForKey:@"message"];
+        [HUD showAnimated:YES whileExecutingBlock:^{
+            sleep(2);
+        } completionBlock:^{
+            [HUD removeFromSuperview];
+        }];
+    }
+    
+    
+
+    
+}
+
+- (NSDictionary*) setPinCheParam {
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    
+    [dic setObject:[srcLocationDic objectForKey:@"lat"] forKey:@"src_lat"];
+    [dic setObject:[srcLocationDic objectForKey:@"lng"] forKey:@"src_lng"];
+    
+    [dic setObject:[desLocationDic objectForKey:@"lat"] forKey:@"dest_lat"];
+    [dic setObject:[desLocationDic objectForKey:@"lng"] forKey:@"dest_lng"];
+    
+    [dic setObject:self.startTime.text forKey:@"expectTime"];
+    [dic setObject:[NSNumber numberWithInteger:self.expGender.selectedSegmentIndex] forKey:@"expectGender"];
+    [dic setObject:[NSNumber numberWithInteger:[self.ageText1.text integerValue]] forKey:@"expectAgeMin"];
+    [dic setObject:[NSNumber numberWithInteger:[self.ageText2.text integerValue]] forKey:@"expectAgeMax"];
+    
+    [dic setObject:ApplicationDelegate.uid forKey:@"phoneNumber"];
+    [dic setObject:ApplicationDelegate.age forKey:@"age"];
+    [dic setObject:ApplicationDelegate.gender forKey:@"gender"];
+    
+    NSString *srcName = self.srcLocation.text;
+    NSString *desName = self.desLocation.text;
+    
+    [dic setObject:srcName  forKey:@"src_name"];
+    [dic setObject:desName forKey:@"dest_name"];
+    
+    NSLog(@"%@", dic);
+    
+    return dic;
     
 }
 
@@ -174,6 +234,7 @@
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:@"desLoc" forKey:@"lastScreen"];
     [dic setObject:@"" forKey:@"initialPlace"];
+    [dic setObject:@"1" forKey:@"isCurrent"];
     
     [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PlaceSearchViewController" inView:self withNotificationName:@"SelectLocationNotification" andObject:dic];
 }

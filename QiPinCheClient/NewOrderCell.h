@@ -14,5 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *srcLocation;
 @property (weak, nonatomic) IBOutlet UILabel *desLocation;
 @property (weak, nonatomic) IBOutlet UILabel *statusText;
+@property (weak, nonatomic) IBOutlet UIButton *showMore;
 @property (weak, nonatomic) NSString *orderId;
+- (IBAction)showMore:(id)sender;
 @end

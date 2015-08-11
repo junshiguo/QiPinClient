@@ -11,8 +11,11 @@
 #import "UserInfo.h"
 #import <BaiduMapAPI/BMapKit.h>
 #import "BaiduAPIEngine.h"
+#import "CommonHeader.h"
 
 #define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
+#define UISCREEN_WIDTH [UIScreen mainScreen].applicationFrame.size.width
+#define UISCREEN_HEIGHT [UIScreen mainScreen].applicationFrame.size.height
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     BMKMapManager *_mapManager;
@@ -25,6 +28,8 @@
 @property (strong, nonatomic) NSString *uid;
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *baiduAK;
+@property (strong, nonatomic) NSNumber *age;
+@property (strong, nonatomic) NSNumber *gender;
 
 
 @end

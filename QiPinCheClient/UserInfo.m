@@ -10,8 +10,13 @@
 
 @implementation UserInfo
 
-+ (void)setUserInfoWithUid:(NSString*)uid password:(NSString*)password {
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:password, uid, nil];
++ (void)setUserInfoWithUid:(NSString*)uid password:(NSString*)password age:(NSNumber*)age gender:(NSNumber*) gender {
+    //NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:password, uid, nil];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:uid forKey:@"uid"];
+    [dic setObject:password forKey:@"password"];
+    [dic setObject:age forKey:@"age"];
+    [dic setObject:gender forKey:@"gender"];
     NSMutableArray *array = [NSMutableArray arrayWithObjects:dic, nil];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [paths objectAtIndex:0];
@@ -20,7 +25,10 @@
     [array writeToFile:filename atomically:YES];
     ApplicationDelegate.uid = uid;
     ApplicationDelegate.password = password;
-    NSLog(@"saved!!");
+    ApplicationDelegate.age = age;
+    ApplicationDelegate.gender = gender;
+    
+    NSLog(@"saved!!%@", dic);
 }
 
 + (NSString *)getUid {
@@ -32,7 +40,7 @@
 }
 
 + (void)clearUserInfo {
-    NSArray *array = [[NSArray alloc] initWithObjects:nil, nil, nil];
+    NSArray *array = [[NSArray alloc] initWithObjects:nil];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [paths objectAtIndex:0];
     NSString *filename = [path stringByAppendingPathComponent:@"account.plist"];
@@ -40,6 +48,8 @@
     NSLog(@"cleared!!");
     ApplicationDelegate.uid = nil;
     ApplicationDelegate.password = nil;
+    ApplicationDelegate.age = nil;
+    ApplicationDelegate.gender = nil;
 }
 
 + (BOOL)hasUserInfo {
@@ -49,5 +59,13 @@
     return true;
 }
 
++ (NSNumber *)getAge {
+    return ApplicationDelegate.age;
+}
+
+
++ (NSNumber *)getGender {
+    return ApplicationDelegate.gender;
+}
 
 @end
