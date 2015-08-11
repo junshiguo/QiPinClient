@@ -11,7 +11,10 @@
 		D60530401B78CCC100F4CF08 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D605303E1B78CCC100F4CF08 /* Profile.storyboard */; };
 		D60530411B78CCC100F4CF08 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D605303F1B78CCC100F4CF08 /* Order.storyboard */; };
 		D616E5671B723345007ECADB /* CancelledOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D616E5661B723345007ECADB /* CancelledOrderViewController.m */; };
+<<<<<<< HEAD
 		D617B8381B799C2E00560AA8 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D617B8371B799C2E00560AA8 /* arrow.png */; };
+=======
+>>>>>>> 4c5bbd91bf29adb64c63b2f74469593340c6d3c4
 		D646FCF61B7876DC009BFC90 /* TQStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D646FCF51B7876DC009BFC90 /* TQStarRatingView.m */; };
 		D646FCFB1B7876F1009BFC90 /* backgroundStar.png in Resources */ = {isa = PBXBuildFile; fileRef = D646FCF71B7876F1009BFC90 /* backgroundStar.png */; };
 		D646FCFC1B7876F1009BFC90 /* backgroundStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D646FCF81B7876F1009BFC90 /* backgroundStar@2x.png */; };
@@ -109,7 +112,10 @@
 		D605303F1B78CCC100F4CF08 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		D616E5651B723345007ECADB /* CancelledOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CancelledOrderViewController.h; sourceTree = "<group>"; };
 		D616E5661B723345007ECADB /* CancelledOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancelledOrderViewController.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		D617B8371B799C2E00560AA8 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+=======
+>>>>>>> 4c5bbd91bf29adb64c63b2f74469593340c6d3c4
 		D646FCF41B7876DC009BFC90 /* TQStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQStarRatingView.h; sourceTree = "<group>"; };
 		D646FCF51B7876DC009BFC90 /* TQStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQStarRatingView.m; sourceTree = "<group>"; };
 		D646FCF71B7876F1009BFC90 /* backgroundStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundStar.png; sourceTree = "<group>"; };
@@ -432,7 +438,10 @@
 		D658D0EC1B6C80DC0097FC0D /* image */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				D617B8371B799C2E00560AA8 /* arrow.png */,
+=======
+>>>>>>> 4c5bbd91bf29adb64c63b2f74469593340c6d3c4
 				D646FD0F1B78B770009BFC90 /* Order.png */,
 				D646FD101B78B770009BFC90 /* personal.png */,
 				D646FD111B78B770009BFC90 /* Home.png */,
@@ -960,7 +969,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D685B5E91B75DABD0086209C /* WaitingForConfirmView.xib in Resources */,
+<<<<<<< HEAD
 				D617B8381B799C2E00560AA8 /* arrow.png in Resources */,
+=======
+>>>>>>> 4c5bbd91bf29adb64c63b2f74469593340c6d3c4
 				D658D0CE1B6C75580097FC0D /* Main.storyboard in Resources */,
 				D646FD141B78B770009BFC90 /* Home.png in Resources */,
 				D66A8AC61B7765F900FEADE8 /* noimage.png in Resources */,
