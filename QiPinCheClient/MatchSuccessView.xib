@@ -67,7 +67,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="qrW-ZO-MPG" secondAttribute="trailing" constant="84" id="1Nr-ZG-dNd">
-                    <variation key="widthClass=compact" constant="120"/>
+                    <variation key="widthClass=compact" constant="100"/>
                 </constraint>
                 <constraint firstItem="gkC-4D-oVL" firstAttribute="top" secondItem="uxc-aA-QoN" secondAttribute="bottom" constant="25" id="B6g-w1-v4o"/>
                 <constraint firstAttribute="centerX" secondItem="Srv-rf-HSL" secondAttribute="centerX" id="Hbn-Tq-I59"/>
@@ -89,10 +89,10 @@
                     <exclude reference="qrW-ZO-MPG"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="HtA-3r-iow"/>
-                    <exclude reference="chv-R1-QWE"/>
                     <exclude reference="Hbn-Tq-I59"/>
                     <exclude reference="khI-GV-46Z"/>
+                    <exclude reference="HtA-3r-iow"/>
+                    <exclude reference="chv-R1-QWE"/>
                     <exclude reference="Kry-1Q-ZHO"/>
                     <exclude reference="PrA-rK-TXS"/>
                     <exclude reference="nfe-aK-wK1"/>
@@ -111,10 +111,10 @@
                     <include reference="qrW-ZO-MPG"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="HtA-3r-iow"/>
-                    <include reference="chv-R1-QWE"/>
                     <include reference="Hbn-Tq-I59"/>
                     <include reference="khI-GV-46Z"/>
+                    <include reference="HtA-3r-iow"/>
+                    <include reference="chv-R1-QWE"/>
                     <include reference="Kry-1Q-ZHO"/>
                     <include reference="PrA-rK-TXS"/>
                     <include reference="nfe-aK-wK1"/>
