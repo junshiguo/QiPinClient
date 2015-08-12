@@ -23,7 +23,7 @@
     
     // APP从后台进入前台的监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
-    
+    btnIndex = 0;
     currentPage = 1;
     [self addHeadRefreshView];
 }
