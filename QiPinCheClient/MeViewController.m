@@ -17,6 +17,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // 修改用户名和昵称的监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nickNameChanged:) name:@"ChangedNickName" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jobChanged:) name:@"ChangedJob" object:nil];
+
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
+    MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/getUserInfo" params:dic httpMethod:@"POST"];
+    [op addCompletionHandler:^(MKNetworkOperation *operation) {
+        NSDictionary *response = [operation responseJSON];
+
+        NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
+        if (statusCode == 1) {
+            NSDictionary *dic = [response objectForKey:@"detail"];
+            self.phoneNumber.text = [UserInfo getUid];
+            self.nickName.text = [dic objectForKey:@"name"];
+            
+            if ([dic objectForKey:@"gender"] == 0) {
+                self.gender.text = @"男";
+            } else {
+                self.gender.text = @"女";
+            }
+            self.age.text = [NSString stringWithFormat:@"%li", [[dic objectForKey:@"age"] integerValue]];
+            self.job.text = [dic objectForKey:@"job"];
+            
+        } else {
+            NSString *message = [response objectForKey:@"message"];
+            if (message == nil) {
+                message = @"网络异常";
+            }
+            [UIAlertShow showAlertViewWithMsg:message];
+        }
+        
+    } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
+        [UIAlertShow showAlertViewWithMsg:@"网络异常"];
+        
+    }];
+    [ApplicationDelegate.httpEngine enqueueOperation:op];
+}
+
+- (void) nickNameChanged:(NSNotification*)notification {
+    self.nickName.text = [notification object];
+}
+
+- (void) jobChanged:(NSNotification*)notification {
+    self.job.text = [notification object];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

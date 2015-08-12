@@ -54,11 +54,11 @@
                     <exclude reference="YAl-fL-Qy6"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="QE3-hu-OfH"/>
-                    <exclude reference="TSE-g5-pZO"/>
                     <exclude reference="FsS-KS-ntG"/>
                     <exclude reference="d6l-1l-wrS"/>
                     <exclude reference="tI6-A9-XBF"/>
+                    <exclude reference="QE3-hu-OfH"/>
+                    <exclude reference="TSE-g5-pZO"/>
                     <exclude reference="N4Y-U5-Unk"/>
                     <exclude reference="evg-Hv-ybo"/>
                     <exclude reference="vxc-VF-OjR"/>
@@ -71,11 +71,11 @@
                     <include reference="YAl-fL-Qy6"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="QE3-hu-OfH"/>
-                    <include reference="TSE-g5-pZO"/>
                     <include reference="FsS-KS-ntG"/>
                     <include reference="d6l-1l-wrS"/>
                     <include reference="tI6-A9-XBF"/>
+                    <include reference="QE3-hu-OfH"/>
+                    <include reference="TSE-g5-pZO"/>
                     <include reference="N4Y-U5-Unk"/>
                     <include reference="evg-Hv-ybo"/>
                     <include reference="vxc-VF-OjR"/>

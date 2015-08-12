@@ -30,7 +30,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
@@ -74,12 +74,12 @@
                     <exclude reference="yPg-8Z-w6d"/>
                     <exclude reference="1Qy-Qt-TGO"/>
                     <exclude reference="aKE-xb-ODE"/>
-                    <exclude reference="NJd-Mc-Wgc"/>
-                    <exclude reference="dLb-KI-aRw"/>
-                    <exclude reference="hWz-i6-dnJ"/>
                     <exclude reference="1Q3-Tj-SD3"/>
                     <exclude reference="Bzs-wq-Tlx"/>
                     <exclude reference="Imq-es-yKu"/>
+                    <exclude reference="NJd-Mc-Wgc"/>
+                    <exclude reference="dLb-KI-aRw"/>
+                    <exclude reference="hWz-i6-dnJ"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -94,12 +94,12 @@
                     <include reference="yPg-8Z-w6d"/>
                     <include reference="1Qy-Qt-TGO"/>
                     <include reference="aKE-xb-ODE"/>
-                    <include reference="NJd-Mc-Wgc"/>
-                    <include reference="dLb-KI-aRw"/>
-                    <include reference="hWz-i6-dnJ"/>
                     <include reference="1Q3-Tj-SD3"/>
                     <include reference="Bzs-wq-Tlx"/>
                     <include reference="Imq-es-yKu"/>
+                    <include reference="NJd-Mc-Wgc"/>
+                    <include reference="dLb-KI-aRw"/>
+                    <include reference="hWz-i6-dnJ"/>
                 </mask>
             </variation>
             <connections>

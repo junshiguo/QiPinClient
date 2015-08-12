@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "CommonHeader.h"
 
+#define MATCH_ANSWER_MSG 0
+#define PARTNER_CONFIRM 1
+#define PARTNER_CANCELLED 2
 
 @interface OrderDetailViewController : UIViewController<EMChatManagerDelegate> {
     NSString *orderId, *srcLocationName, *desLocationName, *orderTime, *startTime, *matchUid, *matchNickName;
     NSInteger orderType;
+    NSInteger statusViewY;
 }
 - (IBAction)backToHome:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *srcLocationName;

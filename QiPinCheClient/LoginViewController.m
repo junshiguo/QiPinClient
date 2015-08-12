@@ -56,6 +56,7 @@
             }
         } else {
             NSString *msg = [responseData objectForKey:@"message"];
+            if (msg == nil) msg = @"网络错误！";
             UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alter show];
         }

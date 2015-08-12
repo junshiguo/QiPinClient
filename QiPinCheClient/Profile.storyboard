@@ -88,6 +88,9 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="nickName" destination="1Ae-HC-J1P" id="hlB-e8-msy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bx2-kQ-K5b" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,6 +189,9 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="job" destination="zgW-qC-FYN" id="FmR-b8-Lbq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3T-Bg-BIp" sceneMemberID="firstResponder"/>
             </objects>
