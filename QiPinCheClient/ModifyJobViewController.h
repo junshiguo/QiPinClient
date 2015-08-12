@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonHeader.h"
 
 @interface ModifyJobViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *job;
 
 - (IBAction)back:(id)sender;
 - (IBAction)save:(id)sender;

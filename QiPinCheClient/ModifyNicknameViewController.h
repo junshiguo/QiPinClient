@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonHeader.h"
 
 @interface ModifyNicknameViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *nickName;
 - (IBAction)back:(id)sender;
 - (IBAction)save:(id)sender;
 

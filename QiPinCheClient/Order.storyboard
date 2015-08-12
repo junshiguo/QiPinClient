@@ -640,7 +640,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="v38-Uf-V40" firstAttribute="top" secondItem="PGn-n9-dFT" secondAttribute="top" constant="132" id="0UX-d1-vDu"/>
-                            <constraint firstItem="wop-6b-hzo" firstAttribute="top" secondItem="PGn-n9-dFT" secondAttribute="top" constant="100" id="3ND-6c-ljb"/>
+                            <constraint firstItem="wop-6b-hzo" firstAttribute="top" secondItem="PGn-n9-dFT" secondAttribute="top" constant="100" id="3ND-6c-ljb">
+                                <variation key="widthClass=compact" constant="100"/>
+                            </constraint>
                             <constraint firstAttribute="centerX" secondItem="v38-Uf-V40" secondAttribute="centerX" id="56l-zh-bQv"/>
                             <constraint firstItem="wop-6b-hzo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PGn-n9-dFT" secondAttribute="top" constant="100" id="6DB-2R-Zgj"/>
                             <constraint firstItem="wop-6b-hzo" firstAttribute="top" secondItem="PGn-n9-dFT" secondAttribute="top" constant="100" id="8EG-eK-A5a"/>
@@ -655,7 +657,9 @@
                             <constraint firstItem="v38-Uf-V40" firstAttribute="top" secondItem="wop-6b-hzo" secondAttribute="bottom" constant="30" id="JAX-zf-vQg"/>
                             <constraint firstAttribute="centerX" secondItem="Mqk-sl-AfS" secondAttribute="centerX" id="RpL-9g-a54"/>
                             <constraint firstAttribute="centerX" secondItem="gyt-ag-IFl" secondAttribute="centerX" id="Wym-op-det"/>
-                            <constraint firstItem="v38-Uf-V40" firstAttribute="top" secondItem="gyt-ag-IFl" secondAttribute="bottom" constant="8" id="ZEp-u7-yht"/>
+                            <constraint firstItem="v38-Uf-V40" firstAttribute="top" secondItem="gyt-ag-IFl" secondAttribute="bottom" constant="8" id="ZEp-u7-yht">
+                                <variation key="widthClass=compact" constant="5"/>
+                            </constraint>
                             <constraint firstItem="v38-Uf-V40" firstAttribute="leading" secondItem="wop-6b-hzo" secondAttribute="leading" id="ZnX-XA-kUQ"/>
                             <constraint firstItem="Mqk-sl-AfS" firstAttribute="top" secondItem="v38-Uf-V40" secondAttribute="bottom" constant="20.5" id="ZwT-xA-vue"/>
                             <constraint firstItem="v38-Uf-V40" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PGn-n9-dFT" secondAttribute="top" constant="132" id="aOW-3o-5uG"/>
@@ -666,7 +670,7 @@
                             <constraint firstAttribute="centerX" secondItem="v38-Uf-V40" secondAttribute="centerX" id="oyO-oY-qZt"/>
                             <constraint firstAttribute="centerX" secondItem="wop-6b-hzo" secondAttribute="centerX" id="yTR-Md-IoU"/>
                             <constraint firstItem="gyt-ag-IFl" firstAttribute="top" secondItem="wop-6b-hzo" secondAttribute="bottom" constant="8.5" id="zMy-BP-S7S">
-                                <variation key="widthClass=compact" constant="0.0"/>
+                                <variation key="widthClass=compact" constant="5"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
@@ -734,7 +738,7 @@
                                 <include reference="dOO-O1-y2X"/>
                                 <include reference="fzc-ZC-Ei3"/>
                                 <include reference="kxX-l9-yrP"/>
-                                <include reference="9GH-4j-xPU"/>
+                                <exclude reference="9GH-4j-xPU"/>
                                 <include reference="Wym-op-det"/>
                                 <include reference="zMy-BP-S7S"/>
                             </mask>

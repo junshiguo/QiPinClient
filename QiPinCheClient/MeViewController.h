@@ -13,7 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumber;
 @property (weak, nonatomic) IBOutlet UILabel *nickName;
 @property (weak, nonatomic) IBOutlet UILabel *gender;
-@property (weak, nonatomic) IBOutlet UIButton *age;
+
+@property (weak, nonatomic) IBOutlet UILabel *age;
+
 
 - (IBAction)logOff:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *job;

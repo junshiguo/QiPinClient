@@ -49,6 +49,7 @@
         self.gender = [dic objectForKey:@"gender"];
         NSLog(@"%@,%@,%@,%@", self.uid, self.password, self.age, self.gender);
     }
+    
     //BMKMap
     _mapManager = [[BMKMapManager alloc] init];
     BOOL ret = [_mapManager start:@"Uxn99a5gZWXDQ33gRx9STwmz" generalDelegate:nil];
@@ -56,6 +57,7 @@
         NSLog(@"manager start failed");
     }
     
+    //环信
     [[EaseMob sharedInstance] registerSDKWithAppKey:@"qipin#qipinche" apnsCertName:nil];
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     
@@ -73,11 +75,31 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     [[EaseMob sharedInstance] applicationDidEnterBackground:application];
+    
+    /*NSLog(@"2222");
+    [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:NO completion:^(NSDictionary *info, EMError *error) {
+        if (!error) {
+            NSLog(@"退出成功");
+        } else {
+            NSLog(@"error=%@", error);
+        }
+    } onQueue:nil];*/
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     [[EaseMob sharedInstance] applicationWillEnterForeground:application];
+    
+    /*BOOL isAutoLogin = [[EaseMob sharedInstance].chatManager isAutoLoginEnabled];
+    if (!isAutoLogin) {
+        [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:_uid password:@"7474741" completion:^(NSDictionary *loginInfo, EMError *error) {
+            if (!error) {
+                // 设置自动登录
+                [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+                NSLog(@"登陆成功，设置自动登录");
+            }
+        } onQueue:nil];
+    }*/
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
