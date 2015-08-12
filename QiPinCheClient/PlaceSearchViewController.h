@@ -18,12 +18,8 @@
 
 
 @property (strong, nonatomic) NSMutableArray *resultArray;
-
-
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-
 @property (weak, nonatomic) IBOutlet UITableView *placeTable;
-@property (weak, nonatomic) IBOutlet UIScrollView *srollView;
 
 - (IBAction)backClick:(id)sender;
 - (void) filterContentForSearchText:(NSString *)searchText;

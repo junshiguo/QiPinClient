@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "CommonHeader.h"
+#import "EGORefreshTableHeaderView.h"
 
-@interface AllOrderViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
+@interface AllOrderViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, EGORefreshTableHeaderDelegate> {
     NSInteger btnIndex;
+    
+    EGORefreshTableHeaderView *_headView;
+    CGPoint point;//判断是上拉还是下拉
+    BOOL isRefresh;//下拉刷新
+    int currentPage;//当前显示的页码
+    int tag;//判断是上拉还是下拉加载
 }
 @property (weak, nonatomic) IBOutlet UIButton *doingBtn;
 @property (weak, nonatomic) IBOutlet UIButton *finishBtn;
