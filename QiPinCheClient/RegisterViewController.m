@@ -67,18 +67,13 @@
     
     if ([phoneNumber length] == 0 || [verifyCode length] == 0 || [password length] == 0 || [confirmedPassword length] == 0
         || [username length] == 0 || [age integerValue]== 0 || [job length] == 0) {
-        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"您输入的信息不完整" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alter show];
+        [UIAlertShow showAlertViewWithMsg:@"您输入的信息不完整"];
     } else if (![password isEqualToString:confirmedPassword]){
-        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"您输入的密码不一致" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alter show];
+        [UIAlertShow showAlertViewWithMsg:@"您输入的密码不一致"];
     } else if (![verifyCode isEqualToString:@"234"]) {
-        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"验证码错误！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alter show];
+        [UIAlertShow showAlertViewWithMsg:@"验证码错误！"];
     } else if(![self isPhoneNumber:phoneNumber]) {
-        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"非法手机号！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alter show];
-        
+        [UIAlertShow showAlertViewWithMsg:@"非法手机号！"];
     } else {
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         [params setObject:phoneNumber forKey:@"phoneNumber"];
@@ -100,15 +95,11 @@
                 [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
             } else {
                 NSString *msg = [responseData objectForKey:@"message"];
-                UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alter show];
+                [UIAlertShow showAlertViewWithMsg:msg];
             } 
             
         } errorHandler:^(MKNetworkOperation *errorOp, NSError *err) {
-            UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"网络好像有问题哦，稍后再试" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alter show];
-            
-            
+            [UIAlertShow showAlertViewWithMsg:@"网络好像有问题哦，稍后再试"];
         }];
         [ApplicationDelegate.httpEngine enqueueOperation:op];
         
@@ -125,9 +116,7 @@
         NSInteger statusCode = [[responseData objectForKey:@"status"] integerValue];
         if (statusCode == 1) {
             receivedVerifiedCode = [responseData objectForKey:@"detail"];
-            UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"短信验证码已发至您的手机！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alter show];
-
+            [UIAlertShow showAlertViewWithMsg:@"短信验证码已发至您的手机！"];
         } else {
             NSString *msg = [responseData objectForKey:@"message"];
             UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
