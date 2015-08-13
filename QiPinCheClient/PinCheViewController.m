@@ -214,8 +214,7 @@
 
 - (BOOL) checkPinCheInfo {
     if ([self.srcLocation.text length] == 0 || [self.desLocation.text length] == 0 || [self.startTime.text length] == 0) {
-        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:@"您输入的信息不完整！" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alter show];
+        [UIAlertShow showAlertViewWithMsg:@"您输入的信息不完整！"];
         return false;
     }
     return true;
