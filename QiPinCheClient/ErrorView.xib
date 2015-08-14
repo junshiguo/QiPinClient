@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ErrorView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器出错啦，请耐心等待！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sg3-PS-s6e">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgU-7F-MAW">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.14968057175839977" blue="0.20311981158029868" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="我要取消订单">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="sg3-PS-s6e" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="54" id="BPe-m8-FDh"/>
+                <constraint firstItem="xgU-7F-MAW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="70" id="Dc9-0x-cfu">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
+                <constraint firstAttribute="centerX" secondItem="xgU-7F-MAW" secondAttribute="centerX" id="M4X-pH-giU"/>
+                <constraint firstItem="xgU-7F-MAW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="111" id="WVn-aW-Jmf"/>
+                <constraint firstAttribute="centerX" secondItem="sg3-PS-s6e" secondAttribute="centerX" id="iE1-5T-uEM"/>
+                <constraint firstItem="sg3-PS-s6e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="54" id="tK3-fz-KbN"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="sg3-PS-s6e"/>
+                    <exclude reference="xgU-7F-MAW"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="BPe-m8-FDh"/>
+                    <exclude reference="iE1-5T-uEM"/>
+                    <exclude reference="tK3-fz-KbN"/>
+                    <exclude reference="Dc9-0x-cfu"/>
+                    <exclude reference="M4X-pH-giU"/>
+                    <exclude reference="WVn-aW-Jmf"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="sg3-PS-s6e"/>
+                    <include reference="xgU-7F-MAW"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="BPe-m8-FDh"/>
+                    <include reference="iE1-5T-uEM"/>
+                    <include reference="tK3-fz-KbN"/>
+                    <include reference="Dc9-0x-cfu"/>
+                    <include reference="M4X-pH-giU"/>
+                    <include reference="WVn-aW-Jmf"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="cancelOrder" destination="xgU-7F-MAW" id="HP7-Gw-tXW"/>
+            </connections>
+        </view>
+    </objects>
+</document>

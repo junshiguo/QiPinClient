@@ -22,7 +22,7 @@
     self.ageSelector.textField.placeholder = @"请输入年龄年龄";
     NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:100];
     for (int i = 0; i < 100; i++) {
-        arr[i] = [NSString stringWithFormat:@"%i", i];
+        arr[i] = [NSString stringWithFormat:@"%i岁", i];
     }
     
     self.ageSelector.tableArray = arr;

@@ -298,52 +298,52 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHZ-Vc-mMZ">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHZ-Vc-mMZ">
                                 <rect key="frame" x="130" y="245" width="159.5" height="157.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年龄：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHa-hz-WL6">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="年龄：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHa-hz-WL6">
                                         <rect key="frame" x="20" y="20" width="51" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22岁" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nJ-Uf-PS6">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="22岁" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nJ-Uf-PS6">
                                         <rect key="frame" x="86" y="20" width="36.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnR-aH-0iJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="性别：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SnR-aH-0iJ">
                                         <rect key="frame" x="20" y="52" width="51" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugS-QO-sLT">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="女" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugS-QO-sLT">
                                         <rect key="frame" x="86" y="52" width="17" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="职业：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nn-Pp-zsP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="职业：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nn-Pp-zsP">
                                         <rect key="frame" x="20" y="85" width="51" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学生" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxE-eX-hoC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="学生" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxE-eX-hoC">
                                         <rect key="frame" x="86" y="85" width="34" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="信誉：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEh-mb-Faf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="信誉：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEh-mb-Faf">
                                         <rect key="frame" x="20" y="117" width="51" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0/5.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-Bn-9Xt">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="5.0/5.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-Bn-9Xt">
                                         <rect key="frame" x="86" y="117" width="53.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -387,6 +387,8 @@
                                     <mask key="constraints">
                                         <exclude reference="2qf-3U-VzG"/>
                                         <exclude reference="hwd-Pk-VZd"/>
+                                        <exclude reference="SPA-UJ-1bW"/>
+                                        <exclude reference="c8v-O3-Hth"/>
                                         <exclude reference="7nK-ip-owI"/>
                                         <exclude reference="H1p-xv-8LD"/>
                                         <exclude reference="gZx-8V-Xjb"/>
@@ -394,8 +396,6 @@
                                         <exclude reference="WsQ-8o-9QU"/>
                                         <exclude reference="hA0-kO-Dz9"/>
                                         <exclude reference="trk-hg-dN5"/>
-                                        <exclude reference="SPA-UJ-1bW"/>
-                                        <exclude reference="c8v-O3-Hth"/>
                                         <exclude reference="Cw9-pz-elO"/>
                                         <exclude reference="D32-dv-6zh"/>
                                         <exclude reference="QxJ-v4-a4F"/>
@@ -415,6 +415,8 @@
                                     <mask key="constraints">
                                         <include reference="2qf-3U-VzG"/>
                                         <include reference="hwd-Pk-VZd"/>
+                                        <include reference="SPA-UJ-1bW"/>
+                                        <include reference="c8v-O3-Hth"/>
                                         <include reference="7nK-ip-owI"/>
                                         <include reference="H1p-xv-8LD"/>
                                         <include reference="gZx-8V-Xjb"/>
@@ -422,8 +424,6 @@
                                         <include reference="WsQ-8o-9QU"/>
                                         <include reference="hA0-kO-Dz9"/>
                                         <include reference="trk-hg-dN5"/>
-                                        <include reference="SPA-UJ-1bW"/>
-                                        <include reference="c8v-O3-Hth"/>
                                         <include reference="Cw9-pz-elO"/>
                                         <include reference="D32-dv-6zh"/>
                                         <include reference="QxJ-v4-a4F"/>
@@ -481,6 +481,21 @@
                                 <exclude reference="pMy-cf-uV0"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="ElD-lP-WuC"/>
+                                <exclude reference="KZv-Zl-W5U"/>
+                                <exclude reference="1KK-bp-Gpq"/>
+                                <exclude reference="Wfx-AV-FtL"/>
+                                <exclude reference="h94-v1-FUx"/>
+                                <exclude reference="heu-oN-5lQ"/>
+                                <exclude reference="8dg-jN-4UA"/>
+                                <exclude reference="Da7-Yk-gcZ"/>
+                                <exclude reference="I2y-K3-whT"/>
+                                <exclude reference="KtT-zS-1j3"/>
+                                <exclude reference="STK-5K-yMN"/>
+                                <exclude reference="v7s-jD-YVI"/>
+                                <exclude reference="eA5-Md-jZr"/>
+                                <exclude reference="kzj-MY-D1s"/>
+                                <exclude reference="uhN-jA-qZU"/>
                                 <exclude reference="Aps-4L-qBj"/>
                                 <exclude reference="STZ-CW-PJM"/>
                                 <exclude reference="g6U-qg-dUi"/>
@@ -489,23 +504,8 @@
                                 <exclude reference="eGr-rC-6Cf"/>
                                 <exclude reference="z5F-8N-8kr"/>
                                 <exclude reference="zJl-lR-qxO"/>
-                                <exclude reference="1KK-bp-Gpq"/>
-                                <exclude reference="Wfx-AV-FtL"/>
-                                <exclude reference="h94-v1-FUx"/>
-                                <exclude reference="heu-oN-5lQ"/>
-                                <exclude reference="STK-5K-yMN"/>
-                                <exclude reference="v7s-jD-YVI"/>
-                                <exclude reference="ElD-lP-WuC"/>
-                                <exclude reference="KZv-Zl-W5U"/>
-                                <exclude reference="8dg-jN-4UA"/>
-                                <exclude reference="Da7-Yk-gcZ"/>
-                                <exclude reference="I2y-K3-whT"/>
-                                <exclude reference="KtT-zS-1j3"/>
                                 <exclude reference="4ot-hN-Cnf"/>
                                 <exclude reference="NmY-EX-Q5h"/>
-                                <exclude reference="eA5-Md-jZr"/>
-                                <exclude reference="kzj-MY-D1s"/>
-                                <exclude reference="uhN-jA-qZU"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -519,6 +519,21 @@
                                 <include reference="pMy-cf-uV0"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="ElD-lP-WuC"/>
+                                <include reference="KZv-Zl-W5U"/>
+                                <include reference="1KK-bp-Gpq"/>
+                                <include reference="Wfx-AV-FtL"/>
+                                <exclude reference="h94-v1-FUx"/>
+                                <exclude reference="heu-oN-5lQ"/>
+                                <include reference="8dg-jN-4UA"/>
+                                <include reference="Da7-Yk-gcZ"/>
+                                <include reference="I2y-K3-whT"/>
+                                <include reference="KtT-zS-1j3"/>
+                                <include reference="STK-5K-yMN"/>
+                                <include reference="v7s-jD-YVI"/>
+                                <include reference="eA5-Md-jZr"/>
+                                <include reference="kzj-MY-D1s"/>
+                                <include reference="uhN-jA-qZU"/>
                                 <include reference="Aps-4L-qBj"/>
                                 <include reference="STZ-CW-PJM"/>
                                 <include reference="g6U-qg-dUi"/>
@@ -527,23 +542,8 @@
                                 <include reference="eGr-rC-6Cf"/>
                                 <exclude reference="z5F-8N-8kr"/>
                                 <include reference="zJl-lR-qxO"/>
-                                <include reference="1KK-bp-Gpq"/>
-                                <include reference="Wfx-AV-FtL"/>
-                                <exclude reference="h94-v1-FUx"/>
-                                <exclude reference="heu-oN-5lQ"/>
-                                <include reference="STK-5K-yMN"/>
-                                <include reference="v7s-jD-YVI"/>
-                                <include reference="ElD-lP-WuC"/>
-                                <include reference="KZv-Zl-W5U"/>
-                                <include reference="8dg-jN-4UA"/>
-                                <include reference="Da7-Yk-gcZ"/>
-                                <include reference="I2y-K3-whT"/>
-                                <include reference="KtT-zS-1j3"/>
                                 <include reference="4ot-hN-Cnf"/>
                                 <include reference="NmY-EX-Q5h"/>
-                                <include reference="eA5-Md-jZr"/>
-                                <include reference="kzj-MY-D1s"/>
-                                <include reference="uhN-jA-qZU"/>
                             </mask>
                         </variation>
                     </view>
@@ -551,6 +551,7 @@
                         <outlet property="age" destination="8nJ-Uf-PS6" id="UZB-bU-rPz"/>
                         <outlet property="gender" destination="ugS-QO-sLT" id="Mh6-aG-jbI"/>
                         <outlet property="job" destination="hxE-eX-hoC" id="bMm-hJ-xG7"/>
+                        <outlet property="nickName" destination="BMh-kW-5Gl" id="TGf-RP-hQh"/>
                         <outlet property="phoneNumber" destination="lhf-T3-sfs" id="RYF-gD-Agw"/>
                     </connections>
                 </viewController>
