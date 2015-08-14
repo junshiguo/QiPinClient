@@ -111,10 +111,13 @@
             break;
         case CONFIRMED_CONFIRMED:
             [self setMatchSuccessViewWithDetail:detail];
+            break;
         case WAITING_FOR_MATCH:
             [self setWaitingForMatchView];
+            break;
         case ERROR_STATUS:
-            
+            [self setErrorView];
+            break;
         default:
             break;
     }
