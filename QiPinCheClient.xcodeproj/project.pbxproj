@@ -50,6 +50,8 @@
 		D658D1261B6CCD670097FC0D /* MKNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D1181B6CCD670097FC0D /* MKNetworkEngine.m */; };
 		D658D1271B6CCD670097FC0D /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D11B1B6CCD670097FC0D /* MKNetworkOperation.m */; };
 		D658D1281B6CCD670097FC0D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D11E1B6CCD670097FC0D /* Reachability.m */; };
+		D666084E1B7C6AD1008F096F /* ErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = D666084D1B7C6AD1008F096F /* ErrorView.m */; };
+		D66608501B7C6AE9008F096F /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D666084F1B7C6AE9008F096F /* ErrorView.xib */; };
 		D66A8AC11B771C8300FEADE8 /* ModifyNicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A8AC01B771C8300FEADE8 /* ModifyNicknameViewController.m */; };
 		D66A8AC41B771CD300FEADE8 /* ModifyJobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A8AC31B771CD300FEADE8 /* ModifyJobViewController.m */; };
 		D66A8AC61B7765F900FEADE8 /* noimage.png in Resources */ = {isa = PBXBuildFile; fileRef = D66A8AC51B7765F900FEADE8 /* noimage.png */; };
@@ -188,6 +190,9 @@
 		D658D11B1B6CCD670097FC0D /* MKNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkOperation.m; sourceTree = "<group>"; };
 		D658D11D1B6CCD670097FC0D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		D658D11E1B6CCD670097FC0D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		D666084C1B7C6AD1008F096F /* ErrorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorView.h; sourceTree = "<group>"; };
+		D666084D1B7C6AD1008F096F /* ErrorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorView.m; sourceTree = "<group>"; };
+		D666084F1B7C6AE9008F096F /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		D66A8ABF1B771C8300FEADE8 /* ModifyNicknameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyNicknameViewController.h; sourceTree = "<group>"; };
 		D66A8AC01B771C8300FEADE8 /* ModifyNicknameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNicknameViewController.m; sourceTree = "<group>"; };
 		D66A8AC21B771CD300FEADE8 /* ModifyJobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyJobViewController.h; sourceTree = "<group>"; };
@@ -588,6 +593,7 @@
 				D696FDDD1B7845820033C54D /* WaitingForPartnerConfirmView.xib */,
 				D696FDDF1B784FB90033C54D /* PartnerCancelledView.xib */,
 				D696FDE71B786A770033C54D /* MatchSuccessView.xib */,
+				D666084F1B7C6AE9008F096F /* ErrorView.xib */,
 				D6A7EFAD1B74EA89008F5E8F /* WaitingForConfirmView.h */,
 				D6A7EFAE1B74EA89008F5E8F /* WaitingForConfirmView.m */,
 				D6A7EFAF1B74EA89008F5E8F /* WaitingForMatchView.h */,
@@ -598,6 +604,8 @@
 				D696FDE21B784FD40033C54D /* PartnerCancelledView.m */,
 				D696FDE41B7869D90033C54D /* MatchSuccessView.h */,
 				D696FDE51B7869D90033C54D /* MatchSuccessView.m */,
+				D666084C1B7C6AD1008F096F /* ErrorView.h */,
+				D666084D1B7C6AD1008F096F /* ErrorView.m */,
 				D68EC1D71B6DBDA600ACE019 /* Commbox.h */,
 				D68EC1D81B6DBDA600ACE019 /* Commbox.mm */,
 				D6E47D491B71B6D7009DCE22 /* MBProgressHUD.h */,
@@ -1064,6 +1072,7 @@
 				D685B5E91B75DABD0086209C /* WaitingForConfirmView.xib in Resources */,
 				D6A4C1491B7B0CCB00455088 /* blackArrow.png in Resources */,
 				D617B8381B799C2E00560AA8 /* arrow.png in Resources */,
+				D66608501B7C6AE9008F096F /* ErrorView.xib in Resources */,
 				D658D0CE1B6C75580097FC0D /* Main.storyboard in Resources */,
 				D646FD141B78B770009BFC90 /* Home.png in Resources */,
 				D66A8AC61B7765F900FEADE8 /* noimage.png in Resources */,
@@ -1124,6 +1133,7 @@
 				D696FDE61B7869D90033C54D /* MatchSuccessView.m in Sources */,
 				D6A4C1511B7B0CCB00455088 /* PagesEntity.m in Sources */,
 				D658D0C51B6C75580097FC0D /* AppDelegate.m in Sources */,
+				D666084E1B7C6AD1008F096F /* ErrorView.m in Sources */,
 				D6A4C1521B7B0CCB00455088 /* RefreshTableView.m in Sources */,
 				D6E47D4B1B71B6D7009DCE22 /* MBProgressHUD.m in Sources */,
 				D658D0C81B6C75580097FC0D /* HomeViewController.m in Sources */,

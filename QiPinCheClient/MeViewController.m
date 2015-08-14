@@ -39,7 +39,7 @@
             } else {
                 self.gender.text = @"女";
             }
-            self.age.text = [NSString stringWithFormat:@"%li", [[dic objectForKey:@"age"] integerValue]];
+            self.age.text = [NSString stringWithFormat:@"%li岁", [[dic objectForKey:@"age"] integerValue]];
             self.job.text = [dic objectForKey:@"job"];
             
         } else {

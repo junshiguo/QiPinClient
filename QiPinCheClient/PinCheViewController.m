@@ -158,7 +158,6 @@
         } completionBlock:^{
             [HUD removeFromSuperview];
             NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-            [dic setValue:ORDER_TYPE_UN_MATCH forKey:@"orderType"];
             [dic setValue:[result objectForKey:@"time"] forKey:@"orderTime"];
             [dic setObject:[result objectForKey:@"id"] forKey:@"orderId"];
             [dic setObject:self.srcLocation.text forKey:@"srcLocation"];
