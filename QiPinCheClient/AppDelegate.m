@@ -21,9 +21,13 @@
 @synthesize baiduAK = _baiduAK;
 @synthesize age = _age;
 @synthesize gender = _gender;
+@synthesize route = _route;
+
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    
     self.baiduAK = @"Uxn99a5gZWXDQ33gRx9STwmz";
     
     //HttpEngine
@@ -109,6 +113,12 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [[EaseMob sharedInstance] applicationWillTerminate:application];
+}
+
+void uncaughtExceptionHandler(NSException*exception){
+    NSLog(@"CRASH: %@", exception);
+    NSLog(@"Stack Trace: %@",[exception callStackSymbols]);
+    // Internal error reporting
 }
 
 @end

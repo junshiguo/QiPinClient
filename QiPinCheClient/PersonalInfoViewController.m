@@ -14,7 +14,6 @@
 
 @implementation PersonalInfoViewController
 
-@synthesize phoneNumber = _phoneNumber;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,11 +23,13 @@
 
 - (void) getInfo:(NSNotification*)notification {
     NSDictionary *dic = [notification object];
+    NSLog(@"getInfo, dic=%@", dic);
+
     if ([dic objectForKey:@"ShowPhoneNumber"]) showPhoneNumber = YES;
     else showPhoneNumber = NO;
     
     // 在双方未确认前不显示对方手机号
-    if (!showPhoneNumber) self.phoneNumber.hidden = YES;
+    if (!showPhoneNumber) self.phoneNumberLabel.hidden = YES;
     phoneNumber = [dic objectForKey:@"partnerPhoneNumber"];
     
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
@@ -40,7 +41,7 @@
         NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
         if (statusCode == 1) {
             NSDictionary *dic = [response objectForKey:@"detail"];
-            self.phoneNumber.text = [UserInfo getUid];
+            self.phoneNumberLabel.text = [UserInfo getUid];
             self.nickName.text = [dic objectForKey:@"name"];
             if ([dic objectForKey:@"gender"] == 0) {
                 self.gender.text = @"男";

@@ -755,10 +755,10 @@
             </objects>
             <point key="canvasLocation" x="528" y="-394"/>
         </scene>
-        <!--Route Search Demo View Controller-->
+        <!--Route Search View Controller-->
         <scene sceneID="V5V-ip-1vr">
             <objects>
-                <viewController storyboardIdentifier="RouteSearchDemoViewController" id="txJ-V0-C9I" customClass="RouteSearchDemoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RouteSearchViewController" id="txJ-V0-C9I" customClass="RouteSearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tY4-Ka-I2I"/>
                         <viewControllerLayoutGuide type="bottom" id="aN0-D6-9Ai"/>
@@ -766,8 +766,50 @@
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="RouteSearchDemoViewController" id="Ex6-56-KWD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaH-Xk-Jl6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="路径规划" id="HFz-2l-kNP">
+                                        <barButtonItem key="leftBarButtonItem" title="返回" id="rbi-q8-8x7">
+                                            <connections>
+                                                <action selector="back:" destination="txJ-V0-C9I" id="kOk-Vf-Cov"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="zaH-Xk-Jl6" secondAttribute="centerX" id="3Fc-4D-ebQ"/>
+                            <constraint firstItem="zaH-Xk-Jl6" firstAttribute="top" secondItem="Ex6-56-KWD" secondAttribute="top" constant="20" id="Hqd-3e-WhD"/>
+                            <constraint firstItem="zaH-Xk-Jl6" firstAttribute="leading" secondItem="Ex6-56-KWD" secondAttribute="leading" id="mOu-4r-odC"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="zaH-Xk-Jl6"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="3Fc-4D-ebQ"/>
+                                <exclude reference="Hqd-3e-WhD"/>
+                                <exclude reference="mOu-4r-odC"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="zaH-Xk-Jl6"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="3Fc-4D-ebQ"/>
+                                <include reference="Hqd-3e-WhD"/>
+                                <include reference="mOu-4r-odC"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="naviBar" destination="zaH-Xk-Jl6" id="hT8-EU-e7n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vo-at-GAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

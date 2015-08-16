@@ -19,5 +19,7 @@
 - (IBAction)cancelToMatch:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *confirmToMatch;
 @property (weak, nonatomic) IBOutlet UIButton *cancelToMatch;
+@property (weak, nonatomic) IBOutlet UILabel *savePercent;
+@property (weak, nonatomic) IBOutlet UIButton *showRouteBtn;
 
 @end
