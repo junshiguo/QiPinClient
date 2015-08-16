@@ -20,6 +20,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     BMKMapManager *_mapManager;
     NSArray *orderObjs;
+    NSArray *route;
 }
 
 @property (strong, nonatomic) UIWindow *window;
@@ -30,6 +31,7 @@
 @property (strong, nonatomic) NSString *baiduAK;
 @property (strong, nonatomic) NSNumber *age;
 @property (strong, nonatomic) NSNumber *gender;
+@property (strong, nonatomic) NSArray *route;
 
 
 @end

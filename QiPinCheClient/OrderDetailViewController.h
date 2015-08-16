@@ -18,9 +18,11 @@
 #define WAITING_FOR_MATCH 7 //正在处理：算法正在寻找匹配
 #define ERROR_STATUS 8 //无此请求，应该是服务器出错啦！
 
-@interface OrderDetailViewController : UIViewController<EMChatManagerDelegate> {
+@interface OrderDetailViewController : UIViewController<EMChatManagerDelegate, UIAlertViewDelegate> {
     NSString *requestId, *partnerPhoneNumber;
     NSInteger statusViewY, status;
+    NSArray *route;
+    NSInteger remainChance;
 }
 - (IBAction)backToHome:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *srcLocationName;

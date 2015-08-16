@@ -127,7 +127,8 @@
 }
 
 - (IBAction)startPinChe:(id)sender {
-    /*if (![self checkPinCheInfo]) return;
+    //[self showRoute];
+    if (![self checkPinCheInfo]) return;
     
     NSDictionary *dic = [self setPinCheParam];
     MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/addRequest" params:dic httpMethod:@"POST"];
@@ -138,9 +139,7 @@
     } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
         
     }];
-    [ApplicationDelegate.httpEngine enqueueOperation:op];*/
-    
-    [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self];
+    [ApplicationDelegate.httpEngine enqueueOperation:op];
     
 }
 
@@ -160,9 +159,11 @@
             NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
             [dic setValue:[result objectForKey:@"time"] forKey:@"orderTime"];
             [dic setObject:[result objectForKey:@"id"] forKey:@"orderId"];
+            //[dic setObject:@"111" forKey:@"orderId"];
             [dic setObject:self.srcLocation.text forKey:@"srcLocation"];
             [dic setObject:self.desLocation.text forKey:@"desLocation"];
             [dic setObject:self.startTime.text forKey:@"startTime"];
+            [dic setObject:@"1" forKey:@"isCurrent"];
             [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
             
         }];
@@ -180,6 +181,22 @@
 
     
 }
+
+- (void) showRoute {
+    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:4];
+    NSDictionary *dic1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"31.3069", @"lat", @"121.5096", @"lng", @"复旦大学", @"name", nil];
+    [array addObject:dic1];
+    NSDictionary *dic2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"31.3010", @"lat", @"121.4943", @"lng", @"大柏树", @"name", nil];
+    [array addObject:dic2];
+    NSDictionary *dic3 = [[NSDictionary alloc] initWithObjectsAndKeys:@"31.2042", @"lat", @"121.3253", @"lng", @"虹桥火车站", @"name", nil];
+    [array addObject:dic3];
+    NSDictionary *dic4 = [[NSDictionary alloc] initWithObjectsAndKeys:@"31.2042", @"lat", @"121.3253", @"lng", @"虹桥火车站", @"name", nil];
+    [array addObject:dic4];
+    ApplicationDelegate.route = array;
+    
+    [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"RouteSearchViewController" inView:self];
+}
+
 
 - (NSDictionary*) setPinCheParam {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
