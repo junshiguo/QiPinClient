@@ -18,6 +18,8 @@
     BOOL isRefresh;//下拉刷新
     int currentPage;//当前显示的页码
     int tag;//判断是上拉还是下拉加载
+    
+    NSMutableArray *onGoingOrders, *finishedOrders;
 }
 @property (weak, nonatomic) IBOutlet UIButton *doingBtn;
 @property (weak, nonatomic) IBOutlet UIButton *finishBtn;

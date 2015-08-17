@@ -46,7 +46,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     index = 0;
-    planRoute = [[NSMutableArray alloc] init];
     //适配ios7
     if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0))
     {
@@ -55,74 +54,102 @@
     float y = self.naviBar.frame.origin.y + self.naviBar.frame.size.height;
     
     _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, y, UISCREEN_WIDTH,  UISCREEN_HEIGHT - y)];
-    
-    _routesearch = [[BMKRouteSearch alloc]init];
-    
-    BMKPlanNode* start = [[BMKPlanNode alloc]init];
     float lat, lng;
     NSArray *array = ApplicationDelegate.route;
-    lat = [self getLatOrLngByString:[array[0] objectForKey:@"lat"]];
-    lng = [self getLatOrLngByString:[array[0] objectForKey:@"lng"]];
-    start.pt = CLLocationCoordinate2DMake(lat, lng);
-    
-    lat = [self getLatOrLngByString:[array[1] objectForKey:@"lat"]];
-    lng = [self getLatOrLngByString:[array[1] objectForKey:@"lng"]];
-    BMKPlanNode* end = [[BMKPlanNode alloc]init];
-    end.pt = CLLocationCoordinate2DMake(lat, lng);
-    BMKDrivingRoutePlanOption *drivingRouteSearchOption = [[BMKDrivingRoutePlanOption alloc]init];
-    drivingRouteSearchOption.from = start;
-    drivingRouteSearchOption.to = end;
-    BOOL flag = [_routesearch drivingSearch:drivingRouteSearchOption];
-    if(flag)
+    if ([array count] == 4)
     {
-        NSLog(@"car检索发送成功");
-    }
-    else
-    {
-        NSLog(@"car检索发送失败");
-    }
-    
-    
-    _routesearch1 = [[BMKRouteSearch alloc] init];
-    
-    BMKPlanNode *start1 = [[BMKPlanNode alloc] init];
-    BMKPlanNode *end1 = [[BMKPlanNode alloc] init];
-    start1.pt = CLLocationCoordinate2DMake(lat, lng);
-    
-    lat = [self getLatOrLngByString:[array[2] objectForKey:@"lat"]];
-    lng = [self getLatOrLngByString:[array[2] objectForKey:@"lng"]];
-    end1.pt = CLLocationCoordinate2DMake(lat, lng);
-    drivingRouteSearchOption.from = start1;
-    drivingRouteSearchOption.to = end1;
-    flag = [_routesearch1 drivingSearch:drivingRouteSearchOption];
-    if(flag)
-    {
-        NSLog(@"car检索发送成功");
-    }
-    else
-    {
-        NSLog(@"car检索发送失败");
-    }
-    
-    _routesearch2 = [[BMKRouteSearch alloc] init];
-    
-    BMKPlanNode *start2 = [[BMKPlanNode alloc] init];
-    BMKPlanNode *end2 = [[BMKPlanNode alloc] init];
-    start2.pt = CLLocationCoordinate2DMake(lat, lng);
-    
-    lat = [self getLatOrLngByString:[array[3] objectForKey:@"lat"]];
-    lng = [self getLatOrLngByString:[array[3] objectForKey:@"lng"]];
-    end2.pt = CLLocationCoordinate2DMake(lat, lng);
-    drivingRouteSearchOption.from = start2;
-    drivingRouteSearchOption.to = end2;
-    flag = [_routesearch2 drivingSearch:drivingRouteSearchOption];
-    if(flag)
-    {
-        NSLog(@"car检索发送成功");
-    }
-    else
-    {
-        NSLog(@"car检索发送失败");
+        _routesearch = [[BMKRouteSearch alloc]init];
+        
+        start = [[BMKPlanNode alloc]init];
+        lat = [self getLatOrLngByString:[array[0] objectForKey:@"lat"]];
+        lng = [self getLatOrLngByString:[array[0] objectForKey:@"lng"]];
+        start.pt = CLLocationCoordinate2DMake(lat, lng);
+        
+        RouteAnnotation* item1 = [[RouteAnnotation alloc]init];
+        item1.coordinate = start.pt;
+        item1.title = [array[0] objectForKey:@"name"];;
+        item1.type = 0;
+        [_mapView addAnnotation:item1];
+        
+        
+        lat = [self getLatOrLngByString:[array[1] objectForKey:@"lat"]];
+        lng = [self getLatOrLngByString:[array[1] objectForKey:@"lng"]];
+        end = [[BMKPlanNode alloc]init];
+        end.pt = CLLocationCoordinate2DMake(lat, lng);
+        RouteAnnotation *item2 = [[RouteAnnotation alloc] init];
+        item2.coordinate = end.pt;
+        item2.title = [array[1] objectForKey:@"name"];
+        item2.type = 0;
+        [_mapView addAnnotation:item2];
+        
+        BMKDrivingRoutePlanOption *drivingRouteSearchOption = [[BMKDrivingRoutePlanOption alloc]init];
+        drivingRouteSearchOption.from = start;
+        drivingRouteSearchOption.to = end;
+        BOOL flag = [_routesearch drivingSearch:drivingRouteSearchOption];
+        if(flag)
+        {
+            NSLog(@"car检索发送成功");
+        }
+        else
+        {
+            NSLog(@"car检索发送失败");
+        }
+        
+        
+        _routesearch1 = [[BMKRouteSearch alloc] init];
+        
+        start1 = [[BMKPlanNode alloc] init];
+        end1 = [[BMKPlanNode alloc] init];
+        start1.pt = CLLocationCoordinate2DMake(lat, lng);
+        
+        lat = [self getLatOrLngByString:[array[2] objectForKey:@"lat"]];
+        lng = [self getLatOrLngByString:[array[2] objectForKey:@"lng"]];
+        end1.pt = CLLocationCoordinate2DMake(lat, lng);
+        RouteAnnotation *item3 = [[RouteAnnotation alloc] init];
+        item3.coordinate = end1.pt;
+        item3.title = [array[2] objectForKey:@"name"];
+        item3.type = 1;
+        [_mapView addAnnotation:item3];
+        
+        
+        drivingRouteSearchOption.from = start1;
+        drivingRouteSearchOption.to = end1;
+        flag = [_routesearch1 drivingSearch:drivingRouteSearchOption];
+        if(flag)
+        {
+            NSLog(@"car检索发送成功");
+        }
+        else
+        {
+            NSLog(@"car检索发送失败");
+        }
+        
+        _routesearch2 = [[BMKRouteSearch alloc] init];
+        
+        start2 = [[BMKPlanNode alloc] init];
+        end2 = [[BMKPlanNode alloc] init];
+        start2.pt = CLLocationCoordinate2DMake(lat, lng);
+        
+        lat = [self getLatOrLngByString:[array[3] objectForKey:@"lat"]];
+        lng = [self getLatOrLngByString:[array[3] objectForKey:@"lng"]];
+        end2.pt = CLLocationCoordinate2DMake(lat, lng);
+        RouteAnnotation *item4 = [[RouteAnnotation alloc] init];
+        item4.coordinate = end2.pt;
+        item4.title = [array[3] objectForKey:@"name"];
+        item4.type = 1;
+        [_mapView addAnnotation:item4];
+        
+        drivingRouteSearchOption.from = start2;
+        drivingRouteSearchOption.to = end2;
+        flag = [_routesearch2 drivingSearch:drivingRouteSearchOption];
+        if(flag)
+        {
+            NSLog(@"car检索发送成功");
+        }
+        else
+        {
+            NSLog(@"car检索发送失败");
+        }
     }
     
     [self.view addSubview:_mapView];
@@ -267,6 +294,7 @@
 
 - (BMKAnnotationView *)mapView:(BMKMapView *)view viewForAnnotation:(id <BMKAnnotation>)annotation
 {
+    
 	if ([annotation isKindOfClass:[RouteAnnotation class]]) {
 		return [self getRouteAnnotationView:view viewForAnnotation:(RouteAnnotation*)annotation];
 	}
@@ -288,30 +316,32 @@
 - (void)onGetDrivingRouteResult:(BMKRouteSearch*)searcher result:(BMKDrivingRouteResult*)result errorCode:(BMKSearchErrorCode)error
 {
     NSLog(@"11111");
-    //NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
-    //[_mapView removeAnnotations:array];
-    //array = [NSArray arrayWithArray:_mapView.overlays];
-    //[_mapView removeOverlays:array];
     if (error == BMK_SEARCH_NO_ERROR) {
         BMKDrivingRouteLine* plan = (BMKDrivingRouteLine*)[result.routes objectAtIndex:0];
         // 计算路线方案中的路段数目
-        int size = [plan.steps count];
+        NSUInteger size = [plan.steps count];
         int planPointCounts = 0;
         for (int i = 0; i < size; i++) {
             BMKDrivingStep* transitStep = [plan.steps objectAtIndex:i];
-            if(i==0){
-                RouteAnnotation* item = [[RouteAnnotation alloc]init];
-                item.coordinate = plan.starting.location;
-                item.title = @"起点";
-                item.type = 0;
-                [_mapView addAnnotation:item]; // 添加起点标注
+            if(i == 0){
+                NSString *name = [self getSourceName:plan.starting.location];
+                if (name != nil) {
+                    RouteAnnotation* item = [[RouteAnnotation alloc]init];
+                    item.coordinate = plan.starting.location;
+                    item.title = name;
+                    item.type = 0;
+                    [_mapView addAnnotation:item]; // 添加起点标注
+                }
                 
-            }else if(i==size-1){
-                RouteAnnotation* item = [[RouteAnnotation alloc]init];
-                item.coordinate = plan.terminal.location;
-                item.title = @"终点";
-                item.type = 1;
-                [_mapView addAnnotation:item]; // 添加起点标注
+            } else if(i == size-1){
+                NSString *name = [self getDestinationName:plan.terminal.location];
+                if (name != nil) {
+                    RouteAnnotation* item = [[RouteAnnotation alloc]init];
+                    item.coordinate = plan.terminal.location;
+                    item.title = name;
+                    item.type = 1;
+                    [_mapView addAnnotation:item]; // 添加起点标注
+                }
             }
             //添加annotation节点
             RouteAnnotation* item = [[RouteAnnotation alloc]init];
@@ -354,6 +384,8 @@
         delete []temppoints;
         [self mapViewFitPolyLine:polyLine];
     }
+    
+    index ++;
 }
 
 
@@ -396,5 +428,32 @@
 
 - (IBAction)back:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
+- (NSString*) getSourceName:(CLLocationCoordinate2D) location {
+    NSArray *array = ApplicationDelegate.route;
+    if (fabs(location.latitude - [[array[0] objectForKey:@"lat"] doubleValue]) <= 0.0001 && fabs(location.longitude - [[array[0] objectForKey:@"lng"] doubleValue]) <= 0.0001) {
+        return [array[0] objectForKey:@"name"];
+    }
+    
+    if (fabs(location.latitude - [[array[1] objectForKey:@"lat"] doubleValue]) < 0.0001 && fabs(location.longitude - [[array[1] objectForKey:@"lng"] doubleValue]) < 0.0001) {
+        return [array[1] objectForKey:@"name"];
+    }
+    
+    return nil;
+}
+
+- (NSString*) getDestinationName:(CLLocationCoordinate2D) location {
+    NSArray *array = ApplicationDelegate.route;
+    if (fabs(location.latitude - [[array[2] objectForKey:@"lat"] doubleValue]) <= 0.0001 && fabs(location.longitude - [[array[2] objectForKey:@"lng"] doubleValue]) <= 0.0001) {
+        return [array[2] objectForKey:@"name"];
+    }
+    
+    if (fabs(location.latitude - [[array[3] objectForKey:@"lat"] doubleValue]) <= 0.0001 && fabs(location.longitude - [[array[3] objectForKey:@"lng"] doubleValue]) <= 0.0001) {
+        return [array[3] objectForKey:@"name"];
+
+    }
+    
+    return nil;
 }
 @end

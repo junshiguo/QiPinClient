@@ -112,10 +112,12 @@
 - (void) setOrderStatusViewByStatus:(NSInteger)statusCode andDetail:(NSDictionary*)detail {
     NSDictionary *partner = [detail objectForKey:@"partner"];
     NSDictionary *me = [detail objectForKey:@"me"];
-    self.srcLocationName.text = [me objectForKey:@"sourceName"];
-    self.desLocationName.text = [me objectForKey:@"destinationName"];
-    self.startTime.text = [me objectForKey:@"leavingTime"];
-    remainChance = [[me objectForKey:@"remainChance"] integerValue];
+    if (me != nil) {
+        self.srcLocationName.text = [me objectForKey:@"sourceName"];
+        self.desLocationName.text = [me objectForKey:@"destinationName"];
+        self.startTime.text = [me objectForKey:@"leavingTime"];
+        remainChance = [[me objectForKey:@"remainChance"] integerValue];
+    }
     if ([detail objectForKey:@"route"] != nil) {
         route = [self getRouteWithDetail:detail];
         ApplicationDelegate.route = route;
@@ -376,7 +378,9 @@
 
 
 - (void) makeCall {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://18817361981"]];
+    if (partnerPhoneNumber != nil) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:partnerPhoneNumber]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -396,7 +400,7 @@
 }
 
 - (void) showRoute {
-    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:4];
+    /*NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:4];
     NSDictionary *dic1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"31.3069", @"lat", @"121.5096", @"lng", @"复旦大学", @"name", nil];
     [array addObject:dic1];
     NSDictionary *dic2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"31.3010", @"lat", @"121.4943", @"lng", @"大柏树", @"name", nil];
@@ -407,7 +411,7 @@
     [array addObject:dic4];
     
     NSLog(@"%@", route);
-    ApplicationDelegate.route = array;
+    ApplicationDelegate.route = array;*/
     [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"RouteSearchViewController" inView:self];
 }
 

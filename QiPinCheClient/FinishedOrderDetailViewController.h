@@ -10,7 +10,9 @@
 #import "TQStarRatingView.h"
 #import "CommonHeader.h"
 
-@interface FinishedOrderDetailViewController : UIViewController<StarRatingViewDelegate>
+@interface FinishedOrderDetailViewController : UIViewController<StarRatingViewDelegate> {
+    NSString* partnerPhoneNumber;
+}
 @property (weak, nonatomic) IBOutlet UILabel *srcLocation;
 @property (weak, nonatomic) IBOutlet UILabel *desLocation;
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
