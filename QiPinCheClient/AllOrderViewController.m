@@ -54,8 +54,8 @@
         dic = [finishedOrders objectAtIndex:[indexPath row]];
     }
     cell.timeText = [dic objectForKey:@"orderTime"];
-    cell.srcLocation.text = [dic objectForKey:@"sourceLocation"];
-    cell.desLocation.text = [dic objectForKey:@"destinationLocation"];
+    cell.srcLocation.text = [dic objectForKey:@"sourceName"];
+    cell.desLocation.text = [dic objectForKey:@"destinationName"];
     cell.showMore.tag = [indexPath row];
 
     [cell.showMore addTarget:self action:@selector(showMore:) forControlEvents:UIControlEventTouchUpInside];
