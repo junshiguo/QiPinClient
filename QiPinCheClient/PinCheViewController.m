@@ -159,7 +159,6 @@
             NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
             [dic setValue:[result objectForKey:@"time"] forKey:@"orderTime"];
             [dic setObject:[result objectForKey:@"id"] forKey:@"orderId"];
-            //[dic setObject:@"111" forKey:@"orderId"];
             [dic setObject:self.srcLocation.text forKey:@"srcLocation"];
             [dic setObject:self.desLocation.text forKey:@"desLocation"];
             [dic setObject:self.startTime.text forKey:@"startTime"];

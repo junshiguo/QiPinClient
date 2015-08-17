@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonHeader.h"
 
-@interface AfterRatingOrderDetailViewController : UIViewController
+@interface AfterRatingOrderDetailViewController : UIViewController {
+    NSString *partnerPhoneNumber;
+}
 @property (weak, nonatomic) IBOutlet UILabel *srcLocation;
 @property (weak, nonatomic) IBOutlet UILabel *desLocation;
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
