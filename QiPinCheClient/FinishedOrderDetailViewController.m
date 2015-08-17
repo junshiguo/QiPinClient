@@ -32,7 +32,7 @@
         // 判断处于登录状态
         NSMutableDictionary *dic = [notification object];
         [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
-        MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"queryOrder" params:dic httpMethod:@"POST"];
+        MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/queryOrder" params:dic httpMethod:@"POST"];
         [op addCompletionHandler:^(MKNetworkOperation *operation) {
             NSDictionary *response = [operation responseJSON];
             NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
@@ -45,7 +45,7 @@
                 self.desLocation.text = [me objectForKey:@"destinationLocation"];
                 self.startTime.text = [me objectForKey:@"leavingTime"];
                 
-                partnerPhoneNumber = [partner objectForKey:@"partner"];
+                partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
                 self.nickName = [partner objectForKey:@"name"];
                 
             } else {

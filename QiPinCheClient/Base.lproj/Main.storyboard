@@ -849,7 +849,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="复旦大学" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M61-v9-n4I">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="终：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHK-7A-JdH">
@@ -861,13 +861,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浦东国际机场" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Sd-uc-QgQ">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在搜寻" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opa-Oa-ZEG">
-                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVM-kH-KuK">
@@ -882,22 +876,18 @@
                                                 <constraint firstItem="M61-v9-n4I" firstAttribute="centerY" secondItem="nkr-5h-cew" secondAttribute="centerY" id="4Fd-VD-zWh"/>
                                                 <constraint firstItem="nkr-5h-cew" firstAttribute="centerY" secondItem="M61-v9-n4I" secondAttribute="centerY" id="4rY-Ay-Dn1"/>
                                                 <constraint firstItem="nkr-5h-cew" firstAttribute="top" secondItem="0KU-Qd-pfz" secondAttribute="bottom" constant="10.5" id="9It-fX-gao"/>
-                                                <constraint firstItem="fVM-kH-KuK" firstAttribute="top" secondItem="Opa-Oa-ZEG" secondAttribute="bottom" constant="5" id="9Kf-YC-CGN"/>
                                                 <constraint firstItem="YHK-7A-JdH" firstAttribute="centerY" secondItem="0Sd-uc-QgQ" secondAttribute="centerY" id="AyK-0g-e9y"/>
                                                 <constraint firstItem="fVM-kH-KuK" firstAttribute="top" secondItem="knh-NB-ykt" secondAttribute="top" constant="50" id="Bre-XO-MNV"/>
                                                 <constraint firstItem="0Sd-uc-QgQ" firstAttribute="leading" secondItem="M61-v9-n4I" secondAttribute="leading" id="Fcs-Xp-5yQ"/>
                                                 <constraint firstItem="M61-v9-n4I" firstAttribute="centerY" secondItem="nkr-5h-cew" secondAttribute="centerY" id="HIO-Px-oll"/>
-                                                <constraint firstItem="fVM-kH-KuK" firstAttribute="leading" secondItem="Opa-Oa-ZEG" secondAttribute="leading" id="HJl-TU-PlM"/>
                                                 <constraint firstItem="0KU-Qd-pfz" firstAttribute="leading" secondItem="knh-NB-ykt" secondAttribute="leading" constant="16" id="KoZ-zx-qXW"/>
                                                 <constraint firstItem="M61-v9-n4I" firstAttribute="leading" secondItem="nkr-5h-cew" secondAttribute="trailing" constant="4" id="O5r-XH-efJ"/>
                                                 <constraint firstItem="0KU-Qd-pfz" firstAttribute="leading" secondItem="YHK-7A-JdH" secondAttribute="leading" id="SBa-I8-ik6"/>
                                                 <constraint firstItem="YHK-7A-JdH" firstAttribute="centerY" secondItem="0Sd-uc-QgQ" secondAttribute="centerY" id="Tp4-f9-xeb"/>
-                                                <constraint firstAttribute="trailing" secondItem="Opa-Oa-ZEG" secondAttribute="trailing" constant="36" id="Tx6-FK-Wlh"/>
                                                 <constraint firstItem="0KU-Qd-pfz" firstAttribute="leading" secondItem="nkr-5h-cew" secondAttribute="leading" id="UqE-tn-JhA"/>
                                                 <constraint firstItem="M61-v9-n4I" firstAttribute="leading" secondItem="nkr-5h-cew" secondAttribute="trailing" constant="17" id="k7P-fx-fOa"/>
                                                 <constraint firstItem="0KU-Qd-pfz" firstAttribute="top" secondItem="knh-NB-ykt" secondAttribute="top" constant="8" id="lKZ-Kp-PER"/>
                                                 <constraint firstAttribute="trailing" secondItem="fVM-kH-KuK" secondAttribute="trailing" constant="36" id="uaD-Ct-sWm"/>
-                                                <constraint firstItem="Opa-Oa-ZEG" firstAttribute="top" secondItem="knh-NB-ykt" secondAttribute="top" constant="17" id="vgJ-Ga-VD8"/>
                                                 <constraint firstItem="YHK-7A-JdH" firstAttribute="top" secondItem="nkr-5h-cew" secondAttribute="bottom" constant="12.5" id="xOh-2F-Wua"/>
                                             </constraints>
                                             <variation key="default">
@@ -907,7 +897,6 @@
                                                     <exclude reference="M61-v9-n4I"/>
                                                     <exclude reference="YHK-7A-JdH"/>
                                                     <exclude reference="0Sd-uc-QgQ"/>
-                                                    <exclude reference="Opa-Oa-ZEG"/>
                                                     <exclude reference="fVM-kH-KuK"/>
                                                 </mask>
                                                 <mask key="constraints">
@@ -920,16 +909,12 @@
                                                     <exclude reference="HIO-Px-oll"/>
                                                     <exclude reference="O5r-XH-efJ"/>
                                                     <exclude reference="k7P-fx-fOa"/>
-                                                    <exclude reference="Tx6-FK-Wlh"/>
-                                                    <exclude reference="vgJ-Ga-VD8"/>
                                                     <exclude reference="AyK-0g-e9y"/>
                                                     <exclude reference="Tp4-f9-xeb"/>
                                                     <exclude reference="xOh-2F-Wua"/>
                                                     <exclude reference="4rY-Ay-Dn1"/>
                                                     <exclude reference="9It-fX-gao"/>
-                                                    <exclude reference="9Kf-YC-CGN"/>
                                                     <exclude reference="Bre-XO-MNV"/>
-                                                    <exclude reference="HJl-TU-PlM"/>
                                                     <exclude reference="uaD-Ct-sWm"/>
                                                 </mask>
                                             </variation>
@@ -940,7 +925,6 @@
                                                     <include reference="M61-v9-n4I"/>
                                                     <include reference="YHK-7A-JdH"/>
                                                     <include reference="0Sd-uc-QgQ"/>
-                                                    <include reference="Opa-Oa-ZEG"/>
                                                     <include reference="fVM-kH-KuK"/>
                                                 </mask>
                                                 <mask key="constraints">
@@ -953,16 +937,12 @@
                                                     <exclude reference="HIO-Px-oll"/>
                                                     <exclude reference="O5r-XH-efJ"/>
                                                     <include reference="k7P-fx-fOa"/>
-                                                    <include reference="Tx6-FK-Wlh"/>
-                                                    <include reference="vgJ-Ga-VD8"/>
                                                     <include reference="AyK-0g-e9y"/>
                                                     <exclude reference="Tp4-f9-xeb"/>
                                                     <include reference="xOh-2F-Wua"/>
                                                     <include reference="4rY-Ay-Dn1"/>
                                                     <include reference="9It-fX-gao"/>
-                                                    <exclude reference="9Kf-YC-CGN"/>
                                                     <include reference="Bre-XO-MNV"/>
-                                                    <exclude reference="HJl-TU-PlM"/>
                                                     <include reference="uaD-Ct-sWm"/>
                                                 </mask>
                                             </variation>
@@ -971,7 +951,6 @@
                                             <outlet property="desLocation" destination="0Sd-uc-QgQ" id="1qj-Ij-Um7"/>
                                             <outlet property="showMore" destination="fVM-kH-KuK" id="co1-dk-Rq5"/>
                                             <outlet property="srcLocation" destination="M61-v9-n4I" id="DF4-Aj-YwZ"/>
-                                            <outlet property="statusText" destination="Opa-Oa-ZEG" id="L25-AV-mvk"/>
                                             <outlet property="timeText" destination="0KU-Qd-pfz" id="eXz-LT-cr2"/>
                                         </connections>
                                     </tableViewCell>

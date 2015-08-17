@@ -111,7 +111,7 @@
 //	else {
 //		[self delConfirmView];
 //	}
-	int count = [self.tableArray count];
+	NSUInteger count = [self.tableArray count];
 	return count;
 }
 

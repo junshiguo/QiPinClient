@@ -127,7 +127,9 @@
 }
 
 - (IBAction)startPinChe:(id)sender {
-    //[self showRoute];
+    //[ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"PayViewController" inView:self];
+    //[ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"AboutAPPViewController" inView:self];
+    //[ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self];
     if (![self checkPinCheInfo]) return;
     
     NSDictionary *dic = [self setPinCheParam];
@@ -158,7 +160,7 @@
             [HUD removeFromSuperview];
             NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
             [dic setValue:[result objectForKey:@"time"] forKey:@"orderTime"];
-            [dic setObject:[result objectForKey:@"id"] forKey:@"orderId"];
+            [dic setObject:[result objectForKey:@"id"] forKey:@"requestId"];
             [dic setObject:self.srcLocation.text forKey:@"srcLocation"];
             [dic setObject:self.desLocation.text forKey:@"desLocation"];
             [dic setObject:self.startTime.text forKey:@"startTime"];
@@ -180,22 +182,6 @@
 
     
 }
-
-- (void) showRoute {
-    NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:4];
-    NSDictionary *dic1 = [[NSDictionary alloc] initWithObjectsAndKeys:@"31.3069", @"lat", @"121.5096", @"lng", @"复旦大学", @"name", nil];
-    [array addObject:dic1];
-    NSDictionary *dic2 = [[NSDictionary alloc] initWithObjectsAndKeys:@"31.3010", @"lat", @"121.4943", @"lng", @"大柏树", @"name", nil];
-    [array addObject:dic2];
-    NSDictionary *dic3 = [[NSDictionary alloc] initWithObjectsAndKeys:@"31.2042", @"lat", @"121.3253", @"lng", @"虹桥火车站", @"name", nil];
-    [array addObject:dic3];
-    NSDictionary *dic4 = [[NSDictionary alloc] initWithObjectsAndKeys:@"31.2042", @"lat", @"121.3253", @"lng", @"虹桥火车站", @"name", nil];
-    [array addObject:dic4];
-    ApplicationDelegate.route = array;
-    
-    [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"RouteSearchViewController" inView:self];
-}
-
 
 - (NSDictionary*) setPinCheParam {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
