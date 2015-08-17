@@ -25,12 +25,13 @@
     NSDictionary *dic = [notification object];
     NSLog(@"getInfo, dic=%@", dic);
 
-    if ([dic objectForKey:@"ShowPhoneNumber"]) showPhoneNumber = YES;
+    if ([dic objectForKey:@"ShowPhoneNumber"] != nil) showPhoneNumber = YES;
     else showPhoneNumber = NO;
+    phoneNumber = [dic objectForKey:@"partnerPhoneNumber"];
     
     // 在双方未确认前不显示对方手机号
     if (!showPhoneNumber) self.phoneNumberLabel.hidden = YES;
-    phoneNumber = [dic objectForKey:@"partnerPhoneNumber"];
+    else self.phoneNumberLabel.text = [dic objectForKey:@"partnerPhoneNumber"];
     
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
     [data setObject:phoneNumber forKey:@"phoneNumber"];

@@ -30,8 +30,9 @@
 - (void) beforeShowOrderDetail:(NSNotification*) notification {
     if ([UserInfo getUid] != nil) {
         // 判断处于登录状态
-        NSDictionary *dic = [notification object];
-        MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"queryOrder" params:dic httpMethod:@"POST"];
+        NSMutableDictionary *dic = [notification object];
+        [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
+        MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/queryOrder" params:dic httpMethod:@"POST"];
         [op addCompletionHandler:^(MKNetworkOperation *operation) {
             NSDictionary *response = [operation responseJSON];
             NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
@@ -43,9 +44,9 @@
                 self.srcLocation.text = [me objectForKey:@"sourceLocation"];
                 self.desLocation.text = [me objectForKey:@"destinationLocation"];
                 self.startTime.text = [me objectForKey:@"leavingTime"];
-                self.score.text = [dic objectForKey:@"score"];
+                self.score.text = [dic objectForKey:@"rating"];
                 
-                partnerPhoneNumber = [partner objectForKey:@"partner"];
+                partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
                 self.nickName = [partner objectForKey:@"name"];
                 
             } else {

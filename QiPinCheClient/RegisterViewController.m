@@ -12,6 +12,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    receivedVerifiedCode = nil;
     
     // 插入年龄选择按钮
     float width = self.username.frame.size.width;
@@ -64,15 +65,17 @@
     NSNumber *gender = [NSNumber numberWithInteger:self.gender.selectedSegmentIndex];
     NSNumber *age = [NSNumber numberWithInteger:[self.ageSelector.textField.text integerValue]];
     NSString *job = self.job.text;
-    
-    if ([phoneNumber length] == 0 || [verifyCode length] == 0 || [password length] == 0 || [confirmedPassword length] == 0
+    if (receivedVerifiedCode == nil) {
+        [UIAlertShow showAlertViewWithMsg:@"请先获取验证码"];
+
+    } else if ([phoneNumber length] == 0 || [verifyCode length] == 0 || [password length] == 0 || [confirmedPassword length] == 0
         || [username length] == 0 || [age integerValue]== 0 || [job length] == 0) {
         [UIAlertShow showAlertViewWithMsg:@"您输入的信息不完整"];
     } else if (![password isEqualToString:confirmedPassword]){
         [UIAlertShow showAlertViewWithMsg:@"您输入的密码不一致"];
-    } else if (![verifyCode isEqualToString:@"234"]) {
+    } else if (![verifyCode isEqualToString:receivedVerifiedCode]) {
         [UIAlertShow showAlertViewWithMsg:@"验证码错误！"];
-    } else if(![self isPhoneNumber:phoneNumber]) {
+    }else if(![self isPhoneNumber:phoneNumber]) {
         [UIAlertShow showAlertViewWithMsg:@"非法手机号！"];
     } else {
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];

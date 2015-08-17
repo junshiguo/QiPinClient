@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiPinCheClient/RegisterViewController.m"
-            timestampString = "460260751.673692"
+            timestampString = "461506618.668258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-registerOnClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiPinCheClient/PinCheViewController.m"
-            timestampString = "461472419.542942"
+            timestampString = "461488777.196441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "-getPlaceTitleByLat:andLon:"
             landmarkType = "5">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiPinCheClient/PinCheViewController.m"
-            timestampString = "461472419.542942"
+            timestampString = "461488777.196441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
             landmarkName = "-getPlaceTitleByLat:andLon:"
             landmarkType = "5">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiPinCheClient/PinCheViewController.m"
-            timestampString = "461472419.542942"
+            timestampString = "461488777.196441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "-getPlaceTitleByLat:andLon:"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiPinCheClient/PinCheViewController.m"
-            timestampString = "461472419.542942"
+            timestampString = "461488777.196441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "-setPinCheParam"
             landmarkType = "5">
          </BreakpointContent>
@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiPinCheClient/OrderDetailViewController.mm"
-            timestampString = "461472419.542942"
+            timestampString = "461509933.894545"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "-setWaitingForConfirmViewWithDetail:andSavePercent:"
             landmarkType = "5">
          </BreakpointContent>

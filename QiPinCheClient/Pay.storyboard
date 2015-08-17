@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Pay View Controller-->
+        <scene sceneID="6Oa-Xc-O86">
+            <objects>
+                <viewController storyboardIdentifier="PayViewController" id="bqx-8M-g5d" customClass="PayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nq0-aE-VT0"/>
+                        <viewControllerLayoutGuide type="bottom" id="8cm-4E-cMx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0hy-S0-EFS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybW-BL-MWl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="支付" id="5RF-GP-CKk">
+                                        <barButtonItem key="leftBarButtonItem" title="返回" id="Fed-Ff-TQx">
+                                            <connections>
+                                                <action selector="back:" destination="bqx-8M-g5d" id="bdU-3U-9fs"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您本次共需支付押金" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygQ-WZ-CEf">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="70" y="108" width="153" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzj-ec-iN4">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.1496805718" blue="0.20311981160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="236" y="107" width="43" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crk-1Y-iBw">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="299" y="109" width="17" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="押金将会在7个工作日内原路返还" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezF-md-9Mf">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="70" y="152" width="248" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPv-AU-WBT">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.32883309060886834" green="1" blue="0.38748261812739526" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="使用微信支付">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tb3-te-Q7w">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="使用支付宝支付">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="押金是双方拼车信誉的保证" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oql-L3-zet">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.57951476769999999" blue="0.26739172589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ybW-BL-MWl" firstAttribute="top" secondItem="0hy-S0-EFS" secondAttribute="top" constant="20" id="3ss-cN-19I"/>
+                            <constraint firstItem="RPv-AU-WBT" firstAttribute="top" secondItem="Oql-L3-zet" secondAttribute="bottom" constant="83" id="GuP-MD-gDB"/>
+                            <constraint firstItem="RPv-AU-WBT" firstAttribute="leading" secondItem="0hy-S0-EFS" secondAttribute="leading" constant="70" id="Olv-K1-zd0"/>
+                            <constraint firstItem="Tb3-te-Q7w" firstAttribute="leading" secondItem="RPv-AU-WBT" secondAttribute="leading" id="Qip-j9-hkr"/>
+                            <constraint firstItem="RPv-AU-WBT" firstAttribute="top" secondItem="0hy-S0-EFS" secondAttribute="top" constant="215" id="Sn3-jZ-juA">
+                                <variation key="widthClass=compact" constant="300"/>
+                            </constraint>
+                            <constraint firstItem="Tb3-te-Q7w" firstAttribute="top" secondItem="RPv-AU-WBT" secondAttribute="bottom" constant="35" id="TaM-Gn-pew"/>
+                            <constraint firstItem="ybW-BL-MWl" firstAttribute="leading" secondItem="0hy-S0-EFS" secondAttribute="leading" id="b13-ef-sim"/>
+                            <constraint firstAttribute="centerX" secondItem="Oql-L3-zet" secondAttribute="centerX" id="b4t-7A-0aU"/>
+                            <constraint firstItem="Tb3-te-Q7w" firstAttribute="width" secondItem="RPv-AU-WBT" secondAttribute="width" id="c8J-qb-wM4"/>
+                            <constraint firstAttribute="centerX" secondItem="RPv-AU-WBT" secondAttribute="centerX" id="ubI-g9-M6c"/>
+                            <constraint firstAttribute="centerX" secondItem="ybW-BL-MWl" secondAttribute="centerX" id="zVn-I0-LhG"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ybW-BL-MWl"/>
+                                <exclude reference="ygQ-WZ-CEf"/>
+                                <exclude reference="kzj-ec-iN4"/>
+                                <exclude reference="crk-1Y-iBw"/>
+                                <exclude reference="ezF-md-9Mf"/>
+                                <exclude reference="RPv-AU-WBT"/>
+                                <exclude reference="Tb3-te-Q7w"/>
+                                <exclude reference="Oql-L3-zet"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="3ss-cN-19I"/>
+                                <exclude reference="b13-ef-sim"/>
+                                <exclude reference="zVn-I0-LhG"/>
+                                <exclude reference="b4t-7A-0aU"/>
+                                <exclude reference="GuP-MD-gDB"/>
+                                <exclude reference="Olv-K1-zd0"/>
+                                <exclude reference="Sn3-jZ-juA"/>
+                                <exclude reference="ubI-g9-M6c"/>
+                                <exclude reference="Qip-j9-hkr"/>
+                                <exclude reference="TaM-Gn-pew"/>
+                                <exclude reference="c8J-qb-wM4"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ybW-BL-MWl"/>
+                                <include reference="ygQ-WZ-CEf"/>
+                                <include reference="kzj-ec-iN4"/>
+                                <include reference="crk-1Y-iBw"/>
+                                <include reference="ezF-md-9Mf"/>
+                                <include reference="RPv-AU-WBT"/>
+                                <include reference="Tb3-te-Q7w"/>
+                                <include reference="Oql-L3-zet"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="3ss-cN-19I"/>
+                                <include reference="b13-ef-sim"/>
+                                <include reference="zVn-I0-LhG"/>
+                                <include reference="b4t-7A-0aU"/>
+                                <include reference="GuP-MD-gDB"/>
+                                <include reference="Olv-K1-zd0"/>
+                                <include reference="Sn3-jZ-juA"/>
+                                <include reference="ubI-g9-M6c"/>
+                                <include reference="Qip-j9-hkr"/>
+                                <include reference="TaM-Gn-pew"/>
+                                <include reference="c8J-qb-wM4"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kJ4-V9-fwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57" y="287"/>
+        </scene>
+        <!--AboutAPP View Controller-->
+        <scene sceneID="Pl0-8B-tbW">
+            <objects>
+                <viewController storyboardIdentifier="AboutAPPViewController" id="sos-RZ-1tJ" customClass="AboutAPPViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pCM-Ep-lj0"/>
+                        <viewControllerLayoutGuide type="bottom" id="myq-m1-zOd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4SA-5s-76k">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5e-kU-RD8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="关于我们" id="2iW-TV-Edw">
+                                        <barButtonItem key="leftBarButtonItem" title="返回" id="q7z-D0-4jb">
+                                            <connections>
+                                                <action selector="back:" destination="sos-RZ-1tJ" id="a7A-Wz-8MX"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="-5" y="28" width="400" height="44"/>
+                                </variation>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright ©2015" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nx7-Cf-a2O">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海齐拼信息科技有限公司" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJd-nv-AZb">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="    齐拼APP是由上海齐拼信息科技有限公司开发的一款拼车APP，旨在为用户提供一个拼车的平台，使他们的出行更加经济环保。" translatesAutoresizingMaskIntoConstraints="NO" id="MID-FX-54M">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="302" id="Cfh-ss-v8J"/>
+                                    <constraint firstAttribute="height" constant="128" id="Pag-WQ-TZY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Cfh-ss-v8J"/>
+                                        <exclude reference="Pag-WQ-TZY"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Cfh-ss-v8J"/>
+                                        <include reference="Pag-WQ-TZY"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ygg-1t-rvw">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="W3C-8c-ZlP">
+                                        <variation key="widthClass=compact" constant="95"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="80" id="d2t-BF-cUe"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="W3C-8c-ZlP"/>
+                                        <exclude reference="d2t-BF-cUe"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="W3C-8c-ZlP"/>
+                                        <include reference="d2t-BF-cUe"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="官网：www.qipinche.cn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVj-zE-0XP">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="vVj-zE-0XP" secondAttribute="centerX" id="30H-9l-wYF"/>
+                            <constraint firstItem="MID-FX-54M" firstAttribute="top" secondItem="4SA-5s-76k" secondAttribute="top" constant="160" id="IEw-zX-Vkk">
+                                <variation key="widthClass=compact" constant="220"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="NJd-nv-AZb" secondAttribute="centerX" id="Pl0-6R-pOz"/>
+                            <constraint firstItem="vVj-zE-0XP" firstAttribute="top" secondItem="MID-FX-54M" secondAttribute="bottom" constant="26" id="SBf-ti-Dlw">
+                                <variation key="widthClass=compact" constant="36"/>
+                            </constraint>
+                            <constraint firstAttribute="bottom" secondItem="Nx7-Cf-a2O" secondAttribute="bottom" constant="102" id="VWz-sZ-8pu">
+                                <variation key="widthClass=compact" constant="112"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="MID-FX-54M" secondAttribute="centerX" id="e3V-CS-9xb"/>
+                            <constraint firstAttribute="centerX" secondItem="Ygg-1t-rvw" secondAttribute="centerX" id="ewF-99-5vF"/>
+                            <constraint firstItem="Ygg-1t-rvw" firstAttribute="top" secondItem="4SA-5s-76k" secondAttribute="top" constant="86" id="qV0-WU-aOs">
+                                <variation key="widthClass=compact" constant="100"/>
+                            </constraint>
+                            <constraint firstAttribute="centerX" secondItem="Nx7-Cf-a2O" secondAttribute="centerX" id="sBd-bc-0IF"/>
+                            <constraint firstAttribute="bottom" secondItem="NJd-nv-AZb" secondAttribute="bottom" constant="73" id="yAk-ee-3x7">
+                                <variation key="widthClass=compact" constant="83"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="m5e-kU-RD8"/>
+                                <exclude reference="Nx7-Cf-a2O"/>
+                                <exclude reference="NJd-nv-AZb"/>
+                                <exclude reference="MID-FX-54M"/>
+                                <exclude reference="Ygg-1t-rvw"/>
+                                <exclude reference="vVj-zE-0XP"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="ewF-99-5vF"/>
+                                <exclude reference="qV0-WU-aOs"/>
+                                <exclude reference="IEw-zX-Vkk"/>
+                                <exclude reference="e3V-CS-9xb"/>
+                                <exclude reference="30H-9l-wYF"/>
+                                <exclude reference="SBf-ti-Dlw"/>
+                                <exclude reference="VWz-sZ-8pu"/>
+                                <exclude reference="sBd-bc-0IF"/>
+                                <exclude reference="Pl0-6R-pOz"/>
+                                <exclude reference="yAk-ee-3x7"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="m5e-kU-RD8"/>
+                                <include reference="Nx7-Cf-a2O"/>
+                                <include reference="NJd-nv-AZb"/>
+                                <include reference="MID-FX-54M"/>
+                                <include reference="Ygg-1t-rvw"/>
+                                <include reference="vVj-zE-0XP"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="ewF-99-5vF"/>
+                                <include reference="qV0-WU-aOs"/>
+                                <include reference="IEw-zX-Vkk"/>
+                                <include reference="e3V-CS-9xb"/>
+                                <include reference="30H-9l-wYF"/>
+                                <include reference="SBf-ti-Dlw"/>
+                                <include reference="VWz-sZ-8pu"/>
+                                <include reference="sBd-bc-0IF"/>
+                                <include reference="Pl0-6R-pOz"/>
+                                <include reference="yAk-ee-3x7"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQ8-q2-CtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="736.5" y="173"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon.png" width="129" height="110"/>
+    </resources>
+</document>

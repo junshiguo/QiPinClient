@@ -21,16 +21,10 @@
     self.orderTable.dataSource = self;
     self.orderTable.delegate = self;
     
-    // APP从后台进入前台的监听
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     btnIndex = 0;
     currentPage = 1;
     [self addHeadRefreshView];
 }
-
-/*- (void) willEnterForeground:(NSNotification*) notification {
-    [self prepareData];
-}*/
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
@@ -53,11 +47,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NewOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewOrderCell"];
-    
-    /*cell.timeText.text = @"20150515";
-    cell.srcLocation.text = @"复旦大学（张江校区）";
-    cell.desLocation.text = @"复旦大学（邯郸校区）";
-    cell.statusText.text = @"正在搜寻中";*/
     NSDictionary *dic;
     if (btnIndex == 0) {
         dic = [onGoingOrders objectAtIndex:[indexPath row]];
@@ -65,12 +54,11 @@
         dic = [finishedOrders objectAtIndex:[indexPath row]];
     }
     cell.timeText = [dic objectForKey:@"orderTime"];
-    cell.srcLocation.text = [dic objectForKey:@"src_location"];
-    cell.desLocation.text = [dic objectForKey:@"dest_location"];
-    cell.statusText.text = [dic objectForKey:@"status"];
-    cell.tag = [indexPath row];
+    cell.srcLocation.text = [dic objectForKey:@"sourceName"];
+    cell.desLocation.text = [dic objectForKey:@"destinationName"];
+    cell.showMore.tag = [indexPath row];
 
-    [cell.showMore addTarget:self action:@selector(showMore) forControlEvents:UIControlEventTouchUpInside];
+    [cell.showMore addTarget:self action:@selector(showMore:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
@@ -86,17 +74,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (btnIndex == 0) {
-        
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        NSString *requestId = [[onGoingOrders objectAtIndex:[indexPath row]] objectForKey:@"id"];
-        [dic setObject:requestId forKey:@"orderId"];
+        // 进行中的订单
+        NSMutableDictionary *dic = [onGoingOrders objectAtIndex:[indexPath row]];
         [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
     } else {
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        NSDictionary *order = [finishedOrders objectAtIndex:[indexPath row]];
-        NSString *orderId = [order objectForKey:@"id"];
-        [dic setObject:orderId forKey:@"orderId"];
-        if ([[order objectForKey:@"score"] floatValue] < 0.1) {
+        //  已完成的订单
+        NSMutableDictionary *dic = [finishedOrders objectAtIndex:[indexPath row]];
+        if ([[dic objectForKey:@"rating"] floatValue] < 0) {
             // 尚未评分
             [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
         } else {
@@ -111,8 +95,25 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-- (void) showMore {
-    [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self];
+- (void) showMore:(UIButton*)btn {
+    
+    NSUInteger row = btn.tag;
+    if (btnIndex == 0) {
+        // 进行中的订单
+        NSMutableDictionary *dic = [onGoingOrders objectAtIndex:row];
+        [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
+    } else {
+        // 已完成的订单
+        NSMutableDictionary *dic = [finishedOrders objectAtIndex:row];
+        if ([[dic objectForKey:@"rating"] floatValue] < 0) {
+            // 尚未评分
+            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
+        } else {
+            // 已评分
+            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"AfterRatingOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
+        }
+    }
+
 }
 
 
@@ -175,31 +176,14 @@
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
     //这里写下载数据的接口，并进行连接下载
-    MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/getAllOrders" params:dic httpMethod:@"POST"];
+    MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/getOrdersByPhoneNumber" params:dic httpMethod:@"POST"];
     [op addCompletionHandler:^(MKNetworkOperation* operation) {
         NSDictionary *response = [operation responseJSON];
         NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
         if (statusCode == 1) {
-            NSMutableArray *array;
             NSDictionary *detail = [response objectForKey:@"detail"];
-            NSDictionary *onGoingDic = [detail objectForKey:@"onGoingOrders"];
-            NSDictionary *finishedDic = [detail objectForKey:@"finishedOrders"];
-            NSArray *onGoingIds = [onGoingDic allKeys];
-            for (int i = 0; i < [onGoingIds count]; i ++) {
-                NSString *orderId = onGoingIds[i];
-                NSDictionary *dic = [onGoingDic objectForKey:orderId];
-                [array addObject:dic];
-            }
-            onGoingOrders = array;
-            [array removeAllObjects];
-            
-            NSArray *finishedIds = [finishedDic allKeys];
-            for (int i = 0; i < [finishedIds count]; i++) {
-                NSString *orderId = finishedIds[i];
-                NSDictionary *dic = [finishedDic objectForKey:orderId];
-                [array addObject:dic];
-            }
-            finishedOrders = array;
+            onGoingOrders = [detail objectForKey:@"active"];
+            finishedOrders = [detail objectForKey:@"finished"];
             [self requestFinished];
             
         } else {

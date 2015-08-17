@@ -54,8 +54,11 @@
 		D66608501B7C6AE9008F096F /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D666084F1B7C6AE9008F096F /* ErrorView.xib */; };
 		D66A8AC11B771C8300FEADE8 /* ModifyNicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A8AC01B771C8300FEADE8 /* ModifyNicknameViewController.m */; };
 		D66A8AC41B771CD300FEADE8 /* ModifyJobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A8AC31B771CD300FEADE8 /* ModifyJobViewController.m */; };
-		D66A8AC61B7765F900FEADE8 /* noimage.png in Resources */ = {isa = PBXBuildFile; fileRef = D66A8AC51B7765F900FEADE8 /* noimage.png */; };
 		D66A8AC91B776DAA00FEADE8 /* AllOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A8AC81B776DAA00FEADE8 /* AllOrderViewController.m */; };
+		D67710B81B81B5350065BEB2 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67710B71B81B5350065BEB2 /* PayViewController.m */; };
+		D67710BA1B81BEEF0065BEB2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D67710B91B81BEEF0065BEB2 /* icon.png */; };
+		D67710BD1B81BFDF0065BEB2 /* AboutAPPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67710BC1B81BFDF0065BEB2 /* AboutAPPViewController.m */; };
+		D67710BF1B81C42E0065BEB2 /* noimage.png in Resources */ = {isa = PBXBuildFile; fileRef = D67710BE1B81C42E0065BEB2 /* noimage.png */; };
 		D684F8C11B6F19E00039FC45 /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684F8C01B6F19E00039FC45 /* BaiduMapAPI.framework */; };
 		D684F8C31B6F19F20039FC45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684F8C21B6F19F20039FC45 /* CoreLocation.framework */; };
 		D684F8C51B6F1A030039FC45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684F8C41B6F1A030039FC45 /* QuartzCore.framework */; };
@@ -95,6 +98,7 @@
 		D6A4C1551B7B1E2D00455088 /* UIAlertShow.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A4C1541B7B1E2D00455088 /* UIAlertShow.m */; };
 		D6A7EFB11B74EA89008F5E8F /* WaitingForConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A7EFAE1B74EA89008F5E8F /* WaitingForConfirmView.m */; };
 		D6A7EFB21B74EA89008F5E8F /* WaitingForMatchView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6A7EFB01B74EA89008F5E8F /* WaitingForMatchView.m */; };
+		D6AF32F11B81A722008FD7F1 /* Pay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6AF32F01B81A722008FD7F1 /* Pay.storyboard */; };
 		D6BA78A11B74980900020A1E /* libEaseMobClientSDKLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6BA789D1B74980900020A1E /* libEaseMobClientSDKLite.a */; };
 		D6BA78A21B74980900020A1E /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6BA789F1B74980900020A1E /* EaseMob.bundle */; };
 		D6BA78A41B74981600020A1E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6BA78A31B74981500020A1E /* MobileCoreServices.framework */; };
@@ -197,9 +201,14 @@
 		D66A8AC01B771C8300FEADE8 /* ModifyNicknameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNicknameViewController.m; sourceTree = "<group>"; };
 		D66A8AC21B771CD300FEADE8 /* ModifyJobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyJobViewController.h; sourceTree = "<group>"; };
 		D66A8AC31B771CD300FEADE8 /* ModifyJobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyJobViewController.m; sourceTree = "<group>"; };
-		D66A8AC51B7765F900FEADE8 /* noimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noimage.png; path = ../../noimage.png; sourceTree = "<group>"; };
 		D66A8AC71B776DAA00FEADE8 /* AllOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllOrderViewController.h; sourceTree = "<group>"; };
 		D66A8AC81B776DAA00FEADE8 /* AllOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllOrderViewController.m; sourceTree = "<group>"; };
+		D67710B61B81B5350065BEB2 /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
+		D67710B71B81B5350065BEB2 /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
+		D67710B91B81BEEF0065BEB2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		D67710BB1B81BFDF0065BEB2 /* AboutAPPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutAPPViewController.h; sourceTree = "<group>"; };
+		D67710BC1B81BFDF0065BEB2 /* AboutAPPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutAPPViewController.m; sourceTree = "<group>"; };
+		D67710BE1B81C42E0065BEB2 /* noimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noimage.png; sourceTree = "<group>"; };
 		D684F8C01B6F19E00039FC45 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI.framework; sourceTree = "<group>"; };
 		D684F8C21B6F19F20039FC45 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D684F8C41B6F1A030039FC45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -260,6 +269,7 @@
 		D6A7EFAE1B74EA89008F5E8F /* WaitingForConfirmView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitingForConfirmView.m; sourceTree = "<group>"; };
 		D6A7EFAF1B74EA89008F5E8F /* WaitingForMatchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingForMatchView.h; sourceTree = "<group>"; };
 		D6A7EFB01B74EA89008F5E8F /* WaitingForMatchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitingForMatchView.m; sourceTree = "<group>"; };
+		D6AF32F01B81A722008FD7F1 /* Pay.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pay.storyboard; sourceTree = "<group>"; };
 		D6BA78371B74980900020A1E /* EMCallManagerCallDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerCallDelegate.h; sourceTree = "<group>"; };
 		D6BA78381B74980900020A1E /* EMCallManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMCallManagerDelegate.h; sourceTree = "<group>"; };
 		D6BA78391B74980900020A1E /* EaseMob+CallService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EaseMob+CallService.h"; sourceTree = "<group>"; };
@@ -431,12 +441,13 @@
 				D658D0EC1B6C80DC0097FC0D /* image */,
 				D658D0C31B6C75580097FC0D /* AppDelegate.h */,
 				D658D0C41B6C75580097FC0D /* AppDelegate.m */,
+				D658D0D11B6C75580097FC0D /* LaunchScreen.xib */,
 				D658D0CC1B6C75580097FC0D /* Main.storyboard */,
 				D658D0F41B6C89810097FC0D /* User.storyboard */,
 				D605303E1B78CCC100F4CF08 /* Profile.storyboard */,
 				D605303F1B78CCC100F4CF08 /* Order.storyboard */,
+				D6AF32F01B81A722008FD7F1 /* Pay.storyboard */,
 				D658D0CF1B6C75580097FC0D /* Images.xcassets */,
-				D658D0D11B6C75580097FC0D /* LaunchScreen.xib */,
 				D658D0BF1B6C75580097FC0D /* Supporting Files */,
 			);
 			path = QiPinCheClient;
@@ -471,6 +482,8 @@
 		D658D0EC1B6C80DC0097FC0D /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D67710BE1B81C42E0065BEB2 /* noimage.png */,
+				D67710B91B81BEEF0065BEB2 /* icon.png */,
 				D617B8371B799C2E00560AA8 /* arrow.png */,
 				D646FD0F1B78B770009BFC90 /* Order.png */,
 				D646FD101B78B770009BFC90 /* personal.png */,
@@ -480,7 +493,6 @@
 				D646FCF81B7876F1009BFC90 /* backgroundStar@2x.png */,
 				D646FCF91B7876F1009BFC90 /* foregroundStar.png */,
 				D646FCFA1B7876F1009BFC90 /* foregroundStar@2x.png */,
-				D66A8AC51B7765F900FEADE8 /* noimage.png */,
 			);
 			name = image;
 			sourceTree = "<group>";
@@ -518,6 +530,10 @@
 				D646FD031B789255009BFC90 /* PersonalInfoViewController.m */,
 				D617B8391B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.h */,
 				D617B83A1B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.m */,
+				D67710B61B81B5350065BEB2 /* PayViewController.h */,
+				D67710B71B81B5350065BEB2 /* PayViewController.m */,
+				D67710BB1B81BFDF0065BEB2 /* AboutAPPViewController.h */,
+				D67710BC1B81BFDF0065BEB2 /* AboutAPPViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -1073,14 +1089,15 @@
 				D6A4C1491B7B0CCB00455088 /* blackArrow.png in Resources */,
 				D617B8381B799C2E00560AA8 /* arrow.png in Resources */,
 				D66608501B7C6AE9008F096F /* ErrorView.xib in Resources */,
+				D67710BF1B81C42E0065BEB2 /* noimage.png in Resources */,
 				D658D0CE1B6C75580097FC0D /* Main.storyboard in Resources */,
 				D646FD141B78B770009BFC90 /* Home.png in Resources */,
-				D66A8AC61B7765F900FEADE8 /* noimage.png in Resources */,
 				D6A4C14E1B7B0CCB00455088 /* grayArrow@2x.png in Resources */,
 				D6A4C14F1B7B0CCB00455088 /* whiteArrow.png in Resources */,
 				D646FCFE1B7876F1009BFC90 /* foregroundStar@2x.png in Resources */,
 				D60530411B78CCC100F4CF08 /* Order.storyboard in Resources */,
 				D696FDDE1B7845820033C54D /* WaitingForPartnerConfirmView.xib in Resources */,
+				D67710BA1B81BEEF0065BEB2 /* icon.png in Resources */,
 				D696FDE81B786A770033C54D /* MatchSuccessView.xib in Resources */,
 				D684F8CD1B6F1B990039FC45 /* mapapi.bundle in Resources */,
 				D696FDE01B784FB90033C54D /* PartnerCancelledView.xib in Resources */,
@@ -1096,6 +1113,7 @@
 				D6A4C1501B7B0CCB00455088 /* whiteArrow@2x.png in Resources */,
 				D646FCFC1B7876F1009BFC90 /* backgroundStar@2x.png in Resources */,
 				D646FD121B78B770009BFC90 /* Order.png in Resources */,
+				D6AF32F11B81A722008FD7F1 /* Pay.storyboard in Resources */,
 				D605303D1B78CCA800F4CF08 /* WaitingForMatchView.xib in Resources */,
 				D6A4C14B1B7B0CCB00455088 /* blueArrow.png in Resources */,
 				D6BA78A21B74980900020A1E /* EaseMob.bundle in Resources */,
@@ -1155,6 +1173,8 @@
 				D6ECEF491B735B6D008610BA /* RouteSearchViewController.mm in Sources */,
 				D616E5671B723345007ECADB /* CancelledOrderViewController.m in Sources */,
 				D658D1221B6CCD670097FC0D /* NSDictionary+RequestEncoding.m in Sources */,
+				D67710B81B81B5350065BEB2 /* PayViewController.m in Sources */,
+				D67710BD1B81BFDF0065BEB2 /* AboutAPPViewController.m in Sources */,
 				D6A4C1551B7B1E2D00455088 /* UIAlertShow.m in Sources */,
 				D658D11F1B6CCD670097FC0D /* NSAlert+MKNetworkKitAdditions.m in Sources */,
 				D658D1281B6CCD670097FC0D /* Reachability.m in Sources */,
