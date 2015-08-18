@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiPinCheClient/OrderDetailViewController.mm"
-            timestampString = "461509933.894545"
+            timestampString = "461571625.89718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "-setWaitingForConfirmViewWithDetail:andSavePercent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiPinCheClient/FinishedOrderDetailViewController.m"
-            timestampString = "461561341.471561"
+            timestampString = "461572149.307036"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "-beforeShowOrderDetail:"
             landmarkType = "5">
          </BreakpointContent>
@@ -522,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiPinCheClient/AfterRatingOrderDetailViewController.m"
-            timestampString = "461561532.551902"
+            timestampString = "461574341.951951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-beforeShowOrderDetail:"
             landmarkType = "5">
          </BreakpointContent>
@@ -538,12 +538,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiPinCheClient/PersonalInfoViewController.m"
-            timestampString = "461562844.423351"
+            timestampString = "461574479.34263"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "-getInfo:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QiPinCheClient/AfterRatingOrderDetailViewController.m"
+            timestampString = "461574341.951951"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-beforeShowOrderDetail:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

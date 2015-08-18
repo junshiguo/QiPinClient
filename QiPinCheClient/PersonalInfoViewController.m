@@ -19,6 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getInfo:) name:@"ShowPartnerInfo" object:nil];
+    [self hideAllLabels];
 }
 
 - (void) getInfo:(NSNotification*)notification {
@@ -42,7 +43,6 @@
         NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
         if (statusCode == 1) {
             NSDictionary *dic = [response objectForKey:@"detail"];
-            //self.phoneNumberLabel.text = [UserInfo getUid];
             self.nickName.text = [dic objectForKey:@"name"];
             if ([dic objectForKey:@"gender"] == 0) {
                 self.gender.text = @"男";
@@ -51,6 +51,17 @@
             }
             self.age.text = [NSString stringWithFormat:@"%li岁", [[dic objectForKey:@"age"] integerValue]];
             self.job.text = [dic objectForKey:@"job"];
+            NSLog(@"dic=%@", dic);
+            if ([[dic objectForKey:@"historyRating"] floatValue] >= 0) {
+                NSString *scoreText = [NSString stringWithFormat:@"%.1f/5.0", [[dic objectForKey:@"historyRating"] floatValue]];
+                self.score.text = scoreText;
+                
+            } else {
+                self.score.text = @"XX";
+            }
+            
+
+            [self showAllLabels];
             
         } else {
             NSString *message = [response objectForKey:@"message"];
@@ -59,8 +70,7 @@
             }
             [UIAlertShow showAlertViewWithMsg:message];
         }
-        
-    } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
+            } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
         [UIAlertShow showAlertViewWithMsg:@"网络异常"];
         
     }];
@@ -76,5 +86,23 @@
 
 - (IBAction)back:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
+- (void) hideAllLabels {
+    self.nickName.hidden = YES;
+    self.phoneNumberLabel.hidden = YES;
+    self.age.hidden = YES;
+    self.gender.hidden = YES;
+    self.job.hidden = YES;
+    self.score.hidden = YES;
+}
+
+- (void) showAllLabels {
+    self.nickName.hidden = NO;
+    self.phoneNumberLabel.hidden = NO;
+    self.age.hidden = NO;
+    self.gender.hidden = NO;
+    self.job.hidden = NO;
+    self.score.hidden = NO;
 }
 @end

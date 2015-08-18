@@ -91,7 +91,20 @@
         NSDictionary *response = [operation responseJSON];
         NSDictionary *detail = [response objectForKey:@"detail"];
         NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
-        if (statusCode != ERROR_STATUS) {
+        if (statusCode == -1) {
+            MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
+            [self.view addSubview:HUD];
+            HUD.mode = MBProgressHUDModeText;
+            HUD.labelText = @"订单已取消，正在跳转...";
+            [HUD showAnimated:YES whileExecutingBlock:^{
+                sleep(1);
+            } completionBlock:^{
+                [HUD removeFromSuperview];
+                [self dismissViewControllerAnimated:YES completion:^{}];
+            }];
+
+        
+        } else if (statusCode != ERROR_STATUS) {
             [self setOrderStatusViewByStatus:statusCode andDetail:detail];
         } else {
             [self setErrorView];

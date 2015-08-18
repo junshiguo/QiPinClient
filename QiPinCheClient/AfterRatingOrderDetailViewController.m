@@ -19,6 +19,8 @@
     // Do any additional setup after loading the view.
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beforeShowOrderDetail:) name:@"BeforeShowOrderDetail" object:nil];
+    
+    [self hideAllLabels];
 
 }
 
@@ -45,10 +47,14 @@
                 self.srcLocation.text = [me objectForKey:@"sourceName"];
                 self.desLocation.text = [me objectForKey:@"destinationName"];
                 self.startTime.text = [me objectForKey:@"leavingTime"];
-                self.score.text = [NSString stringWithFormat:@"%.2f", [[dic objectForKey:@"rating"] floatValue]];
+                NSLog(@"%@", dic);
+                NSString *scoreText = [NSString stringWithFormat:@"%li.0", [[dic objectForKey:@"rating"] integerValue]];
+                NSLog(@"score=%@", scoreText);
+                self.score.text = scoreText;
                 
                 partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
                 [self.nickName setTitle:[partner objectForKey:@"name"] forState:UIControlStateNormal];
+                [self showAllLabels];
                 
             } else {
                 [UIAlertShow showAlertViewWithMsg:@"网络错误！"];
@@ -74,4 +80,23 @@
 - (IBAction)back:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
+
+- (void) hideAllLabels {
+    self.srcLocation.hidden = YES;
+    self.desLocation.hidden = YES;
+    self.startTime.hidden = YES;
+    self.cash.hidden = YES;
+    self.cashDescription.hidden = YES;
+    self.score.hidden = YES;
+}
+
+- (void) showAllLabels {
+    self.srcLocation.hidden = NO;
+    self.desLocation.hidden = NO;
+    self.startTime.hidden = NO;
+    self.cash.hidden = NO;
+    self.cashDescription.hidden = NO;
+    self.score.hidden = NO;
+}
+
 @end

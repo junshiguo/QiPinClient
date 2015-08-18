@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *gender;
 @property (weak, nonatomic) IBOutlet UILabel *job;
 @property (weak, nonatomic) IBOutlet UILabel *nickName;
+@property (weak, nonatomic) IBOutlet UILabel *score;
 
 - (IBAction)back:(id)sender;
 
