@@ -30,7 +30,7 @@
     phoneNumber = [dic objectForKey:@"partnerPhoneNumber"];
     
     // 在双方未确认前不显示对方手机号
-    if (!showPhoneNumber) self.phoneNumberLabel.hidden = YES;
+    if (!showPhoneNumber) self.phoneNumberLabel.text = @"XXXXXXXXXXX";
     else self.phoneNumberLabel.text = [dic objectForKey:@"partnerPhoneNumber"];
     
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
@@ -42,7 +42,7 @@
         NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
         if (statusCode == 1) {
             NSDictionary *dic = [response objectForKey:@"detail"];
-            self.phoneNumberLabel.text = [UserInfo getUid];
+            //self.phoneNumberLabel.text = [UserInfo getUid];
             self.nickName.text = [dic objectForKey:@"name"];
             if ([dic objectForKey:@"gender"] == 0) {
                 self.gender.text = @"男";

@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *nickName;
 - (IBAction)showPartnerDetail:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *score;
+- (IBAction)back:(id)sender;
 
 @end

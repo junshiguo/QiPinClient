@@ -381,8 +381,6 @@
             [dic setObject:orderId forKey:@"requestId"];
             [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
             [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"beforeShowOrderDetail" andObject:dic];
-            //[ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
-            
         } else {
             [UIAlertShow showAlertViewWithMsg:@"网络错误！"];
         }

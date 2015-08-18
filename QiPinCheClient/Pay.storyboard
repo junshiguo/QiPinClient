@@ -125,9 +125,6 @@
                                 <exclude reference="Oql-L3-zet"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="3ss-cN-19I"/>
-                                <exclude reference="b13-ef-sim"/>
-                                <exclude reference="zVn-I0-LhG"/>
                                 <exclude reference="b4t-7A-0aU"/>
                                 <exclude reference="GuP-MD-gDB"/>
                                 <exclude reference="Olv-K1-zd0"/>
@@ -136,6 +133,9 @@
                                 <exclude reference="Qip-j9-hkr"/>
                                 <exclude reference="TaM-Gn-pew"/>
                                 <exclude reference="c8J-qb-wM4"/>
+                                <exclude reference="3ss-cN-19I"/>
+                                <exclude reference="b13-ef-sim"/>
+                                <exclude reference="zVn-I0-LhG"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -150,9 +150,6 @@
                                 <include reference="Oql-L3-zet"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="3ss-cN-19I"/>
-                                <include reference="b13-ef-sim"/>
-                                <include reference="zVn-I0-LhG"/>
                                 <include reference="b4t-7A-0aU"/>
                                 <include reference="GuP-MD-gDB"/>
                                 <include reference="Olv-K1-zd0"/>
@@ -161,6 +158,9 @@
                                 <include reference="Qip-j9-hkr"/>
                                 <include reference="TaM-Gn-pew"/>
                                 <include reference="c8J-qb-wM4"/>
+                                <include reference="3ss-cN-19I"/>
+                                <include reference="b13-ef-sim"/>
+                                <include reference="zVn-I0-LhG"/>
                             </mask>
                         </variation>
                     </view>
@@ -178,6 +178,7 @@
                         <viewControllerLayoutGuide type="bottom" id="myq-m1-zOd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4SA-5s-76k">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5e-kU-RD8">
@@ -295,16 +296,16 @@
                                 <exclude reference="vVj-zE-0XP"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="ewF-99-5vF"/>
-                                <exclude reference="qV0-WU-aOs"/>
-                                <exclude reference="IEw-zX-Vkk"/>
-                                <exclude reference="e3V-CS-9xb"/>
-                                <exclude reference="30H-9l-wYF"/>
-                                <exclude reference="SBf-ti-Dlw"/>
-                                <exclude reference="VWz-sZ-8pu"/>
-                                <exclude reference="sBd-bc-0IF"/>
                                 <exclude reference="Pl0-6R-pOz"/>
                                 <exclude reference="yAk-ee-3x7"/>
+                                <exclude reference="VWz-sZ-8pu"/>
+                                <exclude reference="sBd-bc-0IF"/>
+                                <exclude reference="30H-9l-wYF"/>
+                                <exclude reference="SBf-ti-Dlw"/>
+                                <exclude reference="IEw-zX-Vkk"/>
+                                <exclude reference="e3V-CS-9xb"/>
+                                <exclude reference="ewF-99-5vF"/>
+                                <exclude reference="qV0-WU-aOs"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -317,16 +318,16 @@
                                 <include reference="vVj-zE-0XP"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="ewF-99-5vF"/>
-                                <include reference="qV0-WU-aOs"/>
-                                <include reference="IEw-zX-Vkk"/>
-                                <include reference="e3V-CS-9xb"/>
-                                <include reference="30H-9l-wYF"/>
-                                <include reference="SBf-ti-Dlw"/>
-                                <include reference="VWz-sZ-8pu"/>
-                                <include reference="sBd-bc-0IF"/>
                                 <include reference="Pl0-6R-pOz"/>
                                 <include reference="yAk-ee-3x7"/>
+                                <include reference="VWz-sZ-8pu"/>
+                                <include reference="sBd-bc-0IF"/>
+                                <include reference="30H-9l-wYF"/>
+                                <include reference="SBf-ti-Dlw"/>
+                                <include reference="IEw-zX-Vkk"/>
+                                <include reference="e3V-CS-9xb"/>
+                                <include reference="ewF-99-5vF"/>
+                                <include reference="qV0-WU-aOs"/>
                             </mask>
                         </variation>
                     </view>
