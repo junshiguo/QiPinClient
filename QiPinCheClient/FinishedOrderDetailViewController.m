@@ -30,8 +30,10 @@
 - (void) beforeShowOrderDetail:(NSNotification*) notification {
     if ([UserInfo getUid] != nil) {
         // 判断处于登录状态
-        NSMutableDictionary *dic = [notification object];
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:[[notification object] objectForKey:@"requestId"] forKey:@"requestId"];
         [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
+        NSLog(@"%@", dic);
         MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/queryOrder" params:dic httpMethod:@"POST"];
         [op addCompletionHandler:^(MKNetworkOperation *operation) {
             NSDictionary *response = [operation responseJSON];
@@ -41,12 +43,12 @@
                 NSDictionary *me = [dic objectForKey:@"me"];
                 NSDictionary *partner = [dic objectForKey:@"partner"];
                 
-                self.srcLocation.text = [me objectForKey:@"sourceLocation"];
-                self.desLocation.text = [me objectForKey:@"destinationLocation"];
+                self.srcLocation.text = [me objectForKey:@"sourceName"];
+                self.desLocation.text = [me objectForKey:@"destinationName"];
                 self.startTime.text = [me objectForKey:@"leavingTime"];
                 
                 partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
-                self.nickName = [partner objectForKey:@"name"];
+                [self.nickName setTitle:[partner objectForKey:@"name"] forState:UIControlStateNormal];
                 
             } else {
                 [UIAlertShow showAlertViewWithMsg:@"网络错误！"];
@@ -81,6 +83,7 @@
 - (IBAction)showPartenerDetail:(id)sender {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:partnerPhoneNumber forKey:@"partnerPhoneNumber"];
+    [dic setObject:@"SHOW" forKey:@"ShowPhoneNumber"];
     
     [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"PersonalInfoViewController" inView:self withNotificationName:@"ShowPartnerInfo" andObject:dic];
 }

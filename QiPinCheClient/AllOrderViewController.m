@@ -31,6 +31,7 @@
     if (![UserInfo hasUserInfo]) {
         [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
     }
+    //[self loadingTheData];
 
     
 }
@@ -105,6 +106,7 @@
     } else {
         // 已完成的订单
         NSMutableDictionary *dic = [finishedOrders objectAtIndex:row];
+        NSLog(@"%@", dic);
         if ([[dic objectForKey:@"rating"] floatValue] < 0) {
             // 尚未评分
             [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
@@ -124,6 +126,8 @@
     self.finishBtn.enabled = YES;
     self.navTitle.title = @"进行中订单";
     btnIndex = 0;
+    [self performSelectorOnMainThread:@selector(doneNewsData) withObject:nil waitUntilDone: YES];
+
 }
 
 - (IBAction)queryFinish:(id)sender {
@@ -131,6 +135,8 @@
     self.finishBtn.enabled = NO;
     self.navTitle.title = @"已完成订单";
     btnIndex = 1;
+    [self performSelectorOnMainThread:@selector(doneNewsData) withObject:nil waitUntilDone: YES];
+
 }
 
 #pragma mark - 下拉刷新相关
@@ -173,17 +179,33 @@
     currentPage=1;
     tag = 101;
     
+    [self loadingTheData];
+    
+    //[self requestFailed];//下载成功进行的操作
+    //[self requestFinished];//下载结束
+    
+}
+
+- (void) loadingTheData {
+    //这里写下载数据的接口，并进行连接下载
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
-    //这里写下载数据的接口，并进行连接下载
     MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/getOrdersByPhoneNumber" params:dic httpMethod:@"POST"];
     [op addCompletionHandler:^(MKNetworkOperation* operation) {
         NSDictionary *response = [operation responseJSON];
         NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
         if (statusCode == 1) {
             NSDictionary *detail = [response objectForKey:@"detail"];
-            onGoingOrders = [detail objectForKey:@"active"];
-            finishedOrders = [detail objectForKey:@"finished"];
+            if ([detail objectForKey:@"active"] != nil) {
+                onGoingOrders = [detail objectForKey:@"active"];
+            } else {
+                onGoingOrders = nil;
+            }
+            if ([detail objectForKey:@"finished"] != nil) {
+                finishedOrders = [detail objectForKey:@"finished"];
+            } else {
+                onGoingOrders = nil;
+            }
             [self requestFinished];
             
         } else {
@@ -194,14 +216,10 @@
         
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
-    
-    //[self requestFailed];//下载成功进行的操作
-    //[self requestFinished];//下载结束
-    
 }
 
 //刷新结束，更改刷新状态，更新主线程
--(void) doneNewsData{
+-(void) doneNewsData {
     isRefresh = NO;
     NSLog(@"doneNewsData");
     [_headView egoRefreshScrollViewDataSourceDidFinishedLoading:self.orderTable];
@@ -219,12 +237,10 @@
 {
     //刷新数据，行数不变
     if (tag == 101) {
-        
         //下拉刷新下载数据的解析和保存
         [self.orderTable reloadData];
         self.orderTable.hidden = NO;
         [self performSelectorOnMainThread:@selector(doneNewsData) withObject:nil waitUntilDone: YES];
-        
     }
 }
 
@@ -234,7 +250,6 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     [_headView egoRefreshScrollViewDidEndDragging:scrollView];
-    
 }
 
 @end

@@ -553,6 +553,7 @@
                         <outlet property="job" destination="hxE-eX-hoC" id="bMm-hJ-xG7"/>
                         <outlet property="nickName" destination="BMh-kW-5Gl" id="TGf-RP-hQh"/>
                         <outlet property="phoneNumber" destination="lhf-T3-sfs" id="RYF-gD-Agw"/>
+                        <outlet property="phoneNumberLabel" destination="lhf-T3-sfs" id="YgW-7a-Y5d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Gb-4n-N1s" userLabel="First Responder" sceneMemberID="firstResponder"/>

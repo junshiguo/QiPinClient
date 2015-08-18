@@ -359,7 +359,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="订单详情" id="woa-PX-t8I">
-                                        <barButtonItem key="leftBarButtonItem" title="返回" id="m94-1b-okp"/>
+                                        <barButtonItem key="leftBarButtonItem" title="返回" id="m94-1b-okp">
+                                            <connections>
+                                                <action selector="back:" destination="2m9-WR-aX4" id="03F-Dt-jIt"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -399,22 +403,22 @@
                                     <rect key="frame" x="26" y="314" width="159" height="20.5"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYY-Gb-stf">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.57951476769999999" blue="0.26739172589999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="188" y="314" width="24" height="20.5"/>
-                                </variation>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upc-XY-7rs">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="225" y="314" width="17" height="20.5"/>
+                                    <rect key="frame" x="258" y="314" width="17" height="20.5"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYY-Gb-stf">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.57951476769999999" blue="0.26739172589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="207" y="314" width="24" height="20.5"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -470,8 +474,8 @@
                                 <exclude reference="X97-IU-pZg"/>
                                 <exclude reference="Fj3-VU-m4a"/>
                                 <exclude reference="fNF-ZV-VbN"/>
-                                <exclude reference="OYY-Gb-stf"/>
                                 <exclude reference="Upc-XY-7rs"/>
+                                <exclude reference="OYY-Gb-stf"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="55v-8X-cbC"/>
@@ -519,8 +523,8 @@
                                 <include reference="X97-IU-pZg"/>
                                 <include reference="Fj3-VU-m4a"/>
                                 <include reference="fNF-ZV-VbN"/>
-                                <include reference="OYY-Gb-stf"/>
                                 <include reference="Upc-XY-7rs"/>
+                                <include reference="OYY-Gb-stf"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="55v-8X-cbC"/>
