@@ -82,7 +82,6 @@
 - (void)changeStarForegroundViewWithPoint:(CGPoint)point
 {
     CGPoint p = point;
-    
     if (p.x < 0)
     {
         p.x = 0;
@@ -93,8 +92,8 @@
     }
     
     NSString * str = [NSString stringWithFormat:@"%0.2f",p.x / self.frame.size.width];
-    float score = [str floatValue];
-    p.x = score * self.frame.size.width;
+    float score = ceil([str floatValue] * 5);
+    p.x = (score/5) * self.frame.size.width;
     self.starForegroundView.frame = CGRectMake(0, 0, p.x, self.frame.size.height);
     
     if(self.delegate && [self.delegate respondsToSelector:@selector(starRatingView: score:)])
