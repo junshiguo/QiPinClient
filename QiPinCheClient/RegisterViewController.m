@@ -32,7 +32,6 @@
     
     self.phoneNumber.keyboardType = UIKeyboardTypeNumberPad;
     self.verifyCode.keyboardType = UIKeyboardTypeNumberPad;
-    self.password.keyboardType = self.confirmPassword.keyboardType = UIKeyboardTypeNumberPad;
     self.job.keyboardType = self.username.keyboardType = UIKeyboardTypeDefault;
     
 }
@@ -125,7 +124,6 @@
             UIAlertView *alter = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alter show];
         }
-        receivedVerifiedCode = [operation responseString];
         NSLog(@"%@", receivedVerifiedCode);
     } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
         NSLog(@"Fail-%@", [err localizedDescription]);

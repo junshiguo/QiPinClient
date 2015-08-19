@@ -550,6 +550,7 @@
                     <connections>
                         <outlet property="age" destination="8nJ-Uf-PS6" id="UZB-bU-rPz"/>
                         <outlet property="gender" destination="ugS-QO-sLT" id="Mh6-aG-jbI"/>
+                        <outlet property="imageView" destination="ap5-ns-yEV" id="X5h-RH-nCd"/>
                         <outlet property="job" destination="hxE-eX-hoC" id="bMm-hJ-xG7"/>
                         <outlet property="nickName" destination="BMh-kW-5Gl" id="TGf-RP-hQh"/>
                         <outlet property="phoneNumber" destination="lhf-T3-sfs" id="RYF-gD-Agw"/>
@@ -563,6 +564,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="noimage.png" width="156" height="158"/>
+        <image name="noimage.png" width="600" height="449"/>
     </resources>
 </document>

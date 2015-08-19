@@ -10,7 +10,6 @@
 		D605303D1B78CCA800F4CF08 /* WaitingForMatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D605303C1B78CCA800F4CF08 /* WaitingForMatchView.xib */; };
 		D60530401B78CCC100F4CF08 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D605303E1B78CCC100F4CF08 /* Profile.storyboard */; };
 		D60530411B78CCC100F4CF08 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D605303F1B78CCC100F4CF08 /* Order.storyboard */; };
-		D616E5671B723345007ECADB /* CancelledOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D616E5661B723345007ECADB /* CancelledOrderViewController.m */; };
 		D617B8381B799C2E00560AA8 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D617B8371B799C2E00560AA8 /* arrow.png */; };
 		D617B83B1B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D617B83A1B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.m */; };
 		D646FCF61B7876DC009BFC90 /* TQStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D646FCF51B7876DC009BFC90 /* TQStarRatingView.m */; };
@@ -55,6 +54,7 @@
 		D66A8AC11B771C8300FEADE8 /* ModifyNicknameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A8AC01B771C8300FEADE8 /* ModifyNicknameViewController.m */; };
 		D66A8AC41B771CD300FEADE8 /* ModifyJobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A8AC31B771CD300FEADE8 /* ModifyJobViewController.m */; };
 		D66A8AC91B776DAA00FEADE8 /* AllOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A8AC81B776DAA00FEADE8 /* AllOrderViewController.m */; };
+		D66CA2051B844B140092618F /* ImageOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = D66CA2041B844B140092618F /* ImageOperator.m */; };
 		D67710B81B81B5350065BEB2 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67710B71B81B5350065BEB2 /* PayViewController.m */; };
 		D67710BA1B81BEEF0065BEB2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D67710B91B81BEEF0065BEB2 /* icon.png */; };
 		D67710BD1B81BFDF0065BEB2 /* AboutAPPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67710BC1B81BFDF0065BEB2 /* AboutAPPViewController.m */; };
@@ -128,8 +128,6 @@
 		D605303C1B78CCA800F4CF08 /* WaitingForMatchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingForMatchView.xib; sourceTree = "<group>"; };
 		D605303E1B78CCC100F4CF08 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		D605303F1B78CCC100F4CF08 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
-		D616E5651B723345007ECADB /* CancelledOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CancelledOrderViewController.h; sourceTree = "<group>"; };
-		D616E5661B723345007ECADB /* CancelledOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancelledOrderViewController.m; sourceTree = "<group>"; };
 		D617B8371B799C2E00560AA8 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		D617B8391B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AfterRatingOrderDetailViewController.h; sourceTree = "<group>"; };
 		D617B83A1B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AfterRatingOrderDetailViewController.m; sourceTree = "<group>"; };
@@ -204,6 +202,8 @@
 		D66A8AC31B771CD300FEADE8 /* ModifyJobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyJobViewController.m; sourceTree = "<group>"; };
 		D66A8AC71B776DAA00FEADE8 /* AllOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllOrderViewController.h; sourceTree = "<group>"; };
 		D66A8AC81B776DAA00FEADE8 /* AllOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllOrderViewController.m; sourceTree = "<group>"; };
+		D66CA2031B844B140092618F /* ImageOperator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageOperator.h; sourceTree = "<group>"; };
+		D66CA2041B844B140092618F /* ImageOperator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageOperator.m; sourceTree = "<group>"; };
 		D67710B61B81B5350065BEB2 /* PayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayViewController.h; sourceTree = "<group>"; };
 		D67710B71B81B5350065BEB2 /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
 		D67710B91B81BEEF0065BEB2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -518,8 +518,6 @@
 				D684F8D21B6F1D800039FC45 /* PinCheViewController.m */,
 				D684F8DA1B6F87040039FC45 /* PlaceSearchViewController.h */,
 				D684F8DB1B6F87040039FC45 /* PlaceSearchViewController.m */,
-				D616E5651B723345007ECADB /* CancelledOrderViewController.h */,
-				D616E5661B723345007ECADB /* CancelledOrderViewController.m */,
 				D69C9AB01B731A4300B7F8FD /* OrderDetailViewController.h */,
 				D69C9AB11B731A4300B7F8FD /* OrderDetailViewController.mm */,
 				D66A8ABF1B771C8300FEADE8 /* ModifyNicknameViewController.h */,
@@ -556,6 +554,8 @@
 				D6E47D481B71ADD8009DCE22 /* CommonHeader.h */,
 				D6A4C1531B7B1E2D00455088 /* UIAlertShow.h */,
 				D6A4C1541B7B1E2D00455088 /* UIAlertShow.m */,
+				D66CA2031B844B140092618F /* ImageOperator.h */,
+				D66CA2041B844B140092618F /* ImageOperator.m */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -1175,7 +1175,6 @@
 				D658D0F01B6C878D0097FC0D /* LoginViewController.m in Sources */,
 				D69C9AC11B7346BD00B7F8FD /* CustomOverlay.mm in Sources */,
 				D6ECEF491B735B6D008610BA /* RouteSearchViewController.mm in Sources */,
-				D616E5671B723345007ECADB /* CancelledOrderViewController.m in Sources */,
 				D658D1221B6CCD670097FC0D /* NSDictionary+RequestEncoding.m in Sources */,
 				D67710B81B81B5350065BEB2 /* PayViewController.m in Sources */,
 				D67710BD1B81BFDF0065BEB2 /* AboutAPPViewController.m in Sources */,
@@ -1192,6 +1191,7 @@
 				D6E47D501B721240009DCE22 /* NewOrderCell.m in Sources */,
 				D6A4C1481B7B0CCB00455088 /* EGORefreshTableHeaderView.m in Sources */,
 				D6A4C1471B7B0CCB00455088 /* EGORefreshTableFootView.m in Sources */,
+				D66CA2051B844B140092618F /* ImageOperator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

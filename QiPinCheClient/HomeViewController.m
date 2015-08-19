@@ -18,25 +18,17 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-   /* KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc]initWithIdentifier:@"Account" accessGroup:nil];
-    NSLog(@"username=%@", [wrapper objectForKey:@"phoneNumber"]);*/
-
-
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)beginPinChe:(id)sender {
-    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
-    /*if (![UserInfo hasUserInfo]) {
+    //[ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
+    if ([UserInfo getUid] != nil) {
         [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
     } else {
         [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
-        NSLog(@"11111");
-    }*/
+    }
 }
 @end

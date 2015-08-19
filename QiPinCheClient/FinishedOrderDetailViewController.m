@@ -15,7 +15,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beforeShowOrderDetail:) name:@"BeforeShowOrderDetail" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beforeShowOrderDetail:) name:@"BeforeShowOrderDetail_finished" object:nil];
     
     float x = 31;
     float y = 320;
@@ -31,6 +31,7 @@
 - (void) beforeShowOrderDetail:(NSNotification*) notification {
     if ([UserInfo getUid] != nil) {
         // 判断处于登录状态
+        NSLog(@"beforeShowOrderDetail");
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         requestId = [[notification object] objectForKey:@"requestId"];
         [dic setObject:requestId forKey:@"requestId"];
@@ -52,6 +53,11 @@
                 partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
                 
                 partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
+                if ([partner objectForKey:@"photo"] != nil) {
+                    [ImageOperator setImageView:self.imageView withUrlString:[partner objectForKey:@"photo"]];
+                } else {
+                    [ImageOperator setDefaultImageView:self.imageView];
+                }
                 [self.nickName setTitle:[partner objectForKey:@"name"] forState:UIControlStateNormal];
                 [self showAllLabels];
                 
@@ -76,7 +82,7 @@
 
 -(void)starRatingView:(TQStarRatingView *)view score:(float)score {
     self.score.text = [NSString stringWithFormat:@"%0.2f分", score * 1];
-    rating = (int) score;
+    rating = (int)score;
 }
 
 
@@ -134,7 +140,7 @@
                 NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
                 [dic setObject:requestId forKey:@"requestId"];
                 [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
-                [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"AfterRatingOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
+                [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"AfterRatingOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail_after" andObject:dic];
             }];
         } else {
             [UIAlertShow showAlertViewWithMsg:@"网络错误！"];

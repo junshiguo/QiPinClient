@@ -14,5 +14,6 @@
 + (MatchSuccessView*) instanceView;
 @property (weak, nonatomic) IBOutlet UIButton *finishOrder;
 @property (weak, nonatomic) IBOutlet UIButton *nickName;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

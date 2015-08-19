@@ -83,6 +83,7 @@
     _mapView.delegate = nil;
     _locService.delegate = nil;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -92,6 +93,7 @@
     [_locService startUserLocationService];
 }
 
+#pragma mark --- 百度地图定位
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation {
     [_mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
     [_mapView setZoomLevel:15];
@@ -127,9 +129,6 @@
 }
 
 - (IBAction)startPinChe:(id)sender {
-    //[ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"PayViewController" inView:self];
-    //[ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"AboutAPPViewController" inView:self];
-    //[ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self];
     if (![self checkPinCheInfo]) return;
     
     NSDictionary *dic = [self setPinCheParam];
@@ -222,6 +221,7 @@
     
 }
 
+#pragma mark --- 跳至地点搜索页面
 - (IBAction)srcLocOnClick:(id)sender {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:@"srcLoc" forKey:@"lastScreen"];
