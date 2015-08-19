@@ -892,9 +892,6 @@
                                                     <state key="normal" title="查看详情">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <variation key="widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="240" y="50" width="44" height="26"/>
-                                                    </variation>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1094,7 +1091,7 @@
     <resources>
         <image name="Home.png" width="34" height="31"/>
         <image name="Order.png" width="32" height="32"/>
-        <image name="noimage.png" width="156" height="158"/>
+        <image name="noimage.png" width="600" height="449"/>
         <image name="personal.png" width="32" height="31"/>
     </resources>
 </document>

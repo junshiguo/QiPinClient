@@ -25,3 +25,4 @@
 #import "NewOrderCell.h"
 #import "EaseMob.h"
 #import "UIAlertShow.h"
+#import "ImageOperator.h"

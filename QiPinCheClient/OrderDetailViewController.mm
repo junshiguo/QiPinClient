@@ -40,14 +40,12 @@
     
     statusViewY = 230;
     
-    //[self setOrderStatusView];
     [self hideAllLabels];
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    //[self hideAllLabels];
 }
 
 
@@ -195,6 +193,11 @@
     [statusView.nickname setTitle:[detail objectForKey:@"name"] forState:UIControlStateNormal];
     partnerPhoneNumber = [detail objectForKey:@"phoneNumber"];
     statusView.savePercent.text = [NSString stringWithFormat:@"%.2f%%" ,savePercent * 100];
+    if ([detail objectForKey:@"photo"] != nil) {
+        [ImageOperator setImageView:statusView.imageView withUrlString:[detail objectForKey:@"photo"]];
+    } else {
+        [ImageOperator setDefaultImageView:statusView.imageView];
+    }
 }
 
 // 自己确认，等待对方确认
@@ -229,6 +232,12 @@
     
     [statusView.nickName setTitle:[detail objectForKey:@"name"] forState:UIControlStateNormal];
     partnerPhoneNumber = [detail objectForKey:@"phoneNumber"];
+    
+    if ([detail objectForKey:@"photo"] != nil) {
+        [ImageOperator setImageView:statusView.imageView withUrlString:[detail objectForKey:@"photo"]];
+    } else {
+        [ImageOperator setDefaultImageView:statusView.imageView];
+    }
 }
 
 - (void) setErrorView {
@@ -393,7 +402,7 @@
             NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
             [dic setObject:orderId forKey:@"requestId"];
             [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
-            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"beforeShowOrderDetail" andObject:dic];
+            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail_finished" andObject:dic];
         } else {
             [UIAlertShow showAlertViewWithMsg:@"网络错误！"];
         }
@@ -408,7 +417,11 @@
 
 - (void) makeCall {
     if (partnerPhoneNumber != nil) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:partnerPhoneNumber]];
+        NSString *phoneUrl = [NSString stringWithFormat:@"%@%@", @"tel://", partnerPhoneNumber];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneUrl]];
+        NSLog(@"calling %@", partnerPhoneNumber);
+    } else {
+        NSLog(@"Can't call");
     }
 }
 
@@ -498,6 +511,7 @@
     self.desLocationName.hidden = NO;
     self.startTime.hidden = NO;
 }
+
 
 @end
 

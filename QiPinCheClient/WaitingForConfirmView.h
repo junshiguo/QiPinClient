@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *srcLocationName;
 @property (weak, nonatomic) IBOutlet UILabel *desLocationName;
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 - (IBAction)confirmToMatch:(id)sender;
 - (IBAction)cancelToMatch:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *confirmToMatch;

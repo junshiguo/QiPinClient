@@ -32,7 +32,6 @@
     
     self.phoneNumber.keyboardType = UIKeyboardTypeNumberPad;
     self.verifyCode.keyboardType = UIKeyboardTypeNumberPad;
-    self.password.keyboardType = self.confirmPassword.keyboardType = UIKeyboardTypeNumberPad;
     self.job.keyboardType = self.username.keyboardType = UIKeyboardTypeDefault;
     
 }

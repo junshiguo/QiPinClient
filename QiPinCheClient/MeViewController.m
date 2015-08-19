@@ -26,12 +26,14 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTapped)];
     [self.imageView addGestureRecognizer:singleTap];
     self.imageView.userInteractionEnabled = YES;
-    /*NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    
+    // 获取个人信息
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
     MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/getUserInfo" params:dic httpMethod:@"POST"];
     [op addCompletionHandler:^(MKNetworkOperation *operation) {
         NSDictionary *response = [operation responseJSON];
-
+        
         NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
         if (statusCode == 1) {
             NSDictionary *dic = [response objectForKey:@"detail"];
@@ -45,28 +47,40 @@
             }
             self.age.text = [NSString stringWithFormat:@"%li岁", [[dic objectForKey:@"age"] integerValue]];
             self.job.text = [dic objectForKey:@"job"];
-            
         } else {
-            NSString *message = [response objectForKey:@"message"];
-            if (message == nil) {
-                message = @"网络异常";
-            }
-            [UIAlertShow showAlertViewWithMsg:message];
+            [UIAlertShow showAlertViewWithMsg:@"网络异常"];
         }
         
     } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
         [UIAlertShow showAlertViewWithMsg:@"网络异常"];
-        
     }];
-    [ApplicationDelegate.httpEngine enqueueOperation:op];*/
+    [ApplicationDelegate.httpEngine enqueueOperation:op];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     NSData *imageData = [UserInfo getUserAvatar];
     self.imageView.image = [UIImage imageWithData:imageData];
+
+    
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    
+    if (![UserInfo hasUserInfo]) {
+        [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
+    }
+    self.phoneNumber.text = [UserInfo getUid];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark --- 头像相关
 - (void) photoTapped {
     if (self.imageView.image) {
         UIImage *image = self.imageView.image;
@@ -106,6 +120,7 @@
 }
 
 
+#pragma mark --- 修改个人信息
 - (void) nickNameChanged:(NSNotification*)notification {
     self.nickName.text = [notification object];
 }
@@ -114,22 +129,6 @@
     self.job.text = [notification object];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:YES];
-    
-    if (![UserInfo hasUserInfo]) {
-        [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
-    }
-
-    self.phoneNumber.text = [UserInfo getUid];
-    
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 // 注销登录
 - (IBAction)logOff:(id)sender {
@@ -279,10 +278,6 @@
                 
             } failureBlock:nil];
             [UserInfo setUserAvatar:image];
-            /*NSString *urlString = [[operation responseJSON] objectForKey:@"url"];
-            NSLog(@"%@", urlString);
-            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
-            self.imageView.image =  [UIImage imageWithData:data];*/
             
         } else {
             [self failToUpload];

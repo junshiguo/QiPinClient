@@ -18,8 +18,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *cash;
 @property (weak, nonatomic) IBOutlet UILabel *cashDescription;
 @property (weak, nonatomic) IBOutlet UIButton *nickName;
-- (IBAction)showPartnerDetail:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *score;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 - (IBAction)back:(id)sender;
+- (IBAction)showPartnerDetail:(id)sender;
 
 @end

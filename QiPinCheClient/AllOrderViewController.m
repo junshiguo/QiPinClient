@@ -28,20 +28,21 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    if (![UserInfo hasUserInfo]) {
+    if ([UserInfo getUid] == nil) {
         [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
     }
-    //[self loadingTheData];
-
+    [self loadingTheData];
+    NSLog(@"view will appear");
     
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark --- tableview 相关
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -54,7 +55,7 @@
     } else {
         dic = [finishedOrders objectAtIndex:[indexPath row]];
     }
-    cell.timeText = [dic objectForKey:@"orderTime"];
+    cell.timeText.text = [dic objectForKey:@"orderTime"];
     cell.srcLocation.text = [dic objectForKey:@"sourceName"];
     cell.desLocation.text = [dic objectForKey:@"destinationName"];
     cell.showMore.tag = [indexPath row];
@@ -83,16 +84,12 @@
         NSMutableDictionary *dic = [finishedOrders objectAtIndex:[indexPath row]];
         if ([[dic objectForKey:@"rating"] floatValue] < 0) {
             // 尚未评分
-            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
+            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail_finished" andObject:dic];
         } else {
             // 已评分
-            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"AfterRatingOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
+            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"AfterRatingOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail_after" andObject:dic];
         }
     }
-    
-    
-    //[ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self];
-    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
@@ -109,10 +106,10 @@
         NSLog(@"%@", dic);
         if ([[dic objectForKey:@"rating"] floatValue] < 0) {
             // 尚未评分
-            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
+            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail_finished" andObject:dic];
         } else {
             // 已评分
-            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"AfterRatingOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
+            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"AfterRatingOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail_after" andObject:dic];
         }
     }
 
@@ -176,14 +173,10 @@
 -(void) loadingNewsData{
     
     NSLog(@"数据刷新获取");
-    currentPage=1;
+    currentPage = 1;
     tag = 101;
     
     [self loadingTheData];
-    
-    //[self requestFailed];//下载成功进行的操作
-    //[self requestFinished];//下载结束
-    
 }
 
 - (void) loadingTheData {

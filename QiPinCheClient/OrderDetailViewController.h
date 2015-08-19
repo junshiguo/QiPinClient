@@ -23,12 +23,14 @@
     NSInteger statusViewY, status;
     NSArray *route;
     NSInteger remainChance;
+    CGRect oldframe;
 }
-- (IBAction)backToHome:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *srcLocationName;
 @property (weak, nonatomic) IBOutlet UILabel *desLocationName;
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
 @property (weak, nonatomic) IBOutlet UILabel *orderTime;
+
+- (IBAction)backToHome:(id)sender;
 
 
 @end

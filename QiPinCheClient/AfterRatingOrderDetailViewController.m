@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beforeShowOrderDetail:) name:@"BeforeShowOrderDetail" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beforeShowOrderDetail:) name:@"BeforeShowOrderDetail_after" object:nil];
     
     [self hideAllLabels];
 
@@ -26,7 +26,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void) beforeShowOrderDetail:(NSNotification*) notification {
@@ -47,13 +46,19 @@
                 self.srcLocation.text = [me objectForKey:@"sourceName"];
                 self.desLocation.text = [me objectForKey:@"destinationName"];
                 self.startTime.text = [me objectForKey:@"leavingTime"];
-                NSLog(@"%@", dic);
                 NSString *scoreText = [NSString stringWithFormat:@"%li.0", [[dic objectForKey:@"rating"] integerValue]];
-                NSLog(@"score=%@", scoreText);
                 self.score.text = scoreText;
                 
                 partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
+                
+                if ([partner objectForKey:@"photo"] != nil) {
+                    [ImageOperator setImageView:self.imageView withUrlString:[partner objectForKey:@"photo"]];
+                } else {
+                    [ImageOperator setDefaultImageView:self.imageView];
+                }
                 [self.nickName setTitle:[partner objectForKey:@"name"] forState:UIControlStateNormal];
+                
+                
                 [self showAllLabels];
                 
             } else {
@@ -77,6 +82,7 @@
     [dic setObject:@"SHOW" forKey:@"ShowPhoneNumber"];
     [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"PersonalInfoViewController" inView:self withNotificationName:@"ShowPartnerInfo" andObject:dic];
 }
+
 - (IBAction)back:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^{}];
 }

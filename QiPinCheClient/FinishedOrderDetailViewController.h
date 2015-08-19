@@ -18,16 +18,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *srcLocation;
 @property (weak, nonatomic) IBOutlet UILabel *desLocation;
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
-- (IBAction)startToRate:(id)sender;
-
-
 @property (weak, nonatomic) IBOutlet UIButton *nickName;
 @property (weak, nonatomic) IBOutlet UILabel *score;
 @property (weak, nonatomic) IBOutlet UILabel *cash;
 @property (weak, nonatomic) IBOutlet UILabel *cashDescription;
-
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 - (IBAction)back:(id)sender;
 - (IBAction)showPartenerDetail:(id)sender;
+- (IBAction)startToRate:(id)sender;
 
 
 @end

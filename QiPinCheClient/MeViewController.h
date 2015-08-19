@@ -19,16 +19,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumber;
 @property (weak, nonatomic) IBOutlet UILabel *nickName;
 @property (weak, nonatomic) IBOutlet UILabel *gender;
-
+@property (weak, nonatomic) IBOutlet UILabel *job;
 @property (weak, nonatomic) IBOutlet UILabel *age;
-
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property(nonatomic,retain) AVCaptureSession * AVSession;
 
 - (IBAction)logOff:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *job;
 - (IBAction)modifyNickname:(id)sender;
 - (IBAction)modifyJob:(id)sender;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 - (IBAction)changeAvatar:(id)sender;
-@property(nonatomic,retain)AVCaptureSession * AVSession;
+
 @end
 

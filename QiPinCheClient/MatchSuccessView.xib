@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -63,6 +63,12 @@
                         </mask>
                     </variation>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wn1-pk-6JA">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="81" y="90" width="70" height="70"/>
+                    </variation>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -87,6 +93,7 @@
                     <exclude reference="uxc-aA-QoN"/>
                     <exclude reference="JId-ii-WqN"/>
                     <exclude reference="qrW-ZO-MPG"/>
+                    <exclude reference="wn1-pk-6JA"/>
                 </mask>
                 <mask key="constraints">
                     <exclude reference="Hbn-Tq-I59"/>
@@ -109,6 +116,7 @@
                     <include reference="uxc-aA-QoN"/>
                     <include reference="JId-ii-WqN"/>
                     <include reference="qrW-ZO-MPG"/>
+                    <include reference="wn1-pk-6JA"/>
                 </mask>
                 <mask key="constraints">
                     <include reference="Hbn-Tq-I59"/>
@@ -126,6 +134,7 @@
             </variation>
             <connections>
                 <outlet property="finishOrder" destination="JId-ii-WqN" id="gm3-Fy-iBL"/>
+                <outlet property="imageView" destination="wn1-pk-6JA" id="GMx-Lh-bpw"/>
                 <outlet property="makecallBtn" destination="qrW-ZO-MPG" id="sRd-aU-vGl"/>
                 <outlet property="nickName" destination="gkC-4D-oVL" id="BOL-Q9-Bax"/>
             </connections>

@@ -25,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *startTime;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *expAge;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
-
 @property (weak, nonatomic) IBOutlet UISegmentedControl *expGender;
 @property (weak, nonatomic) IBOutlet UIButton *pinCheButton;
 @property (strong, nonatomic) IBOutlet Commbox *ageLower, *ageHigher;

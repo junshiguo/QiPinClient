@@ -20,6 +20,9 @@
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getInfo:) name:@"ShowPartnerInfo" object:nil];
     [self hideAllLabels];
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTapped)];
+    [self.imageView addGestureRecognizer:singleTap];
+    self.imageView.userInteractionEnabled = YES;
 }
 
 - (void) getInfo:(NSNotification*)notification {
@@ -59,10 +62,12 @@
             } else {
                 self.score.text = @"XX";
             }
-            
-
+            if ([dic objectForKey:@"photo"] != nil) {
+                [ImageOperator setImageView:self.imageView withUrlString:[dic objectForKey:@"photo"]];
+            } else {
+                [ImageOperator setDefaultImageView:self.imageView];
+            }
             [self showAllLabels];
-            
         } else {
             NSString *message = [response objectForKey:@"message"];
             if (message == nil) {
@@ -104,5 +109,45 @@
     self.gender.hidden = NO;
     self.job.hidden = NO;
     self.score.hidden = NO;
+}
+
+#pragma mark --- 头像相关
+- (void) photoTapped {
+    if (self.imageView.image) {
+        UIImage *image = self.imageView.image;
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+        
+        oldframe = [self.imageView convertRect:self.imageView.bounds toView:window];
+        backgroundView.backgroundColor = [UIColor blackColor];
+        backgroundView.alpha = 0;
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:oldframe];
+        imageView.image = image;
+        imageView.tag = 1;
+        [backgroundView addSubview:imageView];
+        [window addSubview:backgroundView];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideImage:)];
+        [backgroundView addGestureRecognizer: tap];
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            imageView.frame = CGRectMake(0,([UIScreen mainScreen].bounds.size.height-image.size.height*[UIScreen mainScreen].bounds.size.width/image.size.width)/2, [UIScreen mainScreen].bounds.size.width, image.size.height*[UIScreen mainScreen].bounds.size.width/image.size.width);
+            backgroundView.alpha = 1;
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+}
+
+
+- (void)hideImage:(UITapGestureRecognizer*)tap{
+    UIView *backgroundView = tap.view;
+    UIImageView *imageView = (UIImageView*)[tap.view viewWithTag:1];
+    [UIView animateWithDuration:0.3 animations:^{
+        imageView.frame = oldframe;
+        backgroundView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [backgroundView removeFromSuperview];
+    }];
 }
 @end
