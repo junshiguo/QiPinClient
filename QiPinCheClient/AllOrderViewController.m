@@ -17,21 +17,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.orderTable.dataSource = self;
-    self.orderTable.delegate = self;
+    if ([UserInfo getUid] == nil) {
+        [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
+    } else {
+        self.orderTable.dataSource = self;
+        self.orderTable.delegate = self;
     
-    btnIndex = 0;
-    currentPage = 1;
-    [self addHeadRefreshView];
+        btnIndex = 0;
+        currentPage = 1;
+        [self addHeadRefreshView];
+    }
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     if ([UserInfo getUid] == nil) {
         [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
+    } else {
+        [self loadingTheData];
     }
-    [self loadingTheData];
     NSLog(@"view will appear");
     
 }
