@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -622,6 +622,19 @@
                                             </mask>
                                         </variation>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdb-0r-GAm">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <state key="normal" title="更换头像">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="248" y="89" width="60" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="changeAvatar:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="cXy-SH-Xuj"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="5DS-x0-r02" firstAttribute="leading" secondItem="V7J-AY-5Ux" secondAttribute="leading" constant="8" id="1E5-ap-MjW"/>
@@ -689,6 +702,9 @@
                                     <constraint firstAttribute="bottom" secondItem="1a9-dm-jej" secondAttribute="bottom" constant="478" id="yfc-bd-Haj"/>
                                 </constraints>
                                 <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="fdb-0r-GAm"/>
+                                    </mask>
                                     <mask key="constraints">
                                         <exclude reference="3LR-YJ-qdw"/>
                                         <exclude reference="eij-4e-n0G"/>
@@ -716,6 +732,11 @@
                                         <exclude reference="9KF-f0-GBt"/>
                                         <exclude reference="gFg-SN-vyL"/>
                                         <exclude reference="xze-sT-djH"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="fdb-0r-GAm"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -750,6 +771,7 @@
                     <connections>
                         <outlet property="age" destination="1vF-F4-52M" id="gpU-Pd-NTS"/>
                         <outlet property="gender" destination="oo8-WK-lgE" id="5Xb-wr-y8v"/>
+                        <outlet property="imageView" destination="1a9-dm-jej" id="5nm-w3-ccw"/>
                         <outlet property="job" destination="1hZ-lF-BBd" id="3Sj-ed-J7U"/>
                         <outlet property="nickName" destination="N54-Fu-pw6" id="Ih1-Wc-3GH"/>
                         <outlet property="phoneNumber" destination="d88-0B-fhN" id="kTq-UP-pa3"/>
@@ -870,6 +892,9 @@
                                                     <state key="normal" title="查看详情">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="240" y="50" width="44" height="26"/>
+                                                    </variation>
                                                 </button>
                                             </subviews>
                                             <constraints>

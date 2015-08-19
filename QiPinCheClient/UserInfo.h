@@ -18,5 +18,8 @@
 + (NSNumber *)getGender;
 + (void)clearUserInfo;
 + (BOOL)hasUserInfo;
++ (NSData*)getUserAvatar;
++ (void)setUserAvatar:(UIImage*)image;
++ (void)resetUserAvatar;
 
 @end
