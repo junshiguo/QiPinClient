@@ -68,4 +68,27 @@
     return ApplicationDelegate.gender;
 }
 
++ (NSData*)getUserAvatar {
+    NSString *string = [NSString stringWithFormat:@"%@%@", [self getUid], @"avatar"];
+    NSData *imageData = [[NSUserDefaults standardUserDefaults] objectForKey:string];
+    if (imageData != nil) {
+        return imageData;
+    } else {
+        return UIImagePNGRepresentation([UIImage imageNamed:@"noimage.png"]);
+    }
+    
+}
+
++ (void)setUserAvatar:(UIImage*)image {
+    NSString *string = [NSString stringWithFormat:@"%@%@", [self getUid], @"avatar"];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:string];
+}
+
++ (void)resetUserAvatar {
+    NSString *string = [NSString stringWithFormat:@"%@%@", [self getUid], @"avatar"];
+    NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"noimage.png"]);
+    [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:string];
+}
+
 @end
