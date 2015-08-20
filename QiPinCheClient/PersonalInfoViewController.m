@@ -47,7 +47,7 @@
         if (statusCode == 1) {
             NSDictionary *dic = [response objectForKey:@"detail"];
             self.nickName.text = [dic objectForKey:@"name"];
-            if ([dic objectForKey:@"gender"] == 0) {
+            if ([[dic objectForKey:@"gender"] integerValue] == 0) {
                 self.gender.text = @"男";
             } else {
                 self.gender.text = @"女";
