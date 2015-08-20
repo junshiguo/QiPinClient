@@ -32,6 +32,7 @@
     _annotation = [[BMKPointAnnotation alloc] init];
     
     self.timePicker.minimumDate = [NSDate date];
+    self.expGender.selectedSegmentIndex = 2;
     
     [self initAgeSelector];
     

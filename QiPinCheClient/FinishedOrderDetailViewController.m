@@ -18,7 +18,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beforeShowOrderDetail:) name:@"BeforeShowOrderDetail_finished" object:nil];
     
     float x = 31;
-    float y = 320;
+    float y = 335;
     TQStarRatingView *starRatingView = [[TQStarRatingView alloc] initWithFrame:CGRectMake(x, y, 200, 40) numberOfStar:5];
     
     starRatingView.delegate = self;
@@ -81,7 +81,7 @@
 }
 
 -(void)starRatingView:(TQStarRatingView *)view score:(float)score {
-    self.score.text = [NSString stringWithFormat:@"%0.2f分", score * 1];
+    self.score.text = [NSString stringWithFormat:@"%i分", (int)score * 1];
     rating = (int)score;
 }
 
