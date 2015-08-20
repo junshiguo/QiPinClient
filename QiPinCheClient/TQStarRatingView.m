@@ -19,7 +19,7 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    return [self initWithFrame:frame numberOfStar:5];
+    return [self initWithFrame:frame numberOfStar:0];
 }
 
 - (id)initWithFrame:(CGRect)frame numberOfStar:(int)number

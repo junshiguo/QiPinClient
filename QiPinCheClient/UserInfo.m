@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 QiPinChe. All rights reserved.
 //
 
+// 与用户个人信息相关的一些类
+
 #import "UserInfo.h"
 
 @implementation UserInfo
