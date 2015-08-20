@@ -60,6 +60,7 @@
 		D67710BD1B81BFDF0065BEB2 /* AboutAPPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D67710BC1B81BFDF0065BEB2 /* AboutAPPViewController.m */; };
 		D67710BF1B81C42E0065BEB2 /* noimage.png in Resources */ = {isa = PBXBuildFile; fileRef = D67710BE1B81C42E0065BEB2 /* noimage.png */; };
 		D67913331B83293A002F8D36 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D67913321B83293A002F8D36 /* AssetsLibrary.framework */; };
+		D67E7F831B85723A00844366 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D67E7F821B85723A00844366 /* right_arrow.png */; };
 		D684F8C11B6F19E00039FC45 /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684F8C01B6F19E00039FC45 /* BaiduMapAPI.framework */; };
 		D684F8C31B6F19F20039FC45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684F8C21B6F19F20039FC45 /* CoreLocation.framework */; };
 		D684F8C51B6F1A030039FC45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D684F8C41B6F1A030039FC45 /* QuartzCore.framework */; };
@@ -211,6 +212,7 @@
 		D67710BC1B81BFDF0065BEB2 /* AboutAPPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutAPPViewController.m; sourceTree = "<group>"; };
 		D67710BE1B81C42E0065BEB2 /* noimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noimage.png; sourceTree = "<group>"; };
 		D67913321B83293A002F8D36 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		D67E7F821B85723A00844366 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right_arrow.png; path = ../../../Downloads/right_arrow.png; sourceTree = "<group>"; };
 		D684F8C01B6F19E00039FC45 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI.framework; sourceTree = "<group>"; };
 		D684F8C21B6F19F20039FC45 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D684F8C41B6F1A030039FC45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -486,6 +488,7 @@
 		D658D0EC1B6C80DC0097FC0D /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D67E7F821B85723A00844366 /* right_arrow.png */,
 				D67710BE1B81C42E0065BEB2 /* noimage.png */,
 				D67710B91B81BEEF0065BEB2 /* icon.png */,
 				D617B8371B799C2E00560AA8 /* arrow.png */,
@@ -1122,6 +1125,7 @@
 				D6A4C14B1B7B0CCB00455088 /* blueArrow.png in Resources */,
 				D6BA78A21B74980900020A1E /* EaseMob.bundle in Resources */,
 				D6A4C14D1B7B0CCB00455088 /* grayArrow.png in Resources */,
+				D67E7F831B85723A00844366 /* right_arrow.png in Resources */,
 				D658D0D01B6C75580097FC0D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
