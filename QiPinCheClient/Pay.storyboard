@@ -76,6 +76,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="payOnClick:" destination="bqx-8M-g5d" eventType="touchUpInside" id="NIQ-hC-uAf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tb3-te-Q7w">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>

@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "Pingpp.h"
 
 @interface HomeViewController ()
 
@@ -30,5 +31,6 @@
     } else {
         [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
     }
+
 }
 @end

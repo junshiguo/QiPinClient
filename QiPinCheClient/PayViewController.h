@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PayViewController : UIViewController
+@interface PayViewController : UIViewController {
+    NSDictionary *requestInfo;
+}
 - (IBAction)back:(id)sender;
+- (IBAction)payOnClick:(id)sender;
 
 @end

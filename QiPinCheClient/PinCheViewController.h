@@ -16,6 +16,7 @@
     BMKLocationService* _locService;
     BMKPointAnnotation *_annotation;
     NSDictionary *srcLocationDic, *desLocationDic;
+    NSDictionary *requestInfo;
 }
 @property (weak, nonatomic) IBOutlet UITextField *ageText1;
 @property (weak, nonatomic) IBOutlet UITextField *ageText2;
