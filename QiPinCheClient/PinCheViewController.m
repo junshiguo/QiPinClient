@@ -146,6 +146,7 @@
 
 - (IBAction)startPinChe:(id)sender {
     
+    NSLog(@"拼车请求");
     
     if (![self checkPinCheInfo]) return;
     
@@ -203,6 +204,7 @@
                     //[weakSelf showAlertMessage:result];
                 }];
             });
+            
         }];
         
     } else {
