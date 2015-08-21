@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "Pingpp.h"
+#import "PinCheViewController.h"
 
 @interface AppDelegate ()
 
@@ -120,5 +122,26 @@ void uncaughtExceptionHandler(NSException*exception){
     NSLog(@"Stack Trace: %@",[exception callStackSymbols]);
     // Internal error reporting
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    NSLog(@"11111");
+    [Pingpp handleOpenURL:url withCompletion:^(NSString *result, PingppError *error) {
+        // result : success, fail, cancel, invalid
+        NSString *msg;
+        if (error == nil) {
+            NSLog(@"PingppError is nil11111");
+            msg = result;
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"FinishPayment" object:@"success"];
+        } else {
+            NSLog(@"PingppError: code=%lu msg=%@", (unsigned long)error.code, [error getMsg]);
+            msg = [NSString stringWithFormat:@"result=%@ PingppError: code=%lu msg=%@", result, (unsigned long)error.code, [error getMsg]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"FinishPayment" object:@"fail"];
+        }
+    }];
+    return  YES;
+}
+
+
 
 @end

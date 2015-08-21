@@ -10,6 +10,9 @@
 #import "BaiduAPIEngine.h"
 #import "AppDelegate.h"
 #import "ScreenSwitch.h"
+#import "Pingpp.h"
+
+#define kUrlScheme      @"wx933665aaccea2b32" // 这个是你定义的 URL Scheme，支付宝、微信支付和测试模式需要。
 
 @interface PinCheViewController ()
 
@@ -39,6 +42,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLoc:) name:@"LocNotification" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishPayment:) name:@"FinishPayment" object:nil];
+}
+
+- (void) finishPayment:(NSNotification*) notification {
+    NSLog(@"finishPayment");
+    NSString *msg = [notification object];
+    if ([msg isEqualToString:@"success"]) {
+        [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:requestInfo];
+    } else {
+        [UIAlertShow showAlertViewWithMsg:@"支付失败！"];
+    }
 }
 
 // 当Home键退出后重新打开该页面需要重新加载视图信息
@@ -130,6 +145,8 @@
 }
 
 - (IBAction)startPinChe:(id)sender {
+    
+    
     if (![self checkPinCheInfo]) return;
     
     NSDictionary *dic = [self setPinCheParam];
@@ -137,18 +154,24 @@
     [op addCompletionHandler:^(MKNetworkOperation *operation) {
         NSLog(@"%@", [operation responseJSON]);
         [self jumpToOrderDetail:operation];
+        //[self jumpToPayment:operation];
         
     } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
         
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
-    
+}
+
+- (void) jumpToPayment:(MKNetworkOperation*) operation {
+    NSDictionary *dic = [self setPinCheParam];
+    [ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"PayViewController" inView:self withNotificationName:@"RequestInfo" andObject:dic];
 }
 
 - (void) jumpToOrderDetail:(MKNetworkOperation*) operation {
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     HUD.mode = MBProgressHUDModeText;
+    PinCheViewController * __weak weakSelf = self;
     NSDictionary *data = [operation responseJSON];
     NSInteger status = [[data objectForKey:@"status"] integerValue];
     if (status == 1) {
@@ -163,10 +186,23 @@
             [dic setObject:[result objectForKey:@"id"] forKey:@"requestId"];
             [dic setObject:self.srcLocation.text forKey:@"srcLocation"];
             [dic setObject:self.desLocation.text forKey:@"desLocation"];
+            NSString *charge = [result objectForKey:@"charge"];
             [dic setObject:self.startTime.text forKey:@"startTime"];
             [dic setObject:@"1" forKey:@"isCurrent"];
-            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
-            
+            requestInfo = dic;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [Pingpp createPayment:charge viewController:weakSelf appURLScheme:kUrlScheme withCompletion:^(NSString *result, PingppError *error) {
+                    NSLog(@"completion block: %@", result);
+                    if (error == nil) {
+                        NSLog(@"PingppError is nil");
+                        [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
+                    } else {
+                        NSLog(@"PingppError: code=%lu msg=%@", (unsigned  long)error.code, [error getMsg]);
+                        [UIAlertShow showAlertViewWithMsg:@"支付失败！"];
+                    }
+                    //[weakSelf showAlertMessage:result];
+                }];
+            });
         }];
         
     } else {
@@ -177,11 +213,13 @@
             [HUD removeFromSuperview];
         }];
     }
-    
-    
-
-    
 }
+
+- (void)showAlertMessage:(NSString*)msg
+{
+    [UIAlertShow showAlertViewWithMsg:msg];
+}
+
 
 - (NSDictionary*) setPinCheParam {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
