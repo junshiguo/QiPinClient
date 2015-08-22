@@ -74,6 +74,7 @@
 		D68EC1D61B6DB60000ACE019 /* HttpEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1D51B6DB60000ACE019 /* HttpEngine.m */; };
 		D68EC1D91B6DBDA600ACE019 /* Commbox.mm in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1D81B6DBDA600ACE019 /* Commbox.mm */; };
 		D68EC1E41B6E231300ACE019 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D68EC1E31B6E231300ACE019 /* UserInfo.m */; };
+		D692DD531B884CE900BC016F /* home-pic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D692DD521B884CE900BC016F /* home-pic.jpg */; };
 		D696FDDC1B7845040033C54D /* WaitingForPartnerConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = D696FDDB1B7845040033C54D /* WaitingForPartnerConfirmView.m */; };
 		D696FDDE1B7845820033C54D /* WaitingForPartnerConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D696FDDD1B7845820033C54D /* WaitingForPartnerConfirmView.xib */; };
 		D696FDE01B784FB90033C54D /* PartnerCancelledView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D696FDDF1B784FB90033C54D /* PartnerCancelledView.xib */; };
@@ -252,6 +253,7 @@
 		D68EC1D81B6DBDA600ACE019 /* Commbox.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Commbox.mm; sourceTree = "<group>"; };
 		D68EC1E21B6E231300ACE019 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		D68EC1E31B6E231300ACE019 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		D692DD521B884CE900BC016F /* home-pic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-pic.jpg"; sourceTree = "<group>"; };
 		D696FDDA1B7845040033C54D /* WaitingForPartnerConfirmView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingForPartnerConfirmView.h; sourceTree = "<group>"; };
 		D696FDDB1B7845040033C54D /* WaitingForPartnerConfirmView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitingForPartnerConfirmView.m; sourceTree = "<group>"; };
 		D696FDDD1B7845820033C54D /* WaitingForPartnerConfirmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingForPartnerConfirmView.xib; sourceTree = "<group>"; };
@@ -479,17 +481,6 @@
 			isa = PBXGroup;
 			children = (
 				D6E2B23A1B870C1A0059165D /* PingppSDK */,
-				D69E60941B86EFF900C10925 /* MessageUI.framework */,
-				D69E60921B86EFF000C10925 /* MapKit.framework */,
-				D69E60901B86EFD900C10925 /* CoreAudio.framework */,
-				D69E608E1B86EFCE00C10925 /* AudioToolbox.framework */,
-				D69E608A1B86EFC200C10925 /* AddressBook.framework */,
-				D69E608B1B86EFC200C10925 /* AddressBookUI.framework */,
-				D69E60881B86EFB300C10925 /* CoreTelephony.framework */,
-				D69E60861B86EFA900C10925 /* libstdc++.dylib */,
-				D69E60841B86EAE700C10925 /* libsqlite3.0.dylib */,
-				D69E60821B86CDE000C10925 /* libc++.dylib */,
-				D67913321B83293A002F8D36 /* AssetsLibrary.framework */,
 				D6BA78321B74980900020A1E /* EaseMobSDK */,
 				D69C9AB81B7346BD00B7F8FD /* BaiduAPICustom */,
 				D684F8CC1B6F1B990039FC45 /* mapapi.bundle */,
@@ -561,6 +552,7 @@
 		D658D0EC1B6C80DC0097FC0D /* image */ = {
 			isa = PBXGroup;
 			children = (
+				D692DD521B884CE900BC016F /* home-pic.jpg */,
 				D67E7F841B85BEAE00844366 /* right_arrow.png */,
 				D67710BE1B81C42E0065BEB2 /* noimage.png */,
 				D67710B91B81BEEF0065BEB2 /* icon.png */,
@@ -717,6 +709,17 @@
 		D68EC1DB1B6DCF8300ACE019 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D69E60941B86EFF900C10925 /* MessageUI.framework */,
+				D69E60921B86EFF000C10925 /* MapKit.framework */,
+				D69E60901B86EFD900C10925 /* CoreAudio.framework */,
+				D69E608E1B86EFCE00C10925 /* AudioToolbox.framework */,
+				D69E608A1B86EFC200C10925 /* AddressBook.framework */,
+				D69E608B1B86EFC200C10925 /* AddressBookUI.framework */,
+				D69E60881B86EFB300C10925 /* CoreTelephony.framework */,
+				D69E60861B86EFA900C10925 /* libstdc++.dylib */,
+				D69E60841B86EAE700C10925 /* libsqlite3.0.dylib */,
+				D69E60821B86CDE000C10925 /* libc++.dylib */,
+				D67913321B83293A002F8D36 /* AssetsLibrary.framework */,
 				D6BA78AF1B74986D00020A1E /* libxml2.dylib */,
 				D6BA78AD1B74986500020A1E /* libresolv.dylib */,
 				D6BA78AB1B74985900020A1E /* libiconv.dylib */,
@@ -1237,6 +1240,7 @@
 				D6A4C14F1B7B0CCB00455088 /* whiteArrow.png in Resources */,
 				D646FCFE1B7876F1009BFC90 /* foregroundStar@2x.png in Resources */,
 				D60530411B78CCC100F4CF08 /* Order.storyboard in Resources */,
+				D692DD531B884CE900BC016F /* home-pic.jpg in Resources */,
 				D696FDDE1B7845820033C54D /* WaitingForPartnerConfirmView.xib in Resources */,
 				D67710BA1B81BEEF0065BEB2 /* icon.png in Resources */,
 				D696FDE81B786A770033C54D /* MatchSuccessView.xib in Resources */,
