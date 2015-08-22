@@ -26,6 +26,8 @@
 
     [self hideAllLabels];
     
+    rating = 5;
+    
 }
 
 - (void) beforeShowOrderDetail:(NSNotification*) notification {

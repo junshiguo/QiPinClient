@@ -22,13 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    float x, y, width, height;;
-    x = 0;
-    y = self.expGender.frame.origin.y + self.expGender.frame.size.height + 20;
-    width = UISCREEN_WIDTH;
-    height = self.pinCheButton.frame.origin.y - y -5;
-    _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(x, y, width, height)];
-    [_mapView setShowsUserLocation:NO];
+    //[_mapView setShowsUserLocation:NO];
 
     _locService = [[BMKLocationService alloc]init];
     [BMKLocationService setLocationDistanceFilter:100.f];
@@ -87,7 +81,15 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    _mapView.showsUserLocation = NO;
+    //_mapView.showsUserLocation = NO;
+    float x, y, width, height;;
+    x = 0;
+    y = self.expGender.frame.origin.y + self.expGender.frame.size.height + 20;
+    width = UISCREEN_WIDTH;
+    height = self.pinCheButton.frame.origin.y - y -5;
+    _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(x, y, width, height)];
+
+    
     [_mapView viewWillAppear];
     [_locService startUserLocationService];
     _mapView.delegate = self;
