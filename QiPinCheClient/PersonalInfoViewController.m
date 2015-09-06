@@ -16,6 +16,7 @@
 
 
 - (void)viewDidLoad {
+    NSLog(@"PersonalInfoViewController---viewDidLoad");
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getInfo:) name:@"ShowPartnerInfo" object:nil];
@@ -26,6 +27,7 @@
 }
 
 - (void) getInfo:(NSNotification*)notification {
+    NSLog(@"PersonalInfoViewController---getInfo");
     NSDictionary *dic = [notification object];
     NSLog(@"getInfo, dic=%@", dic);
 
@@ -71,12 +73,12 @@
         } else {
             NSString *message = [response objectForKey:@"message"];
             if (message == nil) {
-                message = @"网络异常";
+                message = @"网络异常 10060";
             }
             [UIAlertShow showAlertViewWithMsg:message];
         }
             } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
-        [UIAlertShow showAlertViewWithMsg:@"网络异常"];
+        [UIAlertShow showAlertViewWithMsg:@"网络异常 10061"];
         
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
@@ -113,6 +115,7 @@
 
 #pragma mark --- 头像相关
 - (void) photoTapped {
+    NSLog(@"PersonalInfoViewController---photoTapped");
     if (self.imageView.image) {
         UIImage *image = self.imageView.image;
         UIWindow *window = [UIApplication sharedApplication].keyWindow;

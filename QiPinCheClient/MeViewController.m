@@ -18,6 +18,7 @@
 
 
 - (void)viewDidLoad {
+    NSLog(@"MeViewController---viewDidLoad");
     [super viewDidLoad];
     
     if ([UserInfo getUid] == nil) {
@@ -57,11 +58,11 @@
                 self.age.text = [NSString stringWithFormat:@"%li岁", [[dic objectForKey:@"age"] integerValue]];
                 self.job.text = [dic objectForKey:@"job"];
             } else {
-                [UIAlertShow showAlertViewWithMsg:@"网络异常"];
+                [UIAlertShow showAlertViewWithMsg:@"网络异常 10030"];
             }
             
         } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
-            [UIAlertShow showAlertViewWithMsg:@"网络异常"];
+            [UIAlertShow showAlertViewWithMsg:@"网络异常 10031"];
         }];
         [ApplicationDelegate.httpEngine enqueueOperation:op];
     }
@@ -80,6 +81,7 @@
 
 #pragma mark --- 头像相关
 - (void) photoTapped {
+    NSLog(@"MeViewController---photoTapped");
     if (self.imageView.image) {
         UIImage *image = self.imageView.image;
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
@@ -107,6 +109,7 @@
 }
 
 - (void)hideImage:(UITapGestureRecognizer*)tap{
+    NSLog(@"MeViewController---hideImage");
     UIView *backgroundView = tap.view;
     UIImageView *imageView = (UIImageView*)[tap.view viewWithTag:1];
     [UIView animateWithDuration:0.3 animations:^{
@@ -130,6 +133,7 @@
 
 // 注销登录
 - (IBAction)logOff:(id)sender {
+    NSLog(@"logOff");
     [UserInfo clearUserInfo];
     [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
     
@@ -239,7 +243,7 @@
 // 上传头像
 - (void) uploadImage:(NSDictionary*) info {
     NSLog(@"info~~%@",info);
-    
+    NSLog(@"uploadImage");
     UIImage* image=[info objectForKey:UIImagePickerControllerOriginalImage];
     NSData *imageData;
     NSString *photoType, *photoMimiType;
@@ -281,7 +285,7 @@
             [self failToUpload];
         }
     }errorHandler:^(MKNetworkOperation *completedOperation,NSError *error) {
-        NSLog(@"mknetwork error : %@",error.debugDescription);
+        NSLog(@"mknetwork error : %@", error.debugDescription);
         [self failToUpload];
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
@@ -291,6 +295,7 @@
 
 
 - (void) failToUpload {
+    NSLog(@"failToUpload");
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     HUD.mode = MBProgressHUDModeText;
@@ -314,7 +319,6 @@
 
 // 更换头像菜单
 - (IBAction)changeAvatar:(id)sender {
-    NSLog(@"11111");
     UIActionSheet *menu=[[UIActionSheet alloc] initWithTitle:@"上传图片" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照上传",@"从相册上传", nil];
     menu.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
     [menu showInView:self.view];

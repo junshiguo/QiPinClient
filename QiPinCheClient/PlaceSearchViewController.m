@@ -25,6 +25,7 @@
 
 
 - (void)viewDidLoad {
+    NSLog(@"PlaceSearchViewController---viewDidLoad");
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(lastScreen:) name:@"SelectLocationNotification" object:nil];
     self.searchBar.delegate = self;
@@ -40,7 +41,6 @@
 }
 
 - (void) registerForKeyboardNotification {
-
     [[NSNotificationCenter defaultCenter] addObserver:self
      
                                              selector:@selector(keyboardWasShown:)
@@ -56,7 +56,7 @@
 {
     if (!keyboardVisible) {
         NSDictionary* info = [aNotification userInfo];
-        CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;//得到鍵盤的高度
+        CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;//得到键盘的高度
         NSLog(@"hight_hitht:%f",kbSize.height);
         keyboardHeight = kbSize.height;
         CGRect r = self.placeTable.frame;

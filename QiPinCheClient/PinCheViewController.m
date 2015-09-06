@@ -160,7 +160,7 @@
         //[self jumpToPayment:operation];
         
     } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
-        
+         [UIAlertShow showAlertViewWithMsg:@"支付失败！"]; 
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
 }

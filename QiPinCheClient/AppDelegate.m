@@ -28,6 +28,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSLog(@"didFinishLaunchingWithOptions");
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
     self.baiduAK = @"Uxn99a5gZWXDQ33gRx9STwmz";
@@ -80,32 +81,13 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
-    [[EaseMob sharedInstance] applicationDidEnterBackground:application];
+    [[EaseMob sharedInstance] applicationDidEnterBackground:application]; 
     
-    /*NSLog(@"2222");
-    [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:NO completion:^(NSDictionary *info, EMError *error) {
-        if (!error) {
-            NSLog(@"退出成功");
-        } else {
-            NSLog(@"error=%@", error);
-        }
-    } onQueue:nil];*/
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     [[EaseMob sharedInstance] applicationWillEnterForeground:application];
-    
-    /*BOOL isAutoLogin = [[EaseMob sharedInstance].chatManager isAutoLoginEnabled];
-    if (!isAutoLogin) {
-        [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:_uid password:@"7474741" completion:^(NSDictionary *loginInfo, EMError *error) {
-            if (!error) {
-                // 设置自动登录
-                [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
-                NSLog(@"登陆成功，设置自动登录");
-            }
-        } onQueue:nil];
-    }*/
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -125,7 +107,7 @@ void uncaughtExceptionHandler(NSException*exception){
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    NSLog(@"11111");
+    NSLog(@"sourceApplication annotation");
     [Pingpp handleOpenURL:url withCompletion:^(NSString *result, PingppError *error) {
         // result : success, fail, cancel, invalid
         NSString *msg;

@@ -13,6 +13,7 @@
 @implementation LoginViewController
 
 - (void)viewDidLoad{
+    NSLog(@"LoginViewController---viewDidLoad");
     [super viewDidLoad];
     
     self.phoneNumber.keyboardType = UIKeyboardTypeNumberPad;
@@ -25,6 +26,7 @@
 }
 
 - (IBAction)loginOnClick:(id)sender {
+    NSLog(@"loginOnClick");
     NSString *phoneNumber = self.phoneNumber.text;
     NSString *password = self.password.text;
     
@@ -56,11 +58,11 @@
             }
         } else {
             NSString *msg = [responseData objectForKey:@"message"];
-            if (msg == nil) msg = @"网络错误！";
+            if (msg == nil) msg = @"网络错误！10020";
             [UIAlertShow showAlertViewWithMsg:msg];
         }
     } errorHandler:^(MKNetworkOperation *errorOp, NSError *err) {
-        NSLog(@"MKNetwork请求错误:%@", [err localizedDescription]);
+        NSLog(@"MKNetwork请求错误:%@ 10021", [err localizedDescription]);
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
     

@@ -12,6 +12,7 @@
 @implementation FinishedOrderDetailViewController
 
 - (void)viewDidLoad {
+    NSLog(@"FinishedOrderDetailViewController");
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -31,6 +32,7 @@
 }
 
 - (void) beforeShowOrderDetail:(NSNotification*) notification {
+    NSLog(@"FinishedOrderDetailViewController---beforeShowOrderDetail");
     if ([UserInfo getUid] != nil) {
         // 判断处于登录状态
         NSLog(@"beforeShowOrderDetail");
@@ -93,6 +95,7 @@
 }
 
 - (IBAction)showPartenerDetail:(id)sender {
+    NSLog(@"FinishedOrderDetailViewController---showPartnerDetail");
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:partnerPhoneNumber forKey:@"partnerPhoneNumber"];
     [dic setObject:@"SHOW" forKey:@"ShowPhoneNumber"];
@@ -119,6 +122,7 @@
 }
 
 - (IBAction)startToRate:(id)sender {
+    NSLog(@"startToRate");
     //发送打分请求
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[UserInfo getUid] forKey:@"myPhoneNumber"];

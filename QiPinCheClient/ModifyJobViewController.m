@@ -27,6 +27,7 @@
 }
 
 - (IBAction)save:(id)sender {
+    NSLog(@"ModifyJobViewController");
     if (self.job.text.length == 0) {
         [UIAlertShow showAlertViewWithMsg:@"职业不能为空！"];
     } else {
@@ -61,7 +62,7 @@
             }
             
         } errorHandler:^(MKNetworkOperation *errOp, NSError *err){
-            [UIAlertShow showAlertViewWithMsg:@"网络异常！"];
+            [UIAlertShow showAlertViewWithMsg:@"网络异常！10041"];
         }];
         [ApplicationDelegate.httpEngine enqueueOperation:op];
     }

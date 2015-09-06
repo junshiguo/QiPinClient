@@ -26,6 +26,7 @@
 
 - (IBAction)beginPinChe:(id)sender {
     //[ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
+    NSLog(@"beginPinChe");
     if ([UserInfo getUid] != nil) {
         [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
     } else {

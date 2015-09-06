@@ -101,7 +101,7 @@
             } 
             
         } errorHandler:^(MKNetworkOperation *errorOp, NSError *err) {
-            [UIAlertShow showAlertViewWithMsg:@"网络好像有问题哦，稍后再试"];
+            [UIAlertShow showAlertViewWithMsg:@"网络好像有问题哦，稍后再试 10071"];
         }];
         [ApplicationDelegate.httpEngine enqueueOperation:op];
         

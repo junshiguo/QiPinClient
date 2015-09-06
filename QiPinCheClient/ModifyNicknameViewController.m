@@ -27,6 +27,7 @@
 }
 
 - (IBAction)save:(id)sender {
+    NSLog(@"ModifyNicknameViewController---save");
     if (self.nickName.text.length == 0) {
         [UIAlertShow showAlertViewWithMsg:@"昵称不能为空！"];
     } else {
@@ -59,7 +60,7 @@
             }
             
             } errorHandler:^(MKNetworkOperation *errOp, NSError *err){
-                [UIAlertShow showAlertViewWithMsg:@"网络异常"];
+                [UIAlertShow showAlertViewWithMsg:@"网络异常 10051"];
         }];
         [ApplicationDelegate.httpEngine enqueueOperation:op];
     }

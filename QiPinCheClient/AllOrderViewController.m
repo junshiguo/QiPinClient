@@ -16,6 +16,7 @@
 @implementation AllOrderViewController
 
 - (void)viewDidLoad {
+    NSLog(@"AllOrderViewController---viewDidLoaf");
     [super viewDidLoad];
     if ([UserInfo getUid] == nil) {
         [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
@@ -30,14 +31,13 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    NSLog(@"AllOrderViewController---viewWillAppear");
     [super viewWillAppear:YES];
     if ([UserInfo getUid] == nil) {
         [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
     } else {
         [self loadingTheData];
     }
-    NSLog(@"view will appear");
-    
 }
 
 
@@ -52,6 +52,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"AllOrderViewController---cellForRowAtIndexPath");
     NewOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewOrderCell"];
     NSDictionary *dic;
     if (btnIndex == 0) {
@@ -78,7 +79,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSLog(@"AllOrderViewController didSelectRowAtIndexPath");
     if (btnIndex == 0) {
         // 进行中的订单
         NSMutableDictionary *dic = [onGoingOrders objectAtIndex:[indexPath row]];
@@ -98,7 +99,7 @@
 }
 
 - (void) showMore:(UIButton*)btn {
-    
+    NSLog(@"showMore");
     NSUInteger row = btn.tag;
     if (btnIndex == 0) {
         // 进行中的订单
@@ -123,6 +124,7 @@
 #pragma mark - 两种订单切换
 
 - (IBAction)queryDoing:(id)sender {
+    NSLog(@"queryDoing");
     self.doingBtn.enabled = NO;
     self.finishBtn.enabled = YES;
     self.navTitle.title = @"进行中订单";
@@ -132,6 +134,7 @@
 }
 
 - (IBAction)queryFinish:(id)sender {
+    NSLog(@"queryFinish")'
     self.doingBtn.enabled = YES;
     self.finishBtn.enabled = NO;
     self.navTitle.title = @"已完成订单";
@@ -184,6 +187,7 @@
 }
 
 - (void) loadingTheData {
+    NSLog(@"loadingTheData");
     //这里写下载数据的接口，并进行连接下载
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
@@ -217,6 +221,7 @@
 
 //刷新结束，更改刷新状态，更新主线程
 -(void) doneNewsData {
+    NSLog(@"doneNewsData");
     isRefresh = NO;
     NSLog(@"doneNewsData");
     [_headView egoRefreshScrollViewDataSourceDidFinishedLoading:self.orderTable];
@@ -232,6 +237,7 @@
 
 -(void)requestFinished
 {
+    NSLog(@"requestFinished");
     //刷新数据，行数不变
     if (tag == 101) {
         //下拉刷新下载数据的解析和保存

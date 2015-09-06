@@ -35,8 +35,8 @@
 {
 	
 	NSBundle * libBundle = MYBUNDLE ;
-	if ( libBundle && filename ){
-		NSString * s=[[libBundle resourcePath ] stringByAppendingPathComponent : filename];
+	if (libBundle && filename) {
+		NSString *s = [[libBundle resourcePath] stringByAppendingPathComponent:filename];
 		return s;
 	}
 	return nil ;
@@ -315,7 +315,6 @@
 
 - (void)onGetDrivingRouteResult:(BMKRouteSearch*)searcher result:(BMKDrivingRouteResult*)result errorCode:(BMKSearchErrorCode)error
 {
-    NSLog(@"11111");
     if (error == BMK_SEARCH_NO_ERROR) {
         BMKDrivingRouteLine* plan = (BMKDrivingRouteLine*)[result.routes objectAtIndex:0];
         // 计算路线方案中的路段数目
@@ -333,7 +332,7 @@
                     [_mapView addAnnotation:item]; // 添加起点标注
                 }
                 
-            } else if(i == size-1){
+            } else if(i == size - 1){
                 NSString *name = [self getDestinationName:plan.terminal.location];
                 if (name != nil) {
                     RouteAnnotation* item = [[RouteAnnotation alloc]init];

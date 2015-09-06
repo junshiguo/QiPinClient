@@ -29,6 +29,7 @@
 }
 
 - (void) beforeShowOrderDetail:(NSNotification*) notification {
+    NSLog(@"beforeShowOrderDetail");
     if ([UserInfo getUid] != nil) {
         // 判断处于登录状态
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
@@ -62,12 +63,12 @@
                 [self showAllLabels];
                 
             } else {
-                [UIAlertShow showAlertViewWithMsg:@"网络错误！"];
+                [UIAlertShow showAlertViewWithMsg:@"网络错误！10010"];
             }
             
             
         } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
-            [UIAlertShow showAlertViewWithMsg:@"网络错误！"];
+            [UIAlertShow showAlertViewWithMsg:@"网络错误！10011"];
             
         }];
         [ApplicationDelegate.httpEngine enqueueOperation:op];
@@ -77,6 +78,7 @@
 
 
 - (IBAction)showPartnerDetail:(id)sender {
+    MSLog(@"showPartnerDetail");
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:partnerPhoneNumber forKey:@"partnerPhoneNumber"];
     [dic setObject:@"SHOW" forKey:@"ShowPhoneNumber"];

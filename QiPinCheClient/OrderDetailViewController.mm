@@ -26,6 +26,7 @@
 @synthesize orderTime = _orderTime;
 
 - (void)viewDidLoad {
+    NSLog(@"OrderDetailViewController---viewDidLoad");
     [super viewDidLoad];
     
     // 监听发布请求后订单的信息
@@ -50,6 +51,7 @@
 
 
 - (void) beforeShowOrderDetail:(NSNotification*)notification {
+    NSLog(@"OrderDetailViewController---beforeShowOrderDetail");
     NSLog(@"111 = %@", [notification object]);
     
     NSDictionary *data = [notification object];
@@ -80,6 +82,7 @@
 }
 
 - (void) setOrderStatusView {
+    NSLog(@"setOrderStatusView");
     NSDictionary *dic = [self setPostParams];
     NSLog(@"setOrderStatusView");
     NSLog(@"dic = %@", dic);
@@ -116,6 +119,7 @@
 }
 
 - (void) setOrderStatusViewByStatus:(NSInteger)statusCode andDetail:(NSDictionary*)detail {
+    MSLog(@"setOrderStatusViewByStatus");
     NSDictionary *partner, *me;
     if ([detail objectForKey:@"partner"] != nil) {
         partner = [detail objectForKey:@"partner"];
@@ -171,6 +175,7 @@
 
 // 等待匹配
 - (void) setWaitingForMatchView {
+    NSLog(@"setWaitingForMatchView");
     WaitingForMatchView *statusView = [WaitingForMatchView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
     [self.view addSubview:statusView];
@@ -179,6 +184,7 @@
 
 // 收到匹配的结果，等待确认
 - (void) setWaitingForConfirmViewWithDetail:(NSDictionary*)detail andSavePercent:(float)savePercent {
+    NSLog(@"setWaitingForConfirmViewWithDetail");
     WaitingForConfirmView *statusView = [WaitingForConfirmView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
     [self.view addSubview:statusView];
@@ -202,6 +208,7 @@
 
 // 自己确认，等待对方确认
 - (void) setWaitingPartnerConfirmView {
+    NSLog(@"setWaitingPartnerConfirmView");
     WaitingForPartnerConfirmView *statusView = [WaitingForPartnerConfirmView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
     
@@ -211,6 +218,7 @@
 
 // 对方取消
 - (void) setPartnerCancelledView {
+    NSLog(@"setPartnerCancelledView");
     PartnerCancelledView *statusView = [PartnerCancelledView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
     
@@ -222,6 +230,7 @@
 
 // 双方都确认，拼车成功
 - (void) setMatchSuccessViewWithDetail:(NSDictionary*)detail {
+    NSLog(@"setMatchSuccessViewWithDetail");
     MatchSuccessView *statusView = [MatchSuccessView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
     
@@ -241,6 +250,7 @@
 }
 
 - (void) setErrorView {
+    MSLog(@"setErrorView");
     ErrorView *statusView = [ErrorView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
     
@@ -249,6 +259,7 @@
 }
 
 - (void) showPartenerDetailWithPhoneNumber {
+    NSLog(@"showPartnerDetailWithPhoneNumber");
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:@"SHOW" forKey:@"ShowPhoneNumber"];
     [dic setObject:partnerPhoneNumber forKey:@"partnerPhoneNumber"];
@@ -256,6 +267,7 @@
 }
 
 - (void) showPartnerDetailWithoutPhoneNumber {
+    NSLog(@"showPartnerDetailWithoutPhoneNumber");
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:partnerPhoneNumber forKey:@"partnerPhoneNumber"];
     [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"PersonalInfoViewController" inView:self withNotificationName:@"ShowPartnerInfo" andObject:dic];
@@ -263,6 +275,7 @@
 
 // 得到匹配结果后确认拼车
 - (void) confirmToMatch {
+    NSLog(@"confirmToMatch");
     NSNumber *responseNumber = [NSNumber numberWithInt:1];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:responseNumber forKey:@"response"];
@@ -274,11 +287,11 @@
         if (statusCode == 1) {
             [self setOrderStatusView];
         } else {
-            [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！"];
+            [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！10070"];
         }
         
     } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
-        [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！"];
+        [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！10071"];
         
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
@@ -287,6 +300,7 @@
 
 // 得到匹配结果后放弃拼车,弹出对话框
 - (void) cancelToMatch {
+    NSLog(@"cancelToMatch");
     NSString *message = [NSString stringWithFormat:@"您共有%li次放弃的机会，是否确认放弃？", remainChance];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确认放弃匹配？" message:message delegate:self cancelButtonTitle:@"是" otherButtonTitles:@"否", nil];
@@ -296,6 +310,7 @@
 
 // 在对话框中选择确认要放弃这个匹配
 - (void) confirmCancelToMatch {
+    NSLog(@"confirmCancelToMatch);"
     NSNumber *responseNumber = [NSNumber numberWithInt:0];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:responseNumber forKey:@"response"];
@@ -320,11 +335,11 @@
             }
            
         } else {
-            [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！"];
+            [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！10080"];
         }
         
     } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
-        [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！"];
+        [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！10081"];
         
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
@@ -333,6 +348,7 @@
 
 // 对方放弃后重新等待匹配
 - (void) rewaitingForMatch {
+    NSLog(@"rewaitingForMatch");
     NSDictionary *dic = [self setPostParams];
     MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/rematch" params:dic httpMethod:@"POST"];
     [op addCompletionHandler:^(MKNetworkOperation *operation) {
@@ -341,11 +357,11 @@
         if (statusCode == 1) {
             [self setWaitingForMatchView];
         } else {
-            [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！"];
+            [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！10090"];
         }
         
     } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
-        [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！"];
+        [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！10091"];
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
     NSLog(@"重新匹配");
@@ -353,6 +369,7 @@
 
 // 取消订单
 - (void) cancelOrder {
+    NSLog(@"cancelOrder");
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
     [dic setObject:requestId forKey:@"myRequestId"];
@@ -375,11 +392,11 @@
             }];
             
         } else {
-            [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！"];
+            [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！10100"];
         }
 
     } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
-        [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！"];
+        [UIAlertShow showAlertViewWithMsg:@"网络错误，请重试！10101"];
         
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
@@ -390,6 +407,7 @@
 
 // 下车，完成拼单
 - (void) finishOrder {
+    NSLog(@"finishOrder");
     NSDictionary *dic = [self setPostParams];
     
     MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/confirmOffBoard" params:dic httpMethod:@"POST"];
@@ -404,11 +422,11 @@
             [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
             [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail_finished" andObject:dic];
         } else {
-            [UIAlertShow showAlertViewWithMsg:@"网络错误！"];
+            [UIAlertShow showAlertViewWithMsg:@"网络错误！10110"];
         }
         
     } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
-        [UIAlertShow showAlertViewWithMsg:@"网络错误！"];
+        [UIAlertShow showAlertViewWithMsg:@"网络错误！10111"];
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
     NSLog(@"完成拼单");
@@ -416,6 +434,7 @@
 
 
 - (void) makeCall {
+    NSLog(@"makeCall");
     if (partnerPhoneNumber != nil) {
         NSString *phoneUrl = [NSString stringWithFormat:@"%@%@", @"tel://", partnerPhoneNumber];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneUrl]];
@@ -442,6 +461,7 @@
 
 // 收到环信信息的回调
 - (void) didReceiveMessage:(EMMessage *)message {
+    NSLog(@"OrderDetailViewController---didReceiveMessage");
     NSLog(@"message=%@", message);
     NSLog(@"收到消息");
     NSInteger msgStatus;
@@ -458,6 +478,7 @@
 }
 
 - (NSMutableDictionary*) setPostParams {
+    NSLog(@"OrderDetailViewController---setPostParams");
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
     [dic setObject:requestId forKey:@"myRequestId"];
@@ -467,6 +488,7 @@
 
 // 根据后台路径规划得到的路线字符串获取路线信息，共有四个点
 - (NSArray*) getRouteWithDetail:(NSDictionary*)detail{
+    NSLog(@"getRouteWithDetail");
     NSMutableArray *array = [[NSMutableArray alloc] init];
     NSString *string = [detail objectForKey:@"route"];
     NSString *nameString = [detail objectForKey:@"routeNames"];
