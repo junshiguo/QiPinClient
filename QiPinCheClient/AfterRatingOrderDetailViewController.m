@@ -78,7 +78,7 @@
 
 
 - (IBAction)showPartnerDetail:(id)sender {
-    MSLog(@"showPartnerDetail");
+    NSLog(@"showPartnerDetail");
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:partnerPhoneNumber forKey:@"partnerPhoneNumber"];
     [dic setObject:@"SHOW" forKey:@"ShowPhoneNumber"];

@@ -119,7 +119,7 @@
 }
 
 - (void) setOrderStatusViewByStatus:(NSInteger)statusCode andDetail:(NSDictionary*)detail {
-    MSLog(@"setOrderStatusViewByStatus");
+    NSLog(@"setOrderStatusViewByStatus");
     NSDictionary *partner, *me;
     if ([detail objectForKey:@"partner"] != nil) {
         partner = [detail objectForKey:@"partner"];
@@ -250,7 +250,7 @@
 }
 
 - (void) setErrorView {
-    MSLog(@"setErrorView");
+    NSLog(@"setErrorView");
     ErrorView *statusView = [ErrorView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
     
@@ -310,7 +310,7 @@
 
 // 在对话框中选择确认要放弃这个匹配
 - (void) confirmCancelToMatch {
-    NSLog(@"confirmCancelToMatch);"
+    NSLog(@"confirmCancelToMatch");
     NSNumber *responseNumber = [NSNumber numberWithInt:0];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:responseNumber forKey:@"response"];
