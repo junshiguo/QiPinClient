@@ -27,11 +27,14 @@
 - (IBAction)beginPinChe:(id)sender {
     //[ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
     NSLog(@"beginPinChe");
-    if ([UserInfo getUid] != nil) {
+   /* if ([UserInfo getUid] != nil) {
         [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
     } else {
         [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
-    }
+    }*/
+    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
+
+    
 
 }
 @end

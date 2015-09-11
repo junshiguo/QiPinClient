@@ -134,7 +134,7 @@
 }
 
 - (IBAction)queryFinish:(id)sender {
-    NSLog(@"queryFinish")'
+    NSLog(@"queryFinish");
     self.doingBtn.enabled = YES;
     self.finishBtn.enabled = NO;
     self.navTitle.title = @"已完成订单";
