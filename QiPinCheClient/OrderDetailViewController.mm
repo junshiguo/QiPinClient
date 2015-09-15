@@ -14,7 +14,7 @@
 #import "PartnerCancelledView.h"
 #import "MatchSuccessView.h"
 #import "ErrorView.h"
-
+#import "WaitingForPaymentView.h"
 
 
 @implementation OrderDetailViewController
@@ -56,23 +56,9 @@
     
     NSDictionary *data = [notification object];
     
-    NSString *isCurrent = [data objectForKey:@"isCurrent"];
     requestId = [data objectForKey:@"requestId"];
-    
-    if (isCurrent != nil) {
-        // 刚发布完成请求后立即跳转可以立刻获得一些信息，不需要向服务器请求
-        self.srcLocationName.text = [data objectForKey:@"srcLocation"];
-        self.desLocationName.text = [data objectForKey:@"desLocation"];;
-        self.startTime.text = [data objectForKey:@"startTime"];
-        if ([data objectForKey:@"orderTime"] != nil) {
-            self.orderTime.text = [data objectForKey:@"orderTime"];
-        }
-        [self showAllLabels];
-        [self setWaitingForMatchView];
-    } else {
-        // 需要向服务器请求获得订单的状态,一般为从所有订单页面跳转至订单详情页面
-        [self setOrderStatusView];
-    }
+    // 需要向服务器请求获得订单的状态,一般为从所有订单页面跳转至订单详情页面
+    [self setOrderStatusView];
 
 }
 
@@ -166,6 +152,12 @@
         case ERROR_STATUS:
             [self setErrorView];
             break;
+        case WAITING_FOR_PAYMENT:
+            deposit = [[detail objectForKey:@"deposit"] floatValue];
+            [self setWaitingForPaymentView];
+            break;
+        case OUT_OF_DATE:
+            [self setErrorView];
         default:
             break;
     }
@@ -256,6 +248,14 @@
     
     [self.view addSubview:statusView];
     [statusView.cancelOrder addTarget:self action:@selector(cancelOrder) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void) setWaitingForPaymentView {
+    NSLog(@"setWaitingForPaymentView");
+    WaitingForPaymentView *statusView = [WaitingForPaymentView instanceView];
+    statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
+    [self.view addSubview:statusView];
+    [statusView.payBtn addTarget:self action:@selector(payOrder) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) showPartenerDetailWithPhoneNumber {
@@ -432,6 +432,12 @@
     NSLog(@"完成拼单");
 }
 
+- (void)payOrder {
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:requestId forKey:@"requestId"];
+    [dic setObject:[NSNumber numberWithFloat:deposit] forKey:@"deposit"];
+        [ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"PayViewController" inView:self withNotificationName:@"RequestInfo" andObject:dic];
+}
 
 - (void) makeCall {
     NSLog(@"makeCall");

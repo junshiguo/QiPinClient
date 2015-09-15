@@ -18,16 +18,16 @@
 {
     if (frame.size.height<200) {
         frameHeight = 200;
-    } else{
+    } else {
         frameHeight = frame.size.height;
     }
     tabheight = frameHeight-30;
     
-    //frame.size.height = 30.0f;
+    frame.size.height = 30.0f;
     
     self=[super initWithFrame:frame];
     
-    if(self){
+    if(self) {
         showList = NO; //默认不显示下拉框
         
         tv = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, frame.size.width, 0)];
@@ -39,7 +39,6 @@
         [self addSubview:tv];
         
         textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-        //textField.borderStyle=UITextBorderStyleRoundedRect;//设置文本框的边框风格
         textField.borderStyle = UITextBorderStyleRoundedRect;
         textField.delegate = self;
         [textField addTarget:self action:@selector(dropdown) forControlEvents:UIControlEventAllTouchEvents];
@@ -54,7 +53,7 @@
     return NO;
 }
 
--(void)dropdown{
+-(void)dropdown {
     [textField resignFirstResponder];
     if (showList) {//如果下拉框已显示，什么都不做
         return;

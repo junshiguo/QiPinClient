@@ -41,7 +41,7 @@
         [dic setObject:requestId forKey:@"requestId"];
         [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
         NSLog(@"%@", dic);
-        MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/queryOrder" params:dic httpMethod:@"POST"];
+        MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/queryRequest" params:dic httpMethod:@"POST"];
         [op addCompletionHandler:^(MKNetworkOperation *operation) {
             NSDictionary *response = [operation responseJSON];
             NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
@@ -49,14 +49,15 @@
                 NSDictionary *dic = [response objectForKey:@"detail"];
                 NSDictionary *me = [dic objectForKey:@"me"];
                 NSDictionary *partner = [dic objectForKey:@"partner"];
+                NSDictionary *payment = [dic objectForKey:@"payment"];
                 
                 self.srcLocation.text = [me objectForKey:@"sourceName"];
                 self.desLocation.text = [me objectForKey:@"destinationName"];
                 self.startTime.text = [me objectForKey:@"leavingTime"];
                 orderId = [dic objectForKey:@"orderId"];
                 partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
-                
-                partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
+                self.deposit.text = [NSString stringWithFormat:@"%.2f", [[payment objectForKey:@"deposit"] floatValue]];
+                self.depositDescription.text = [NSString stringWithFormat:@"%@ 退还", [payment objectForKey:@"expRefundTime"]];
                 if ([partner objectForKey:@"photo"] != nil) {
                     [ImageOperator setImageView:self.imageView withUrlString:[partner objectForKey:@"photo"]];
                 } else {
@@ -107,8 +108,8 @@
     self.srcLocation.hidden = YES;
     self.desLocation.hidden = YES;
     self.startTime.hidden = YES;
-    self.cash.hidden = YES;
-    self.cashDescription.hidden = YES;
+    self.deposit.hidden = YES;
+    self.depositDescription.hidden = YES;
     self.score.hidden = YES;
 }
 
@@ -116,8 +117,8 @@
     self.srcLocation.hidden = NO;
     self.desLocation.hidden = NO;
     self.startTime.hidden = NO;
-    self.cash.hidden = NO;
-    self.cashDescription.hidden = NO;
+    self.deposit.hidden = NO;
+    self.depositDescription.hidden = NO;
     self.score.hidden = NO;
 }
 
