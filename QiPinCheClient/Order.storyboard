@@ -347,8 +347,9 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="cash" destination="zg2-im-diE" id="1tN-KX-gib"/>
                         <outlet property="cashDescription" destination="G7b-C0-TLu" id="GBM-pg-UuC"/>
+                        <outlet property="deposit" destination="zg2-im-diE" id="CXD-BU-OQx"/>
+                        <outlet property="depositDescription" destination="G7b-C0-TLu" id="VoX-Mg-5hH"/>
                         <outlet property="desLocation" destination="4Jd-RW-yRk" id="bN5-dF-SEn"/>
                         <outlet property="imageView" destination="kmq-cd-0N1" id="gti-jm-PWg"/>
                         <outlet property="nickName" destination="Mpf-2f-7gW" id="mLZ-Pu-D80"/>
@@ -425,7 +426,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="您对他/她的评分是：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNF-ZV-VbN">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="您对他/她的评分是：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNF-ZV-VbN">
                                         <rect key="frame" x="20" y="123" width="159" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -718,8 +719,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="cash" destination="X97-IU-pZg" id="rsG-F6-KER"/>
-                        <outlet property="cashDescription" destination="Fj3-VU-m4a" id="1dA-Jw-6xf"/>
+                        <outlet property="deposit" destination="X97-IU-pZg" id="dr1-26-Zsb"/>
+                        <outlet property="depositDescription" destination="Fj3-VU-m4a" id="CFP-DB-d3c"/>
                         <outlet property="desLocation" destination="lhF-Iq-YRO" id="GtN-Hc-Dhp"/>
                         <outlet property="imageView" destination="b1r-f0-1Qu" id="SMA-Rc-GXn"/>
                         <outlet property="nickName" destination="9Fr-W5-ZTT" id="i5K-dP-9Nq"/>

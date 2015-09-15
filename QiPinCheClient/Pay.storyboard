@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybW-BL-MWl">
+                            <navigationBar contentMode="scaleToFill" restorationIdentifier="PayViewController" translatesAutoresizingMaskIntoConstraints="NO" id="ybW-BL-MWl" customClass="PaymentViewController">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="支付" id="5RF-GP-CKk">
@@ -77,7 +77,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="payOnClick:" destination="bqx-8M-g5d" eventType="touchUpInside" id="NIQ-hC-uAf"/>
+                                    <action selector="wxPayOnClick:" destination="bqx-8M-g5d" eventType="touchUpInside" id="RNp-cO-Y94"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tb3-te-Q7w">
@@ -92,6 +92,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="aliPayOnClick:" destination="bqx-8M-g5d" eventType="touchUpInside" id="jIt-Sj-yRf"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="押金是双方拼车信誉的保证" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oql-L3-zet">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -167,6 +170,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="money" destination="kzj-ec-iN4" id="0Tv-Is-3yo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJ4-V9-fwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

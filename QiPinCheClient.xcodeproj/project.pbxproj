@@ -23,6 +23,8 @@
 		D646FD121B78B770009BFC90 /* Order.png in Resources */ = {isa = PBXBuildFile; fileRef = D646FD0F1B78B770009BFC90 /* Order.png */; };
 		D646FD131B78B770009BFC90 /* personal.png in Resources */ = {isa = PBXBuildFile; fileRef = D646FD101B78B770009BFC90 /* personal.png */; };
 		D646FD141B78B770009BFC90 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = D646FD111B78B770009BFC90 /* Home.png */; };
+		D650EC621BA544A400D90591 /* WaitingForPaymentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D650EC611BA544A400D90591 /* WaitingForPaymentView.xib */; };
+		D650EC651BA5457800D90591 /* WaitingForPaymentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D650EC641BA5457800D90591 /* WaitingForPaymentView.m */; };
 		D658D0C21B6C75580097FC0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D0C11B6C75580097FC0D /* main.m */; };
 		D658D0C51B6C75580097FC0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D0C41B6C75580097FC0D /* AppDelegate.m */; };
 		D658D0C81B6C75580097FC0D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D658D0C71B6C75580097FC0D /* HomeViewController.m */; };
@@ -167,6 +169,9 @@
 		D646FD0F1B78B770009BFC90 /* Order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Order.png; sourceTree = "<group>"; };
 		D646FD101B78B770009BFC90 /* personal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = personal.png; sourceTree = "<group>"; };
 		D646FD111B78B770009BFC90 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
+		D650EC611BA544A400D90591 /* WaitingForPaymentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingForPaymentView.xib; sourceTree = "<group>"; };
+		D650EC631BA5457800D90591 /* WaitingForPaymentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingForPaymentView.h; sourceTree = "<group>"; };
+		D650EC641BA5457800D90591 /* WaitingForPaymentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitingForPaymentView.m; sourceTree = "<group>"; };
 		D658D0BC1B6C75580097FC0D /* QiPinCheClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiPinCheClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D658D0C01B6C75580097FC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D658D0C11B6C75580097FC0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -682,6 +687,7 @@
 				D696FDDF1B784FB90033C54D /* PartnerCancelledView.xib */,
 				D696FDE71B786A770033C54D /* MatchSuccessView.xib */,
 				D666084F1B7C6AE9008F096F /* ErrorView.xib */,
+				D650EC611BA544A400D90591 /* WaitingForPaymentView.xib */,
 				D6A7EFAD1B74EA89008F5E8F /* WaitingForConfirmView.h */,
 				D6A7EFAE1B74EA89008F5E8F /* WaitingForConfirmView.m */,
 				D6A7EFAF1B74EA89008F5E8F /* WaitingForMatchView.h */,
@@ -694,6 +700,8 @@
 				D696FDE51B7869D90033C54D /* MatchSuccessView.m */,
 				D666084C1B7C6AD1008F096F /* ErrorView.h */,
 				D666084D1B7C6AD1008F096F /* ErrorView.m */,
+				D650EC631BA5457800D90591 /* WaitingForPaymentView.h */,
+				D650EC641BA5457800D90591 /* WaitingForPaymentView.m */,
 				D68EC1D71B6DBDA600ACE019 /* Commbox.h */,
 				D68EC1D81B6DBDA600ACE019 /* Commbox.mm */,
 				D6E47D491B71B6D7009DCE22 /* MBProgressHUD.h */,
@@ -1250,6 +1258,7 @@
 				D646FD131B78B770009BFC90 /* personal.png in Resources */,
 				D6E2B29F1B870C1A0059165D /* Pingpp.bundle in Resources */,
 				D6E2B27E1B870C1A0059165D /* AlipaySDK.bundle in Resources */,
+				D650EC621BA544A400D90591 /* WaitingForPaymentView.xib in Resources */,
 				D658D0F51B6C89810097FC0D /* User.storyboard in Resources */,
 				D6A4C14C1B7B0CCB00455088 /* blueArrow@2x.png in Resources */,
 				D60530401B78CCC100F4CF08 /* Profile.storyboard in Resources */,
@@ -1296,6 +1305,7 @@
 				D658D1211B6CCD670097FC0D /* NSDate+RFC1123.m in Sources */,
 				D66A8AC11B771C8300FEADE8 /* ModifyNicknameViewController.m in Sources */,
 				D69C9AB21B731A4300B7F8FD /* OrderDetailViewController.mm in Sources */,
+				D650EC651BA5457800D90591 /* WaitingForPaymentView.m in Sources */,
 				D696FDE61B7869D90033C54D /* MatchSuccessView.m in Sources */,
 				D6A4C1511B7B0CCB00455088 /* PagesEntity.m in Sources */,
 				D658D0C51B6C75580097FC0D /* AppDelegate.m in Sources */,

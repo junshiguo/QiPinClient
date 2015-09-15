@@ -10,8 +10,11 @@
 
 @interface PayViewController : UIViewController {
     NSDictionary *requestInfo;
+    NSDictionary *chargeInfo;
 }
 - (IBAction)back:(id)sender;
-- (IBAction)payOnClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *money;
+- (IBAction)wxPayOnClick:(id)sender;
+- (IBAction)aliPayOnClick:(id)sender;
 
 @end

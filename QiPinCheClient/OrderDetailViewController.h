@@ -17,6 +17,8 @@
 #define CONFIRMED_CONFIRMED 6 //处理成功：自己确认，而且对方已经确认
 #define WAITING_FOR_MATCH 7 //正在处理：算法正在寻找匹配
 #define ERROR_STATUS 8 //无此请求，应该是服务器出错啦！
+#define WAITING_FOR_PAYMENT 9 // 等待付款
+#define OUT_OF_DATE 10 // 过期的请求
 
 @interface OrderDetailViewController : UIViewController<EMChatManagerDelegate, UIAlertViewDelegate> {
     NSString *requestId, *partnerPhoneNumber;
@@ -24,6 +26,7 @@
     NSArray *route;
     NSInteger remainChance;
     CGRect oldframe;
+    float deposit;
 }
 @property (weak, nonatomic) IBOutlet UILabel *srcLocationName;
 @property (weak, nonatomic) IBOutlet UILabel *desLocationName;

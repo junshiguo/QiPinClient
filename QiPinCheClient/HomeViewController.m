@@ -24,34 +24,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[_mapView setShowsUserLocation:NO];
-    
     _locService = [[BMKLocationService alloc]init];
     [BMKLocationService setLocationDistanceFilter:100.f];
     _annotation = [[BMKPointAnnotation alloc] init];
-    
+    float x, y, width, height;;
+    x = 0;
+    y = self.expGender.frame.origin.y + self.expGender.frame.size.height;
+    width = UISCREEN_WIDTH;
+    height = self.pinCheButton.frame.origin.y - y -30;
+    _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(x, y, width, height)];
+
     self.timePicker.minimumDate = [NSDate date];
     self.expGender.selectedSegmentIndex = 2;
-    
-    [self initAgeSelector];
+    self.expAge.text = @"不限";
+    self.pickerView.delegate = self;
+    self.pickerView.dataSource = self;
+    self.timePicker.backgroundColor = [UIColor whiteColor];
+    self.pickerView.backgroundColor = [UIColor whiteColor];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLoc:) name:@"LocNotification" object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishPayment:) name:@"FinishPayment" object:nil];
-
-    
+    [self initAgeArray];
 }
 
-- (void) finishPayment:(NSNotification*) notification {
-    NSLog(@"finishPayment");
-    NSString *msg = [notification object];
-    if ([msg isEqualToString:@"success"]) {
-        [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:requestInfo];
-    } else {
-        [UIAlertShow showAlertViewWithMsg:@"支付失败！"];
-    }
+- (void) initAgeArray {
+    ageArray = @[@"不限", @"70后", @"80后", @"90后", @"00后"];
 }
 
 // 当Home键退出后重新打开该页面需要重新加载视图信息
@@ -78,12 +77,6 @@
     
 }
 
-- (void) initAgeSelector {
-    self.ageText1.keyboardType = self.ageText2.keyboardType = UIKeyboardTypeNumberPad;
-    self.ageText1.text = @"0";
-    self.ageText2.text = @"100";
-}
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
     [self.ageLower endShowList];
@@ -91,6 +84,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"viewWillAppear");
     
     //_mapView.showsUserLocation = NO;
     float x, y, width, height;;
@@ -99,7 +93,6 @@
     width = UISCREEN_WIDTH;
     height = self.pinCheButton.frame.origin.y - y -5;
     if (_mapView != nil) _mapView.hidden = YES;
-    _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(x, y, width, height)];
     
     
     [_mapView viewWillAppear];
@@ -137,6 +130,8 @@
     
     srcLocationDic = dic;
     [self.view addSubview:_mapView];
+    
+    _mapView.hidden = false;
     [_locService stopUserLocationService];
 }
 
@@ -144,46 +139,58 @@
 
 // 时间选择器相关
 - (IBAction)beginSelectTime:(id)sender {
+    selectIndex = 0;
+    self.timePicker.backgroundColor = [UIColor whiteColor];
     self.timePicker.hidden = false;
     self.toolBar.hidden = false;
     self.startTime.enabled = false;
+    _mapView.hidden = true;
     [self.view bringSubviewToFront:self.timePicker];
     [self.view bringSubviewToFront:self.toolBar];
     self.pinCheButton.hidden = true;
+}
+
+
+- (IBAction)expAgeClick:(id)sender {
+    selectIndex = 1;
+    self.pickerView.hidden = false;
+    self.pickerView.backgroundColor = [UIColor whiteColor];
+    self.toolBar.hidden = false;
+    self.expAge.enabled = false;
     _mapView.hidden = true;
+    [self.view bringSubviewToFront:self.pickerView];
+    [self.view bringSubviewToFront:self.toolBar];
+    self.pinCheButton.hidden = true;
 }
 
 - (IBAction)startPinChe:(id)sender {
     
     if ([UserInfo getUid] == nil) {
+        // 尚未登录
         [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
     } else {
         NSLog(@"拼车请求");
         if (![self checkPinCheInfo]) return;
         NSDictionary *dic = [self setPinCheParam];
         MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/addRequest" params:dic httpMethod:@"POST"];
+        NSLog(@"Request Info = %@", dic);
         [op addCompletionHandler:^(MKNetworkOperation *operation) {
             NSLog(@"%@", [operation responseJSON]);
-            [self jumpToOrderDetail:operation];
-            //[self jumpToPayment:operation];
+            [self jumpToPayment:operation];
         
         } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
-            [UIAlertShow showAlertViewWithMsg:@"支付失败！"];
+            [UIAlertShow showAlertViewWithMsg:@"请求创建失败！"];
         }];
         [ApplicationDelegate.httpEngine enqueueOperation:op];
     }
 }
 
-- (void) jumpToPayment:(MKNetworkOperation*) operation {
-    NSDictionary *dic = [self setPinCheParam];
-    [ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"PayViewController" inView:self withNotificationName:@"RequestInfo" andObject:dic];
-}
 
-- (void) jumpToOrderDetail:(MKNetworkOperation*) operation {
+
+- (void) jumpToPayment:(MKNetworkOperation*) operation {
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     HUD.mode = MBProgressHUDModeText;
-    HomeViewController * __weak weakSelf = self;
     NSDictionary *data = [operation responseJSON];
     NSInteger status = [[data objectForKey:@"status"] integerValue];
     if (status == 1) {
@@ -198,23 +205,10 @@
             [dic setObject:[result objectForKey:@"id"] forKey:@"requestId"];
             [dic setObject:self.srcLocation.text forKey:@"srcLocation"];
             [dic setObject:self.desLocation.text forKey:@"desLocation"];
-            NSString *charge = [result objectForKey:@"charge"];
+            [dic setObject:[result objectForKey:@"deposit"] forKey:@"deposit"];
             [dic setObject:self.startTime.text forKey:@"startTime"];
-            [dic setObject:@"1" forKey:@"isCurrent"];
             requestInfo = dic;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [Pingpp createPayment:charge viewController:weakSelf appURLScheme:kUrlScheme withCompletion:^(NSString *result, PingppError *error) {
-                    NSLog(@"completion block: %@", result);
-                    if (error == nil) {
-                        NSLog(@"PingppError is nil");
-                        [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:dic];
-                    } else {
-                        NSLog(@"PingppError: code=%lu msg=%@", (unsigned  long)error.code, [error getMsg]);
-                        [UIAlertShow showAlertViewWithMsg:@"支付失败！"];
-                    }
-                    //[weakSelf showAlertMessage:result];
-                }];
-            });
+            [ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"PayViewController" inView:self withNotificationName:@"RequestInfo" andObject:requestInfo];
             
         }];
         
@@ -245,9 +239,17 @@
     
     [dic setObject:self.startTime.text forKey:@"expectTime"];
     [dic setObject:[NSNumber numberWithInteger:self.expGender.selectedSegmentIndex] forKey:@"expectGender"];
-    [dic setObject:[NSNumber numberWithInteger:[self.ageText1.text integerValue]] forKey:@"expectAgeMin"];
-    [dic setObject:[NSNumber numberWithInteger:[self.ageText2.text integerValue]] forKey:@"expectAgeMax"];
-    
+
+    NSInteger minAge = [self getMinAge];
+    if (minAge == 0) {
+        // 不限年龄
+        [dic setObject:[NSNumber numberWithInteger:0] forKey:@"expectAgeMin"];
+        [dic setObject:[NSNumber numberWithInteger:100] forKey:@"expectAgeMax"];
+    } else {
+        [dic setObject:[NSNumber numberWithInteger:minAge] forKey:@"expectAgeMin"];
+        [dic setObject:[NSNumber numberWithInteger:minAge + 10] forKey:@"expectAgeMax"];
+    }
+
     [dic setObject:ApplicationDelegate.uid forKey:@"phoneNumber"];
     [dic setObject:ApplicationDelegate.age forKey:@"age"];
     [dic setObject:ApplicationDelegate.gender forKey:@"gender"];
@@ -262,6 +264,27 @@
     
     return dic;
     
+}
+    
+- (NSInteger) getMinAge {
+
+    NSDate *now = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy"];
+    NSInteger year = [[dateFormatter stringFromDate:now] integerValue];
+    
+    if ([self.expAge.text isEqualToString:@"不限"]) {
+        return 0;
+    } else if ([self.expAge.text isEqualToString:@"70后"]) {
+        return year - 1970;
+    } else if ([self.expAge.text isEqualToString:@"80后"]) {
+        return year - 1980;
+    } else if ([self.expAge.text isEqualToString:@"90后"]) {
+        return year - 1990;
+    } else if ([self.expAge.text isEqualToString:@"00后"]) {
+        return year - 2000;
+    }
+    return 0;
 }
 
 - (BOOL) checkPinCheInfo {
@@ -291,32 +314,55 @@
     [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PlaceSearchViewController" inView:self withNotificationName:@"SelectLocationNotification" andObject:dic];
 }
 
-- (IBAction)backOnClick:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{}];
-}
 
 
 // 时间选择器toolbar
 - (IBAction)toolBarBackClick:(id)sender {
     self.timePicker.hidden = true;
+    self.pickerView.hidden = true;
     self.toolBar.hidden = true;
     self.startTime.enabled = true;
     self.pinCheButton.hidden = false;
+    self.expAge.enabled = true;
     _mapView.hidden = false;
 }
 - (IBAction)toolBarSaveClick:(id)sender {
     self.toolBar.hidden = true;
     self.timePicker.hidden = true;
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    self.startTime.text = [dateFormatter stringFromDate:self.timePicker.date];
-    self.startTime.enabled = true;
-    self.pinCheButton.hidden = false;
+    self.pickerView.hidden = true;
     _mapView.hidden = false;
+    if (selectIndex == 0) {
+        // 时间选择器
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        self.startTime.text = [dateFormatter stringFromDate:self.timePicker.date];
+        self.startTime.enabled = true;
+    } else {
+        // 年龄选择器
+        self.expAge.enabled = true;
+        self.expAge.text = [ageArray objectAtIndex:[self.pickerView selectedRowInComponent:0]];
+    }
+    self.pinCheButton.hidden = false;
 }
 
 
+#pragma mark --- 年龄区间选择器
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+//每列对应多少行
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return 5;
+}
 
+//每列每行对应显示的数据是什么
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [ageArray objectAtIndex:row];
+}
+
+
+#pragma mark --- 键盘
 // 关闭键盘
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
@@ -370,8 +416,5 @@
         [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
     }
     [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
-
-    
-
 }*/
 @end

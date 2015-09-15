@@ -63,6 +63,7 @@
         }
     } errorHandler:^(MKNetworkOperation *errorOp, NSError *err) {
         NSLog(@"MKNetwork请求错误:%@ 10021", [err localizedDescription]);
+        [UIAlertShow showAlertViewWithMsg:@"网络错误，请稍后再试"];
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
     
