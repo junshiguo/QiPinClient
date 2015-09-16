@@ -15,6 +15,7 @@
 #import "MatchSuccessView.h"
 #import "ErrorView.h"
 #import "WaitingForPaymentView.h"
+#import "OutOfDateView.h"
 
 
 @implementation OrderDetailViewController
@@ -122,6 +123,8 @@
     }
     if ([detail objectForKey:@"orderTime"] != nil) {
         self.orderTime.text = [detail objectForKey:@"orderTime"];
+    } else {
+        self.orderTime.hidden = YES;
     }
     if ([detail objectForKey:@"route"] != nil) {
         route = [self getRouteWithDetail:detail];
@@ -157,7 +160,8 @@
             [self setWaitingForPaymentView];
             break;
         case OUT_OF_DATE:
-            [self setErrorView];
+            [self setOutOfDateView];
+            break;
         default:
             break;
     }
@@ -256,6 +260,14 @@
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
     [self.view addSubview:statusView];
     [statusView.payBtn addTarget:self action:@selector(payOrder) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void) setOutOfDateView {
+    NSLog(@"setOutOfDateView");
+    OutOfDateView *statusView = [OutOfDateView instanceView];
+    statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
+    [self.view addSubview:statusView];
+    [statusView.backToHome addTarget:self action:@selector(backToHome) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) showPartenerDetailWithPhoneNumber {
@@ -510,6 +522,11 @@
     
     
     return array;
+}
+
+// 回到首页
+- (void) backToHome {
+    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TarBarController" inView:self];
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {

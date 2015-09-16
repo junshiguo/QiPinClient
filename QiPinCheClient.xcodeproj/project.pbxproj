@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D602AD411BA946AB00B0F69B /* OutOfDateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D602AD401BA946AB00B0F69B /* OutOfDateView.xib */; };
+		D602AD441BA947B200B0F69B /* OutOfDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D602AD431BA947B200B0F69B /* OutOfDateView.m */; };
 		D605303D1B78CCA800F4CF08 /* WaitingForMatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D605303C1B78CCA800F4CF08 /* WaitingForMatchView.xib */; };
 		D60530401B78CCC100F4CF08 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D605303E1B78CCC100F4CF08 /* Profile.storyboard */; };
 		D60530411B78CCC100F4CF08 /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D605303F1B78CCC100F4CF08 /* Order.storyboard */; };
@@ -149,6 +151,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D602AD401BA946AB00B0F69B /* OutOfDateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutOfDateView.xib; sourceTree = "<group>"; };
+		D602AD421BA947B200B0F69B /* OutOfDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutOfDateView.h; sourceTree = "<group>"; };
+		D602AD431BA947B200B0F69B /* OutOfDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutOfDateView.m; sourceTree = "<group>"; };
 		D605303C1B78CCA800F4CF08 /* WaitingForMatchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingForMatchView.xib; sourceTree = "<group>"; };
 		D605303E1B78CCC100F4CF08 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		D605303F1B78CCC100F4CF08 /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
@@ -688,6 +693,7 @@
 				D696FDE71B786A770033C54D /* MatchSuccessView.xib */,
 				D666084F1B7C6AE9008F096F /* ErrorView.xib */,
 				D650EC611BA544A400D90591 /* WaitingForPaymentView.xib */,
+				D602AD401BA946AB00B0F69B /* OutOfDateView.xib */,
 				D6A7EFAD1B74EA89008F5E8F /* WaitingForConfirmView.h */,
 				D6A7EFAE1B74EA89008F5E8F /* WaitingForConfirmView.m */,
 				D6A7EFAF1B74EA89008F5E8F /* WaitingForMatchView.h */,
@@ -702,6 +708,8 @@
 				D666084D1B7C6AD1008F096F /* ErrorView.m */,
 				D650EC631BA5457800D90591 /* WaitingForPaymentView.h */,
 				D650EC641BA5457800D90591 /* WaitingForPaymentView.m */,
+				D602AD421BA947B200B0F69B /* OutOfDateView.h */,
+				D602AD431BA947B200B0F69B /* OutOfDateView.m */,
 				D68EC1D71B6DBDA600ACE019 /* Commbox.h */,
 				D68EC1D81B6DBDA600ACE019 /* Commbox.mm */,
 				D6E47D491B71B6D7009DCE22 /* MBProgressHUD.h */,
@@ -1245,6 +1253,7 @@
 				D658D0CE1B6C75580097FC0D /* Main.storyboard in Resources */,
 				D646FD141B78B770009BFC90 /* Home.png in Resources */,
 				D6A4C14E1B7B0CCB00455088 /* grayArrow@2x.png in Resources */,
+				D602AD411BA946AB00B0F69B /* OutOfDateView.xib in Resources */,
 				D6A4C14F1B7B0CCB00455088 /* whiteArrow.png in Resources */,
 				D646FCFE1B7876F1009BFC90 /* foregroundStar@2x.png in Resources */,
 				D60530411B78CCC100F4CF08 /* Order.storyboard in Resources */,
@@ -1343,6 +1352,7 @@
 				D646FD011B78774F009BFC90 /* FinishedOrderDetailViewController.m in Sources */,
 				D617B83B1B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.m in Sources */,
 				D6E47D501B721240009DCE22 /* NewOrderCell.m in Sources */,
+				D602AD441BA947B200B0F69B /* OutOfDateView.m in Sources */,
 				D6A4C1481B7B0CCB00455088 /* EGORefreshTableHeaderView.m in Sources */,
 				D6A4C1471B7B0CCB00455088 /* EGORefreshTableFootView.m in Sources */,
 				D66CA2051B844B140092618F /* ImageOperator.m in Sources */,

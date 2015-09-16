@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QiPinCheClient/OrderDetailViewController.mm"
-            timestampString = "461666811.303343"
+            timestampString = "464081382.981712"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "-setWaitingForConfirmViewWithDetail:andSavePercent:"
             landmarkType = "5">
          </BreakpointContent>
