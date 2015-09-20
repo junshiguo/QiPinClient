@@ -42,7 +42,7 @@
 }
 
 + (void)clearUserInfo {
-    NSArray *array = [[NSArray alloc] initWithObjects:nil];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [paths objectAtIndex:0];
     NSString *filename = [path stringByAppendingPathComponent:@"account.plist"];

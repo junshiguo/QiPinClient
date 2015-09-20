@@ -33,13 +33,14 @@
     if ([UserInfo getUid] != nil) {
         // 判断处于登录状态
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        [dic setObject:[[notification object] objectForKey:@"requestId"] forKey:@"requestId"];
+        [dic setObject:[[notification object] objectForKey:@"requestId"] forKey:@"myRequestId"];
         [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
         MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/queryRequest" params:dic httpMethod:@"POST"];
         [op addCompletionHandler:^(MKNetworkOperation *operation) {
             NSDictionary *response = [operation responseJSON];
+            NSLog(@"%@", response);
             NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
-            if (statusCode == 1) {
+            if (statusCode != -1) {
                 NSDictionary *dic = [response objectForKey:@"detail"];
                 NSDictionary *me = [dic objectForKey:@"me"];
                 NSDictionary *partner = [dic objectForKey:@"partner"];
@@ -48,9 +49,9 @@
                 self.srcLocation.text = [me objectForKey:@"sourceName"];
                 self.desLocation.text = [me objectForKey:@"destinationName"];
                 self.startTime.text = [me objectForKey:@"leavingTime"];
-                NSString *scoreText = [NSString stringWithFormat:@"%li.0", [[dic objectForKey:@"rating"] integerValue]];
+                NSString *scoreText = [NSString stringWithFormat:@"%i.0", [[dic objectForKey:@"rating"] integerValue]];
                 self.score.text = scoreText;
-                self.deposit.text = [NSString stringWithFormat:@"%.2f", [[payment objectForKey:@"deposit"] floatValue]];
+                self.deposit.text = [NSString stringWithFormat:@"%.2f元", [[payment objectForKey:@"deposit"] floatValue]/100];
                 self.depositDescription.text = [NSString stringWithFormat:@"%@ 退还", [payment objectForKey:@"expRefundTime"]];
                 partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
                 

@@ -11,14 +11,16 @@
 @implementation ImageOperator
 
 + (void) setImageView:(UIImageView*)imageView withUrlString:(NSString*)urlString {
-    @try {
+    /*@try {
         NSLog(@"%@", urlString);
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
         imageView.image =  [UIImage imageWithData:data];
     }
     @catch (NSException *exception) {
         [self setDefaultImageView:imageView];
-    }
+    }*/
+    NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"noimage.png"]);
+    imageView.image = [UIImage imageWithData:imageData];
 }
 
 

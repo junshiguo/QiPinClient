@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,25 +12,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜！双方已确认拼单！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srv-rf-HSL">
-                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <rect key="frame" x="206.5" y="20" width="187" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkC-4D-oVL">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <rect key="frame" x="262.5" y="103" width="75" height="30"/>
                     <state key="normal" title="哼不和你玩">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="对方联系方式已发至您的手机。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxc-aA-QoN">
-                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <rect key="frame" x="181" y="57.5" width="238" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JId-ii-WqN">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <rect key="frame" x="70" y="168" width="460" height="30"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="我已下车，拼单完成">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,7 +43,7 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrW-ZO-MPG">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <rect key="frame" x="496" y="108" width="20" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="DOX-vt-ruq"/>
                         <constraint firstAttribute="width" constant="20" id="ls3-Ay-hOs"/>
@@ -50,12 +51,6 @@
                     <state key="normal" backgroundImage="phone-icon-clip-art_t.jpg">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="DOX-vt-ruq"/>
-                            <exclude reference="ls3-Ay-hOs"/>
-                        </mask>
-                    </variation>
                     <variation key="widthClass=compact">
                         <mask key="constraints">
                             <include reference="DOX-vt-ruq"/>
@@ -63,8 +58,8 @@
                         </mask>
                     </variation>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wn1-pk-6JA">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wn1-pk-6JA">
+                    <rect key="frame" x="70" y="84" width="76" height="76"/>
                     <variation key="widthClass=compact" fixedFrame="YES">
                         <rect key="frame" x="81" y="90" width="70" height="70"/>
                     </variation>
@@ -86,29 +81,6 @@
                 <constraint firstItem="Srv-rf-HSL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="khI-GV-46Z"/>
                 <constraint firstAttribute="centerX" secondItem="JId-ii-WqN" secondAttribute="centerX" id="nfe-aK-wK1"/>
             </constraints>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="Srv-rf-HSL"/>
-                    <exclude reference="gkC-4D-oVL"/>
-                    <exclude reference="uxc-aA-QoN"/>
-                    <exclude reference="JId-ii-WqN"/>
-                    <exclude reference="qrW-ZO-MPG"/>
-                    <exclude reference="wn1-pk-6JA"/>
-                </mask>
-                <mask key="constraints">
-                    <exclude reference="Hbn-Tq-I59"/>
-                    <exclude reference="khI-GV-46Z"/>
-                    <exclude reference="HtA-3r-iow"/>
-                    <exclude reference="chv-R1-QWE"/>
-                    <exclude reference="Kry-1Q-ZHO"/>
-                    <exclude reference="PrA-rK-TXS"/>
-                    <exclude reference="nfe-aK-wK1"/>
-                    <exclude reference="B6g-w1-v4o"/>
-                    <exclude reference="Rq3-KO-55e"/>
-                    <exclude reference="1Nr-ZG-dNd"/>
-                    <exclude reference="Zwj-ZC-cXc"/>
-                </mask>
-            </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="Srv-rf-HSL"/>
