@@ -262,7 +262,7 @@
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
     [self.view addSubview:statusView];
     [statusView.payBtn addTarget:self action:@selector(payOrder) forControlEvents:UIControlEventTouchUpInside];
-    [statusView.cancelRequest addTarget:self action:@selector(cancelRequest) forControlEvents:UIControlEventTouchUpInside];
+    [statusView.cancelRequest addTarget:self action:@selector(cancelOrder) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) setOutOfDateView {

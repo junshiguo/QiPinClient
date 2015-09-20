@@ -49,7 +49,8 @@
                 self.srcLocation.text = [me objectForKey:@"sourceName"];
                 self.desLocation.text = [me objectForKey:@"destinationName"];
                 self.startTime.text = [me objectForKey:@"leavingTime"];
-                NSString *scoreText = [NSString stringWithFormat:@"%li.0", [[dic objectForKey:@"rating"] integerValue]];
+                int rating = [[dic objectForKey:@"rating"] intValue];
+                NSString *scoreText = [NSString stringWithFormat:@"%i.0", rating];
                 self.score.text = scoreText;
                 self.deposit.text = [NSString stringWithFormat:@"%.2f元", [[payment objectForKey:@"deposit"] floatValue]/100];
                 self.depositDescription.text = [NSString stringWithFormat:@"%@ 退还", [payment objectForKey:@"expRefundTime"]];

@@ -12,54 +12,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-pic.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4Px-ER-bby">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="445"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="445" id="mZt-FH-vrd">
-                            <variation key="widthClass=compact" constant="431"/>
-                        </constraint>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="mZt-FH-vrd"/>
-                        </mask>
-                    </variation>
-                    <variation key="widthClass=compact">
-                        <mask key="constraints">
-                            <exclude reference="mZt-FH-vrd"/>
-                        </mask>
-                    </variation>
+                    <rect key="frame" x="67.5" y="17.5" width="345" height="445"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="4Px-ER-bby" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6Ow-Tr-qfn"/>
-                <constraint firstAttribute="centerX" secondItem="4Px-ER-bby" secondAttribute="centerX" id="Ke6-tY-Lr0"/>
-                <constraint firstItem="4Px-ER-bby" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bva-jX-zmv"/>
-                <constraint firstItem="4Px-ER-bby" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="98" id="crh-1k-ZRf">
-                    <variation key="widthClass=compact" constant="0.0"/>
-                </constraint>
-                <constraint firstAttribute="bottom" secondItem="4Px-ER-bby" secondAttribute="bottom" id="ktZ-H0-cHg"/>
-                <constraint firstAttribute="trailing" secondItem="4Px-ER-bby" secondAttribute="trailing" id="npO-pK-Th6"/>
-                <constraint firstItem="4Px-ER-bby" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="41" id="p5C-Ax-9hm"/>
+                <constraint firstItem="4Px-ER-bby" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8FM-q3-DO3"/>
+                <constraint firstItem="4Px-ER-bby" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hm6-61-sG7"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="Ke6-tY-Lr0"/>
-                    <exclude reference="crh-1k-ZRf"/>
-                    <exclude reference="ktZ-H0-cHg"/>
-                    <exclude reference="p5C-Ax-9hm"/>
-                </mask>
-            </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="4Px-ER-bby"/>
-                </mask>
-                <mask key="constraints">
-                    <include reference="Ke6-tY-Lr0"/>
-                    <include reference="crh-1k-ZRf"/>
-                    <exclude reference="p5C-Ax-9hm"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="548" y="455"/>

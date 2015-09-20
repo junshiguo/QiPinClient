@@ -55,7 +55,7 @@
                 } else {
                     self.gender.text = @"女";
                 }
-                self.age.text = [NSString stringWithFormat:@"%li", [[dic objectForKey:@"age"] integerValue]];
+                self.age.text = [NSString stringWithFormat:@"%i", [[dic objectForKey:@"age"] intValue]];
                 self.job.text = [dic objectForKey:@"job"];
             } else {
                 [UIAlertShow showAlertViewWithMsg:@"网络异常 10030"];
@@ -158,7 +158,7 @@
     if(buttonIndex == 0){
         
         [self snapImage];
-        [self openFlashlight];
+        //[self openFlashlight];
     } else if(buttonIndex == 1){
         [self pickImage];
     }
@@ -171,11 +171,15 @@
         AVCaptureSession * session = [[AVCaptureSession alloc]init];
         
         AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
-        [session addInput:input];
+        if ([session canAddInput:input]) {
+            [session addInput:input];
+        }
         
         // Create video output and add to current session
         AVCaptureVideoDataOutput * output = [[AVCaptureVideoDataOutput alloc]init];
-        [session addOutput:output];
+        if ([session canAddOutput:output]) {
+            [session addOutput:output];
+        }
         
         // Start session configuration
         [session beginConfiguration];
@@ -204,14 +208,32 @@
 
 - (void)snapImage{
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        UIImagePickerController * picker = [[UIImagePickerController alloc]init];
-        picker.delegate = self;
-        picker.allowsEditing = NO;
-        //打开相册选择照片
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:picker animated:YES completion:nil];
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
         
-    }else{
+        if(authStatus == AVAuthorizationStatusAuthorized)
+        {
+            NSLog(@"允许状态");
+            UIImagePickerController * picker = [[UIImagePickerController alloc]init];
+            picker.delegate = self;
+            picker.allowsEditing = NO;
+            //打开相册选择照片
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:picker animated:YES completion:nil];
+            
+        }
+        else if (authStatus == AVAuthorizationStatusDenied)
+        {
+            NSLog(@"不允许状态，可以弹出一个alertview提示用户在隐私设置中开启权限");
+            [UIAlertShow showAlertViewWithMsg:@"没有访问您相机的权限，请在隐私设置中打开相机的权限"];
+        }
+        else if (authStatus == AVAuthorizationStatusNotDetermined)
+        {
+            NSLog(@"系统还未知是否访问，第一次开启相机时");
+        }
+
+        
+        
+    } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"你没有摄像头" delegate:nil cancelButtonTitle:@"Drat!" otherButtonTitles:nil];
         [alert show];
     }
@@ -270,7 +292,7 @@
         compression -= 0.10;
         imageData = UIImageJPEGRepresentation(image, compression);
         photoType = @"JPG";
-        NSLog(@"Compress : %lu",imageData.length);
+        NSLog(@"Compress : %u",imageData.length);
     }
 
     
