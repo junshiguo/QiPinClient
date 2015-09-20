@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEG-xN-ksj">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <rect key="frame" x="70" y="111" width="460" height="30"/>
                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="立即支付">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -24,9 +25,9 @@
                     </userDefinedRuntimeAttributes>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的押金尚未支付，请先支付" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJM-vM-Orx">
-                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <rect key="frame" x="189.5" y="50" width="221" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -38,19 +39,6 @@
                 <constraint firstItem="eEG-xN-ksj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="111" id="m33-tB-Ein"/>
                 <constraint firstItem="FJM-vM-Orx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="mK3-6O-hCD"/>
             </constraints>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="eEG-xN-ksj"/>
-                    <exclude reference="FJM-vM-Orx"/>
-                </mask>
-                <mask key="constraints">
-                    <exclude reference="JT4-UX-ygG"/>
-                    <exclude reference="mK3-6O-hCD"/>
-                    <exclude reference="53Z-UB-qld"/>
-                    <exclude reference="hcC-h8-G3f"/>
-                    <exclude reference="m33-tB-Ein"/>
-                </mask>
-            </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="eEG-xN-ksj"/>

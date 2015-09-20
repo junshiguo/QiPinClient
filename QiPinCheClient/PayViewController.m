@@ -54,9 +54,11 @@
     [dic setObject:[chargeInfo objectForKey:@"id"] forKey:@"chargeId"];
     [dic setObject:[UserInfo getUid] forKey:@"userId"];
     [dic setObject:[requestInfo objectForKey:@"deposit"] forKey:@"deposit"];
+    NSLog(@"payInfo=%@", dic);
     MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/confirmPayment" params:dic httpMethod:@"POST"];
     [op addCompletionHandler:^(MKNetworkOperation *operation) {
-        } errorHandler:^(MKNetworkOperation *errOp, NSError *err) {
+    } errorHandler:^(MKNetworkOperation *errOp, NSError *errMsg) {
+        NSLog(@"%@", errMsg);
         [UIAlertShow showAlertViewWithMsg:@"网络失败！10301"];
     }];
     [ApplicationDelegate.httpEngine enqueueOperation:op];
@@ -96,7 +98,7 @@
                         [self sendFinishPayment];
                         [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"OrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail" andObject:requestInfo];
                     } else {
-                        NSLog(@"PingppError: code=%lu msg=%@", (unsigned  long)error.code, [error getMsg]);
+                        NSLog(@"PingppError: code=%lu msg=%@", (unsigned long)error.code, [error getMsg]);
                         [UIAlertShow showAlertViewWithMsg:@"支付失败！"];
                     }
                     

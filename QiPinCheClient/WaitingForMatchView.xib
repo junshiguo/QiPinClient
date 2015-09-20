@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,19 +12,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统火力全开正在为您寻找合适的拼车对象，" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeg-Bn-cBm">
-                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <rect key="frame" x="130" y="68" width="340" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请您耐心等待~~~" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peR-Uz-EF7">
-                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <rect key="frame" x="234" y="110" width="131" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUf-Ni-ivh">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <rect key="frame" x="70" y="176" width="460" height="30"/>
                     <color key="backgroundColor" red="0.94661458330000003" green="0.024669968069999999" blue="0.15351113559999999" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="不想等了，我要取消订单">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,21 +53,9 @@
                 <constraint firstItem="peR-Uz-EF7" firstAttribute="top" secondItem="aeg-Bn-cBm" secondAttribute="bottom" constant="22" id="pBp-kQ-aPa"/>
             </constraints>
             <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="aeg-Bn-cBm"/>
-                    <exclude reference="peR-Uz-EF7"/>
-                    <exclude reference="RUf-Ni-ivh"/>
-                </mask>
                 <mask key="constraints">
-                    <exclude reference="7ES-fc-li2"/>
                     <exclude reference="7kV-uQ-Od6"/>
-                    <exclude reference="U0p-8J-2fW"/>
                     <exclude reference="ja7-if-RjD"/>
-                    <exclude reference="B2q-aD-Weo"/>
-                    <exclude reference="pBp-kQ-aPa"/>
-                    <exclude reference="Pn0-KF-dOh"/>
-                    <exclude reference="Vme-dT-uuq"/>
-                    <exclude reference="a4w-dQ-yyX"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">

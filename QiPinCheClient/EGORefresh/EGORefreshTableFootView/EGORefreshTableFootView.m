@@ -60,28 +60,9 @@
 #pragma mark Setters
 
 - (void)refreshLastUpdatedDate {
-	
-	if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDataSourceLastUpdated:)]) {
-		
-		//NSDate *date = [_delegate egoRefreshTableFootDataSourceLastUpdated:self];
-		
-//		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//		[formatter setAMSymbol:@"上午"];
-//		[formatter setPMSymbol:@"下午"];
-//		[formatter setDateFormat:@"yyyy/MM/dd hh:mm:a"];
-//		_lastUpdatedLabel.text = [NSString stringWithFormat:@"最后更新: %@", [formatter stringFromDate:date]];
-//        
-//		[[NSUserDefaults standardUserDefaults] setObject:_lastUpdatedLabel.text forKey:@"EGORefreshTableView_LastRefresh"];
-//		[[NSUserDefaults standardUserDefaults] synchronize];
-//		[formatter release];
-		
-	} else {
-		
-		_lastUpdatedLabel.text = nil;
-		
-	}
-
+    _lastUpdatedLabel.text = nil;
 }
+
 
 - (void)setState:(EGOPullRefreshState1)aState{
 	
@@ -146,9 +127,9 @@
 	} else if (scrollView.isDragging) {
 		
 		BOOL _loading = NO;
-		if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDataSourceIsLoading:)]) {
+		/*if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDataSourceIsLoading:)]) {
 			_loading = [_delegate egoRefreshTableFootDataSourceIsLoading:self];
-		}
+		}*/
 		
 		if (_state == EGOOPullRefreshPulling1 && scrollView.contentOffset.y + (scrollView.frame.size.height) < scrollView.contentSize.height + RefreshViewHight && scrollView.contentOffset.y > 0.0f && !_loading) {
 			[self setState:EGOOPullRefreshNormal1];
@@ -166,12 +147,12 @@
 //当停止偏移的时候
 - (void)egoRefreshscrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
-    BOOL _loading = NO;
+    /*BOOL _loading = NO;
 	if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDataSourceIsLoading:)]) {
 		_loading = [_delegate egoRefreshTableFootDataSourceIsLoading:self];
         NSLog(@"%c",_loading);
         
-	}
+	}*/
     //判断tableview是否到达底部
     if (scrollView.contentSize.height==scrollView.contentOffset.y+scrollView.frame.size.height) {
         NSLog(@"到达底部");
@@ -196,9 +177,9 @@
 - (void)egoRefreshScrollViewDidEndDragging:(UIScrollView *)scrollView {
 	
 	BOOL _loading = NO;
-	if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDataSourceIsLoading:)]) {
+	/*if ([_delegate respondsToSelector:@selector(egoRefreshTableHeaderDataSourceIsLoading:)]) {
 		_loading = [_delegate egoRefreshTableFootDataSourceIsLoading:self];
-	}
+	}*/
     
 	if (scrollView.contentOffset.y + (scrollView.frame.size.height) > scrollView.contentSize.height  && !_loading) {
 		if ([_delegate respondsToSelector:@selector(egoRefreshTableFootDidTriggerRefresh:)]) {

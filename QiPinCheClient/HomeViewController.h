@@ -17,6 +17,7 @@
     NSDictionary *requestInfo;
     NSInteger selectIndex;
     NSArray *ageArray;
+    BOOL hasShowMapView;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *expAge;

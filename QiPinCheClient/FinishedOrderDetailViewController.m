@@ -38,14 +38,15 @@
         NSLog(@"beforeShowOrderDetail");
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         requestId = [[notification object] objectForKey:@"requestId"];
-        [dic setObject:requestId forKey:@"requestId"];
+        [dic setObject:requestId forKey:@"myRequestId"];
         [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
         NSLog(@"%@", dic);
         MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/queryRequest" params:dic httpMethod:@"POST"];
         [op addCompletionHandler:^(MKNetworkOperation *operation) {
             NSDictionary *response = [operation responseJSON];
+            NSLog(@"%@", response);
             NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
-            if (statusCode == 1) {
+            if (statusCode != -1) {
                 NSDictionary *dic = [response objectForKey:@"detail"];
                 NSDictionary *me = [dic objectForKey:@"me"];
                 NSDictionary *partner = [dic objectForKey:@"partner"];
@@ -56,7 +57,7 @@
                 self.startTime.text = [me objectForKey:@"leavingTime"];
                 orderId = [dic objectForKey:@"orderId"];
                 partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
-                self.deposit.text = [NSString stringWithFormat:@"%.2f", [[payment objectForKey:@"deposit"] floatValue]];
+                self.deposit.text = [NSString stringWithFormat:@"%.2f元", [[payment objectForKey:@"deposit"] floatValue]/100];
                 self.depositDescription.text = [NSString stringWithFormat:@"%@ 退还", [payment objectForKey:@"expRefundTime"]];
                 if ([partner objectForKey:@"photo"] != nil) {
                     [ImageOperator setImageView:self.imageView withUrlString:[partner objectForKey:@"photo"]];

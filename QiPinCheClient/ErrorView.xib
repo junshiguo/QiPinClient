@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,13 +12,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器出错啦，请耐心等待！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sg3-PS-s6e">
-                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <rect key="frame" x="189.5" y="54" width="221" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgU-7F-MAW">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <rect key="frame" x="70" y="111" width="460" height="30"/>
                     <color key="backgroundColor" red="1" green="0.14968057175839977" blue="0.20311981158029868" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="我要取消订单">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,20 +46,6 @@
                 <constraint firstAttribute="centerX" secondItem="sg3-PS-s6e" secondAttribute="centerX" id="iE1-5T-uEM"/>
                 <constraint firstItem="sg3-PS-s6e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="54" id="tK3-fz-KbN"/>
             </constraints>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="sg3-PS-s6e"/>
-                    <exclude reference="xgU-7F-MAW"/>
-                </mask>
-                <mask key="constraints">
-                    <exclude reference="BPe-m8-FDh"/>
-                    <exclude reference="iE1-5T-uEM"/>
-                    <exclude reference="tK3-fz-KbN"/>
-                    <exclude reference="Dc9-0x-cfu"/>
-                    <exclude reference="M4X-pH-giU"/>
-                    <exclude reference="WVn-aW-Jmf"/>
-                </mask>
-            </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="sg3-PS-s6e"/>

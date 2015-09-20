@@ -55,7 +55,7 @@
                 } else {
                     self.gender.text = @"女";
                 }
-                self.age.text = [NSString stringWithFormat:@"%li岁", [[dic objectForKey:@"age"] integerValue]];
+                self.age.text = [NSString stringWithFormat:@"%i", [[dic objectForKey:@"age"] integerValue]];
                 self.job.text = [dic objectForKey:@"job"];
             } else {
                 [UIAlertShow showAlertViewWithMsg:@"网络异常 10030"];

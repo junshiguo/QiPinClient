@@ -313,7 +313,7 @@
 // 得到匹配结果后放弃拼车,弹出对话框
 - (void) cancelToMatch {
     NSLog(@"cancelToMatch");
-    NSString *message = [NSString stringWithFormat:@"您共有%li次放弃的机会，是否确认放弃？", remainChance];
+    NSString *message = [NSString stringWithFormat:@"您共有%i次放弃的机会，是否确认放弃？", remainChance];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确认放弃匹配？" message:message delegate:self cancelButtonTitle:@"是" otherButtonTitles:@"否", nil];
     alert.tag = 0;
@@ -343,7 +343,7 @@
 
             } else {
                 // 回到首页
-                [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarViewController" inView:self];
+                [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
             }
            
         } else {
@@ -489,7 +489,7 @@
         NSString *txt = ((EMTextMessageBody*)msgBody).text;
         msgStatus = [txt integerValue];
     }
-    NSLog(@"%li", msgStatus);
+    NSLog(@"%i", msgStatus);
     [self setOrderStatusView];
     
 
@@ -526,7 +526,7 @@
 
 // 回到首页
 - (void) backToHome {
-    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TarBarController" inView:self];
+    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -538,7 +538,7 @@
         if (buttonIndex == 0) {
             [self rewaitingForMatch];
         } else {
-            [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TarBarController" inView:self];
+            [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
         }
         
         

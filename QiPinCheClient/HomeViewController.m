@@ -12,8 +12,6 @@
 #import "AppDelegate.h"
 #import "ScreenSwitch.h"
 
-#define kUrlScheme      @"wx933665aaccea2b32" // 这个是你定义的 URL Scheme，支付宝、微信支付和测试模式需要。
-
 
 
 @interface HomeViewController ()
@@ -29,10 +27,11 @@
     _annotation = [[BMKPointAnnotation alloc] init];
     float x, y, width, height;;
     x = 0;
-    y = self.expGender.frame.origin.y + self.expGender.frame.size.height;
+    y = self.expGender.frame.origin.y + self.expGender.frame.size.height + 30;
     width = UISCREEN_WIDTH;
-    height = self.pinCheButton.frame.origin.y - y -30;
+    height = self.pinCheButton.frame.origin.y - y - 10;
     _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(x, y, width, height)];
+    //[self.view addSubview:_mapView];
 
     self.timePicker.minimumDate = [NSDate date];
     self.expGender.selectedSegmentIndex = 2;
@@ -47,6 +46,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     
     [self initAgeArray];
+    
+    hasShowMapView = NO;
 }
 
 - (void) initAgeArray {
@@ -92,7 +93,7 @@
     y = self.expGender.frame.origin.y + self.expGender.frame.size.height + 20;
     width = UISCREEN_WIDTH;
     height = self.pinCheButton.frame.origin.y - y -5;
-    if (_mapView != nil) _mapView.hidden = YES;
+    //if (_mapView != nil) _mapView.hidden = YES;
     
     
     [_mapView viewWillAppear];
@@ -129,9 +130,12 @@
     [dic setValue:lon forKey:@"lng"];
     
     srcLocationDic = dic;
-    [self.view addSubview:_mapView];
+    if (hasShowMapView == NO) {
+        [self.view addSubview:_mapView];
+        hasShowMapView = YES;
+    }
     
-    _mapView.hidden = false;
+    _mapView.hidden = NO;
     [_locService stopUserLocationService];
 }
 
@@ -240,14 +244,14 @@
     [dic setObject:self.startTime.text forKey:@"expectTime"];
     [dic setObject:[NSNumber numberWithInteger:self.expGender.selectedSegmentIndex] forKey:@"expectGender"];
 
-    NSInteger minAge = [self getMinAge];
-    if (minAge == 0) {
+    NSInteger maxAge = [self getMaxAge];
+    if (maxAge == 0) {
         // 不限年龄
         [dic setObject:[NSNumber numberWithInteger:0] forKey:@"expectAgeMin"];
         [dic setObject:[NSNumber numberWithInteger:100] forKey:@"expectAgeMax"];
     } else {
-        [dic setObject:[NSNumber numberWithInteger:minAge] forKey:@"expectAgeMin"];
-        [dic setObject:[NSNumber numberWithInteger:minAge + 10] forKey:@"expectAgeMax"];
+        [dic setObject:[NSNumber numberWithInteger:0] forKey:@"expectAgeMin"];
+        [dic setObject:[NSNumber numberWithInteger:maxAge] forKey:@"expectAgeMax"];
     }
 
     [dic setObject:ApplicationDelegate.uid forKey:@"phoneNumber"];
@@ -265,8 +269,9 @@
     return dic;
     
 }
-    
-- (NSInteger) getMinAge {
+
+// 根据选择的年龄段获取年龄范围
+- (NSInteger) getMaxAge {
 
     NSDate *now = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -316,7 +321,7 @@
 
 
 
-// 时间选择器toolbar
+// 选择器toolbar
 - (IBAction)toolBarBackClick:(id)sender {
     self.timePicker.hidden = true;
     self.pickerView.hidden = true;
@@ -353,7 +358,7 @@
 //每列对应多少行
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return 5;
+    return [ageArray count];
 }
 
 //每列每行对应显示的数据是什么
