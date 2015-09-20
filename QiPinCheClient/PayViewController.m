@@ -49,6 +49,8 @@
 }
 
 - (void) sendFinishPayment {
+    NSLog(@"now sendFinishPayment");
+    NSLog(@"paymentRequestId=%@", [requestInfo objectForKey:@"requestId"]);
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[requestInfo objectForKey:@"requestId"] forKey:@"requestId"];
     [dic setObject:[chargeInfo objectForKey:@"id"] forKey:@"chargeId"];
@@ -57,6 +59,7 @@
     NSLog(@"payInfo=%@", dic);
     MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/confirmPayment" params:dic httpMethod:@"POST"];
     [op addCompletionHandler:^(MKNetworkOperation *operation) {
+        
     } errorHandler:^(MKNetworkOperation *errOp, NSError *errMsg) {
         NSLog(@"%@", errMsg);
         [UIAlertShow showAlertViewWithMsg:@"网络失败！10301"];
@@ -116,6 +119,14 @@
 }
 
 - (IBAction)aliPayOnClick:(id)sender {
+}
+
+- (void)dealloc {
+    
+    //[super dealloc];  非ARC中需要调用此句
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 @end

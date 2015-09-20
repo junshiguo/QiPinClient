@@ -351,5 +351,13 @@
     
 }
 
+- (void)dealloc {
+    
+    //[super dealloc];  非ARC中需要调用此句
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
+
 
 @end

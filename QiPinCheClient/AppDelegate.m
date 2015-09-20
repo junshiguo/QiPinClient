@@ -24,6 +24,7 @@
 @synthesize age = _age;
 @synthesize gender = _gender;
 @synthesize route = _route;
+@synthesize paidRequestIds = _paidRequestIds;
 
 
 
@@ -68,6 +69,7 @@
     [[EaseMob sharedInstance] registerSDKWithAppKey:@"qipin#qipinche" apnsCertName:nil];
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     
+    paidRequestIds = [[NSMutableArray alloc] init];
     
     return YES;
 }
