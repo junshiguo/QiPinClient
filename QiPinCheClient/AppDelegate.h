@@ -21,6 +21,7 @@
     BMKMapManager *_mapManager;
     NSArray *orderObjs;
     NSArray *route;
+    NSMutableArray *paidRequestIds;
 }
 
 @property (strong, nonatomic) UIWindow *window;
@@ -32,6 +33,7 @@
 @property (strong, nonatomic) NSNumber *age;
 @property (strong, nonatomic) NSNumber *gender;
 @property (strong, nonatomic) NSArray *route;
+@property (strong, nonatomic) NSArray *paidRequestIds;
 
 
 @end

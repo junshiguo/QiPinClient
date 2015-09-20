@@ -44,6 +44,8 @@
     
     [self hideAllLabels];
     
+    requestId = nil;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -56,7 +58,6 @@
     NSLog(@"111 = %@", [notification object]);
     
     NSDictionary *data = [notification object];
-    
     requestId = [data objectForKey:@"requestId"];
     // 需要向服务器请求获得订单的状态,一般为从所有订单页面跳转至订单详情页面
     [self setOrderStatusView];
@@ -73,6 +74,7 @@
     NSDictionary *dic = [self setPostParams];
     NSLog(@"setOrderStatusView");
     NSLog(@"dic = %@", dic);
+    NSLog(@"begin query status");
     MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/queryRequest" params:dic httpMethod:@"POST"];
     [op addCompletionHandler:^(MKNetworkOperation *operation) {
         NSLog(@"%@", [operation responseJSON]);
@@ -527,6 +529,7 @@
 // 回到首页
 - (void) backToHome {
     [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
+    //[self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -555,6 +558,12 @@
     self.srcLocationName.hidden = NO;
     self.desLocationName.hidden = NO;
     self.startTime.hidden = NO;
+}
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 

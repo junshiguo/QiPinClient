@@ -422,4 +422,12 @@
     }
     [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
 }*/
+
+- (void)dealloc {
+    
+    //[super dealloc];  非ARC中需要调用此句
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
 @end
