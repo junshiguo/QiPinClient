@@ -115,15 +115,18 @@
     }
     if ([detail objectForKey:@"me"] != nil) {
         me = [detail objectForKey:@"me"];
+    } else if (statusCode == WAITING_FOR_PAYMENT || statusCode == OUT_OF_DATE || statusCode == ERROR_STATUS) {
+        // 后端在这里直接在detail中返回me的信息，这里hack一下。
+        me = detail;
     }
+    NSLog(@"me=%@", me);
+
     if (me != nil) {
         self.srcLocationName.text = [me objectForKey:@"sourceName"];
         self.desLocationName.text = [me objectForKey:@"destinationName"];
         self.startTime.text = [me objectForKey:@"leavingTime"];
         remainChance = [[me objectForKey:@"remainChance"] integerValue];
-        [self showAllLabels];
-    }
-    if ([detail objectForKey:@"orderTime"] != nil) {
+    }    if ([detail objectForKey:@"orderTime"] != nil) {
         self.orderTime.text = [detail objectForKey:@"orderTime"];
     } else {
         self.orderTime.hidden = YES;
@@ -132,6 +135,7 @@
         route = [self getRouteWithDetail:detail];
         ApplicationDelegate.route = route;
     }
+    [self showAllLabels];
     switch (statusCode) {
         case WAITING_WAITING:
             [self setWaitingForConfirmViewWithDetail:partner andSavePercent:[[detail objectForKey:@"savePercent"] floatValue]];
