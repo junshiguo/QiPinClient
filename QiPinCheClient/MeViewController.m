@@ -43,7 +43,7 @@
         MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/getUserInfo" params:dic httpMethod:@"POST"];
         [op addCompletionHandler:^(MKNetworkOperation *operation) {
             NSDictionary *response = [operation responseJSON];
-            
+            NSLog(@"%@", response);
             NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
             if (statusCode == 1) {
                 NSDictionary *dic = [response objectForKey:@"detail"];
@@ -55,7 +55,7 @@
                 } else {
                     self.gender.text = @"女";
                 }
-                self.age.text = [NSString stringWithFormat:@"%i", [[dic objectForKey:@"age"] integerValue]];
+                self.age.text = [NSString stringWithFormat:@"%li", [[dic objectForKey:@"age"] integerValue]];
                 self.job.text = [dic objectForKey:@"job"];
             } else {
                 [UIAlertShow showAlertViewWithMsg:@"网络异常 10030"];
@@ -146,11 +146,11 @@
     
 }
 - (IBAction)modifyNickname:(id)sender {
-    [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"ModifyNicknameViewController" inView:self];
+    [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"ModifyNicknameViewController" inView:self withObserverRemoved:NO];
 }
 
 - (IBAction)modifyJob:(id)sender {
-    [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"ModifyJobViewController" inView:self];
+    [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"ModifyJobViewController" inView:self withObserverRemoved:NO];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -251,7 +251,7 @@
     if (UIImagePNGRepresentation(image)) {
         //返回为png图像。
         imageData = UIImagePNGRepresentation(image);
-        photoType = @"png";
+        photoType = @"PNG";
         photoMimiType=@"application/x-png";
         NSLog(@" +++++++++ is png");
     } else {
@@ -261,6 +261,19 @@
         photoMimiType=@"application/x-jpg";
         NSLog(@" +++++++++ is jpg");
     }
+    CGFloat compression = 0.9f;
+    CGFloat maxCompression = 0.1f;
+    
+    
+    while ([imageData length] > 1048576 && compression > maxCompression)
+    {
+        compression -= 0.10;
+        imageData = UIImageJPEGRepresentation(image, compression);
+        photoType = @"JPG";
+        NSLog(@"Compress : %lu",imageData.length);
+    }
+
+    
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
     [dic setValue:photoType forKey:@"photoType"];
@@ -280,7 +293,6 @@
                 
             } failureBlock:nil];
             [UserInfo setUserAvatar:image];
-            
         } else {
             [self failToUpload];
         }
@@ -305,7 +317,7 @@
     } completionBlock:^{
         [HUD removeFromSuperview];
         [UserInfo resetUserAvatar];
-        self.imageView.image = [UIImage imageNamed:@"noimage.jpg"];
+        [ImageOperator setDefaultImageView:self.imageView];
     }];
     
 }

@@ -262,6 +262,7 @@
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
     [self.view addSubview:statusView];
     [statusView.payBtn addTarget:self action:@selector(payOrder) forControlEvents:UIControlEventTouchUpInside];
+    [statusView.cancelRequest addTarget:self action:@selector(cancelRequest) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) setOutOfDateView {
@@ -315,7 +316,7 @@
 // 得到匹配结果后放弃拼车,弹出对话框
 - (void) cancelToMatch {
     NSLog(@"cancelToMatch");
-    NSString *message = [NSString stringWithFormat:@"您共有%i次放弃的机会，是否确认放弃？", remainChance];
+    NSString *message = [NSString stringWithFormat:@"您共有%li次放弃的机会，是否确认放弃？", remainChance];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确认放弃匹配？" message:message delegate:self cancelButtonTitle:@"是" otherButtonTitles:@"否", nil];
     alert.tag = 0;
@@ -491,7 +492,7 @@
         NSString *txt = ((EMTextMessageBody*)msgBody).text;
         msgStatus = [txt integerValue];
     }
-    NSLog(@"%i", msgStatus);
+    NSLog(@"%li", msgStatus);
     [self setOrderStatusView];
     
 

@@ -37,7 +37,7 @@
         [dic setObject:phoneNumber forKey:@"phoneNumber"];
         [dic setObject:newNickName forKey:@"newNickName"];
     
-        MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"changeNickName" params:dic httpMethod:@"POST"];
+        MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/changeNickName" params:dic httpMethod:@"POST"];
         [op addCompletionHandler:^(MKNetworkOperation *opeartion){
             NSDictionary *responseData = [opeartion responseJSON];
             NSInteger statusCode = [[responseData objectForKey:@"status"] integerValue];
