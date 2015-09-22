@@ -60,7 +60,7 @@
                 self.deposit.text = [NSString stringWithFormat:@"%.2f元", [[payment objectForKey:@"deposit"] floatValue]/100];
                 self.depositDescription.text = [NSString stringWithFormat:@"%@ 退还", [payment objectForKey:@"expRefundTime"]];
                 if ([partner objectForKey:@"photo"] != nil) {
-                    [ImageOperator setImageView:self.imageView withUrlString:[partner objectForKey:@"photo"]];
+                    [ImageOperator setImageView:self.imageView withUrlString:[partner objectForKey:@"photo"] inViewController:self];
                 } else {
                     [ImageOperator setDefaultImageView:self.imageView];
                 }
@@ -93,7 +93,7 @@
 
 
 - (IBAction)back:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
 }
 
 - (IBAction)showPartenerDetail:(id)sender {

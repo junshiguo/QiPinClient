@@ -57,7 +57,7 @@
                 partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
                 
                 if ([partner objectForKey:@"photo"] != nil) {
-                    [ImageOperator setImageView:self.imageView withUrlString:[partner objectForKey:@"photo"]];
+                    [ImageOperator setImageView:self.imageView withUrlString:[partner objectForKey:@"photo"] inViewController:self];
                 } else {
                     [ImageOperator setDefaultImageView:self.imageView];
                 }
@@ -90,7 +90,8 @@
 }
 
 - (IBAction)back:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
+
 }
 
 - (void) hideAllLabels {

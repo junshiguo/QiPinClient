@@ -65,7 +65,7 @@
                 self.score.text = @"XX";
             }
             if ([dic objectForKey:@"photo"] != nil) {
-                [ImageOperator setImageView:self.imageView withUrlString:[dic objectForKey:@"photo"]];
+                [ImageOperator setImageView:self.imageView withUrlString:[dic objectForKey:@"photo"] inViewController:self];
             } else {
                 [ImageOperator setDefaultImageView:self.imageView];
             }

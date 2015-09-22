@@ -10,7 +10,7 @@
 
 @interface ImageOperator : NSObject
 
-+ (void) setImageView:(UIImageView*)imageView withUrlString:(NSString*)urlString;
++ (void) setImageView:(UIImageView*)imageView withUrlString:(NSString*)urlString inViewController:(UIViewController*)viewController;
 + (void) setDefaultImageView:(UIImageView*)imageView;
-
++ (void)setImage:(NSDictionary*)dic;
 @end

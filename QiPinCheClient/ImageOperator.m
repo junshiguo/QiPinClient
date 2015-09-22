@@ -10,23 +10,43 @@
 
 @implementation ImageOperator
 
-+ (void) setImageView:(UIImageView*)imageView withUrlString:(NSString*)urlString {
++ (void) setImageView:(UIImageView*)imageView withUrlString:(NSString*)urlString inViewController:(UIViewController*)viewController{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:imageView forKey:@"imageView"];
+    [dic setObject:urlString forKey:@"urlString"];
+    [self performSelectorInBackground:@selector(setImage:) withObject:dic];
+    
+    /*@try {
+        NSLog(@"%@", urlString);
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
+        imageView.image =  [UIImage imageWithData:data];
+    }
+    @catch (NSException *exception) {
+        [ImageOperator setDefaultImageView:imageView];
+    }*/
+
+    }
+
+
++ (void) setDefaultImageView:(UIImageView*)imageView{
+    NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"noimage.png"]);
+    imageView.image = [UIImage imageWithData:imageData];
+}
+
++ (void)setImage:(NSDictionary*)dic {
+    UIImageView *imageView = [dic objectForKey:@"imageView"];
+    NSString *urlString = [dic objectForKey:@"urlString"];
+    
     @try {
         NSLog(@"%@", urlString);
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
         imageView.image =  [UIImage imageWithData:data];
     }
     @catch (NSException *exception) {
-        [self setDefaultImageView:imageView];
+        [ImageOperator setDefaultImageView:imageView];
     }
-    //NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"noimage.png"]);
-    //imageView.image = [UIImage imageWithData:imageData];
-}
+    
 
-
-+ (void) setDefaultImageView:(UIImageView*)imageView {
-    NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"noimage.png"]);
-    imageView.image = [UIImage imageWithData:imageData];
 }
 
 @end
