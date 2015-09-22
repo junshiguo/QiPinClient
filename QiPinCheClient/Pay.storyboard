@@ -278,16 +278,16 @@
                                 <include reference="vVj-zE-0XP"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Pl0-6R-pOz"/>
-                                <include reference="yAk-ee-3x7"/>
-                                <include reference="VWz-sZ-8pu"/>
-                                <include reference="sBd-bc-0IF"/>
-                                <include reference="30H-9l-wYF"/>
-                                <include reference="SBf-ti-Dlw"/>
                                 <include reference="IEw-zX-Vkk"/>
                                 <include reference="e3V-CS-9xb"/>
                                 <include reference="ewF-99-5vF"/>
                                 <include reference="qV0-WU-aOs"/>
+                                <include reference="30H-9l-wYF"/>
+                                <include reference="SBf-ti-Dlw"/>
+                                <include reference="VWz-sZ-8pu"/>
+                                <include reference="sBd-bc-0IF"/>
+                                <include reference="Pl0-6R-pOz"/>
+                                <include reference="yAk-ee-3x7"/>
                             </mask>
                         </variation>
                     </view>

@@ -244,11 +244,6 @@
     [statusView.nickName setTitle:[detail objectForKey:@"name"] forState:UIControlStateNormal];
     partnerPhoneNumber = [detail objectForKey:@"phoneNumber"];
     
-    if ([detail objectForKey:@"photo"] != nil) {
-        [ImageOperator setImageView:statusView.imageView withUrlString:[detail objectForKey:@"photo"] inViewController:self];
-    } else {
-        [ImageOperator setDefaultImageView:statusView.imageView];
-    }
 }
 
 - (void) setErrorView {

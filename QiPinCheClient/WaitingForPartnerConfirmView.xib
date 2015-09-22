@@ -38,11 +38,11 @@
                     <include reference="Qop-ni-4F7"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="QE3-hu-OfH"/>
+                    <include reference="TSE-g5-pZO"/>
                     <include reference="FsS-KS-ntG"/>
                     <include reference="d6l-1l-wrS"/>
                     <include reference="tI6-A9-XBF"/>
-                    <include reference="QE3-hu-OfH"/>
-                    <include reference="TSE-g5-pZO"/>
                 </mask>
             </variation>
         </view>

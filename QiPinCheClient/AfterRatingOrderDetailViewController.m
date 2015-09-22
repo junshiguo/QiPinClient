@@ -50,10 +50,14 @@
                 self.desLocation.text = [me objectForKey:@"destinationName"];
                 self.startTime.text = [me objectForKey:@"leavingTime"];
                 int rating = [[dic objectForKey:@"rating"] intValue];
-                NSString *scoreText = [NSString stringWithFormat:@"%i.0", rating];
+                NSString *scoreText = [NSString stringWithFormat:@"%i", rating];
                 self.score.text = scoreText;
                 self.deposit.text = [NSString stringWithFormat:@"%.2f元", [[payment objectForKey:@"deposit"] floatValue]/100];
-                self.depositDescription.text = [NSString stringWithFormat:@"%@ 退还", [payment objectForKey:@"expRefundTime"]];
+                
+                // 退还时间
+                NSString *timeString = [payment objectForKey:@"expRefundTime"];
+                self.depositDescription.text = [NSString stringWithFormat:@"%@ 退还", timeString];
+                
                 partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
                 
                 if ([partner objectForKey:@"photo"] != nil) {
