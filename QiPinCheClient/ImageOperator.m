@@ -7,6 +7,7 @@
 //
 
 #import "ImageOperator.h"
+#import "AppDelegate.h"
 
 @implementation ImageOperator
 
@@ -14,18 +15,19 @@
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:imageView forKey:@"imageView"];
     [dic setObject:urlString forKey:@"urlString"];
-    [self performSelectorInBackground:@selector(setImage:) withObject:dic];
     
-    /*@try {
-        NSLog(@"%@", urlString);
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
-        imageView.image =  [UIImage imageWithData:data];
+    if ([urlString isEqualToString:ApplicationDelegate.partnerPhotoUrl]) {
+        @try {
+            imageView.image =  [UIImage imageWithData:ApplicationDelegate.partnerImageData];
+        }
+        @catch (NSException *exception) {
+            [self setDefaultImageView:imageView];
+        }
+    } else {
+        [self performSelectorInBackground:@selector(setImage:) withObject:dic];
     }
-    @catch (NSException *exception) {
-        [ImageOperator setDefaultImageView:imageView];
-    }*/
 
-    }
+}
 
 
 + (void) setDefaultImageView:(UIImageView*)imageView{

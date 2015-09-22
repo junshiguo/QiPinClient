@@ -202,7 +202,10 @@
     partnerPhoneNumber = [detail objectForKey:@"phoneNumber"];
     statusView.savePercent.text = [NSString stringWithFormat:@"%.2f%%" ,savePercent * 100];
     if ([detail objectForKey:@"photo"] != nil) {
+        ApplicationDelegate.partnerPhotoUrl = [detail objectForKey:@"photo"];
+        ApplicationDelegate.partnerImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString: ApplicationDelegate.partnerPhotoUrl]];
         [ImageOperator setImageView:statusView.imageView withUrlString:[detail objectForKey:@"photo"] inViewController:self];
+        
     } else {
         [ImageOperator setDefaultImageView:statusView.imageView];
     }

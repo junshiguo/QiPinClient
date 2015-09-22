@@ -24,6 +24,8 @@
 @synthesize age = _age;
 @synthesize gender = _gender;
 @synthesize route = _route;
+@synthesize partnerPhotoUrl = _partnerPhotoUrl;
+@synthesize partnerImageData = _partnerImageData;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
