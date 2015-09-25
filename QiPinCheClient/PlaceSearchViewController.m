@@ -14,7 +14,7 @@
 
 @implementation PlaceSearchViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -32,7 +32,7 @@
     keyboardVisible = false;
 }
 
-- (void) viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     self.placeTable.delegate = self;
     self.placeTable.dataSource = self;
@@ -40,7 +40,7 @@
     [self registerForKeyboardNotification];
 }
 
-- (void) registerForKeyboardNotification {
+- (void)registerForKeyboardNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self
      
                                              selector:@selector(keyboardWasShown:)
@@ -52,8 +52,7 @@
 }
 
 
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
+- (void)keyboardWasShown:(NSNotification*)aNotification {
     if (!keyboardVisible) {
         NSDictionary* info = [aNotification userInfo];
         CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;//得到键盘的高度
@@ -67,7 +66,7 @@
     }
 }
 
-- (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
@@ -91,7 +90,7 @@
 
 #pragma mark - Table view data sources
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
     return 1;
 }
 
@@ -99,7 +98,7 @@
     return [self.resultArray count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchPlaceCell"];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SearchPlaceCell"];
@@ -125,7 +124,7 @@
 
 
 // 根据输入的地点返回推荐地点
-- (void) filterContentForSearchText:(NSString *)searchText {
+- (void)filterContentForSearchText:(NSString *)searchText {
     
     NSString *placeName = searchText;
     placeName = [placeName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

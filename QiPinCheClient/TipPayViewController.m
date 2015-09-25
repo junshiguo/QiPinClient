@@ -39,7 +39,7 @@
     [dic setObject:requestId forKey:@"requestId"];
     int tipAmount = [self getTipAmount];
     [dic setObject:[NSNumber numberWithInt:tipAmount] forKey:@"amount"];
-    MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/payForTip" params:dic httpMethod:@"POST"];
+    MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/tip" params:dic httpMethod:@"POST"];
     [op addCompletionHandler:^(MKNetworkOperation *operation) {
         NSDictionary *dic = [operation responseJSON];
         NSInteger statusCode = [[dic objectForKey:@"status"] integerValue];
@@ -80,7 +80,7 @@
     [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail_finished" andObject:dic];
 }
 
-- (int) getTipAmount {
+- (int)getTipAmount {
     switch ([self.tipSelector selectedSegmentIndex]) {
         case 0:
             return 100;
@@ -95,7 +95,7 @@
     }
 }
 
-- (NSDictionary*) setRequestInfo {
+- (NSDictionary*)setRequestInfo {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:requestId forKey:@"requestId"];
     [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];

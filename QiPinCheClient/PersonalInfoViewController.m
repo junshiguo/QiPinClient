@@ -26,7 +26,7 @@
     self.imageView.userInteractionEnabled = YES;
 }
 
-- (void) getInfo:(NSNotification*)notification {
+- (void)getInfo:(NSNotification*)notification {
     NSLog(@"PersonalInfoViewController---getInfo");
     NSDictionary *dic = [notification object];
     NSLog(@"getInfo, dic=%@", dic);
@@ -95,7 +95,7 @@
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
-- (void) hideAllLabels {
+- (void)hideAllLabels {
     self.nickName.hidden = YES;
     self.phoneNumberLabel.hidden = YES;
     self.age.hidden = YES;
@@ -104,7 +104,7 @@
     self.score.hidden = YES;
 }
 
-- (void) showAllLabels {
+- (void)showAllLabels {
     self.nickName.hidden = NO;
     self.phoneNumberLabel.hidden = NO;
     self.age.hidden = NO;
@@ -114,7 +114,7 @@
 }
 
 #pragma mark --- 头像相关
-- (void) photoTapped {
+- (void)photoTapped {
     NSLog(@"PersonalInfoViewController---photoTapped");
     if (self.imageView.image) {
         UIImage *image = self.imageView.image;

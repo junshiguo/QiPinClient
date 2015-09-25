@@ -10,7 +10,7 @@
 
 @implementation RegisterViewController
 
-- (void)viewDidLoad{
+- (void)viewDidLoad {
     [super viewDidLoad];
     receivedVerifiedCode = nil;
     
@@ -41,12 +41,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField*)textField {
     [textField resignFirstResponder];
     return YES;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
     [self.view endEditing:YES];
     [self.ageSelector endShowList];
 }
@@ -131,7 +131,7 @@
     [ApplicationDelegate.httpEngine enqueueOperation:op];
 }
 
-- (BOOL) isPhoneNumber:(NSString*)phoneNumber {
+- (BOOL)isPhoneNumber:(NSString*)phoneNumber {
     NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
     NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
     return [phoneTest evaluateWithObject:phoneNumber];

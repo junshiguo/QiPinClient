@@ -50,12 +50,12 @@
     hasShowMapView = NO;
 }
 
-- (void) initAgeArray {
+- (void)initAgeArray {
     ageArray = @[@"不限", @"70后", @"80后", @"90后", @"00后"];
 }
 
 // 当Home键退出后重新打开该页面需要重新加载视图信息
-- (void) applicationDidBecomeActive:(NSNotification *)notification {
+- (void)applicationDidBecomeActive:(NSNotification*)notification {
     [self refreshView];
 }
 
@@ -108,7 +108,7 @@
     _locService.delegate = nil;
 }
 
-- (void) refreshView {
+- (void)refreshView {
     _mapView.showsUserLocation = NO;
     [_locService startUserLocationService];
 }
@@ -191,7 +191,7 @@
 
 
 
-- (void) jumpToPayment:(MKNetworkOperation*) operation {
+- (void)jumpToPayment:(MKNetworkOperation*)operation {
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     HUD.mode = MBProgressHUDModeText;
@@ -232,7 +232,7 @@
 }
 
 
-- (NSDictionary*) setPinCheParam {
+- (NSDictionary*)setPinCheParam {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     
     [dic setObject:[srcLocationDic objectForKey:@"lat"] forKey:@"src_lat"];
@@ -271,7 +271,7 @@
 }
 
 // 根据选择的年龄段获取年龄范围
-- (NSInteger) getMaxAge {
+- (NSInteger)getMaxAge {
 
     NSDate *now = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -292,7 +292,7 @@
     return 0;
 }
 
-- (BOOL) checkPinCheInfo {
+- (BOOL)checkPinCheInfo {
     if ([self.srcLocation.text length] == 0 || [self.desLocation.text length] == 0 || [self.startTime.text length] == 0) {
         [UIAlertShow showAlertViewWithMsg:@"您输入的信息不完整！"];
         return false;
@@ -369,14 +369,14 @@
 
 #pragma mark --- 键盘
 // 关闭键盘
-- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField*)textField {
     [textField resignFirstResponder];
     return YES;
 }
 
 
 // 根据经纬度获得地点名称
-- (void) getPlaceTitleByLat:(float)lat andLon:(float)lon {
+- (void)getPlaceTitleByLat:(float)lat andLon:(float)lon {
     
     NSString *urlPath = [NSString stringWithFormat:@"/geocoder/v2/?ak=%@&mcode=ios.QiPinCheClient&location=%f,%f&output=json&pois=0", ApplicationDelegate.baiduAK, lat, lon];
     NSLog(@"%@", urlPath);

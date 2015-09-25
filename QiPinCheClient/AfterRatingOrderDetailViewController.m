@@ -28,7 +28,7 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void) beforeShowOrderDetail:(NSNotification*) notification {
+- (void)beforeShowOrderDetail:(NSNotification*) notification {
     NSLog(@"beforeShowOrderDetail");
     if ([UserInfo getUid] != nil) {
         // 判断处于登录状态
@@ -98,7 +98,7 @@
 
 }
 
-- (void) hideAllLabels {
+- (void)hideAllLabels {
     self.srcLocation.hidden = YES;
     self.desLocation.hidden = YES;
     self.startTime.hidden = YES;
@@ -107,7 +107,7 @@
     self.score.hidden = YES;
 }
 
-- (void) showAllLabels {
+- (void)showAllLabels {
     self.srcLocation.hidden = NO;
     self.desLocation.hidden = NO;
     self.startTime.hidden = NO;

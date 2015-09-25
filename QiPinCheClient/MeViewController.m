@@ -30,8 +30,6 @@
         self.imageView.image = [UIImage imageWithData:imageData];
         self.phoneNumber.text = [UserInfo getUid];
         
-        
-        
         // 修改用户名和昵称的监听
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nickNameChanged:) name:@"ChangedNickName" object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jobChanged:) name:@"ChangedJob" object:nil];
@@ -70,7 +68,7 @@
     }
 }
 
-- (void) viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
 }
@@ -82,7 +80,7 @@
 
 
 #pragma mark --- 头像相关
-- (void) photoTapped {
+- (void)photoTapped {
     NSLog(@"MeViewController---photoTapped");
     if (self.imageView.image) {
         UIImage *image = self.imageView.image;
@@ -124,11 +122,11 @@
 
 
 #pragma mark --- 修改个人信息
-- (void) nickNameChanged:(NSNotification*)notification {
+- (void)nickNameChanged:(NSNotification*)notification {
     self.nickName.text = [notification object];
 }
 
-- (void) jobChanged:(NSNotification*)notification {
+- (void)jobChanged:(NSNotification*)notification {
     self.job.text = [notification object];
 }
 
@@ -188,6 +186,7 @@
     }
     
 }
+
 //从相册里找
 - (void)pickImage{
     //相册是可以用模拟器打开的
@@ -205,14 +204,13 @@
     }
 }
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
+-(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info {
     [self uploadImage:info];
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 // 上传头像
-- (void) uploadImage:(NSDictionary*) info {
+- (void)uploadImage:(NSDictionary*)info {
     NSLog(@"info~~%@",info);
     NSLog(@"uploadImage");
     UIImage* image=[info objectForKey:UIImagePickerControllerOriginalImage];
@@ -236,8 +234,7 @@
     CGFloat maxCompression = 0.1f;
     
     
-    while ([imageData length] > PHOTO_MAX_LENGTH && compression > maxCompression)
-    {
+    while ([imageData length] > PHOTO_MAX_LENGTH && compression > maxCompression) {
         compression -= 0.10;
         imageData = UIImageJPEGRepresentation(image, compression);
         photoType = @"JPG";
@@ -277,7 +274,7 @@
 }
 
 
-- (void) failToUpload {
+- (void)failToUpload {
     NSLog(@"failToUpload");
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
@@ -294,8 +291,7 @@
 }
 
 //取消
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
+-(void)imagePickerControllerDidCancel:(UIImagePickerController*)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -308,8 +304,7 @@
 }
 
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
         [self snapImage];
     } else if (buttonIndex == 1) {
