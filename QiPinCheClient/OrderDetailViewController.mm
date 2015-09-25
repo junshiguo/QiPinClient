@@ -53,7 +53,7 @@
 }
 
 
-- (void) beforeShowOrderDetail:(NSNotification*)notification {
+- (void)beforeShowOrderDetail:(NSNotification*)notification {
     NSLog(@"OrderDetailViewController---beforeShowOrderDetail");
     NSLog(@"111 = %@", [notification object]);
     
@@ -69,7 +69,7 @@
     [self setOrderStatusView];
 }
 
-- (void) setOrderStatusView {
+- (void)setOrderStatusView {
     NSLog(@"setOrderStatusView");
     NSDictionary *dic = [self setPostParams];
     NSLog(@"setOrderStatusView");
@@ -107,7 +107,7 @@
     [ApplicationDelegate.httpEngine enqueueOperation:op];
 }
 
-- (void) setOrderStatusViewByStatus:(NSInteger)statusCode andDetail:(NSDictionary*)detail {
+- (void)setOrderStatusViewByStatus:(NSInteger)statusCode andDetail:(NSDictionary*)detail {
     NSLog(@"setOrderStatusViewByStatus");
     NSDictionary *partner, *me;
     if ([detail objectForKey:@"partner"] != nil) {
@@ -176,7 +176,7 @@
 
 
 // 等待匹配
-- (void) setWaitingForMatchView {
+- (void)setWaitingForMatchView {
     NSLog(@"setWaitingForMatchView");
     WaitingForMatchView *statusView = [WaitingForMatchView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
@@ -185,7 +185,7 @@
 }
 
 // 收到匹配的结果，等待确认
-- (void) setWaitingForConfirmViewWithDetail:(NSDictionary*)detail andSavePercent:(float)savePercent {
+- (void)setWaitingForConfirmViewWithDetail:(NSDictionary*)detail andSavePercent:(float)savePercent {
     NSLog(@"setWaitingForConfirmViewWithDetail");
     WaitingForConfirmView *statusView = [WaitingForConfirmView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
@@ -212,7 +212,7 @@
 }
 
 // 自己确认，等待对方确认
-- (void) setWaitingPartnerConfirmView {
+- (void)setWaitingPartnerConfirmView {
     NSLog(@"setWaitingPartnerConfirmView");
     WaitingForPartnerConfirmView *statusView = [WaitingForPartnerConfirmView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
@@ -222,7 +222,7 @@
 }
 
 // 对方取消
-- (void) setPartnerCancelledView {
+- (void)setPartnerCancelledView {
     NSLog(@"setPartnerCancelledView");
     PartnerCancelledView *statusView = [PartnerCancelledView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
@@ -234,7 +234,7 @@
 }
 
 // 双方都确认，拼车成功
-- (void) setMatchSuccessViewWithDetail:(NSDictionary*)detail {
+- (void)setMatchSuccessViewWithDetail:(NSDictionary*)detail {
     NSLog(@"setMatchSuccessViewWithDetail");
     MatchSuccessView *statusView = [MatchSuccessView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
@@ -249,7 +249,7 @@
     
 }
 
-- (void) setErrorView {
+- (void)setErrorView {
     NSLog(@"setErrorView");
     ErrorView *statusView = [ErrorView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
@@ -258,7 +258,7 @@
     [statusView.cancelOrder addTarget:self action:@selector(cancelOrder) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void) setWaitingForPaymentView {
+- (void)setWaitingForPaymentView {
     NSLog(@"setWaitingForPaymentView");
     WaitingForPaymentView *statusView = [WaitingForPaymentView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
@@ -267,7 +267,7 @@
     [statusView.cancelRequest addTarget:self action:@selector(cancelOrder) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void) setOutOfDateView {
+- (void)setOutOfDateView {
     NSLog(@"setOutOfDateView");
     OutOfDateView *statusView = [OutOfDateView instanceView];
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
@@ -275,7 +275,7 @@
     [statusView.backToHome addTarget:self action:@selector(backToHome) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void) showPartenerDetailWithPhoneNumber {
+- (void)showPartenerDetailWithPhoneNumber {
     NSLog(@"showPartnerDetailWithPhoneNumber");
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:@"SHOW" forKey:@"ShowPhoneNumber"];
@@ -283,7 +283,7 @@
     [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"PersonalInfoViewController" inView:self withNotificationName:@"ShowPartnerInfo" andObject:dic];
 }
 
-- (void) showPartnerDetailWithoutPhoneNumber {
+- (void)showPartnerDetailWithoutPhoneNumber {
     NSLog(@"showPartnerDetailWithoutPhoneNumber");
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:partnerPhoneNumber forKey:@"partnerPhoneNumber"];
@@ -291,7 +291,7 @@
 }
 
 // 得到匹配结果后确认拼车
-- (void) confirmToMatch {
+- (void)confirmToMatch {
     NSLog(@"confirmToMatch");
     NSNumber *responseNumber = [NSNumber numberWithInt:1];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
@@ -316,7 +316,7 @@
 }
 
 // 得到匹配结果后放弃拼车,弹出对话框
-- (void) cancelToMatch {
+- (void)cancelToMatch {
     NSLog(@"cancelToMatch");
     NSString *message = [NSString stringWithFormat:@"您共有%li次放弃的机会，是否确认放弃？", remainChance];
     
@@ -326,7 +326,7 @@
 }
 
 // 在对话框中选择确认要放弃这个匹配
-- (void) confirmCancelToMatch {
+- (void)confirmCancelToMatch {
     NSLog(@"confirmCancelToMatch");
     NSNumber *responseNumber = [NSNumber numberWithInt:0];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
@@ -364,7 +364,7 @@
 }
 
 // 对方放弃后重新等待匹配
-- (void) rewaitingForMatch {
+- (void)rewaitingForMatch {
     NSLog(@"rewaitingForMatch");
     NSDictionary *dic = [self setPostParams];
     MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/rematch" params:dic httpMethod:@"POST"];
@@ -385,7 +385,7 @@
 }
 
 // 取消订单
-- (void) cancelOrder {
+- (void)cancelOrder {
     NSLog(@"cancelOrder");
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
@@ -423,7 +423,7 @@
 }
 
 // 下车，完成拼单
-- (void) finishOrder {
+- (void)finishOrder {
     NSLog(@"finishOrder");
     NSDictionary *dic = [self setPostParams];
     
@@ -454,7 +454,7 @@
         [ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"PayViewController" inView:self withNotificationName:@"RequestInfo" andObject:dic];
 }
 
-- (void) makeCall {
+- (void)makeCall {
     NSLog(@"makeCall");
     if (partnerPhoneNumber != nil) {
         NSString *phoneUrl = [NSString stringWithFormat:@"%@%@", @"tel://", partnerPhoneNumber];
@@ -476,12 +476,12 @@
 }
 
 // 显示路线信息
-- (void) showRoute {
+- (void)showRoute {
     [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"RouteSearchViewController" inView:self];
 }
 
 // 收到环信信息的回调
-- (void) didReceiveMessage:(EMMessage *)message {
+- (void)didReceiveMessage:(EMMessage *)message {
     NSLog(@"OrderDetailViewController---didReceiveMessage");
     NSLog(@"message=%@", message);
     NSLog(@"收到消息");
@@ -498,7 +498,7 @@
 
 }
 
-- (NSMutableDictionary*) setPostParams {
+- (NSMutableDictionary*)setPostParams {
     NSLog(@"OrderDetailViewController---setPostParams");
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
@@ -508,7 +508,7 @@
 }
 
 // 根据后台路径规划得到的路线字符串获取路线信息，共有四个点
-- (NSArray*) getRouteWithDetail:(NSDictionary*)detail{
+- (NSArray*)getRouteWithDetail:(NSDictionary*)detail{
     NSLog(@"getRouteWithDetail");
     NSMutableArray *array = [[NSMutableArray alloc] init];
     NSString *string = [detail objectForKey:@"route"];
@@ -528,12 +528,12 @@
 }
 
 // 回到首页
-- (void) backToHome {
+- (void)backToHome {
     [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
     //[self dismissViewControllerAnimated:YES completion:^{}];
 }
 
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 0) {
         // 是否取消匹配
         if (buttonIndex == 0) {
@@ -563,13 +563,13 @@
     }
 }
 
-- (void) hideAllLabels {
+- (void)hideAllLabels {
     self.srcLocationName.hidden = YES;
     self.desLocationName.hidden = YES;
     self.startTime.hidden = YES;
 }
 
-- (void) showAllLabels {
+- (void)showAllLabels {
     self.srcLocationName.hidden = NO;
     self.desLocationName.hidden = NO;
     self.startTime.hidden = NO;

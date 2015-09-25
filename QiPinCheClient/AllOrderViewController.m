@@ -30,7 +30,7 @@
     }
 }
 
-- (void) viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     NSLog(@"AllOrderViewController---viewWillAppear");
     [super viewWillAppear:YES];
     if ([UserInfo getUid] == nil) {
@@ -47,7 +47,7 @@
 
 
 #pragma mark --- tableview 相关
-- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
@@ -98,7 +98,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-- (void) showMore:(UIButton*)btn {
+- (void)showMore:(UIButton*)btn {
     NSLog(@"showMore");
     NSUInteger row = btn.tag;
     if (btnIndex == 0) {
@@ -145,7 +145,7 @@
 
 #pragma mark - 下拉刷新相关
 //添加头部刷新
--(void) addHeadRefreshView{
+-(void)addHeadRefreshView{
     if (_headView == nil) {
         _headView =  [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
         _headView.delegate = self;
@@ -177,7 +177,7 @@
     
 }
 //刷新数据
--(void) loadingNewsData{
+-(void)loadingNewsData{
     
     NSLog(@"数据刷新获取");
     currentPage = 1;
@@ -186,7 +186,7 @@
     [self loadingTheData];
 }
 
-- (void) loadingTheData {
+- (void)loadingTheData {
     NSLog(@"loadingTheData");
     //这里写下载数据的接口，并进行连接下载
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
@@ -220,7 +220,7 @@
 }
 
 //刷新结束，更改刷新状态，更新主线程
--(void) doneNewsData {
+-(void)doneNewsData {
     NSLog(@"doneNewsData");
     isRefresh = NO;
     NSLog(@"doneNewsData");

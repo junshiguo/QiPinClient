@@ -40,7 +40,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishPayment:) name:@"FinishPayment" object:nil];
 }
 
-- (void) finishPayment:(NSNotification*) notification {
+- (void)finishPayment:(NSNotification*) notification {
     NSLog(@"finishPayment");
     NSString *msg = [notification object];
     if ([msg isEqualToString:@"success"]) {
@@ -51,7 +51,7 @@
 }
 
 // 当Home键退出后重新打开该页面需要重新加载视图信息
-- (void) applicationDidBecomeActive:(NSNotification *)notification {
+- (void)applicationDidBecomeActive:(NSNotification *)notification {
     [self refreshView];
 }
 
@@ -68,7 +68,7 @@
     
 }
 
-- (void) initAgeSelector {
+- (void)initAgeSelector {
     self.ageText1.keyboardType = self.ageText2.keyboardType = UIKeyboardTypeNumberPad;
     self.ageText1.text = @"0";
     self.ageText2.text = @"100";
@@ -165,12 +165,12 @@
     [ApplicationDelegate.httpEngine enqueueOperation:op];
 }
 
-- (void) jumpToPayment:(MKNetworkOperation*) operation {
+- (void)jumpToPayment:(MKNetworkOperation*) operation {
     NSDictionary *dic = [self setPinCheParam];
     [ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"PayViewController" inView:self withNotificationName:@"RequestInfo" andObject:dic];
 }
 
-- (void) jumpToOrderDetail:(MKNetworkOperation*) operation {
+- (void)jumpToOrderDetail:(MKNetworkOperation*) operation {
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     HUD.mode = MBProgressHUDModeText;
@@ -225,7 +225,7 @@
 }
 
 
-- (NSDictionary*) setPinCheParam {
+- (NSDictionary*)setPinCheParam {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     
     [dic setObject:[srcLocationDic objectForKey:@"lat"] forKey:@"src_lat"];
@@ -255,7 +255,7 @@
     
 }
 
-- (BOOL) checkPinCheInfo {
+- (BOOL)checkPinCheInfo {
     if ([self.srcLocation.text length] == 0 || [self.desLocation.text length] == 0 || [self.startTime.text length] == 0) {
         [UIAlertShow showAlertViewWithMsg:@"您输入的信息不完整！"];
         return false;
@@ -309,14 +309,14 @@
 
 
 // 关闭键盘
-- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
 
 
 // 根据经纬度获得地点名称
-- (void) getPlaceTitleByLat:(float)lat andLon:(float)lon {
+- (void)getPlaceTitleByLat:(float)lat andLon:(float)lon {
     
     NSString *urlPath = [NSString stringWithFormat:@"/geocoder/v2/?ak=%@&mcode=ios.QiPinCheClient&location=%f,%f&output=json&pois=0", ApplicationDelegate.baiduAK, lat, lon];
     NSLog(@"%@", urlPath);

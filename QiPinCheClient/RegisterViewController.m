@@ -131,7 +131,7 @@
     [ApplicationDelegate.httpEngine enqueueOperation:op];
 }
 
-- (BOOL) isPhoneNumber:(NSString*)phoneNumber {
+- (BOOL)isPhoneNumber:(NSString*)phoneNumber {
     NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
     NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
     return [phoneTest evaluateWithObject:phoneNumber];

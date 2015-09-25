@@ -70,7 +70,7 @@
     }
 }
 
-- (void) viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
 }
@@ -82,7 +82,7 @@
 
 
 #pragma mark --- 头像相关
-- (void) photoTapped {
+- (void)photoTapped {
     NSLog(@"MeViewController---photoTapped");
     if (self.imageView.image) {
         UIImage *image = self.imageView.image;
@@ -124,11 +124,11 @@
 
 
 #pragma mark --- 修改个人信息
-- (void) nickNameChanged:(NSNotification*)notification {
+- (void)nickNameChanged:(NSNotification*)notification {
     self.nickName.text = [notification object];
 }
 
-- (void) jobChanged:(NSNotification*)notification {
+- (void)jobChanged:(NSNotification*)notification {
     self.job.text = [notification object];
 }
 
@@ -212,7 +212,7 @@
 }
 
 // 上传头像
-- (void) uploadImage:(NSDictionary*) info {
+- (void)uploadImage:(NSDictionary*) info {
     NSLog(@"info~~%@",info);
     NSLog(@"uploadImage");
     UIImage* image=[info objectForKey:UIImagePickerControllerOriginalImage];
@@ -277,7 +277,7 @@
 }
 
 
-- (void) failToUpload {
+- (void)failToUpload {
     NSLog(@"failToUpload");
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];

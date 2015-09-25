@@ -1,8 +1,9 @@
 //
-//  RouteSearchDemoViewController.mm
-//  BaiduMapApiDemo
+//  RouteSearchViewController.m
+//  QiPinCheClient
 //
-//  Copyright 2011 Baidu Inc. All rights reserved.
+//  Created by Shijia on 15/8/3.
+//  Copyright (c) 2015年 QiPinChe. All rights reserved.
 //
 
 #import "RouteSearchViewController.h"

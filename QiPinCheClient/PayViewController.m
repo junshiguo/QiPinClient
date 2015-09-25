@@ -30,13 +30,13 @@
 
 }
 
-- (void) getRequestInfo:(NSNotification*) notification {
+- (void)getRequestInfo:(NSNotification*) notification {
     requestInfo = [notification object];
     float depositFen = [[requestInfo objectForKey:@"deposit"] floatValue];
     self.money.text = [NSString stringWithFormat:@"%.2f", depositFen/100];
 }
 
-- (void) finishPayment:(NSNotification*) notification {
+- (void)finishPayment:(NSNotification*) notification {
     NSLog(@"finishPayment");
     NSString *msg = [notification object];
     if ([msg isEqualToString:@"success"]) {
@@ -48,7 +48,7 @@
     }
 }
 
-- (void) sendFinishPayment {
+- (void)sendFinishPayment {
     NSLog(@"now sendFinishPayment");
     NSLog(@"paymentRequestId=%@", [requestInfo objectForKey:@"requestId"]);
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];

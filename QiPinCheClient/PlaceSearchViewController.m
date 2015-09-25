@@ -32,7 +32,7 @@
     keyboardVisible = false;
 }
 
-- (void) viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     self.placeTable.delegate = self;
     self.placeTable.dataSource = self;
@@ -40,7 +40,7 @@
     [self registerForKeyboardNotification];
 }
 
-- (void) registerForKeyboardNotification {
+- (void)registerForKeyboardNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self
      
                                              selector:@selector(keyboardWasShown:)
@@ -67,7 +67,7 @@
     }
 }
 
-- (void) searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
@@ -125,7 +125,7 @@
 
 
 // 根据输入的地点返回推荐地点
-- (void) filterContentForSearchText:(NSString *)searchText {
+- (void)filterContentForSearchText:(NSString *)searchText {
     
     NSString *placeName = searchText;
     placeName = [placeName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
