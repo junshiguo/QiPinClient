@@ -55,7 +55,7 @@
 }
 
 // 当Home键退出后重新打开该页面需要重新加载视图信息
-- (void)applicationDidBecomeActive:(NSNotification *)notification {
+- (void)applicationDidBecomeActive:(NSNotification*)notification {
     [self refreshView];
 }
 
@@ -191,7 +191,7 @@
 
 
 
-- (void)jumpToPayment:(MKNetworkOperation*) operation {
+- (void)jumpToPayment:(MKNetworkOperation*)operation {
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     HUD.mode = MBProgressHUDModeText;
@@ -369,7 +369,7 @@
 
 #pragma mark --- 键盘
 // 关闭键盘
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField*)textField {
     [textField resignFirstResponder];
     return YES;
 }

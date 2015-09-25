@@ -32,8 +32,7 @@
 
 @implementation RouteSearchViewController
 
-- (NSString*)getMyBundlePath1:(NSString *)filename
-{
+- (NSString*)getMyBundlePath1:(NSString*)filename {
 	
 	NSBundle * libBundle = MYBUNDLE ;
 	if (libBundle && filename) {
@@ -158,7 +157,7 @@
 
 
 
-- (float) getLatOrLngByString:(NSString*) string {
+- (float)getLatOrLngByString:(NSString*)string {
     return [string floatValue];
 }
 
@@ -205,8 +204,7 @@
 
 
 
-- (BMKAnnotationView*)getRouteAnnotationView:(BMKMapView *)mapview viewForAnnotation:(RouteAnnotation*)routeAnnotation
-{
+- (BMKAnnotationView*)getRouteAnnotationView:(BMKMapView *)mapview viewForAnnotation:(RouteAnnotation*)routeAnnotation {
 	BMKAnnotationView* view = nil;
 	switch (routeAnnotation.type) {
 		case 0:
@@ -293,8 +291,7 @@
 	return view;
 }
 
-- (BMKAnnotationView *)mapView:(BMKMapView *)view viewForAnnotation:(id <BMKAnnotation>)annotation
-{
+- (BMKAnnotationView *)mapView:(BMKMapView *)view viewForAnnotation:(id <BMKAnnotation>)annotation {
     
 	if ([annotation isKindOfClass:[RouteAnnotation class]]) {
 		return [self getRouteAnnotationView:view viewForAnnotation:(RouteAnnotation*)annotation];
@@ -302,8 +299,7 @@
 	return nil;
 }
 
-- (BMKOverlayView*)mapView:(BMKMapView *)map viewForOverlay:(id<BMKOverlay>)overlay
-{
+- (BMKOverlayView*)mapView:(BMKMapView *)map viewForOverlay:(id<BMKOverlay>)overlay {
 	if ([overlay isKindOfClass:[BMKPolyline class]]) {
         BMKPolylineView* polylineView = [[BMKPolylineView alloc] initWithOverlay:overlay];
         polylineView.fillColor = [[UIColor cyanColor] colorWithAlphaComponent:1];
@@ -314,8 +310,7 @@
 	return nil;
 }
 
-- (void)onGetDrivingRouteResult:(BMKRouteSearch*)searcher result:(BMKDrivingRouteResult*)result errorCode:(BMKSearchErrorCode)error
-{
+- (void)onGetDrivingRouteResult:(BMKRouteSearch*)searcher result:(BMKDrivingRouteResult*)result errorCode:(BMKSearchErrorCode)error {
     if (error == BMK_SEARCH_NO_ERROR) {
         BMKDrivingRouteLine* plan = (BMKDrivingRouteLine*)[result.routes objectAtIndex:0];
         // 计算路线方案中的路段数目
@@ -396,7 +391,7 @@
 
 
 //根据polyline设置地图范围
-- (void)mapViewFitPolyLine:(BMKPolyline *) polyLine {
+- (void)mapViewFitPolyLine:(BMKPolyline *)polyLine {
     CGFloat ltX, ltY, rbX, rbY;
     if (polyLine.pointCount < 1) {
         return;
@@ -430,7 +425,7 @@
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
-- (NSString*) getSourceName:(CLLocationCoordinate2D) location {
+- (NSString*) getSourceName:(CLLocationCoordinate2D)location {
     NSArray *array = ApplicationDelegate.route;
     if (fabs(location.latitude - [[array[0] objectForKey:@"lat"] doubleValue]) <= 0.0001 && fabs(location.longitude - [[array[0] objectForKey:@"lng"] doubleValue]) <= 0.0001) {
         return [array[0] objectForKey:@"name"];
@@ -443,7 +438,7 @@
     return nil;
 }
 
-- (NSString*) getDestinationName:(CLLocationCoordinate2D) location {
+- (NSString*) getDestinationName:(CLLocationCoordinate2D)location {
     NSArray *array = ApplicationDelegate.route;
     if (fabs(location.latitude - [[array[2] objectForKey:@"lat"] doubleValue]) <= 0.0001 && fabs(location.longitude - [[array[2] objectForKey:@"lng"] doubleValue]) <= 0.0001) {
         return [array[2] objectForKey:@"name"];

@@ -435,6 +435,7 @@
         if (statusCode == 1) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好用就打赏个小费呗" message:@"要打赏小费吗？" delegate:self cancelButtonTitle:@"打赏" otherButtonTitles:@"不打赏", nil];
             alert.tag = 2;
+            [alert show];
 
         } else {
             [UIAlertShow showAlertViewWithMsg:@"网络错误！10110"];

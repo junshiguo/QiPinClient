@@ -12,7 +12,7 @@
 
 @implementation LoginViewController
 
-- (void)viewDidLoad{
+- (void)viewDidLoad {
     NSLog(@"LoginViewController---viewDidLoad");
     [super viewDidLoad];
     
@@ -78,12 +78,12 @@
     [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField*)textField {
     [textField resignFirstResponder];
     return YES;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)event {
     [self.view endEditing:YES];
 }
 

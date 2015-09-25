@@ -40,7 +40,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishPayment:) name:@"FinishPayment" object:nil];
 }
 
-- (void)finishPayment:(NSNotification*) notification {
+- (void)finishPayment:(NSNotification*)notification {
     NSLog(@"finishPayment");
     NSString *msg = [notification object];
     if ([msg isEqualToString:@"success"]) {
@@ -106,7 +106,7 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void) refreshView {
+- (void)refreshView {
     _mapView.showsUserLocation = NO;
     [_locService startUserLocationService];
 }
@@ -165,12 +165,12 @@
     [ApplicationDelegate.httpEngine enqueueOperation:op];
 }
 
-- (void)jumpToPayment:(MKNetworkOperation*) operation {
+- (void)jumpToPayment:(MKNetworkOperation*)operation {
     NSDictionary *dic = [self setPinCheParam];
     [ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"PayViewController" inView:self withNotificationName:@"RequestInfo" andObject:dic];
 }
 
-- (void)jumpToOrderDetail:(MKNetworkOperation*) operation {
+- (void)jumpToOrderDetail:(MKNetworkOperation*)operation {
     MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     HUD.mode = MBProgressHUDModeText;
@@ -309,7 +309,7 @@
 
 
 // 关闭键盘
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField*)textField {
     [textField resignFirstResponder];
     return YES;
 }

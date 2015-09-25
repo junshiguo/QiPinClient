@@ -310,7 +310,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IBj-3f-iVD">
-                                <rect key="frame" x="175" y="103" width="107" height="29"/>
+                                <rect key="frame" x="175" y="116" width="107" height="29"/>
                                 <segments>
                                     <segment title="1元"/>
                                     <segment title="2元"/>
@@ -318,19 +318,19 @@
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打赏金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcT-pa-AvG">
-                                <rect key="frame" x="77" y="107" width="68" height="20.5"/>
+                                <rect key="frame" x="77" y="120" width="68" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的打赏是对我们最好的鼓励" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UU-ot-OXo">
-                                <rect key="frame" x="77" y="28" width="221" height="20.5"/>
+                                <rect key="frame" x="77" y="50" width="221" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eb2-Ov-QIs">
-                                <rect key="frame" x="86" y="187" width="203" height="30"/>
+                                <rect key="frame" x="86" y="200" width="203" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="确认打赏">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -345,13 +345,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toX-c5-MxB">
-                                <rect key="frame" x="86" y="247" width="202" height="30"/>
+                                <rect key="frame" x="86" y="260" width="202" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.57951476769999999" blue="0.26739172589999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="不打赏了">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
@@ -360,7 +360,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打赏的金额将会在押金中扣除" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m94-qa-GxG">
-                                <rect key="frame" x="77" y="58.5" width="221" height="20.5"/>
+                                <rect key="frame" x="77" y="80.5" width="221" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -375,11 +375,11 @@
                             <constraint firstItem="eb2-Ov-QIs" firstAttribute="leading" secondItem="Smx-go-mGj" secondAttribute="leadingMargin" constant="70" id="H3l-G0-PWy"/>
                             <constraint firstItem="toX-c5-MxB" firstAttribute="centerX" secondItem="Smx-go-mGj" secondAttribute="centerX" id="SSR-4b-Vs9"/>
                             <constraint firstItem="TcT-pa-AvG" firstAttribute="leading" secondItem="Smx-go-mGj" secondAttribute="leadingMargin" constant="17" id="ULn-NL-Uwh"/>
-                            <constraint firstItem="7UU-ot-OXo" firstAttribute="top" secondItem="Egn-H6-Dkm" secondAttribute="bottom" constant="8" id="erh-8S-zES"/>
+                            <constraint firstItem="7UU-ot-OXo" firstAttribute="top" secondItem="Egn-H6-Dkm" secondAttribute="bottom" constant="30" id="erh-8S-zES"/>
                             <constraint firstItem="m94-qa-GxG" firstAttribute="top" secondItem="7UU-ot-OXo" secondAttribute="bottom" constant="10" id="gKS-Ip-Kmg"/>
                             <constraint firstItem="TcT-pa-AvG" firstAttribute="leading" secondItem="7UU-ot-OXo" secondAttribute="leading" id="kk6-Rn-Hf7"/>
                             <constraint firstItem="IBj-3f-iVD" firstAttribute="leading" secondItem="TcT-pa-AvG" secondAttribute="trailing" constant="30" id="lbO-yg-BEY"/>
-                            <constraint firstItem="TcT-pa-AvG" firstAttribute="top" secondItem="Egn-H6-Dkm" secondAttribute="bottom" constant="87" id="ooW-MC-zjF"/>
+                            <constraint firstItem="TcT-pa-AvG" firstAttribute="top" secondItem="Egn-H6-Dkm" secondAttribute="bottom" constant="100" id="ooW-MC-zjF"/>
                             <constraint firstItem="7UU-ot-OXo" firstAttribute="centerX" secondItem="Smx-go-mGj" secondAttribute="centerX" id="rxb-Zx-Mjn"/>
                             <constraint firstItem="eb2-Ov-QIs" firstAttribute="centerX" secondItem="Smx-go-mGj" secondAttribute="centerX" id="tgQ-4q-582"/>
                             <constraint firstItem="toX-c5-MxB" firstAttribute="top" secondItem="eb2-Ov-QIs" secondAttribute="bottom" constant="30" id="zEq-Un-K7p"/>
