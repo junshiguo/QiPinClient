@@ -433,11 +433,9 @@
         NSDictionary *response = [operation responseJSON];
         NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
         if (statusCode == 1) {
-            NSString *orderId = [response objectForKey:@"detail"];
-            NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-            [dic setObject:orderId forKey:@"requestId"];
-            [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
-            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail_finished" andObject:dic];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好用就打赏个小费呗" message:@"要打赏小费吗？" delegate:self cancelButtonTitle:@"打赏" otherButtonTitles:@"不打赏", nil];
+            alert.tag = 2;
+
         } else {
             [UIAlertShow showAlertViewWithMsg:@"网络错误！10110"];
         }
@@ -537,16 +535,30 @@
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 0) {
+        // 是否取消匹配
         if (buttonIndex == 0) {
             [self confirmCancelToMatch];
         }
     } else if (alertView.tag == 1) {
+        //   是否重新匹配
         if (buttonIndex == 0) {
             [self rewaitingForMatch];
         } else {
             [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
         }
-        
+    } else if (alertView.tag == 2) {
+        // 是否打赏小费
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:requestId forKey:@"requestId"];
+        [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
+        if (buttonIndex == 0) {
+            // 打赏小费
+            [ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"TipPayViewController" inView:self withNotificationName:@"TipPayInfo" andObject:dic];
+            
+        } else {
+            // 不打赏小费，直接跳转
+            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail_finished" andObject:dic];
+        }
         
     }
 }

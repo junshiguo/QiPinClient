@@ -52,7 +52,7 @@
                 int rating = [[dic objectForKey:@"rating"] intValue];
                 NSString *scoreText = [NSString stringWithFormat:@"%i", rating];
                 self.score.text = scoreText;
-                self.deposit.text = [NSString stringWithFormat:@"%.2f元", [[payment objectForKey:@"deposit"] floatValue]/100];
+                self.deposit.text = [NSString stringWithFormat:@"%.2f元", [[payment objectForKey:@"deposit"] floatValue]/100 - [[payment objectForKey:@"tip"] floatValue]/100];
                 
                 // 退还时间
                 NSString *timeString = [payment objectForKey:@"expRefundTime"];

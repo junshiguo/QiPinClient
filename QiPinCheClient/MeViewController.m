@@ -9,6 +9,8 @@
 #import "MeViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
+#define PHOTO_MAX_LENGTH 1048576
+
 
 @interface MeViewController ()
 
@@ -153,59 +155,6 @@
     [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"ModifyJobViewController" inView:self withObserverRemoved:NO];
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if(buttonIndex == 0){
-        
-        [self snapImage];
-        //[self openFlashlight];
-    } else if(buttonIndex == 1){
-        [self pickImage];
-    }
-}
-
--(void)openFlashlight
-{
-    AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    if (device.torchMode == AVCaptureTorchModeOff) {
-        AVCaptureSession * session = [[AVCaptureSession alloc]init];
-        
-        AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
-        if ([session canAddInput:input]) {
-            [session addInput:input];
-        }
-        
-        // Create video output and add to current session
-        AVCaptureVideoDataOutput * output = [[AVCaptureVideoDataOutput alloc]init];
-        if ([session canAddOutput:output]) {
-            [session addOutput:output];
-        }
-        
-        // Start session configuration
-        [session beginConfiguration];
-        [device lockForConfiguration:nil];
-        
-        // Set torch to on
-        [device setTorchMode:AVCaptureTorchModeOn];
-        
-        [device unlockForConfiguration];
-        [session commitConfiguration];
-        
-        // Start the session
-        [session startRunning];
-        
-        // Keep the session around
-        [self setAVSession:self.AVSession];
-        
-        
-    }
-}
-
--(void)closeFlashlight
-{
-    [self.AVSession stopRunning];
-}
-
 - (void)snapImage{
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
@@ -287,12 +236,12 @@
     CGFloat maxCompression = 0.1f;
     
     
-    while ([imageData length] > 1048576 && compression > maxCompression)
+    while ([imageData length] > PHOTO_MAX_LENGTH && compression > maxCompression)
     {
         compression -= 0.10;
         imageData = UIImageJPEGRepresentation(image, compression);
         photoType = @"JPG";
-        NSLog(@"Compress : %u",imageData.length);
+        NSLog(@"Compress");
     }
 
     
@@ -357,4 +306,15 @@
     menu.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
     [menu showInView:self.view];
 }
+
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self snapImage];
+    } else if (buttonIndex == 1) {
+        [self pickImage];
+    }
+}
+
 @end
