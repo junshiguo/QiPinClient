@@ -12,5 +12,6 @@
 
 + (WaitingForPaymentView*) instanceView;
 @property (weak, nonatomic) IBOutlet UIButton *payBtn;
+@property (weak, nonatomic) IBOutlet UIButton *cancelRequest;
 
 @end

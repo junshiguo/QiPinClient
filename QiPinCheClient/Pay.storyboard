@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Pay View Controller-->
@@ -161,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJ4-V9-fwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="47" y="240"/>
+            <point key="canvasLocation" x="79" y="232"/>
         </scene>
         <!--AboutAPP View Controller-->
         <scene sceneID="Pl0-8B-tbW">
@@ -278,16 +279,16 @@
                                 <include reference="vVj-zE-0XP"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Pl0-6R-pOz"/>
-                                <include reference="yAk-ee-3x7"/>
-                                <include reference="VWz-sZ-8pu"/>
-                                <include reference="sBd-bc-0IF"/>
-                                <include reference="30H-9l-wYF"/>
-                                <include reference="SBf-ti-Dlw"/>
                                 <include reference="IEw-zX-Vkk"/>
                                 <include reference="e3V-CS-9xb"/>
                                 <include reference="ewF-99-5vF"/>
                                 <include reference="qV0-WU-aOs"/>
+                                <include reference="30H-9l-wYF"/>
+                                <include reference="SBf-ti-Dlw"/>
+                                <include reference="VWz-sZ-8pu"/>
+                                <include reference="sBd-bc-0IF"/>
+                                <include reference="Pl0-6R-pOz"/>
+                                <include reference="yAk-ee-3x7"/>
                             </mask>
                         </variation>
                     </view>
@@ -295,6 +296,109 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQ8-q2-CtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="736.5" y="173"/>
+        </scene>
+        <!--Tip Pay View Controller-->
+        <scene sceneID="sVs-v4-D07">
+            <objects>
+                <viewController storyboardIdentifier="TipPayViewController" id="zN9-jJ-miy" customClass="TipPayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Egn-H6-Dkm"/>
+                        <viewControllerLayoutGuide type="bottom" id="UhH-kg-GNB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Smx-go-mGj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IBj-3f-iVD">
+                                <rect key="frame" x="175" y="103" width="107" height="29"/>
+                                <segments>
+                                    <segment title="1元"/>
+                                    <segment title="2元"/>
+                                    <segment title="5元"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打赏金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TcT-pa-AvG">
+                                <rect key="frame" x="77" y="107" width="68" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的打赏是对我们最好的鼓励" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UU-ot-OXo">
+                                <rect key="frame" x="77" y="28" width="221" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eb2-Ov-QIs">
+                                <rect key="frame" x="86" y="187" width="203" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="确认打赏">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="confirmPayTip:" destination="zN9-jJ-miy" eventType="touchUpInside" id="iq3-79-3OI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toX-c5-MxB">
+                                <rect key="frame" x="86" y="247" width="202" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.57951476769999999" blue="0.26739172589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="不打赏了">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelTipOnClick:" destination="zN9-jJ-miy" eventType="touchUpInside" id="bMw-jM-l8h"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="打赏的金额将会在押金中扣除" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m94-qa-GxG">
+                                <rect key="frame" x="77" y="58.5" width="221" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eb2-Ov-QIs" firstAttribute="top" secondItem="TcT-pa-AvG" secondAttribute="bottom" constant="60" id="2pe-hZ-bUD"/>
+                            <constraint firstItem="IBj-3f-iVD" firstAttribute="centerY" secondItem="TcT-pa-AvG" secondAttribute="centerY" id="5MK-KX-Owd"/>
+                            <constraint firstItem="toX-c5-MxB" firstAttribute="leading" secondItem="Smx-go-mGj" secondAttribute="leadingMargin" constant="70" id="6Ng-Cp-Pdn"/>
+                            <constraint firstItem="m94-qa-GxG" firstAttribute="centerX" secondItem="Smx-go-mGj" secondAttribute="centerX" id="GCj-bn-yRK"/>
+                            <constraint firstItem="eb2-Ov-QIs" firstAttribute="leading" secondItem="Smx-go-mGj" secondAttribute="leadingMargin" constant="70" id="H3l-G0-PWy"/>
+                            <constraint firstItem="toX-c5-MxB" firstAttribute="centerX" secondItem="Smx-go-mGj" secondAttribute="centerX" id="SSR-4b-Vs9"/>
+                            <constraint firstItem="TcT-pa-AvG" firstAttribute="leading" secondItem="Smx-go-mGj" secondAttribute="leadingMargin" constant="17" id="ULn-NL-Uwh"/>
+                            <constraint firstItem="7UU-ot-OXo" firstAttribute="top" secondItem="Egn-H6-Dkm" secondAttribute="bottom" constant="8" id="erh-8S-zES"/>
+                            <constraint firstItem="m94-qa-GxG" firstAttribute="top" secondItem="7UU-ot-OXo" secondAttribute="bottom" constant="10" id="gKS-Ip-Kmg"/>
+                            <constraint firstItem="TcT-pa-AvG" firstAttribute="leading" secondItem="7UU-ot-OXo" secondAttribute="leading" id="kk6-Rn-Hf7"/>
+                            <constraint firstItem="IBj-3f-iVD" firstAttribute="leading" secondItem="TcT-pa-AvG" secondAttribute="trailing" constant="30" id="lbO-yg-BEY"/>
+                            <constraint firstItem="TcT-pa-AvG" firstAttribute="top" secondItem="Egn-H6-Dkm" secondAttribute="bottom" constant="87" id="ooW-MC-zjF"/>
+                            <constraint firstItem="7UU-ot-OXo" firstAttribute="centerX" secondItem="Smx-go-mGj" secondAttribute="centerX" id="rxb-Zx-Mjn"/>
+                            <constraint firstItem="eb2-Ov-QIs" firstAttribute="centerX" secondItem="Smx-go-mGj" secondAttribute="centerX" id="tgQ-4q-582"/>
+                            <constraint firstItem="toX-c5-MxB" firstAttribute="top" secondItem="eb2-Ov-QIs" secondAttribute="bottom" constant="30" id="zEq-Un-K7p"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ULn-NL-Uwh"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="tipSelector" destination="IBj-3f-iVD" id="FXh-Fn-mPv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jdt-Mq-7Xx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1205" y="215"/>
         </scene>
     </scenes>
     <resources>

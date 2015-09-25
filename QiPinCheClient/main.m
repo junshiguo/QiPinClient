@@ -1,9 +1,9 @@
 //
 //  main.m
-//  IphoneMapSdkDemo
+//  QiPinCheClient
 //
-//  Created by BaiduMapAPI on 13-4-15.
-//  Copyright (c) 2013年 Baidu. All rights reserved.
+//  Created by Shijia on 15/8/1.
+//  Copyright (c) 2015年 QiPinChe. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

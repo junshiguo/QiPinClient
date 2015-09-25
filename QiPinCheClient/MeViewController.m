@@ -9,6 +9,8 @@
 #import "MeViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
+#define PHOTO_MAX_LENGTH 1048576
+
 
 @interface MeViewController ()
 
@@ -43,7 +45,7 @@
         MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/getUserInfo" params:dic httpMethod:@"POST"];
         [op addCompletionHandler:^(MKNetworkOperation *operation) {
             NSDictionary *response = [operation responseJSON];
-            
+            NSLog(@"%@", response);
             NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
             if (statusCode == 1) {
                 NSDictionary *dic = [response objectForKey:@"detail"];
@@ -55,7 +57,7 @@
                 } else {
                     self.gender.text = @"女";
                 }
-                self.age.text = [NSString stringWithFormat:@"%i", [[dic objectForKey:@"age"] integerValue]];
+                self.age.text = [NSString stringWithFormat:@"%i", [[dic objectForKey:@"age"] intValue]];
                 self.job.text = [dic objectForKey:@"job"];
             } else {
                 [UIAlertShow showAlertViewWithMsg:@"网络异常 10030"];
@@ -146,72 +148,41 @@
     
 }
 - (IBAction)modifyNickname:(id)sender {
-    [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"ModifyNicknameViewController" inView:self];
+    [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"ModifyNicknameViewController" inView:self withObserverRemoved:NO];
 }
 
 - (IBAction)modifyJob:(id)sender {
-    [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"ModifyJobViewController" inView:self];
-}
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if(buttonIndex == 0){
-        
-        [self snapImage];
-        [self openFlashlight];
-    } else if(buttonIndex == 1){
-        [self pickImage];
-    }
-}
-
--(void)openFlashlight
-{
-    AVCaptureDevice * device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    if (device.torchMode == AVCaptureTorchModeOff) {
-        AVCaptureSession * session = [[AVCaptureSession alloc]init];
-        
-        AVCaptureDeviceInput * input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
-        [session addInput:input];
-        
-        // Create video output and add to current session
-        AVCaptureVideoDataOutput * output = [[AVCaptureVideoDataOutput alloc]init];
-        [session addOutput:output];
-        
-        // Start session configuration
-        [session beginConfiguration];
-        [device lockForConfiguration:nil];
-        
-        // Set torch to on
-        [device setTorchMode:AVCaptureTorchModeOn];
-        
-        [device unlockForConfiguration];
-        [session commitConfiguration];
-        
-        // Start the session
-        [session startRunning];
-        
-        // Keep the session around
-        [self setAVSession:self.AVSession];
-        
-        
-    }
-}
-
--(void)closeFlashlight
-{
-    [self.AVSession stopRunning];
+    [ScreenSwitch switchToScreenIn:@"Profile" withStoryboardIdentifier:@"ModifyJobViewController" inView:self withObserverRemoved:NO];
 }
 
 - (void)snapImage{
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        UIImagePickerController * picker = [[UIImagePickerController alloc]init];
-        picker.delegate = self;
-        picker.allowsEditing = NO;
-        //打开相册选择照片
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentViewController:picker animated:YES completion:nil];
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
         
-    }else{
+        if(authStatus == AVAuthorizationStatusAuthorized)
+        {
+            NSLog(@"允许状态");
+            UIImagePickerController * picker = [[UIImagePickerController alloc]init];
+            picker.delegate = self;
+            picker.allowsEditing = NO;
+            //打开相册选择照片
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:picker animated:YES completion:nil];
+            
+        }
+        else if (authStatus == AVAuthorizationStatusDenied)
+        {
+            NSLog(@"不允许状态，可以弹出一个alertview提示用户在隐私设置中开启权限");
+            [UIAlertShow showAlertViewWithMsg:@"没有访问您相机的权限，请在隐私设置中打开相机的权限"];
+        }
+        else if (authStatus == AVAuthorizationStatusNotDetermined)
+        {
+            NSLog(@"系统还未知是否访问，第一次开启相机时");
+        }
+
+        
+        
+    } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"你没有摄像头" delegate:nil cancelButtonTitle:@"Drat!" otherButtonTitles:nil];
         [alert show];
     }
@@ -251,7 +222,7 @@
     if (UIImagePNGRepresentation(image)) {
         //返回为png图像。
         imageData = UIImagePNGRepresentation(image);
-        photoType = @"png";
+        photoType = @"PNG";
         photoMimiType=@"application/x-png";
         NSLog(@" +++++++++ is png");
     } else {
@@ -261,6 +232,19 @@
         photoMimiType=@"application/x-jpg";
         NSLog(@" +++++++++ is jpg");
     }
+    CGFloat compression = 0.9f;
+    CGFloat maxCompression = 0.1f;
+    
+    
+    while ([imageData length] > PHOTO_MAX_LENGTH && compression > maxCompression)
+    {
+        compression -= 0.10;
+        imageData = UIImageJPEGRepresentation(image, compression);
+        photoType = @"JPG";
+        NSLog(@"Compress");
+    }
+
+    
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
     [dic setValue:photoType forKey:@"photoType"];
@@ -280,7 +264,6 @@
                 
             } failureBlock:nil];
             [UserInfo setUserAvatar:image];
-            
         } else {
             [self failToUpload];
         }
@@ -305,7 +288,7 @@
     } completionBlock:^{
         [HUD removeFromSuperview];
         [UserInfo resetUserAvatar];
-        self.imageView.image = [UIImage imageNamed:@"noimage.jpg"];
+        [ImageOperator setDefaultImageView:self.imageView];
     }];
     
 }
@@ -323,4 +306,15 @@
     menu.actionSheetStyle=UIActionSheetStyleBlackTranslucent;
     [menu showInView:self.view];
 }
+
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self snapImage];
+    } else if (buttonIndex == 1) {
+        [self pickImage];
+    }
+}
+
 @end

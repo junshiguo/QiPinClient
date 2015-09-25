@@ -115,15 +115,18 @@
     }
     if ([detail objectForKey:@"me"] != nil) {
         me = [detail objectForKey:@"me"];
+    } else if (statusCode == WAITING_FOR_PAYMENT || statusCode == OUT_OF_DATE || statusCode == ERROR_STATUS) {
+        // 后端在这里直接在detail中返回me的信息，这里hack一下。
+        me = detail;
     }
+    NSLog(@"me=%@", me);
+
     if (me != nil) {
         self.srcLocationName.text = [me objectForKey:@"sourceName"];
         self.desLocationName.text = [me objectForKey:@"destinationName"];
         self.startTime.text = [me objectForKey:@"leavingTime"];
         remainChance = [[me objectForKey:@"remainChance"] integerValue];
-        [self showAllLabels];
-    }
-    if ([detail objectForKey:@"orderTime"] != nil) {
+    }    if ([detail objectForKey:@"orderTime"] != nil) {
         self.orderTime.text = [detail objectForKey:@"orderTime"];
     } else {
         self.orderTime.hidden = YES;
@@ -132,6 +135,7 @@
         route = [self getRouteWithDetail:detail];
         ApplicationDelegate.route = route;
     }
+    [self showAllLabels];
     switch (statusCode) {
         case WAITING_WAITING:
             [self setWaitingForConfirmViewWithDetail:partner andSavePercent:[[detail objectForKey:@"savePercent"] floatValue]];
@@ -198,7 +202,10 @@
     partnerPhoneNumber = [detail objectForKey:@"phoneNumber"];
     statusView.savePercent.text = [NSString stringWithFormat:@"%.2f%%" ,savePercent * 100];
     if ([detail objectForKey:@"photo"] != nil) {
-        [ImageOperator setImageView:statusView.imageView withUrlString:[detail objectForKey:@"photo"]];
+        ApplicationDelegate.partnerPhotoUrl = [detail objectForKey:@"photo"];
+        ApplicationDelegate.partnerImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString: ApplicationDelegate.partnerPhotoUrl]];
+        [ImageOperator setImageView:statusView.imageView withUrlString:[detail objectForKey:@"photo"] inViewController:self];
+        
     } else {
         [ImageOperator setDefaultImageView:statusView.imageView];
     }
@@ -240,11 +247,6 @@
     [statusView.nickName setTitle:[detail objectForKey:@"name"] forState:UIControlStateNormal];
     partnerPhoneNumber = [detail objectForKey:@"phoneNumber"];
     
-    if ([detail objectForKey:@"photo"] != nil) {
-        [ImageOperator setImageView:statusView.imageView withUrlString:[detail objectForKey:@"photo"]];
-    } else {
-        [ImageOperator setDefaultImageView:statusView.imageView];
-    }
 }
 
 - (void) setErrorView {
@@ -262,6 +264,7 @@
     statusView.frame = CGRectMake(0, statusViewY, UISCREEN_WIDTH, 400);
     [self.view addSubview:statusView];
     [statusView.payBtn addTarget:self action:@selector(payOrder) forControlEvents:UIControlEventTouchUpInside];
+    [statusView.cancelRequest addTarget:self action:@selector(cancelOrder) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) setOutOfDateView {
@@ -315,7 +318,7 @@
 // 得到匹配结果后放弃拼车,弹出对话框
 - (void) cancelToMatch {
     NSLog(@"cancelToMatch");
-    NSString *message = [NSString stringWithFormat:@"您共有%i次放弃的机会，是否确认放弃？", remainChance];
+    NSString *message = [NSString stringWithFormat:@"您共有%li次放弃的机会，是否确认放弃？", remainChance];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"确认放弃匹配？" message:message delegate:self cancelButtonTitle:@"是" otherButtonTitles:@"否", nil];
     alert.tag = 0;
@@ -430,11 +433,9 @@
         NSDictionary *response = [operation responseJSON];
         NSInteger statusCode = [[response objectForKey:@"status"] integerValue];
         if (statusCode == 1) {
-            NSString *orderId = [response objectForKey:@"detail"];
-            NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-            [dic setObject:orderId forKey:@"requestId"];
-            [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
-            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail_finished" andObject:dic];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"好用就打赏个小费呗" message:@"要打赏小费吗？" delegate:self cancelButtonTitle:@"打赏" otherButtonTitles:@"不打赏", nil];
+            alert.tag = 2;
+
         } else {
             [UIAlertShow showAlertViewWithMsg:@"网络错误！10110"];
         }
@@ -491,7 +492,7 @@
         NSString *txt = ((EMTextMessageBody*)msgBody).text;
         msgStatus = [txt integerValue];
     }
-    NSLog(@"%i", msgStatus);
+    NSLog(@"%li", msgStatus);
     [self setOrderStatusView];
     
 
@@ -534,16 +535,30 @@
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 0) {
+        // 是否取消匹配
         if (buttonIndex == 0) {
             [self confirmCancelToMatch];
         }
     } else if (alertView.tag == 1) {
+        //   是否重新匹配
         if (buttonIndex == 0) {
             [self rewaitingForMatch];
         } else {
             [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
         }
-        
+    } else if (alertView.tag == 2) {
+        // 是否打赏小费
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:requestId forKey:@"requestId"];
+        [dic setObject:[UserInfo getUid] forKey:@"phoneNumber"];
+        if (buttonIndex == 0) {
+            // 打赏小费
+            [ScreenSwitch switchToScreenIn:@"Pay" withStoryboardIdentifier:@"TipPayViewController" inView:self withNotificationName:@"TipPayInfo" andObject:dic];
+            
+        } else {
+            // 不打赏小费，直接跳转
+            [ScreenSwitch switchToScreenIn:@"Order" withStoryboardIdentifier:@"FinishedOrderDetailViewController" inView:self withNotificationName:@"BeforeShowOrderDetail_finished" andObject:dic];
+        }
         
     }
 }

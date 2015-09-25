@@ -94,7 +94,7 @@
     width = UISCREEN_WIDTH;
     height = self.pinCheButton.frame.origin.y - y -5;
     //if (_mapView != nil) _mapView.hidden = YES;
-    
+    _mapView.hidden = NO;
     
     [_mapView viewWillAppear];
     [_locService startUserLocationService];
@@ -307,7 +307,7 @@
     [dic setObject:@"srcLoc" forKey:@"lastScreen"];
     [dic setObject:self.srcLocation.text forKey:@"initialPlace"];
     
-    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PlaceSearchViewController" inView:self withNotificationName:@"SelectLocationNotification" andObject:dic];
+    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PlaceSearchViewController" inView:self withNotificationName:@"SelectLocationNotification" andObject:dic withObserverRemoved:NO];
 }
 
 - (IBAction)desLocOnClick:(id)sender {
@@ -316,7 +316,7 @@
     [dic setObject:@"" forKey:@"initialPlace"];
     [dic setObject:@"1" forKey:@"isCurrent"];
     
-    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PlaceSearchViewController" inView:self withNotificationName:@"SelectLocationNotification" andObject:dic];
+    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PlaceSearchViewController" inView:self withNotificationName:@"SelectLocationNotification" andObject:dic withObserverRemoved:NO];
 }
 
 
@@ -410,18 +410,6 @@
     [ApplicationDelegate.baiduHttpEngine enqueueOperation:op];
     
 }
-
-
-/*- (IBAction)beginPinChe:(id)sender {
-    //[ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
-    NSLog(@"beginPinChe");
-    if ([UserInfo getUid] != nil) {
-        [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
-    } else {
-        [ScreenSwitch switchToScreenIn:@"User" withStoryboardIdentifier:@"LoginViewController" inView:self];
-    }
-    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"PinCheViewController" inView:self];
-}*/
 
 - (void)dealloc {
     

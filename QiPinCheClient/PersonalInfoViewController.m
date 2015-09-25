@@ -54,7 +54,7 @@
             } else {
                 self.gender.text = @"女";
             }
-            self.age.text = [NSString stringWithFormat:@"%i岁", [[dic objectForKey:@"age"] integerValue]];
+            self.age.text = [NSString stringWithFormat:@"%li岁", [[dic objectForKey:@"age"] integerValue]];
             self.job.text = [dic objectForKey:@"job"];
             NSLog(@"dic=%@", dic);
             if ([[dic objectForKey:@"historyRating"] floatValue] >= 0) {
@@ -65,7 +65,7 @@
                 self.score.text = @"XX";
             }
             if ([dic objectForKey:@"photo"] != nil) {
-                [ImageOperator setImageView:self.imageView withUrlString:[dic objectForKey:@"photo"]];
+                [ImageOperator setImageView:self.imageView withUrlString:[dic objectForKey:@"photo"] inViewController:self];
             } else {
                 [ImageOperator setDefaultImageView:self.imageView];
             }

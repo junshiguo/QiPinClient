@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜！双方已确认拼单！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srv-rf-HSL">
-                    <rect key="frame" x="206.5" y="20" width="187" height="20.5"/>
+                    <rect key="frame" x="206" y="20" width="187" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -24,7 +24,7 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="对方联系方式已发至您的手机。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxc-aA-QoN">
-                    <rect key="frame" x="181" y="57.5" width="238" height="20.5"/>
+                    <rect key="frame" x="181" y="57" width="238" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -58,18 +58,13 @@
                         </mask>
                     </variation>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wn1-pk-6JA">
-                    <rect key="frame" x="70" y="84" width="76" height="76"/>
-                    <variation key="widthClass=compact" fixedFrame="YES">
-                        <rect key="frame" x="81" y="90" width="70" height="70"/>
-                    </variation>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="qrW-ZO-MPG" secondAttribute="trailing" constant="84" id="1Nr-ZG-dNd">
                     <variation key="widthClass=compact" constant="100"/>
                 </constraint>
+                <constraint firstItem="gkC-4D-oVL" firstAttribute="top" secondItem="uxc-aA-QoN" secondAttribute="bottom" constant="25.5" id="3a2-GU-EtU"/>
                 <constraint firstItem="gkC-4D-oVL" firstAttribute="top" secondItem="uxc-aA-QoN" secondAttribute="bottom" constant="25" id="B6g-w1-v4o"/>
                 <constraint firstAttribute="centerX" secondItem="Srv-rf-HSL" secondAttribute="centerX" id="Hbn-Tq-I59"/>
                 <constraint firstAttribute="centerX" secondItem="uxc-aA-QoN" secondAttribute="centerX" id="HtA-3r-iow"/>
@@ -81,6 +76,11 @@
                 <constraint firstItem="Srv-rf-HSL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="khI-GV-46Z"/>
                 <constraint firstAttribute="centerX" secondItem="JId-ii-WqN" secondAttribute="centerX" id="nfe-aK-wK1"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="B6g-w1-v4o"/>
+                </mask>
+            </variation>
             <variation key="widthClass=compact">
                 <mask key="subviews">
                     <include reference="Srv-rf-HSL"/>
@@ -88,16 +88,15 @@
                     <include reference="uxc-aA-QoN"/>
                     <include reference="JId-ii-WqN"/>
                     <include reference="qrW-ZO-MPG"/>
-                    <include reference="wn1-pk-6JA"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="Hbn-Tq-I59"/>
-                    <include reference="khI-GV-46Z"/>
-                    <include reference="HtA-3r-iow"/>
-                    <include reference="chv-R1-QWE"/>
                     <include reference="Kry-1Q-ZHO"/>
                     <include reference="PrA-rK-TXS"/>
                     <include reference="nfe-aK-wK1"/>
+                    <include reference="HtA-3r-iow"/>
+                    <include reference="chv-R1-QWE"/>
+                    <include reference="Hbn-Tq-I59"/>
+                    <include reference="khI-GV-46Z"/>
                     <include reference="B6g-w1-v4o"/>
                     <include reference="Rq3-KO-55e"/>
                     <include reference="1Nr-ZG-dNd"/>
@@ -106,7 +105,6 @@
             </variation>
             <connections>
                 <outlet property="finishOrder" destination="JId-ii-WqN" id="gm3-Fy-iBL"/>
-                <outlet property="imageView" destination="wn1-pk-6JA" id="GMx-Lh-bpw"/>
                 <outlet property="makecallBtn" destination="qrW-ZO-MPG" id="sRd-aU-vGl"/>
                 <outlet property="nickName" destination="gkC-4D-oVL" id="BOL-Q9-Bax"/>
             </connections>

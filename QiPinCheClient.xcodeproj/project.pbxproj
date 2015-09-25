@@ -125,6 +125,7 @@
 		D6BA78AC1B74985900020A1E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6BA78AB1B74985900020A1E /* libiconv.dylib */; };
 		D6BA78AE1B74986500020A1E /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6BA78AD1B74986500020A1E /* libresolv.dylib */; };
 		D6BA78B01B74986D00020A1E /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6BA78AF1B74986D00020A1E /* libxml2.dylib */; };
+		D6C3B29D1BB26CFC00501813 /* TipPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C3B29C1BB26CFC00501813 /* TipPayViewController.m */; settings = {ASSET_TAGS = (); }; };
 		D6E2B27E1B870C1A0059165D /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6E2B23D1B870C1A0059165D /* AlipaySDK.bundle */; };
 		D6E2B27F1B870C1A0059165D /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E2B23E1B870C1A0059165D /* AlipaySDK.framework */; };
 		D6E2B2801B870C1A0059165D /* libpingpp+alipay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6E2B23F1B870C1A0059165D /* libpingpp+alipay.a */; };
@@ -410,6 +411,8 @@
 		D6BA78AB1B74985900020A1E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		D6BA78AD1B74986500020A1E /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		D6BA78AF1B74986D00020A1E /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		D6C3B29B1BB26CFC00501813 /* TipPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipPayViewController.h; sourceTree = "<group>"; };
+		D6C3B29C1BB26CFC00501813 /* TipPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipPayViewController.m; sourceTree = "<group>"; };
 		D6E2B23D1B870C1A0059165D /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		D6E2B23E1B870C1A0059165D /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		D6E2B23F1B870C1A0059165D /* libpingpp+alipay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libpingpp+alipay.a"; sourceTree = "<group>"; };
@@ -614,6 +617,8 @@
 				D67710B71B81B5350065BEB2 /* PayViewController.m */,
 				D67710BB1B81BFDF0065BEB2 /* AboutAPPViewController.h */,
 				D67710BC1B81BFDF0065BEB2 /* AboutAPPViewController.m */,
+				D6C3B29B1BB26CFC00501813 /* TipPayViewController.h */,
+				D6C3B29C1BB26CFC00501813 /* TipPayViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -1349,6 +1354,7 @@
 				D684F8D31B6F1D800039FC45 /* PinCheViewController.m in Sources */,
 				D66A8AC41B771CD300FEADE8 /* ModifyJobViewController.m in Sources */,
 				D69C9AC41B7346BD00B7F8FD /* UIImage+Rotate.m in Sources */,
+				D6C3B29D1BB26CFC00501813 /* TipPayViewController.m in Sources */,
 				D646FD011B78774F009BFC90 /* FinishedOrderDetailViewController.m in Sources */,
 				D617B83B1B79CB8C00560AA8 /* AfterRatingOrderDetailViewController.m in Sources */,
 				D6E47D501B721240009DCE22 /* NewOrderCell.m in Sources */,
@@ -1558,10 +1564,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1578,10 +1581,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = QiPinCheClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ios.$(PRODUCT_NAME:rfc1034identifier)";

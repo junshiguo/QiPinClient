@@ -49,14 +49,19 @@
                 self.srcLocation.text = [me objectForKey:@"sourceName"];
                 self.desLocation.text = [me objectForKey:@"destinationName"];
                 self.startTime.text = [me objectForKey:@"leavingTime"];
-                NSString *scoreText = [NSString stringWithFormat:@"%i.0", [[dic objectForKey:@"rating"] integerValue]];
+                int rating = [[dic objectForKey:@"rating"] intValue];
+                NSString *scoreText = [NSString stringWithFormat:@"%i", rating];
                 self.score.text = scoreText;
-                self.deposit.text = [NSString stringWithFormat:@"%.2f元", [[payment objectForKey:@"deposit"] floatValue]/100];
-                self.depositDescription.text = [NSString stringWithFormat:@"%@ 退还", [payment objectForKey:@"expRefundTime"]];
+                self.deposit.text = [NSString stringWithFormat:@"%.2f元", [[payment objectForKey:@"deposit"] floatValue]/100 - [[payment objectForKey:@"tip"] floatValue]/100];
+                
+                // 退还时间
+                NSString *timeString = [payment objectForKey:@"expRefundTime"];
+                self.depositDescription.text = [NSString stringWithFormat:@"%@ 退还", timeString];
+                
                 partnerPhoneNumber = [partner objectForKey:@"phoneNumber"];
                 
                 if ([partner objectForKey:@"photo"] != nil) {
-                    [ImageOperator setImageView:self.imageView withUrlString:[partner objectForKey:@"photo"]];
+                    [ImageOperator setImageView:self.imageView withUrlString:[partner objectForKey:@"photo"] inViewController:self];
                 } else {
                     [ImageOperator setDefaultImageView:self.imageView];
                 }
@@ -89,7 +94,8 @@
 }
 
 - (IBAction)back:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
+
 }
 
 - (void) hideAllLabels {

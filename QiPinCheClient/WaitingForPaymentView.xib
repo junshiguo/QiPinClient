@@ -19,22 +19,37 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="10"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的押金尚未支付，请先支付" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJM-vM-Orx">
-                    <rect key="frame" x="189.5" y="50" width="221" height="20.5"/>
+                    <rect key="frame" x="189" y="50" width="221" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbe-mF-qRT">
+                    <rect key="frame" x="70" y="169" width="460" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.1496805718" blue="0.20311981160000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="取消订单">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Tbe-mF-qRT" firstAttribute="leading" secondItem="eEG-xN-ksj" secondAttribute="leading" id="0Eg-uv-Xa2"/>
                 <constraint firstItem="eEG-xN-ksj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="70" id="53Z-UB-qld"/>
+                <constraint firstItem="Tbe-mF-qRT" firstAttribute="trailing" secondItem="eEG-xN-ksj" secondAttribute="trailing" id="AIp-n3-Dnf"/>
                 <constraint firstAttribute="centerX" secondItem="FJM-vM-Orx" secondAttribute="centerX" id="JT4-UX-ygG"/>
+                <constraint firstItem="Tbe-mF-qRT" firstAttribute="top" secondItem="eEG-xN-ksj" secondAttribute="bottom" constant="28" id="Lru-dB-tSk"/>
                 <constraint firstAttribute="centerX" secondItem="eEG-xN-ksj" secondAttribute="centerX" id="hcC-h8-G3f"/>
                 <constraint firstItem="eEG-xN-ksj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="111" id="m33-tB-Ein"/>
                 <constraint firstItem="FJM-vM-Orx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="50" id="mK3-6O-hCD"/>
@@ -45,14 +60,15 @@
                     <include reference="FJM-vM-Orx"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="JT4-UX-ygG"/>
-                    <include reference="mK3-6O-hCD"/>
                     <include reference="53Z-UB-qld"/>
                     <include reference="hcC-h8-G3f"/>
                     <include reference="m33-tB-Ein"/>
+                    <include reference="JT4-UX-ygG"/>
+                    <include reference="mK3-6O-hCD"/>
                 </mask>
             </variation>
             <connections>
+                <outlet property="cancelRequest" destination="Tbe-mF-qRT" id="C4w-2I-Tvj"/>
                 <outlet property="payBtn" destination="eEG-xN-ksj" id="oSj-A3-DHw"/>
             </connections>
         </view>
