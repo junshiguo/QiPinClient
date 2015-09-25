@@ -97,6 +97,10 @@
                 [ScreenSwitch switchToScreenIn:@"Main" withStoryboardIdentifier:@"TabBarController" inView:self];
             } else {
                 NSString *msg = [responseData objectForKey:@"message"];
+                if (msg == nil) {
+                    msg = @"未知原因注册失败！";
+                }
+
                 [UIAlertShow showAlertViewWithMsg:msg];
             } 
             
@@ -115,6 +119,7 @@
     MKNetworkOperation *op = [ApplicationDelegate.httpEngine operationWithPath:@"/send_verify_code" params:params httpMethod:@"POST"];
     [op addCompletionHandler:^(MKNetworkOperation *operation) {
         NSDictionary *responseData = [operation responseJSON];
+        NSLog(@"%@", responseData);
         NSInteger statusCode = [[responseData objectForKey:@"status"] integerValue];
         if (statusCode == 1) {
             receivedVerifiedCode = [responseData objectForKey:@"detail"];
